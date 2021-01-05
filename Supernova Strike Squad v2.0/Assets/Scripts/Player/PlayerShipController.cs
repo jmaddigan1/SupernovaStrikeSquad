@@ -5,35 +5,43 @@ using Mirror;
 
 public class PlayerShipController : NetworkBehaviour
 {
-  //  private Vector3 velocity;
+	//  private Vector3 velocity;
+
+	public float Speed = 15.0f;
 
 	public override void OnStartAuthority()
-    {
-        Player.LocalPlayer.Ship = this;
-    }
+	{
+		Player.LocalPlayer.Ship = this;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (hasAuthority)
-        {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
+		FindObjectOfType<CameraController>().SetTarget(transform);
+	}
 
-            Vector3 velocity = new Vector3(x, 0, y);
+	// Update is called once per frame
+	void Update()
+	{
+		if (hasAuthority)
+		{
+			transform.position += transform.forward * Speed * Time.deltaTime; 
 
-            transform.position += velocity * 15 * Time.deltaTime;
-            // UpdateVelocity();
-        }
-    }
+			float x = Input.GetAxisRaw("Horizontal");
+			float y = Input.GetAxisRaw("Vertical");
+
+			//Vector3 velocity = new Vector3(0, 0, y);
+
+			//transform.position += velocity * 15 * Time.deltaTime;
+
+			transform.Rotate(-y * 45 * Time.deltaTime, x * 45 * Time.deltaTime, 0);
+			// UpdateVelocity();
+		}
+	}
 
 
- //   [Command]
- //   public void UpdateVelocity()
+	//   [Command]
+	//   public void UpdateVelocity()
 	//{
- //       float x = Input.GetAxis("Horizontal");
- //       float y = Input.GetAxis("Vertical");
+	//       float x = Input.GetAxis("Horizontal");
+	//       float y = Input.GetAxis("Vertical");
 
- //       velocity = new Vector3(x, 0, y);
- //   }
+	//       velocity = new Vector3(x, 0, y);
+	//   }
 }
