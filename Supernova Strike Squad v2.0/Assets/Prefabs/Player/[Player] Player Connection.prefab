@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7410492050474040790}
   - component: {fileID: 8876088124923936083}
+  - component: {fileID: 1417281596027888031}
   m_Layer: 0
   m_Name: '[Player] Player Connection'
   m_TagString: Untagged
@@ -47,3 +48,20 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &1417281596027888031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831868532688013253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c8df5805cc8d8429e16be2e708f5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  shipPrefab: {fileID: 2711080151607256895, guid: 04b39c28b7e3a9e4682010958c83ff70,
+    type: 3}
+  Ship: {fileID: 0}

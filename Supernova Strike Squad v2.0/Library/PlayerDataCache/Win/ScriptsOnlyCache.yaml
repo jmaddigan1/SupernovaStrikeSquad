@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ColorObjectWithAuthority
     - Enemy
     - EnemySpawner
     - Node
@@ -8,7 +9,11 @@ ScriptsOnlyBuild:
     - NodeMapMenu
     - NodeMapNodeController
     - NotworkSwitch
+    - Player
+    - PlayerShipController
     - SteamLobby
+    Mirror.Components.dll:
+    - Mirror.NetworkTransform
     Mirror.dll:
     - Mirror.FizzySteam.FizzySteamworks
     - Mirror.NetworkIdentity
@@ -114,6 +119,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13426}
     - Class: 114
+      Script: {instanceID: 13462}
+    - Class: 114
       Script: {instanceID: 13476}
     - Class: 114
       Script: {instanceID: 13716}
@@ -121,6 +128,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13784}
     - Class: 114
       Script: {instanceID: 13820}
+    - Class: 114
+      Script: {instanceID: 15424}
+    - Class: 114
+      Script: {instanceID: 15430}
+    - Class: 114
+      Script: {instanceID: 17960}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1140,6 +1153,24 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 4f33af16d1c0f1bdae090639b68713c4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerShipController
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ColorObjectWithAuthority
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main.unity
