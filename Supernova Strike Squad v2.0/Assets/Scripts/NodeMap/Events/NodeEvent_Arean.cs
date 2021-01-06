@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NodeEvent_Arean : NodeEvent
-{ 
+{
 	// public Members
 	// The amount of enemies that are currently in the game
 	public int EnemyCount;
@@ -42,6 +42,15 @@ public class NodeEvent_Arean : NodeEvent
 			}
 		};
 
+		Environment = new EnvironmentData
+		{
+			Size = 100,
+
+			AsteroidCount = 50,
+			MinAsteroidSize = 5,
+			MaxAsteroidSize = 55,
+		};
+
 		currentWaveData = waveData;
 
 		EnemyCount = currentWaveData.Waves[WaveIndex].GetEnemyCount();
@@ -57,7 +66,7 @@ public class NodeEvent_Arean : NodeEvent
 		{
 			WaveIndex++;
 
-			if (WaveIndex > currentWaveData.Waves.Count -1)
+			if (WaveIndex > currentWaveData.Waves.Count - 1)
 			{
 				Debug.Log("Event Done");
 			}

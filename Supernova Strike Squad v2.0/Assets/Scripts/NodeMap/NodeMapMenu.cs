@@ -17,6 +17,8 @@ public class NodeMapMenu : MonoBehaviour
 	[SerializeField]
 	private Node NodePrafab;
 
+	[SerializeField]
+	private GameObject Content;
 
 	// Private Members
 	private bool eventRunning = false;
@@ -76,24 +78,31 @@ public class NodeMapMenu : MonoBehaviour
 		}
 	}
 
-	private IEnumerator PlayEvent(NodeEvent eventData)
+	public IEnumerator PlayEvent(NodeEvent eventData)
 	{
 		eventData.OnStartEvent();
+
+		LevelGenerator.Build(eventData.Environment);
 
 		while (eventData.IsOver() == false) {
 			yield return null;
 		}
 
 		eventData.OnEndEvent();
+
+		// TODO: Make this method work
+		LevelGenerator.Remove();
 	}
 
 	private IEnumerator OpenMenu()
 	{
+		//Content.SetActive(true);
 		yield return null;
 	}
 
 	private IEnumerator CloseMenu()
 	{
+		//Content.SetActive(false);
 		yield return null;
 	}
 
