@@ -485,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 2539227136045616845, guid: 545e018ce4ae50c4db4bd46fa69360e0,
         type: 3}
       propertyPath: LobbyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5243913505960102363, guid: 545e018ce4ae50c4db4bd46fa69360e0,
         type: 3}

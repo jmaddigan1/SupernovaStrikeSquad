@@ -83,39 +83,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11190}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11216}
+      Script: {instanceID: 11294}
     - Class: 114
-      Script: {instanceID: 11296}
+      Script: {instanceID: 11426}
     - Class: 114
-      Script: {instanceID: 11428}
+      Script: {instanceID: 11488}
     - Class: 114
-      Script: {instanceID: 11490}
+      Script: {instanceID: 11546}
     - Class: 114
-      Script: {instanceID: 11548}
+      Script: {instanceID: 11580}
     - Class: 114
-      Script: {instanceID: 11582}
+      Script: {instanceID: 11682}
     - Class: 114
-      Script: {instanceID: 11684}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 11990}
+      Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 12026}
+      Script: {instanceID: 12118}
     - Class: 114
-      Script: {instanceID: 12120}
+      Script: {instanceID: 12138}
     - Class: 114
-      Script: {instanceID: 12140}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12262}
+      Script: {instanceID: 12386}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12478}
     - Class: 114
-      Script: {instanceID: 12480}
+      Script: {instanceID: 12490}
     - Class: 114
-      Script: {instanceID: 12492}
+      Script: {instanceID: 12598}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12844}
     - Class: 114
       Script: {instanceID: 12848}
     - Class: 114
@@ -177,12 +177,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Button
-  - hash:
-      serializedVersion: 2
-      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -813,6 +807,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.Basic
     className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 5ad4aa237d47ac2bab17bacb672edf7a
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: 344a8c2e106a0a4e098e91a52e0af063
