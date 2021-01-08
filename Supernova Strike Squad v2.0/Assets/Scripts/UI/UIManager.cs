@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
 			if (onlineMode)
 			{
 				SteamLobby networkManager = FindObjectOfType<SteamLobby>();
-				if (networkManager) networkManager.HostLobby();
+				//if (networkManager) networkManager.HostLobby();
 			}
 			else
 			{

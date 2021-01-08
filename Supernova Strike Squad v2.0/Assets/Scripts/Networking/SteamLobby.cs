@@ -19,7 +19,7 @@ public class SteamLobby : MonoBehaviour
 
 	private Transform button = null;
 
-	private void Awake()
+	private void Start()
 	{
 		button = Instantiate(buttonPrefab, FindObjectOfType<Canvas>().transform).transform;
 
