@@ -9,6 +9,9 @@ public class Player : NetworkBehaviour
 	[SerializeField]
 	private GameObject shipPrefab;
 
+	[SerializeField]
+	private GameObject characterPrefab;
+
 
 	// Global Members
 	public static Player LocalPlayer;
@@ -23,12 +26,41 @@ public class Player : NetworkBehaviour
 	{
 		LocalPlayer = this;
 
-		SpawnShip();
+		//SpawnShipIntoGames();
+
+		// TODO:REMOVE
+		SpawnPlayer();
+	}
+
+	// Spawns a walking play for the hangar
+	public void SpawnPlayer()
+	{
+		// TODO: Remove the ship controller 
+		//
+
+		// TODO: Spawn the Player
+		SpawnCharacterIntoGames();
+	}
+
+	// Spawns the ship this player uses
+	public void SpawnShip()
+	{
+		// TODO: Remove the player controller 
+		//
+
+		// TODO: Spawn the Ship
+		SpawnShipIntoGames();
 	}
 
 	[Command]
-	private void SpawnShip()
+	private void SpawnShipIntoGames()
 	{
 		NetworkServer.Spawn(Instantiate(shipPrefab), connectionToClient);
+	}
+
+	[Command]
+	private void SpawnCharacterIntoGames()
+	{
+		NetworkServer.Spawn(Instantiate(characterPrefab), connectionToClient);
 	}
 }

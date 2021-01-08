@@ -64,4 +64,6 @@ MonoBehaviour:
   syncInterval: 0.1
   shipPrefab: {fileID: 2711080151607256895, guid: 04b39c28b7e3a9e4682010958c83ff70,
     type: 3}
+  characterPrefab: {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a,
+    type: 3}
   Ship: {fileID: 0}

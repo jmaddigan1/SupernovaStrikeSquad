@@ -19,7 +19,7 @@ public class SteamLobby : MonoBehaviour
 
 	private Transform button = null;
 
-	private void Start()
+	private void Awake()
 	{
 		button = Instantiate(buttonPrefab, FindObjectOfType<Canvas>().transform).transform;
 
@@ -40,7 +40,7 @@ public class SteamLobby : MonoBehaviour
 
 	public void HostLobby()
 	{
-		button.gameObject.SetActive(false);
+		button?.gameObject.SetActive(false);
 
 		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, networkManager.maxConnections);
 	}
