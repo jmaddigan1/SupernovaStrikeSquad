@@ -25,46 +25,66 @@ public class UIManager : MonoBehaviour
 			Destroy(this);
 		}
 	}
+
 	void Start()
 	{
 		if (startingMenu) startingMenu.Open();
 	}
 
-	public void LoadHangarScene(bool onlineMode)
+	//public void LoadHangarScene(bool onlineMode)
+	//{
+	//	StartCoroutine(coLoadHangarScene(onlineMode));
+	//}
+	//IEnumerator coLoadHangarScene(bool onlineMode)
+	//{
+	//	AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Hangar");
+
+	//	while (!asyncLoad.isDone)
+	//		yield return null;
+
+	//	NetworkSwitch networkSwitch = FindObjectOfType<NetworkSwitch>();
+
+	//	//if (networkSwitch == null)
+	//	//{
+	//	//	// ERROR
+	//	//}
+	//	//else
+	//	//{
+	//	//	networkSwitch.LobbyType = onlineMode ? NetworkLobbyType.SteamLobby : NetworkLobbyType.LocalLobby;
+
+	//	//	networkSwitch.GenerateNetworkController();
+
+	//	//	if (onlineMode)
+	//	//	{
+	//	//		SteamLobby networkManager = FindObjectOfType<SteamLobby>();
+	//	//		//if (networkManager) networkManager.HostLobby();
+	//	//	}
+	//	//	else
+	//	//	{
+	//	//		NetworkManager manager = FindObjectOfType<NetworkManager>();
+	//	//		if (manager) manager.StartHost();
+	//	//	}
+	//	//}
+	//}
+
+	// Load a single player scene
+	public void LoadHangar_Local() => StartCoroutine(coLoadHangar_Local());
+	IEnumerator coLoadHangar_Local()
 	{
-		StartCoroutine(coLoadHangarScene(onlineMode));
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Hangar_Local");
+
+		while (!asyncLoad.isDone)
+			yield return null;		
 	}
 
-	IEnumerator coLoadHangarScene(bool onlineMode)
+	// Load the Steam Lobby scene
+	public void LoadHanger_Online() => StartCoroutine(coLoadHanger_Online());
+	IEnumerator coLoadHanger_Online()
 	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Hangar");
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Hangar_Steam");
 
 		while (!asyncLoad.isDone)
 			yield return null;
-
-		NetworkSwitch networkSwitch = FindObjectOfType<NetworkSwitch>();
-
-		if (networkSwitch == null)
-		{
-			// ERROR
-		}
-		else
-		{
-			networkSwitch.LobbyType = onlineMode ? NetworkLobbyType.SteamLobby : NetworkLobbyType.LocalLobby;
-
-			networkSwitch.GenerateNetworkController();
-
-			if (onlineMode)
-			{
-				SteamLobby networkManager = FindObjectOfType<SteamLobby>();
-				//if (networkManager) networkManager.HostLobby();
-			}
-			else
-			{
-				NetworkManager manager = FindObjectOfType<NetworkManager>();
-				if (manager) manager.StartHost();
-			}
-		}
 	}
 
 	public void Quit() => Application.Quit();

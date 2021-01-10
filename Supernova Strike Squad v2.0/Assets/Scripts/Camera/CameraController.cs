@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public void SetTarget(Transform parent)
 	{
         transform.parent = parent;
-        transform.localPosition = new Vector3(0, 2, -5);
+        transform.localPosition = new Vector3(0, 8, -5);
     }
 
     // Update is called once per frame

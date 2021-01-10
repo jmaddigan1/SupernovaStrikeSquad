@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c3e71ea7dbf722741af16c9964835e85
   - enabled: 1
-    path: Assets/Scenes/Hangar.unity
-    guid: 061581f78f20b8942b3ba54a2333fc55
-  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Hangar_Local.unity
+    guid: 9455feec0333e3447bc034131ef1996d
+  - enabled: 1
+    path: Assets/Scenes/Hangar_Steam.unity
+    guid: c8060ee3f9eda8447b24bc497d040786
   m_configObjects: {}

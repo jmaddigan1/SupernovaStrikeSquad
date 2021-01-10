@@ -36,7 +36,7 @@ public class PlayerCharacterController : NetworkBehaviour
     {
         if (hasAuthority == false) return;
 
-        float y = Input.GetAxisRaw("Vertical");
+        float y = Input.GetAxis("Vertical");
 
         myRigidbody.MovePosition(myRigidbody.position + (transform.forward * y * Speed * Time.fixedDeltaTime));
     }
