@@ -5,7 +5,7 @@ ScriptsOnlyBuild:
     - ColorObjectWithAuthority
     - Enemy
     - EnemySpawner
-    - Hangar
+    - HangarLobby
     - LevelGenerator
     - Menu
     - MenuTransition_DefaultClose
@@ -15,10 +15,15 @@ ScriptsOnlyBuild:
     - NodeMapDepthController
     - NodeMapMenu
     - NodeMapNodeController
-    - Player
     - PlayerCharacterController
+    - PlayerConnection
+    - PlayerInfoDisplay
+    - PlayerManager
     - PlayerShipController
+    - PlayersConnectedDisplay
+    - ShipDock
     - SteamLobby
+    - SteamNetworkManager
     - Tween
     - UIManager
     Mirror.Components.dll:
@@ -26,7 +31,6 @@ ScriptsOnlyBuild:
     Mirror.dll:
     - Mirror.FizzySteam.FizzySteamworks
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManager
     - Mirror.NetworkManagerHUD
     - SteamManager
     - kcp2k.KcpTransport
@@ -52,6 +56,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
@@ -97,13 +102,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11550}
-    - Class: 114
       Script: {instanceID: 11624}
     - Class: 114
       Script: {instanceID: 11700}
-    - Class: 114
-      Script: {instanceID: 11864}
     - Class: 114
       Script: {instanceID: 12254}
     - Class: 114
@@ -111,25 +112,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 13312}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13326}
+      Script: {instanceID: 13328}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13662}
     - Class: 114
-      Script: {instanceID: 13762}
+      Script: {instanceID: 13764}
     - Class: 114
-      Script: {instanceID: 13866}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 14062}
+      Script: {instanceID: 14064}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14422}
     - Class: 114
-      Script: {instanceID: 14552}
+      Script: {instanceID: 14544}
+    - Class: 114
+      Script: {instanceID: 14556}
+    - Class: 114
+      Script: {instanceID: 16264}
+    - Class: 114
+      Script: {instanceID: 16380}
+    - Class: 114
+      Script: {instanceID: 16996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -184,19 +193,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11224}
     - Class: 114
+      Script: {instanceID: 11228}
+    - Class: 114
       Script: {instanceID: 11230}
     - Class: 114
       Script: {instanceID: 11264}
     - Class: 114
       Script: {instanceID: 11344}
     - Class: 114
-      Script: {instanceID: 11550}
-    - Class: 114
       Script: {instanceID: 11624}
     - Class: 114
       Script: {instanceID: 11700}
-    - Class: 114
-      Script: {instanceID: 11864}
     - Class: 114
       Script: {instanceID: 12254}
     - Class: 114
@@ -206,27 +213,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12984}
     - Class: 114
       Script: {instanceID: 13002}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13312}
     - Class: 114
-      Script: {instanceID: 13326}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13328}
     - Class: 114
-      Script: {instanceID: 13762}
+      Script: {instanceID: 13662}
     - Class: 114
-      Script: {instanceID: 13866}
+      Script: {instanceID: 13764}
     - Class: 114
-      Script: {instanceID: 14062}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14064}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14118}
+    - Class: 114
+      Script: {instanceID: 14422}
+    - Class: 114
+      Script: {instanceID: 14544}
+    - Class: 114
+      Script: {instanceID: 16264}
+    - Class: 114
+      Script: {instanceID: 16370}
+    - Class: 114
+      Script: {instanceID: 16380}
+    - Class: 114
+      Script: {instanceID: 16996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -289,8 +308,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11550}
-    - Class: 114
       Script: {instanceID: 11624}
     - Class: 114
       Script: {instanceID: 11700}
@@ -311,31 +328,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 12876}
-    - Class: 114
       Script: {instanceID: 13002}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13464}
+      Script: {instanceID: 13466}
     - Class: 114
-      Script: {instanceID: 13528}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13762}
+      Script: {instanceID: 13764}
     - Class: 114
-      Script: {instanceID: 13866}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13902}
+      Script: {instanceID: 13904}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14118}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14422}
     - Class: 114
-      Script: {instanceID: 14514}
+      Script: {instanceID: 14516}
     - Class: 114
-      Script: {instanceID: 14552}
+      Script: {instanceID: 14556}
+    - Class: 114
+      Script: {instanceID: 16264}
+    - Class: 114
+      Script: {instanceID: 16380}
+    - Class: 114
+      Script: {instanceID: 16996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -398,19 +419,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 13326}
+      Script: {instanceID: 13328}
     - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 13346}
     - Class: 114
-      Script: {instanceID: 13510}
+      Script: {instanceID: 13512}
     - Class: 114
-      Script: {instanceID: 13762}
+      Script: {instanceID: 13764}
     - Class: 114
-      Script: {instanceID: 14054}
+      Script: {instanceID: 14056}
     - Class: 114
-      Script: {instanceID: 14310}
+      Script: {instanceID: 14312}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14422}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -490,7 +511,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+      Hash: 6ece7eb60e7010b4de89c05199fdaaa3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerCharacterController
@@ -1024,12 +1045,6 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: b69008b049444e60cc5d99cc3e881dca
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player
-  - hash:
-      serializedVersion: 2
       Hash: b18f0d55b218ff8d17c2c7411b02c1bf
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
@@ -1136,6 +1151,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleMatch
     className: RoomGUI
+  - hash:
+      serializedVersion: 2
+      Hash: bb701e88396ad703135281bf2d37394a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerManager
   - hash:
       serializedVersion: 2
       Hash: 31641d3fb597a24176aba6c9db9d92b0
@@ -1360,10 +1381,10 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 63c779d5e31e25767af500808b60c079
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Hangar
+    className: HangarLobby
   - hash:
       serializedVersion: 2
       Hash: 2bca67b5b15bd74f4ed58264903bca65
@@ -1540,6 +1561,12 @@ ScriptsOnlyBuild:
     className: PlayerScore
   - hash:
       serializedVersion: 2
+      Hash: 1eb9db09b29a64dfab33df28b90d182b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShipDock
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1550,6 +1577,30 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: eb85dbe5e2824a26d3062c9ff23a1a7f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerConnection
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayersConnectedDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: 4726246c9a19642f48d8bc2ee5cfc8a6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerInfoDisplay
+  - hash:
+      serializedVersion: 2
+      Hash: b2b4a4bf81317f3c08703a1773162a08
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SteamNetworkManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

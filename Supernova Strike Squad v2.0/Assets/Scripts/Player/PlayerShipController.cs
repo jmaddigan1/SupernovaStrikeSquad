@@ -11,7 +11,7 @@ public class PlayerShipController : NetworkBehaviour
 
 	public override void OnStartAuthority()
 	{
-		Player.LocalPlayer.Ship = this;
+		PlayerConnection.LocalPlayer.Ship = this;
 
 		FindObjectOfType<CameraController>().SetTarget(transform);
 	}

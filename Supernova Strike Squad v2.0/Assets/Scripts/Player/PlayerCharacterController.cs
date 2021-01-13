@@ -7,37 +7,65 @@ using Mirror;
 
 public class PlayerCharacterController : NetworkBehaviour
 {
-    private float Speed = 10.0f;
+	// Public Members
+	public Vector2 PlayerInput;
 
-    private Rigidbody myRigidbody;
+	// Private Members
+	private Rigidbody myRigidbody;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        myRigidbody = GetComponent<Rigidbody>();
-    }
+
+	#region Player Stats
+
+	private float Speed = 10.0f;
+	private float RotSpeed = 75.0f;
+
+	#endregion
+
+	#region Client
 
 	public override void OnStartAuthority()
-    {
-        FindObjectOfType<CameraController>().SetTarget(transform);
-    }
+	{
+		FindObjectOfType<CameraController>().SetTarget(transform);
+	}
 
-	private void Update()
-    {
-        if (hasAuthority == false) return;
-
-        float x = Input.GetAxisRaw("Horizontal");
-
-        transform.Rotate(0, x * Speed * 10 * Time.deltaTime, 0);
-    }
-
-	// Update is called once per frame
 	void FixedUpdate()
-    {
-        if (hasAuthority == false) return;
+	{
+		if (hasAuthority)
+		{
+			Vector2 input = new Vector2(Input.GetAxis("Vertical"), Input.GetAxisRaw("Horizontal"));
 
-        float y = Input.GetAxis("Vertical");
+			// Send our input to the server
+			CmdUpdatePlayerInput(input);
+		}
 
-        myRigidbody.MovePosition(myRigidbody.position + (transform.forward * y * Speed * Time.fixedDeltaTime));
-    }
+		// If we are the server we want to take the players input and update this character according
+		if (isServer)
+		{
+			// Rotate the player
+			float rot = PlayerInput.y * RotSpeed * Time.deltaTime;
+
+			transform.Rotate(0, rot, 0);      
+			
+
+			// Move forward
+			myRigidbody.MovePosition(transform.position + transform.forward * PlayerInput.x * Speed * Time.fixedDeltaTime);
+		}
+	}
+
+	#endregion
+
+	#region Server
+
+	void Start()
+	{
+		if (isServer) myRigidbody = GetComponent<Rigidbody>();
+	}
+
+	[Command]
+	public void CmdUpdatePlayerInput(Vector2 input)
+	{
+		PlayerInput = input;
+	}
+
+	#endregion
 }

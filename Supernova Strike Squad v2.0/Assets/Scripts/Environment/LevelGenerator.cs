@@ -11,7 +11,7 @@ public class LevelGenerator : NetworkBehaviour
 
 	// Editor References
 	[SerializeField]
-	private GameObject asteroidPrefab;
+	private GameObject asteroidPrefab = null;
 
 
 	// Public Members

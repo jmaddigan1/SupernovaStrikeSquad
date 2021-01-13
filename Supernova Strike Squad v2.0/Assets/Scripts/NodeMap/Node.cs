@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour
 {
 	[SerializeField]
-	private Button Button;
+	private Button Button = null;
 
 	public NodeMapMenu NodeMap;
 	public NodeData NodeData;

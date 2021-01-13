@@ -7,7 +7,7 @@ using Mirror;
 public class UIManager : MonoBehaviour
 {
 	[SerializeField]
-	private Menu startingMenu;
+	private Menu startingMenu = null;
 
 
 	public static UIManager Instance;

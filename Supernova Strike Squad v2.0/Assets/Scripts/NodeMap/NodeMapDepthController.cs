@@ -5,10 +5,10 @@ using UnityEngine;
 public class NodeMapDepthController : MonoBehaviour
 {
 	[SerializeField]
-	private Transform DepthPrefab;
+	private Transform DepthPrefab = null;
 
 	[SerializeField]
-	private Transform DepthAnchor;
+	private Transform DepthAnchor = null;
 
 	public List<Transform> DepthList = new List<Transform>();
 

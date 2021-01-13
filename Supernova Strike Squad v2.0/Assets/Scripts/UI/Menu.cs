@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
 	[SerializeField] 
-	private MenuTransition OpenTransition;
+	private MenuTransition OpenTransition = null;
 
 	[SerializeField] 
-	private MenuTransition CloseTransition;
+	private MenuTransition CloseTransition = null;
 
 	[SerializeField]
-	private Text MenuTitle;
+	private Text MenuTitle = null;
 
 
 	// Global Members

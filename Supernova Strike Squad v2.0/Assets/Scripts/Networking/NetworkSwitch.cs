@@ -11,10 +11,10 @@ public enum NetworkLobbyType
 public class NetworkSwitch : MonoBehaviour
 {
     [SerializeField]
-    private GameObject SteamLobby;
+    private GameObject SteamLobby = null;
 
     [SerializeField]
-    private GameObject LocalLobby;
+    private GameObject LocalLobby = null;
 
 
     public NetworkLobbyType LobbyType;

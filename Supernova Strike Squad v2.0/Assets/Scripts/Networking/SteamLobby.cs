@@ -7,19 +7,30 @@ using Mirror;
 
 public class SteamLobby : MonoBehaviour
 {
+	// Editor References
+	// This is a prefab we use to instantiate a button the player can use to host a lobby
 	[SerializeField] private GameObject buttonPrefab = null;
 
+
+	// Steam Callbacks
 	protected Callback<LobbyCreated_t> lobbyCreated;
 	protected Callback<GameLobbyJoinRequested_t> lobbyJoinRequest;
 	protected Callback<LobbyEnter_t> lobbyEntered;
 
+
+	// Constant Members
 	private const string HostAddressKey = "HostAddress";
 
+
+	// Global Members
+	public static CSteamID LobbyID { get; private set; }
+
+
+	// Private Members
 	private NetworkManager networkManager;
+	private Transform button;
 
-	private Transform button = null;
-
-	private void Start()
+	void Start()
 	{
 		button = Instantiate(buttonPrefab, FindObjectOfType<Canvas>().transform).transform;
 
@@ -38,6 +49,9 @@ public class SteamLobby : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Host a Steam Lobby
+	/// </summary>
 	public void HostLobby()
 	{
 		button?.gameObject.SetActive(false);
@@ -45,28 +59,31 @@ public class SteamLobby : MonoBehaviour
 		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, networkManager.maxConnections);
 	}
 
-	public void OnLobbyCreated(LobbyCreated_t callback)
+	void OnLobbyCreated(LobbyCreated_t callback)
 	{
+		// If the lobby was NOT successfulness created we want to activate the button again
 		if (callback.m_eResult != EResult.k_EResultOK) { button.gameObject.SetActive(true); }
 		else
 		{
+			LobbyID = new CSteamID(callback.m_ulSteamIDLobby);
+
 			networkManager.StartHost();
 
-			SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
+			SteamMatchmaking.SetLobbyData(LobbyID, HostAddressKey, SteamUser.GetSteamID().ToString());
 		}
 	}
 
-	public void OnLobbyJoinRequest(GameLobbyJoinRequested_t callback)
+	void OnLobbyJoinRequest(GameLobbyJoinRequested_t callback)
 	{
 		SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
 	}
 
-	public void OnLobbyEntered(LobbyEnter_t callback)
+	void OnLobbyEntered(LobbyEnter_t callback)
 	{
 		if (NetworkServer.active) return;
 		else
 		{
-			string hostAddress = SteamMatchmaking.GetLobbyData (
+			string hostAddress = SteamMatchmaking.GetLobbyData(
 				new CSteamID(callback.m_ulSteamIDLobby),
 				HostAddressKey);
 

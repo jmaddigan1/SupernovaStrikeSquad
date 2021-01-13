@@ -9,13 +9,13 @@ using UnityEngine;
 public class NodeMapMenu : MonoBehaviour
 {
 	[SerializeField]
-	public NodeMapDepthController DepthController;
+	public NodeMapDepthController DepthController = null;
 
 	[SerializeField]
-	public NodeMapNodeController NodeController;
+	public NodeMapNodeController NodeController = null;
 
 	[SerializeField]
-	private Node NodePrafab;
+	private Node NodePrafab = null;
 
 	[SerializeField]
 	private GameObject Content;
