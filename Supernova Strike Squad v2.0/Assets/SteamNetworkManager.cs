@@ -15,15 +15,15 @@ public class SteamNetworkManager : NetworkManager
 		playerConnection.playerIndex = numPlayers - 1;
 
 
-		// Steam
-		if (GetComponent<SteamManager>() == null) return;
+		//// Steam
+		//if (GetComponent<SteamManager>() == null) return;
 
-		// Get the new players steam ID
-		CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(SteamLobby.LobbyID, numPlayers - 1);
+		//// Get the new players steam ID
+		//CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(SteamLobby.LobbyID, numPlayers - 1);
 
-		// If we are using steam we want to set this players username and image
-		var playerInfoDisplay = conn.identity.GetComponent<PlayerInfoDisplay>();
-		playerInfoDisplay?.SetSteamID(steamID.m_SteamID);
+		//// If we are using steam we want to set this players username and image
+		//var playerInfoDisplay = conn.identity.GetComponent<PlayerInfoDisplay>();
+		//playerInfoDisplay?.SetSteamID(steamID.m_SteamID);
 	}
 
 }
