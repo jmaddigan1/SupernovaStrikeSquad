@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300984568363570195}
-  - component: {fileID: 7796521887436257960}
   - component: {fileID: 1300984568363570192}
-  - component: {fileID: 1300984568363570193}
   - component: {fileID: 1300984568363570198}
+  - component: {fileID: 7796521887436257960}
+  - component: {fileID: 1300984568363570193}
   m_Layer: 0
   m_Name: '[Network Manager] Steam'
   m_TagString: Untagged
@@ -34,6 +34,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300984568363570192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300984568363570199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1300984568363570198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300984568363570199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a79c5d864d1ea94dbb2bb5e357512d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPrefab: {fileID: 5306611028555079878, guid: 341cbfda3e5589e408306302310e6b09,
+    type: 3}
 --- !u!114 &7796521887436257960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +81,7 @@ MonoBehaviour:
   onlineScene: 
   transport: {fileID: 1300984568363570193}
   networkAddress: localhost
-  maxConnections: 4
+  maxConnections: 6
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
@@ -67,19 +93,6 @@ MonoBehaviour:
   - {fileID: 2711080151607256895, guid: 04b39c28b7e3a9e4682010958c83ff70, type: 3}
   - {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a, type: 3}
   - {fileID: 6558678753156365565, guid: 3dda8d751126094448e18bc29ff49d18, type: 3}
-  usingSteam: 1
---- !u!114 &1300984568363570192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300984568363570199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1300984568363570193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,17 +110,3 @@ MonoBehaviour:
   SteamAppID: 480
   AllowSteamRelay: 1
   SteamUserID: 0
---- !u!114 &1300984568363570198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300984568363570199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a79c5d864d1ea94dbb2bb5e357512d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 5306611028555079878, guid: 341cbfda3e5589e408306302310e6b09,
-    type: 3}

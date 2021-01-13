@@ -30,38 +30,34 @@ public class PlayerManager : NetworkBehaviour
 
 	public void AddPlayer(PlayerConnection player)
 	{
-		if (isServer == false) return;
+		//if (isServer == false) return;
 
-		// Check if this player is already in the player list
-		if (Players.Contains(player) == false)
-		{
-			// If we can simply  add a player to the player list
-			if (Players.Count <= 6)
-			{
-				Players.Add(player);
-				player.playerIndex = Players.Count;
+		//// Check if this player is already in the player list
+		//if (Players.Contains(player) == false)
+		//{
+		//	// If we can simply  add a player to the player list
+		//	if (Players.Count <= 6)
+		//	{
+		//		Players.Add(player);
+		//		player.playerIndex = Players.Count;
+		//	}
+		//	else
+		//	{
+		//		// Else we want to check if there is an open spot
+		//		for (int index = 0; index < Players.Count; index++)
+		//		{
+		//			if (Players[index] == null)
+		//			{
+		//				Players.Add(player);
+		//				player.playerIndex = Players.Count;
 
-				HangarLobby.Instance.OpenGate(player);
-			}
-			else
-			{
-				// Else we want to check if there is an open spot
-				for (int index = 0; index < Players.Count; index++)
-				{
-					if (Players[index] == null)
-					{
-						Players.Add(player);
-						player.playerIndex = Players.Count;
+		//				return;
+		//			}
 
-						HangarLobby.Instance.OpenGate(player);
-
-						return;
-					}
-
-					Debug.Log("ERROR: There is no open sockets for a new player");
-				}
-			}
-		}
+		//			Debug.Log("ERROR: There is no open sockets for a new player");
+		//		}
+		//	}
+		//}
 	}
 	public void RemovePlayer(PlayerConnection player)
 	{

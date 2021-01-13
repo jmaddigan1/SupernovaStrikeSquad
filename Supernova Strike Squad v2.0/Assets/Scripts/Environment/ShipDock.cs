@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ShipDock : MonoBehaviour
 {
-	public bool open = false;	
+	public bool open = false;
 
-	public void Open()
-	{
-		open = true;
-	}
+	public void Open() => open = true;
+
+	public void Close() => open = false;
 
 	private void OnDrawGizmos()
 	{

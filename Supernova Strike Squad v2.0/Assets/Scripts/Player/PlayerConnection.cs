@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public class PlayerConnection : NetworkBehaviour
 {
@@ -21,28 +22,26 @@ public class PlayerConnection : NetworkBehaviour
 	[HideInInspector]
 	public PlayerShipController Ship;
 
+	[SyncVar] 
+	public int playerIndex;
 
-	// Private Members
-	[SyncVar] public int playerIndex;
 
-	// NOTE: OnStartAuthority works as Start()
+	#region Client
 
-	// NOTE: Players are given Authority when they join the Hangar lobby
-	// (This is also when they initially connect to the lobby)
+	public void SetPlayerIndex(int newIndex) => playerIndex = newIndex;
 
-	// We set the Local Player to this player and call OnHangarJoin
+
 	public override void OnStartAuthority()
 	{
 		LocalPlayer = this;
-
 		SpawnPlayer();
 	}
 
-	public override void OnStopAuthority()
-	{
-		base.OnStopAuthority();
-	}
 
+	public PlayerInfoDisplay GetInfoDisplay()
+	{
+		return null;
+	}
 
 	// Spawns a walking play for the hangar
 	public void SpawnPlayer()
@@ -51,7 +50,7 @@ public class PlayerConnection : NetworkBehaviour
 		//
 
 		// TODO: Spawn the Player
-		SpawnCharacterIntoGames();
+		CmdSpawnCharacterIntoGames();
 	}
 
 	// Spawns the ship this player uses
@@ -61,29 +60,23 @@ public class PlayerConnection : NetworkBehaviour
 		//
 
 		// TODO: Spawn the Ship
-		SpawnShipIntoGames();
-	}
-	
-
-	#region Command Methods
-
-	[Command]
-	public void AddPlayerToServerList()
-	{
-		PlayerManager.Instance.AddPlayer(this);
+		CmdSpawnShipIntoGames();
 	}
 
+
+	void OnDestroy() => HangarLobby.Instance.CloseGate(playerIndex);
+
+	#endregion
+
+	#region Server
+
 	[Command]
-	private void SpawnShipIntoGames()
-	{
+	private void CmdSpawnShipIntoGames() => 
 		NetworkServer.Spawn(Instantiate(shipPrefab), connectionToClient);
-	}
 
 	[Command]
-	private void SpawnCharacterIntoGames()
-	{
+	private void CmdSpawnCharacterIntoGames() => 
 		NetworkServer.Spawn(Instantiate(characterPrefab), connectionToClient);
-	}
 
 	#endregion
 }
