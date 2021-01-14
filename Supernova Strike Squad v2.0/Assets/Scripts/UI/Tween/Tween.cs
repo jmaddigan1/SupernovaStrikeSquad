@@ -38,7 +38,7 @@ public class Tween : MonoBehaviour
 		Vector3 axis, float start, float end, float duration, float delay, Action action = null)
 	{
 		// The starting position
-		Vector3 pos = target.position;
+		Vector3 pos = target.localPosition;
 
 		// Wait for the delay
 		yield return new WaitForSecondsRealtime(delay);
@@ -52,13 +52,13 @@ public class Tween : MonoBehaviour
 			float value = curve.Evaluate(counter / duration);
 
 			if (axis == new Vector3(1, 0, 0))
-				target.position = new Vector3(Mathf.LerpUnclamped(start, end, value), pos.y, pos.z);
+				target.localPosition = new Vector3(Mathf.LerpUnclamped(start, end, value), pos.y, pos.z);
 
 			if (axis == new Vector3(0, 1, 0))
-				target.position = new Vector3(pos.x, Mathf.LerpUnclamped(start, end, value), pos.z);
+				target.localPosition = new Vector3(pos.x, Mathf.LerpUnclamped(start, end, value), pos.z);
 
 			if (axis == new Vector3(0, 0, 1))
-				target.position = new Vector3(pos.x, pos.y, Mathf.LerpUnclamped(start, end, value));
+				target.localPosition = new Vector3(pos.x, pos.y, Mathf.LerpUnclamped(start, end, value));
 
 			yield return null;
 		}

@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - ColorObjectWithAuthority
     - Enemy
     - EnemySpawner
+    - GameManager
     - HangarLobby
     - LevelGenerator
     - Menu
@@ -138,6 +139,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14550}
     - Class: 114
       Script: {instanceID: 14562}
+    - Class: 114
+      Script: {instanceID: 42814}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1598,6 +1601,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 12ccd6b94fc2e5209792b4592ff87edc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

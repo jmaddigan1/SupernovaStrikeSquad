@@ -78,5 +78,13 @@ public class PlayerConnection : NetworkBehaviour
 	private void CmdSpawnCharacterIntoGames() => 
 		NetworkServer.Spawn(Instantiate(characterPrefab), connectionToClient);
 
+	[Command]
+	public void CmdUpdateGameMode(GameModeType gameMode) =>
+		GameManager.Instance.GameMode = gameMode;
+
+	[Command]
+	public void CmdStartGame() => 
+		GameManager.Instance.RpcStartGame();
+
 	#endregion
 }
