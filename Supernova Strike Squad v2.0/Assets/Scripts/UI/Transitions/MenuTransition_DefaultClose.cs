@@ -8,7 +8,7 @@ public class MenuTransition_DefaultClose : MenuTransition
 		float screen = Screen.height;
 		bool waiting = true;
 
-		Tween.Instance.EaseOut_Transform_ElasticY(transform, screen / 2, -screen, 1, 0, () => {
+		Tween.Instance.EaseOut_Transform_ElasticY(transform, 0, -screen, 1, 0, () => {
 			waiting = false;
 		});
 

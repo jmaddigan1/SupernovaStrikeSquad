@@ -14,8 +14,7 @@ public class GameManager : NetworkBehaviour
 	public GameModeType GameMode = GameModeType.Campaign;
 
 
-	// Setup the Hangar Singleton
-	void Awake()
+	public override void OnStartServer()
 	{
 		if (Instance == null) { Instance = this; }
 		else

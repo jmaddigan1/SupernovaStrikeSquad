@@ -22,25 +22,22 @@ public class PlayerConnection : NetworkBehaviour
 	[HideInInspector]
 	public PlayerShipController Ship;
 
-	[SyncVar] 
-	public int playerIndex;
+	[SyncVar(hook = nameof(UpdateHangar))] 
+	public int playerIndex = -1;
 
 
 	#region Client
 
 	public void SetPlayerIndex(int newIndex) => playerIndex = newIndex;
 
+	public void UpdateHangar(int oldPlayerIndex, int newPlayerIndex) {
+		HangarLobby.Instance.UpdateHangarStates();
+	}
 
 	public override void OnStartAuthority()
 	{
 		LocalPlayer = this;
 		SpawnPlayer();
-	}
-
-
-	public PlayerInfoDisplay GetInfoDisplay()
-	{
-		return null;
 	}
 
 	// Spawns a walking play for the hangar
@@ -63,8 +60,10 @@ public class PlayerConnection : NetworkBehaviour
 		CmdSpawnShipIntoGames();
 	}
 
-
-	void OnDestroy() => HangarLobby.Instance.CloseGate(playerIndex);
+	void OnDestroy()
+	{
+		HangarLobby.Instance.CloseGate(playerIndex);
+	}
 
 	#endregion
 
@@ -85,6 +84,10 @@ public class PlayerConnection : NetworkBehaviour
 	[Command]
 	public void CmdStartGame() => 
 		GameManager.Instance.RpcStartGame();
+	
+	[ClientRpc]
+	public void RpcUpdateHangarState() => 	
+		HangarLobby.Instance.UpdateHangarStates();
 
 	#endregion
 }

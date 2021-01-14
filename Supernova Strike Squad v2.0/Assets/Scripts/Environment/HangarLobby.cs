@@ -3,24 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameModeType
-{
-	Campaign,
-	MissionBoard,
-	Endless
-}
-
 public class HangarLobby : MonoBehaviour
 {
 	// Global Members
 	public static HangarLobby Instance;
 
 	// Editor References
-	[SerializeField] private List<ShipDock> ShipDocks = new List<ShipDock>();
-	[SerializeField] private List<Transform> SpawnPoints = new List<Transform>();
-	[SerializeField] private List<PlayerInfoDisplay> InfoDisplays = new List<PlayerInfoDisplay>();
+	[SerializeField] 
+	private List<Dock> ShipDocks = new List<Dock>();
 
-	// public GameModeType gameMode;
+	[SerializeField]
+	private List<Transform> SpawnPoints = new List<Transform>();
 
 	// Setup the Hangar Singleton
 	void Awake()
@@ -34,17 +27,18 @@ public class HangarLobby : MonoBehaviour
 	{
 		foreach (var player in FindObjectsOfType<PlayerConnection>())
 		{
+			ShipDocks[player.playerIndex].StopAllCoroutines();
 			OpenGate(player.playerIndex);
 		}
 	}
 
 	public PlayerInfoDisplay GetInfoDisplay(int playerIndex)
 	{
-		return InfoDisplays[playerIndex];
+		return ShipDocks[playerIndex].GetInfoDisplay();
 	}
 
-	public void OpenGate(int index) => ShipDocks[index].Open();
-	public void CloseGate(int index) => ShipDocks[index].Close();
+	public void OpenGate(int index) => ShipDocks[index].OpenDockDoors();
+	public void CloseGate(int index) => ShipDocks[index].CloseDockDoors();
 
 	public void ChangeGameMode(int newModeID)
 	{

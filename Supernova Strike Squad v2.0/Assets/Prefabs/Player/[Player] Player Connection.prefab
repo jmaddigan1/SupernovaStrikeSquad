@@ -68,7 +68,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a,
     type: 3}
   Ship: {fileID: 0}
-  playerIndex: 0
+  playerIndex: -1
 --- !u!114 &1188641079921399871
 MonoBehaviour:
   m_ObjectHideFlags: 0
