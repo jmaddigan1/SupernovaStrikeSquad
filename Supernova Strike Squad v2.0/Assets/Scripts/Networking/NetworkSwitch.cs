@@ -21,10 +21,10 @@ public class NetworkSwitch : MonoBehaviour
 
     void Awake()
     {
+        Instantiate((LobbyType == NetworkLobbyType.SteamLobby ? SteamLobby : LocalLobby));
     }
 
     public void GenerateNetworkController()
     {
-        Instantiate((LobbyType == NetworkLobbyType.SteamLobby ? SteamLobby : LocalLobby));
     }
 }

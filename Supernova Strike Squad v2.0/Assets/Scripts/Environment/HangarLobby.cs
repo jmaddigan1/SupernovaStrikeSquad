@@ -18,7 +18,8 @@ public class HangarLobby : MonoBehaviour
 	// Setup the Hangar Singleton
 	void Awake()
 	{
-		if (Instance) Destroy(gameObject); Instance = this;
+		if (Instance) Destroy(gameObject); 
+		Instance = this;
 	}
 
 	public Transform GetSpawnPosition(int index) => SpawnPoints[index];
@@ -27,8 +28,8 @@ public class HangarLobby : MonoBehaviour
 	{
 		foreach (var player in FindObjectsOfType<PlayerConnection>())
 		{
-			ShipDocks[player.playerIndex].StopAllCoroutines();
-			OpenGate(player.playerIndex);
+			ShipDocks[player.playerID].StopAllCoroutines();
+			OpenGate(player.playerID);
 		}
 	}
 
@@ -37,17 +38,20 @@ public class HangarLobby : MonoBehaviour
 		return ShipDocks[playerIndex].GetInfoDisplay();
 	}
 
-	public void OpenGate(int index) => ShipDocks[index].OpenDockDoors();
-	public void CloseGate(int index) => ShipDocks[index].CloseDockDoors();
+	public void OpenGate(int index) => ShipDocks[index]?.OpenDockDoors();
+	public void CloseGate(int index) => ShipDocks[index]?.CloseDockDoors();
 
 	public void ChangeGameMode(int newModeID)
 	{
-		PlayerConnection.LocalPlayer.CmdUpdateGameMode((GameModeType)newModeID);
+		LobbyManager.Instance.GameMode = (GameModeType)newModeID;
 	}
 
 	public void StartGame()
 	{
-		PlayerConnection.LocalPlayer.CmdStartGame();
+		// TODO: Find a way to fill this out
+		GameData data = null;
+
+		PlayerConnection.LocalPlayer.CmdTransitionFromHangarToGame(data);
 	}
 
 	private void OnDrawGizmos()

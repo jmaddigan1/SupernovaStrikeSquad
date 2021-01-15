@@ -11,6 +11,7 @@ public class SteamLobby : MonoBehaviour
 	// This is a prefab we use to instantiate a button the player can use to host a lobby
 	[SerializeField] private GameObject buttonPrefab = null;
 
+	[SerializeField] private Canvas canvas = null;
 
 	// Steam Callbacks
 	protected Callback<LobbyCreated_t> lobbyCreated;
@@ -32,7 +33,7 @@ public class SteamLobby : MonoBehaviour
 
 	void Start()
 	{
-		button = Instantiate(buttonPrefab, FindObjectOfType<Canvas>().transform).transform;
+		button = Instantiate(buttonPrefab, canvas.transform).transform;
 
 		if (button.TryGetComponent<Button>(out Button b))
 		{

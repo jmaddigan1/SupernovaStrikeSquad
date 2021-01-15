@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 5306611028555079878, guid: 341cbfda3e5589e408306302310e6b09,
     type: 3}
+  canvas: {fileID: 0}
 --- !u!114 &7796521887436257960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,8 +93,6 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 2711080151607256895, guid: 04b39c28b7e3a9e4682010958c83ff70, type: 3}
   - {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a, type: 3}
-  - {fileID: 6558678753156365565, guid: 3dda8d751126094448e18bc29ff49d18, type: 3}
-  - {fileID: 6365447706432488275, guid: 5228418807715bb4bb35f7d937be56e3, type: 3}
 --- !u!114 &1300984568363570193
 MonoBehaviour:
   m_ObjectHideFlags: 0

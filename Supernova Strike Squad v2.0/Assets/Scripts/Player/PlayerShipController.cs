@@ -9,11 +9,16 @@ public class PlayerShipController : NetworkBehaviour
 
 	public float Speed = 15.0f;
 
+	private void Start()
+	{
+
+		DontDestroyOnLoad(gameObject);
+	}
+
 	public override void OnStartAuthority()
 	{
-		PlayerConnection.LocalPlayer.Ship = this;
-
 		FindObjectOfType<CameraController>().SetTarget(transform);
+
 	}
 
 	// Update is called once per frame
@@ -34,6 +39,8 @@ public class PlayerShipController : NetworkBehaviour
 			// UpdateVelocity();
 		}
 	}
+
+	public int ownerID;
 
 
 	//   [Command]

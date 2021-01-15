@@ -1,27 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 
 public class LobbyManager : NetworkBehaviour
 {
-	public override void OnStartServer()
+	// Global Members
+	public static LobbyManager Instance;
+
+	[SyncVar(hook = nameof(OnGameModeUpdated))]
+	public GameModeType GameMode = GameModeType.Campaign;
+
+	private void Awake()
 	{
+		if (Instance == null) { Instance = this; }
+		else
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
 	}
 
-	public override void OnStopServer()
+	#region Client
+
+	[Client]
+	public void OnGameModeUpdated(GameModeType oldMode, GameModeType newMode) { }
+
+	[Command]
+	public void StartGame()
 	{
+		RpcStartGame();
 	}
 
-	// Start is called before the first frame update
-	void Start()
+	[ClientRpc]
+	public void RpcStartGame()
 	{
-
+		StartCoroutine(coStartGame());
 	}
 
-	// Update is called once per frame
-	void Update()
+	[Client]
+	private IEnumerator coStartGame()
 	{
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
 
+		while (!asyncLoad.isDone)
+			yield return null;
+
+		//PlayerConnection.LocalPlayer.SpawnShip();
 	}
+	#endregion
+
+	#region Server
+
+	#endregion
 }

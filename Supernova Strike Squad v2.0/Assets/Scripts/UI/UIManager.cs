@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
+// The UI Manager control the main menu of the game
+// It is responsible for menu navigation and basic menu functions
 public class UIManager : MonoBehaviour
 {
-	[SerializeField]
-	private Menu startingMenu = null;
-
-
 	public static UIManager Instance;
 
+	[SerializeField]
+	private Menu startingMenu = null;
 
 	void Awake()
 	{

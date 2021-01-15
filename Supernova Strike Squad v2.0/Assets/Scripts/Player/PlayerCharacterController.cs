@@ -10,7 +10,6 @@ public class PlayerCharacterController : NetworkBehaviour
 	// Private Members
 	private Rigidbody myRigidbody;
 
-
 	#region Player Stats
 
 	private float Speed = 10.0f;
@@ -20,14 +19,18 @@ public class PlayerCharacterController : NetworkBehaviour
 
 	#region Client
 
-	private void Start() => myRigidbody = GetComponent<Rigidbody>();
+	private void Start()
+	{
+		//DontDestroyOnLoad(gameObject);
+		myRigidbody = GetComponent<Rigidbody>();
+	}
 
 	public override void OnStartAuthority()
 	{
 		FindObjectOfType<CameraController>().SetTarget(transform);    
 		
 		// Set the player character initial position
-		transform.position = HangarLobby.Instance.GetSpawnPosition(PlayerConnection.LocalPlayer.playerIndex).position;
+		transform.position = HangarLobby.Instance.GetSpawnPosition(PlayerConnection.LocalPlayer.playerID).position;
 	}
 
 	void FixedUpdate()

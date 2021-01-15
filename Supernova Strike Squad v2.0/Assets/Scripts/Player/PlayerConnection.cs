@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 using System;
 
@@ -10,7 +11,8 @@ public class PlayerConnection : NetworkBehaviour
 	public static PlayerConnection LocalPlayer;
 
 
-	// Editor References
+	[Header("References")]
+
 	[SerializeField]
 	private GameObject shipPrefab = null;
 
@@ -18,76 +20,114 @@ public class PlayerConnection : NetworkBehaviour
 	private GameObject characterPrefab = null;
 
 
-	// public Members
-	[HideInInspector]
-	public PlayerShipController Ship;
-
-	[SyncVar(hook = nameof(UpdateHangar))] 
-	public int playerIndex = -1;
+	// Private Members
+	// This is the gameobject this player is currently using
+	private GameObject playerObject;
 
 
-	#region Client
+	// Public Members
+	// The PlayerIndex can be used to identify this player
+	[SyncVar(hook = nameof(OnPlayerIDUpdate))]
+	public int playerID = -1;
 
-	public void SetPlayerIndex(int newIndex) => playerIndex = newIndex;
 
-	public void UpdateHangar(int oldPlayerIndex, int newPlayerIndex) {
+	// When a player connects to the game
+	// We want to make sure its gameobject cannot be destroyed
+	void Start() => DontDestroyOnLoad(gameObject);
+
+	// When a player connection is destroyed we want to update the hangar states
+	void OnDestroy()
+	{
+		if (HangarLobby.Instance) {
+			HangarLobby.Instance.CloseGate(playerID);
+		}
+	}
+
+	#region Client Methods
+
+	// When the local players index is updated
+	public void OnPlayerIDUpdate(int oldPlayerIndex, int newPlayerIndex)
+	{
 		HangarLobby.Instance.UpdateHangarStates();
 	}
 
+	// When this client is assigned a player connection script
 	public override void OnStartAuthority()
 	{
+		// We are the local player
 		LocalPlayer = this;
+
+		// We know we are starting in the hangar scene
+		// We spawn the player controller for this client
 		SpawnPlayer();
 	}
 
-	// Spawns a walking play for the hangar
-	public void SpawnPlayer()
-	{
-		// TODO: Remove the ship controller 
-		//
+	// Spawns a character controller for this client
+	public void SpawnPlayer() => CmdSpawnCharacterIntoGames();
 
-		// TODO: Spawn the Player
-		CmdSpawnCharacterIntoGames();
+	// Spawns a ship controller for this client
+	public void SpawnShip() => CmdSpawnShipIntoGames();
+
+	[ClientRpc]
+	public void RpcLoadGameScene(GameData data)
+	{
+		LocalPlayer.StartCoroutine(coLoadGameScene());
 	}
 
-	// Spawns the ship this player uses
-	public void SpawnShip()
+	//
+	public IEnumerator coLoadGameScene()
 	{
-		// TODO: Remove the player controller 
-		//
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
 
-		// TODO: Spawn the Ship
-		CmdSpawnShipIntoGames();
+		// Wait for the scene to load
+		while (!asyncLoad.isDone ) yield return null;
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		LocalPlayer.SpawnShip();
 	}
 
-	void OnDestroy()
+	[ClientRpc]
+	public void RpcLoadHangarScene()
 	{
-		HangarLobby.Instance.CloseGate(playerIndex);
+		Debug.Log("RpcLoadHangarScene");
 	}
+
+	[ClientRpc]
+	// Cause all the hangar doors to update
+	public void RpcUpdateHangarState() => HangarLobby.Instance.UpdateHangarStates();
 
 	#endregion
 
-	#region Server
+	#region Server Methods
+
+	// The Server uses this to set a players ID
+	public void SetPlayerIndex(int newID) => playerID = newID;
 
 	[Command]
-	private void CmdSpawnShipIntoGames() => 
-		NetworkServer.Spawn(Instantiate(shipPrefab), connectionToClient);
+	private void CmdSpawnShipIntoGames()
+	{
+		playerObject = Instantiate(shipPrefab);
+		NetworkServer.Spawn(playerObject, connectionToClient);
+	}
 
 	[Command]
-	private void CmdSpawnCharacterIntoGames() => 
-		NetworkServer.Spawn(Instantiate(characterPrefab), connectionToClient);
+	private void CmdSpawnCharacterIntoGames()
+	{
+		playerObject = Instantiate(characterPrefab);
+		NetworkServer.Spawn(playerObject, connectionToClient);
+	}
 
 	[Command]
-	public void CmdUpdateGameMode(GameModeType gameMode) =>
-		GameManager.Instance.GameMode = gameMode;
+	// The players are ready and we are entering game
+	public void CmdTransitionFromHangarToGame(GameData data)
+	{
+		RpcLoadGameScene(data);
+	}
 
 	[Command]
-	public void CmdStartGame() => 
-		GameManager.Instance.RpcStartGame();
-	
-	[ClientRpc]
-	public void RpcUpdateHangarState() => 	
-		HangarLobby.Instance.UpdateHangarStates();
+	// The game is over and we are moving back to the hangar
+	public void CmdTransitionFromGameToHangar() => RpcLoadHangarScene();
 
 	#endregion
 }

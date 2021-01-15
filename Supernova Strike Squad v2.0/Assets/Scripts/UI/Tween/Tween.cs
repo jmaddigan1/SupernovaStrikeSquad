@@ -26,7 +26,6 @@ public class Tween : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
-			DontDestroyOnLoad(this);
 		}
 		else
 		{

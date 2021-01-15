@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7410492050474040790}
-  - component: {fileID: 8876088124923936083}
   - component: {fileID: 3461945997590239563}
-  - component: {fileID: 1188641079921399871}
+  - component: {fileID: 8876088124923936083}
   m_Layer: 0
   m_Name: '[Player] Player Connection'
   m_TagString: Untagged
@@ -33,22 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8876088124923936083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7831868532688013253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!114 &3461945997590239563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,9 +50,8 @@ MonoBehaviour:
     type: 3}
   characterPrefab: {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a,
     type: 3}
-  Ship: {fileID: 0}
-  playerIndex: -1
---- !u!114 &1188641079921399871
+  playerID: -1
+--- !u!114 &8876088124923936083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,10 +60,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7831868532688013253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58bd9fed25aaeb4449fa23c92fa931df, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  profileImage: {fileID: 0}
-  displayNameText: {fileID: 0}
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
