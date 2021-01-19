@@ -9,16 +9,16 @@ public class PlayerShipController : NetworkBehaviour
 
 	public float Speed = 15.0f;
 
+	public Vector3 cameraOffset = new Vector3(0, 2, -6);
+
 	private void Start()
 	{
-
 		DontDestroyOnLoad(gameObject);
 	}
 
 	public override void OnStartAuthority()
 	{
-		FindObjectOfType<CameraController>().SetTarget(transform);
-
+		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
 	}
 
 	// Update is called once per frame
@@ -39,8 +39,6 @@ public class PlayerShipController : NetworkBehaviour
 			// UpdateVelocity();
 		}
 	}
-
-	public int ownerID;
 
 
 	//   [Command]

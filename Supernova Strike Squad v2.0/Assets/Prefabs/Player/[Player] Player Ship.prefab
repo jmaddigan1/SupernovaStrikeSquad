@@ -50,7 +50,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   Speed: 15
-  ownerID: 0
+  cameraOffset: {x: 0, y: 2, z: -6}
 --- !u!114 &5644894694996043643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8998435221545971696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 6.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.49362, z: 1.7825}
   m_Children:
   - {fileID: 7280161715508035311}

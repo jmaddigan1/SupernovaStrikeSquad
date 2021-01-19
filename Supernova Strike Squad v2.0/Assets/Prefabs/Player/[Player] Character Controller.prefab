@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cameraOffset: {x: 0, y: 2.25, z: -1.5}
 --- !u!54 &7288695489326231434
 Rigidbody:
   m_ObjectHideFlags: 0

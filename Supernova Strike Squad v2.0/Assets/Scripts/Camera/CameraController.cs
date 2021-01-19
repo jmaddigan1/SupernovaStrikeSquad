@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    //
     private Transform target;
 
-    public void SetTarget(Transform parent)
-	{
-        transform.parent = parent;
-        transform.localPosition = new Vector3(0, 4, -5);
-    }
+    //
+    private Vector3 offset;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    //
+    public void SetTarget(Transform newTarget, Vector3 cameraOffset)
+	{
+        offset = cameraOffset;
+        target = newTarget;
+
+        transform.parent = newTarget;
+
+        transform.localPosition = offset;
     }
 }

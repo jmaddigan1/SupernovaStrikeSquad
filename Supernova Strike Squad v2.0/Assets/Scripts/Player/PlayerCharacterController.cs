@@ -7,6 +7,8 @@ using Mirror;
 
 public class PlayerCharacterController : NetworkBehaviour
 {
+	public Vector3 cameraOffset = new Vector3(0, 2.25f, -1.5f);
+
 	// Private Members
 	private Rigidbody myRigidbody;
 
@@ -27,8 +29,8 @@ public class PlayerCharacterController : NetworkBehaviour
 
 	public override void OnStartAuthority()
 	{
-		FindObjectOfType<CameraController>().SetTarget(transform);    
-		
+		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
+
 		// Set the player character initial position
 		transform.position = HangarLobby.Instance.GetSpawnPosition(PlayerConnection.LocalPlayer.playerID).position;
 	}
