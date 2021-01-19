@@ -9,50 +9,43 @@ public class LobbyManager : NetworkBehaviour
 	// Global Members
 	public static LobbyManager Instance;
 
-	[SyncVar(hook = nameof(OnGameModeUpdated))]
-	public GameModeType GameMode = GameModeType.Campaign;
+	//[SyncVar(hook = nameof(OnGameModeUpdated))]
+	//public GameModeType GameMode = GameModeType.Campaign;
 
-	private void Awake()
-	{
-		if (Instance == null) { Instance = this; }
-		else
-		{
-			Destroy(gameObject);
-		}
+	//private void Awake()
+	//{
+	//	if (Instance == null) { Instance = this; }
+	//	else
+	//	{
+	//		Destroy(gameObject);
+	//	}
 
-		DontDestroyOnLoad(gameObject);
-	}
+	//	DontDestroyOnLoad(gameObject);
+	//}
 
-	#region Client
+	//[Client]
+	//public void OnGameModeUpdated(GameModeType oldMode, GameModeType newMode) { }
 
-	[Client]
-	public void OnGameModeUpdated(GameModeType oldMode, GameModeType newMode) { }
+	//[Command]
+	//public void StartGame()
+	//{
+	//	RpcStartGame();
+	//}
 
-	[Command]
-	public void StartGame()
-	{
-		RpcStartGame();
-	}
+	//[ClientRpc]
+	//public void RpcStartGame()
+	//{
+	//	StartCoroutine(coStartGame());
+	//}
 
-	[ClientRpc]
-	public void RpcStartGame()
-	{
-		StartCoroutine(coStartGame());
-	}
+	//[Client]
+	//private IEnumerator coStartGame()
+	//{
+	//	AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
 
-	[Client]
-	private IEnumerator coStartGame()
-	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
+	//	while (!asyncLoad.isDone)
+	//		yield return null;
 
-		while (!asyncLoad.isDone)
-			yield return null;
-
-		//PlayerConnection.LocalPlayer.SpawnShip();
-	}
-	#endregion
-
-	#region Server
-
-	#endregion
+	//	//PlayerConnection.LocalPlayer.SpawnShip();
+	//}
 }

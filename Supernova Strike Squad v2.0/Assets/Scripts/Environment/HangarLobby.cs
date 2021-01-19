@@ -43,15 +43,15 @@ public class HangarLobby : MonoBehaviour
 
 	public void ChangeGameMode(int newModeID)
 	{
-		LobbyManager.Instance.GameMode = (GameModeType)newModeID;
+		//LobbyManager.Instance.GameMode = (GameModeType)newModeID;
 	}
 
 	public void StartGame()
 	{
 		// TODO: Find a way to fill this out
-		GameData data = null;
+		// GameData data = null;
 
-		PlayerConnection.LocalPlayer.CmdTransitionFromHangarToGame(data);
+		//PlayerConnection.LocalPlayer.CmdTransitionFromHangarToGame(data);
 	}
 
 	private void OnDrawGizmos()

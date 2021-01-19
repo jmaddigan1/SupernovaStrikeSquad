@@ -18,6 +18,8 @@ ScriptsOnlyBuild:
     - NodeMapNodeController
     - PlayerCharacterController
     - PlayerConnection
+    - PlayerConnection_ObjectManager
+    - PlayerConnection_SceneManager
     - PlayerShipController
     - SNSSNetworkManager
     - SteamLobby
@@ -124,17 +126,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 13884}
     - Class: 114
-      Script: {instanceID: 14110}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 14324}
+      Script: {instanceID: 14112}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 14154}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14328}
     - Class: 114
-      Script: {instanceID: 14570}
+      Script: {instanceID: 14438}
+    - Class: 114
+      Script: {instanceID: 14488}
+    - Class: 114
+      Script: {instanceID: 14574}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -225,13 +231,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 13884}
     - Class: 114
-      Script: {instanceID: 14110}
+      Script: {instanceID: 14074}
     - Class: 114
-      Script: {instanceID: 14128}
+      Script: {instanceID: 14112}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 14130}
+    - Class: 114
+      Script: {instanceID: 14154}
+    - Class: 114
+      Script: {instanceID: 14438}
+    - Class: 114
+      Script: {instanceID: 14488}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -306,11 +318,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 14438}
     - Class: 114
-      Script: {instanceID: 14532}
+      Script: {instanceID: 14536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -377,11 +389,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 14064}
+      Script: {instanceID: 14066}
     - Class: 114
-      Script: {instanceID: 14324}
+      Script: {instanceID: 14328}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 14438}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -881,7 +893,7 @@ ScriptsOnlyBuild:
     className: Tank
   - hash:
       serializedVersion: 2
-      Hash: 6ac52e7965116e6d02e64479e0bd9fe9
+      Hash: a5376693039be2b6db0f62b10044865c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerConnection
@@ -1307,6 +1319,12 @@ ScriptsOnlyBuild:
     className: NetworkIdentity
   - hash:
       serializedVersion: 2
+      Hash: 1241b0535621884bc0f736d87408e578
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerConnection_ObjectManager
+  - hash:
+      serializedVersion: 2
       Hash: d7bcfc1eb92c441b0be979120f82080a
     assemblyName: Mirror.dll
     namespaceName: Mirror.Logging
@@ -1389,6 +1407,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.MultipleAdditiveScenes
     className: MultiSceneNetManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerConnection_SceneManager
   - hash:
       serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a

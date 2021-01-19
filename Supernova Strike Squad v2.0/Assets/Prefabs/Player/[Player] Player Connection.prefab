@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7410492050474040790}
   - component: {fileID: 3461945997590239563}
+  - component: {fileID: 2226768675233351170}
+  - component: {fileID: 2641607813899706171}
   - component: {fileID: 8876088124923936083}
   m_Layer: 0
   m_Name: '[Player] Player Connection'
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7831868532688013253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.318769, y: -6.0288534, z: 3.0617218}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,11 +48,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerID: -1
+  PlayerSceneManager: {fileID: 2641607813899706171}
+  PlayerObjectManager: {fileID: 2226768675233351170}
+--- !u!114 &2226768675233351170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831868532688013253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c18cc6c429614dbc5e5739158cffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   shipPrefab: {fileID: 2711080151607256895, guid: 04b39c28b7e3a9e4682010958c83ff70,
     type: 3}
   characterPrefab: {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a,
     type: 3}
-  playerID: -1
+--- !u!114 &2641607813899706171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831868532688013253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aac80e0343ea245b2ad2eb3d2b7dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &8876088124923936083
 MonoBehaviour:
   m_ObjectHideFlags: 0
