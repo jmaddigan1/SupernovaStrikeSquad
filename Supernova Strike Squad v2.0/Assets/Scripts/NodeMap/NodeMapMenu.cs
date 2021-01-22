@@ -36,11 +36,14 @@ public class NodeMapMenu : NetworkBehaviour
 
 	private void OnGUI()
 	{
+		GUILayout.BeginHorizontal();
+		GUILayout.Space(250);
 		GUILayout.BeginVertical("box");
 		GUILayout.Label("NodeMap MenuCount: " + nodeMapMenuCount);
 		GUILayout.Label("EnemySpawner: " + EnemySpawner.Instance);
 		GUILayout.Label("LevelGenerator: " + LevelGenerator.Instance);
 		GUILayout.EndVertical();
+		GUILayout.EndHorizontal();
 	}
 
 	#region Client
@@ -93,7 +96,7 @@ public class NodeMapMenu : NetworkBehaviour
 	// When the NodeMap is first created we want to load the map we are playing ON THE SERVER
 	IEnumerator Start()
 	{
-		while (LevelGenerator.Instance == null && EnemySpawner.Instance == null) yield return null;
+		while (LevelGenerator.Instance == null || EnemySpawner.Instance == null) yield return null;
 
 		// Initialize the singleton
 		if (Instance == null) { Instance = this; }

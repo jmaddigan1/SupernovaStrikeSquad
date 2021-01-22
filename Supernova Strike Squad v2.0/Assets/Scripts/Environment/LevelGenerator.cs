@@ -17,14 +17,14 @@ public class LevelGenerator : NetworkBehaviour
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
 
-
-	void Start()
+	void Awake()
 	{
-		if (Instance == null) { Instance = this; }
-		else
+		if (Instance)
 		{
 			Destroy(gameObject);
 		}
+
+		Instance = this;
 
 		DontDestroyOnLoad(gameObject);
 	}

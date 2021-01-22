@@ -21,15 +21,14 @@ public class EnemySpawner : NetworkBehaviour
 	// This Dictionary is used to link enemy prefabs with Enemy IDs
 	private Dictionary<EnemyID, Enemy> enemyDictionary = new Dictionary<EnemyID, Enemy>();
 
-
-	//
-	void Start()
+	void Awake()
 	{
-		if (Instance == null) { Instance = this; }
-		else
+		if (Instance)
 		{
 			Destroy(gameObject);
 		}
+
+		Instance = this;
 
 		DontDestroyOnLoad(gameObject);
 
