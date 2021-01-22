@@ -25,6 +25,12 @@ public class NodeMapMenu : NetworkBehaviour
 	public NodeMapNodeController NodeController = null;
 
 	[SerializeField]
+	private GameObject EnemySpawnerPrefab = null;
+
+	[SerializeField]
+	private GameObject LevelGeneratorPrefab = null;
+
+	[SerializeField]
 	private Node NodePrafab = null;
 
 	[SerializeField]
@@ -50,7 +56,7 @@ public class NodeMapMenu : NetworkBehaviour
 	// The server has told us we have a new NodeMap
 	// We want to load that map and begin a new game
 	[ClientRpc]
-	public void GenerateNodeMap(string mapDataJson)
+	public void RpcGenerateNodeMap(string mapDataJson)
 	{
 		nodeMapMenuCount++;
 
@@ -96,6 +102,12 @@ public class NodeMapMenu : NetworkBehaviour
 	// When the NodeMap is first created we want to load the map we are playing ON THE SERVER
 	IEnumerator Start()
 	{
+		if (isServer)
+		{
+			NetworkServer.Spawn(Instantiate(LevelGeneratorPrefab));
+			NetworkServer.Spawn(Instantiate(EnemySpawnerPrefab));
+		}
+
 		while (LevelGenerator.Instance == null || EnemySpawner.Instance == null) yield return null;
 
 		// Initialize the singleton
@@ -144,7 +156,7 @@ public class NodeMapMenu : NetworkBehaviour
 			// This will lose all the node event data, however the clients don't need to know this anyways
 			string dataJson = JsonUtility.ToJson(mapData);
 
-			GenerateNodeMap(dataJson);
+			RpcGenerateNodeMap(dataJson); 
 		}
 	}
 

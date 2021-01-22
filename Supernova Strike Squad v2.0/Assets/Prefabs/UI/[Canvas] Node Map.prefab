@@ -80,6 +80,10 @@ MonoBehaviour:
   syncInterval: 0.1
   DepthController: {fileID: 411528032493103028}
   NodeController: {fileID: 411528032493103029}
+  EnemySpawnerPrefab: {fileID: 5284724043348920131, guid: eb20795f004069c4da04caf544ed56c3,
+    type: 3}
+  LevelGeneratorPrefab: {fileID: 1663117557485115086, guid: 7b1e66efa33c0e14e942a891cf5de5d5,
+    type: 3}
   NodePrafab: {fileID: 525775752281736067, guid: 2c94915f463dc0d4a99e30822bb4896e,
     type: 3}
   ContentAnchor: {fileID: 411528033695493928}

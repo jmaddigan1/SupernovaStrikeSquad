@@ -17,7 +17,7 @@ public class LevelGenerator : NetworkBehaviour
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
 
-	void Awake()
+	void Start()
 	{
 		if (Instance)
 		{
