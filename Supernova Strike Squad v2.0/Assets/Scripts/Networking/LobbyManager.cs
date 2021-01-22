@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
+// the Lobby Manager manages the state of the players in the hangar
 public class LobbyManager : NetworkBehaviour
 {
-	// Global Members
-	public static LobbyManager Instance;
+	#region Singleton
 
-	[SyncVar(hook = nameof(OnGameModeUpdated))]
-	public GameModeType GameMode = GameModeType.Campaign;
+	public static LobbyManager Instance;
 
 	private void Awake()
 	{
@@ -23,29 +22,13 @@ public class LobbyManager : NetworkBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	[Client]
-	public void OnGameModeUpdated(GameModeType oldMode, GameModeType newMode) { }
+	#endregion
 
-	[Command]
-	public void StartGame()
-	{
-		RpcStartGame();
-	}
+	public GameModeType GameMode;
 
-	[ClientRpc]
-	public void RpcStartGame()
-	{
-		StartCoroutine(coStartGame());
-	}
+	#region Server
+	#endregion
 
-	[Client]
-	private IEnumerator coStartGame()
-	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
-
-		while (!asyncLoad.isDone)
-			yield return null;
-
-		//PlayerConnection.LocalPlayer.SpawnShip();
-	}
+	#region Client
+	#endregion
 }

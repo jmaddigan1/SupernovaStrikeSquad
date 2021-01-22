@@ -1,24 +1,20 @@
-﻿using Mirror;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class PlayerConnection : NetworkBehaviour
 {
 	// Global Members
 	public static PlayerConnection LocalPlayer;
 
-
 	// Public Members
 	// The PlayerIndex can be used to identify this player
 	[SyncVar(hook = nameof(OnPlayerIDUpdate))]
 	public int playerID = -1;
 
-
-	//
 	public PlayerConnection_SceneManager PlayerSceneManager = null;
-
-	//
 	public PlayerConnection_ObjectManager PlayerObjectManager = null;
-
 
 	// When a player connects to the game
 	// We want to make sure its gameobject cannot be destroyed
@@ -60,7 +56,7 @@ public class PlayerConnection : NetworkBehaviour
 
 	[ClientRpc]
 	// Cause all the hangar doors to update
-	public void RpcUpdateHangarState() => HangarLobby.Instance.UpdateHangarStates();
+	public void RpcUpdateHangarState() => HangarLobby.Instance?.UpdateHangarStates();
 
 	#endregion
 
@@ -71,11 +67,24 @@ public class PlayerConnection : NetworkBehaviour
 
 	[Command]
 	// The players are ready and we are entering game
-	public void CmdTransitionFromHangarToGame(GameData data) => PlayerSceneManager.RpcLoadGameScene(data);
+	public void CmdTransitionFromHangarToGame(GameData data)
+	{
+		PlayerSceneManager.RpcLoadGameScene(data);
+	}
 
 	[Command]
 	// The game is over and we are moving back to the hangar
 	public void CmdTransitionFromGameToHangar() => PlayerSceneManager.RpcLoadHangarScene();
+
+	[Command]
+	// Start a new node event
+	public void CmdStartNewEvent(int nodeID)
+	{
+		Debug.Log(nodeID);
+
+		Node node = NodeMapMenu.Instance.NodeController.NodeList[nodeID];
+		NodeMapMenu.Instance.StartEvent(node.NodeData.Event);
+	}
 
 	#endregion
 }

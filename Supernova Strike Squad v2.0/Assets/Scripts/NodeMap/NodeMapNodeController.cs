@@ -17,4 +17,13 @@ public class NodeMapNodeController : MonoBehaviour
 
 		return nodes;
 	}
+
+	public void Clear()
+	{
+		foreach (Node node in NodeList) {
+			Destroy(node.gameObject);
+		}
+
+		NodeList.Clear();
+	}
 }

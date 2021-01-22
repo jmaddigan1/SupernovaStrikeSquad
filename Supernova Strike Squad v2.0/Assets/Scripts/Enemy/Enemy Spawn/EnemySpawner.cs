@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : NetworkBehaviour
 {
 	// Static Members
 	// The Enemy Spawner Singleton
@@ -77,6 +78,8 @@ public class EnemySpawner : MonoBehaviour
 		{
 			Enemy newEnemy = Instantiate(enemyDictionary[enemy]);
 			newEnemy.OnDeath += onDeathCallback;
+
+			NetworkServer.Spawn(newEnemy.gameObject);
 
 			return newEnemy;
 		}

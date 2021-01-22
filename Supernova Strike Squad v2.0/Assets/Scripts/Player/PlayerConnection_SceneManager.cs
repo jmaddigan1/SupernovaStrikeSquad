@@ -6,6 +6,8 @@ using Mirror;
 
 public class PlayerConnection_SceneManager : NetworkBehaviour
 {
+	public GameObject NodeMapPrefab = null;
+
 	[ClientRpc]
 	public void RpcLoadGameScene(GameData data) => PlayerConnection.LocalPlayer.StartCoroutine(coLoadGameScene());
 
@@ -18,13 +20,19 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 
 		while (!asyncLoad.isDone) yield return null;
 
-		yield return new WaitForSecondsRealtime(0.5f);
+		yield return new WaitForSecondsRealtime(0.25f);
 
-		PlayerConnection.LocalPlayer.SpawnShip();
+		PlayerConnection.LocalPlayer.PlayerSceneManager.CmdSpawnNodemap();
 	}
 
 	public IEnumerator coLoadHangarScene()
 	{
 		yield return null;
+	}
+
+	[Command]
+	public void CmdSpawnNodemap()
+	{
+		NetworkServer.Spawn(Instantiate(NodeMapPrefab));
 	}
 }

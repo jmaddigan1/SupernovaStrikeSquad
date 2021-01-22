@@ -14,7 +14,6 @@ public class NodeEvent_Arean : NodeEvent
 	// The Wave data we are managing
 	public EnemyWaveData currentWaveData;
 
-
 	public override void OnStartEvent()
 	{
 		base.OnStartEvent();
@@ -81,6 +80,6 @@ public class NodeEvent_Arean : NodeEvent
 
 	public override bool IsOver()
 	{
-		return base.IsOver();
+		return EnemyCount <= 0;
 	}
 }

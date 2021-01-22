@@ -1,35 +1,103 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Mirror;
+using System;
 
 [RequireComponent(typeof(NodeMapDepthController))]
 [RequireComponent(typeof(NodeMapNodeController))]
 
-public class NodeMapMenu : MonoBehaviour
+// The Node Map Menu is a canvas spawned in by each client when the Main scene is loaded
+// This Menu loads the game that was selected in the hangar
+
+public class NodeMapMenu : NetworkBehaviour
 {
+	public static NodeMapMenu Instance;
+
 	[SerializeField]
+	// The DepthController manages the depth groups for the node map
 	public NodeMapDepthController DepthController = null;
 
 	[SerializeField]
+	// The NodeController manages the nodes for the node map
 	public NodeMapNodeController NodeController = null;
 
 	[SerializeField]
 	private Node NodePrafab = null;
 
 	[SerializeField]
-	private GameObject Content;
+	private GameObject ContentAnchor = null;
 
 	// Private Members
+	// Is there currently a node event running on the server?
 	private bool eventRunning = false;
 
-	private void Awake()
+	#region Client
+	// The server has told us we have a new NodeMap
+	// We want to load that map and begin a new game
+	[ClientRpc]
+	public void GenerateNodeMap(string mapDataJson)
 	{
-		NodeMapData mapData = new NodeMapData
-		{
-			Depth = 6,
+		// We have received the node map data from the server
+		// There is a problem however
 
-			Nodes = new List<NodeData> {
+		// Because the Node events are ABSTRACT, we are missing all our event data
+
+		// This is OK because we only need to send the ID of the node we want to play to the server
+		// clients don't need to know all the information for each events
+		NodeMapData mapData = JsonUtility.FromJson<NodeMapData>(mapDataJson);
+
+		DepthController.Init(mapData.Depth);
+
+		foreach (NodeData node in mapData.Nodes)
+		{
+			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
+		}
+	}
+
+	[ClientRpc]
+	void RpcSpawnShip()
+	{
+		PlayerConnection.LocalPlayer.SpawnShip();
+	}
+
+	[ClientRpc]
+	public void RpcOpenMenu()
+	{
+		ContentAnchor.SetActive(true);
+	}
+
+	[ClientRpc]
+	public void RpcCloseMenu()
+	{
+		ContentAnchor.SetActive(false);
+	}
+
+	#endregion
+
+	#region Server
+
+	// When the NodeMap is first created we want to load the map we are playing ON THE SERVER
+	private void Start()
+	{
+		// Initialize the singleton
+		if (Instance == null) { Instance = this; }
+		else
+		{
+			Destroy(gameObject);
+		}
+
+		DontDestroyOnLoad(gameObject);
+
+		// If this is the server or the host
+		if (isServer)
+		{
+			// Get the NodeMap data from something
+			NodeMapData mapData = new NodeMapData
+			{
+				Depth = 6,
+
+				Nodes = new List<NodeData> {
 				new NodeData { Name = "TempName 0", Depth = 0, Event = new NodeEvent_Arean(),  ConnectedNodes = new List<int>{ 1, 2 } },
 
 				new NodeData { Name = "TempName 1", Depth = 1, ConnectedNodes = new List<int>{ 3 } },
@@ -45,32 +113,39 @@ public class NodeMapMenu : MonoBehaviour
 
 				new NodeData { Name = "TempName 8", Depth = 5, ConnectedNodes = new List<int>{ } },
 			}
-		};
+			};
 
-		GenerateNodeMap(mapData);
-	}
+			// Give each node its index
+			for (int i = 0; i < mapData.Nodes.Count; i++) mapData.Nodes[i].Index = i;
 
-	public void GenerateNodeMap(NodeMapData mapData)
-	{
-		DepthController.Init(mapData.Depth);
+			// NOTE: Because of the NodeEvent in NodeMapData -> Node -> NodeEvent
+			// We cannot send the normal map data class over the server
+			// Mirror does not let us use abstract classes as data
 
-		foreach (NodeData node in mapData.Nodes)
-		{
-			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
+			// So as a fix, we are sending the node data as a string
+			// This will lose all the node event data, however the clients don't need to know this anyways
+			string dataJson = JsonUtility.ToJson(mapData);
+
+			GenerateNodeMap(dataJson);
 		}
 	}
 
-	#region [Region] Run Event Methods
-
-	public IEnumerator StartNewEvent(NodeEvent eventData)
+	[Server]
+	public void StartEvent(NodeEvent eventData)
 	{
-		if (!eventRunning)
+		StartCoroutine(StartNewEvent(eventData));
+	}
+
+	[Server]
+	IEnumerator StartNewEvent(NodeEvent eventData)
+	{
+		if (!eventRunning && isServer)
 		{
 			eventRunning = true;
 
 			yield return CloseMenu();
 
-			yield return PlayEvent(eventData);		
+			yield return PlayEvent(eventData);
 
 			eventRunning = false;
 
@@ -78,13 +153,18 @@ public class NodeMapMenu : MonoBehaviour
 		}
 	}
 
-	public IEnumerator PlayEvent(NodeEvent eventData)
+	[Server]
+	IEnumerator PlayEvent(NodeEvent eventData)
 	{
 		eventData.OnStartEvent();
 
+		// TODO: Put this in the node event scripts
+		RpcSpawnShip();
+
 		LevelGenerator.Build(eventData.Environment);
 
-		while (eventData.IsOver() == false) {
+		while (eventData.IsOver() == false)
+		{
 			yield return null;
 		}
 
@@ -94,16 +174,18 @@ public class NodeMapMenu : MonoBehaviour
 		LevelGenerator.Remove();
 	}
 
-	private IEnumerator OpenMenu()
+	[Server]
+	IEnumerator OpenMenu()
 	{
-		//Content.SetActive(true);
-		yield return null;
+		RpcOpenMenu();
+		yield return new WaitForSeconds(0.5f);
 	}
 
-	private IEnumerator CloseMenu()
+	[Server]
+	IEnumerator CloseMenu()
 	{
-		//Content.SetActive(false);
-		yield return null;
+		RpcCloseMenu();
+		yield return new WaitForSeconds(0.5f);
 	}
 
 	#endregion

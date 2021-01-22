@@ -30,9 +30,6 @@ public class PlayerCharacterController : NetworkBehaviour
 	public override void OnStartAuthority()
 	{
 		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
-
-		// Set the player character initial position
-		transform.position = HangarLobby.Instance.GetSpawnPosition(PlayerConnection.LocalPlayer.playerID).position;
 	}
 
 	void FixedUpdate()

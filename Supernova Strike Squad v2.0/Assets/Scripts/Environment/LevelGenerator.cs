@@ -17,8 +17,8 @@ public class LevelGenerator : NetworkBehaviour
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
 
-	
-	private void Awake()
+
+	void Awake()
 	{
 		if (Instance == null) { Instance = this; }
 		else
@@ -29,10 +29,9 @@ public class LevelGenerator : NetworkBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
+	[Server]
 	void BuildEnvironment(EnvironmentData data)
 	{
-		if (isServer == false) return;
-
 		for (int count = 0; count < data.AsteroidCount; count++)
 		{
 			GameObject go = Instantiate(asteroidPrefab);
@@ -56,19 +55,27 @@ public class LevelGenerator : NetworkBehaviour
 
 	public static void Build(EnvironmentData data)
 	{
-		if (Instance == null)
-		{
-			Debug.LogError("ERROR: There is no 'LevelGenerator' in the scene");
-		}
-		else
+		if (ValidSingleton())
 		{
 			Instance.BuildEnvironment(data);
 		}
+
 	}
 
 	public static void Remove()
 	{
 
+	}
+
+	static bool ValidSingleton()
+	{
+		if (Instance == null)
+		{
+			Debug.LogError("ERROR: There is no 'LevelGenerator' in the scene");
+			return false;
+		}
+
+		return true;
 	}
 
 	#endregion

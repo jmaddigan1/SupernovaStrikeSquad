@@ -16,7 +16,7 @@ public class Node : MonoBehaviour
 		NodeMap = nodeMap;
 		NodeData = nodeData;
 
-		Button.onClick.AddListener(() => { StartCoroutine(nodeMap.StartNewEvent(NodeData.Event)); });
+		Button.onClick.AddListener(() => { PlayerConnection.LocalPlayer.CmdStartNewEvent(NodeData.Index);});
 
 		return this;
 	}
