@@ -25,6 +25,7 @@ public class LobbyManager : NetworkBehaviour
 	#endregion
 
 	public GameModeType GameMode;
+	public LobbyType LobbyType;
 
 	#region Server
 	#endregion

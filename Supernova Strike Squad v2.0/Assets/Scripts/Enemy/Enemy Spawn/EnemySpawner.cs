@@ -30,8 +30,6 @@ public class EnemySpawner : NetworkBehaviour
 
 		Instance = this;
 
-		DontDestroyOnLoad(gameObject);
-
 		BuildDictionary();
 	}
 

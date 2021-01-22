@@ -2134,6 +2134,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   GameMode: 0
+  LobbyType: 1
 --- !u!114 &5306831209174089878
 MonoBehaviour:
   m_ObjectHideFlags: 0

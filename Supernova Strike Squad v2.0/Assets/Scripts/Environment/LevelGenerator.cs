@@ -25,8 +25,6 @@ public class LevelGenerator : NetworkBehaviour
 		}
 
 		Instance = this;
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	[Server]
