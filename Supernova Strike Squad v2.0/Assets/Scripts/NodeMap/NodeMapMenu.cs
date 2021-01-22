@@ -14,6 +14,8 @@ public class NodeMapMenu : NetworkBehaviour
 {
 	public static NodeMapMenu Instance;
 
+	public static int nodeMapMenuCount = 0;
+
 	[SerializeField]
 	// The DepthController manages the depth groups for the node map
 	public NodeMapDepthController DepthController = null;
@@ -32,12 +34,21 @@ public class NodeMapMenu : NetworkBehaviour
 	// Is there currently a node event running on the server?
 	private bool eventRunning = false;
 
+	private void OnGUI()
+	{
+		GUILayout.BeginVertical("box");
+		GUILayout.Label("NodeMap MenuCount: " + nodeMapMenuCount);
+		GUILayout.EndVertical();
+	}
+
 	#region Client
 	// The server has told us we have a new NodeMap
 	// We want to load that map and begin a new game
 	[ClientRpc]
 	public void GenerateNodeMap(string mapDataJson)
 	{
+		nodeMapMenuCount++;
+
 		// We have received the node map data from the server
 		// There is a problem however
 

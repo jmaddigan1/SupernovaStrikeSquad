@@ -80,7 +80,7 @@ public class PlayerConnection : NetworkBehaviour
 	// Start a new node event
 	public void CmdStartNewEvent(int nodeID)
 	{
-		Debug.Log(nodeID);
+		Debug.Log("CmdStartNewEvent: " + nodeID);
 
 		Node node = NodeMapMenu.Instance.NodeController.NodeList[nodeID];
 		NodeMapMenu.Instance.StartEvent(node.NodeData.Event);

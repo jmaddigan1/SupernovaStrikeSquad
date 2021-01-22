@@ -22,17 +22,11 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 
 		yield return new WaitForSecondsRealtime(0.25f);
 
-		PlayerConnection.LocalPlayer.PlayerSceneManager.CmdSpawnNodemap();
+		if (isServer) NetworkServer.Spawn(Instantiate(NodeMapPrefab));
 	}
 
 	public IEnumerator coLoadHangarScene()
 	{
 		yield return null;
-	}
-
-	[Command]
-	public void CmdSpawnNodemap()
-	{
-		NetworkServer.Spawn(Instantiate(NodeMapPrefab));
 	}
 }
