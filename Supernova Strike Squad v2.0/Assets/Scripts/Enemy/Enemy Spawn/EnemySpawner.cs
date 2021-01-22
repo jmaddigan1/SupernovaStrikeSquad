@@ -23,7 +23,7 @@ public class EnemySpawner : NetworkBehaviour
 
 
 	//
-	void Awake()
+	void Start()
 	{
 		if (Instance == null) { Instance = this; }
 		else
