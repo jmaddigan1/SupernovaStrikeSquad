@@ -9,24 +9,38 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 	public GameObject NodeMapPrefab = null;
 
 	[ClientRpc]
-	public void RpcLoadGameScene(GameData data) => PlayerConnection.LocalPlayer.StartCoroutine(coLoadGameScene());
+	public void RpcLoadGameScene(GameData data) => 
+		PlayerConnection.LocalPlayer.StartCoroutine(coLoadGameScene());
 
 	[ClientRpc]
-	public void RpcLoadHangarScene() => PlayerConnection.LocalPlayer.StartCoroutine(coLoadHangarScene());
+	public void RpcLoadHangarScene(bool online) => 
+		PlayerConnection.LocalPlayer.StartCoroutine(coLoadHangarScene(online));
 
-	public IEnumerator coLoadGameScene()
+	IEnumerator coLoadGameScene()
 	{
+		// Load and wait for the scene to be loaded
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
-
 		while (!asyncLoad.isDone) yield return null;
 
 		yield return new WaitForSecondsRealtime(0.25f);
 
-		if (isServer) NetworkServer.Spawn(Instantiate(NodeMapPrefab));
+		if (isServer && NodeMapMenu.Instance == null) NetworkServer.Spawn(Instantiate(NodeMapPrefab));
+
+		PlayerConnection.LocalPlayer.PlayerObjectManager.CmdSpawnShipIntoGames();
 	}
 
-	public IEnumerator coLoadHangarScene()
+	IEnumerator coLoadHangarScene(bool online)
 	{
-		yield return null;
+		string scene = online ? "Hangar_Steam" : "Hangar_Local";
+
+		// Load and wait for the scene to be loaded
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+		while (!asyncLoad.isDone) yield return null;
+
+		yield return new WaitForSecondsRealtime(0.25f);
+
+		if (isServer && NodeMapMenu.Instance) NetworkServer.Destroy(NodeMapMenu.Instance.gameObject);
+
+		PlayerConnection.LocalPlayer.PlayerObjectManager.CmdSpawnCharacterIntoGames();
 	}
 }

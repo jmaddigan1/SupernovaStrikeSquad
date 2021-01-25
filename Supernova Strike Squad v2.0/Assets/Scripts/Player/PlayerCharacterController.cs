@@ -30,6 +30,7 @@ public class PlayerCharacterController : NetworkBehaviour
 	public override void OnStartAuthority()
 	{
 		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
+		PlayerConnection.LocalPlayer.PlayerObjectManager.PlayerObject = gameObject;
 	}
 
 	void FixedUpdate()

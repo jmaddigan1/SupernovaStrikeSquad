@@ -15,7 +15,7 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 
 	[Header("Player Object")]
 
-	private GameObject PlayerObject;
+	public GameObject PlayerObject;
 
 	[Command]
 	public void CmdSpawnShipIntoGames()

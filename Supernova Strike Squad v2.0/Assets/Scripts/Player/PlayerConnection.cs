@@ -39,7 +39,7 @@ public class PlayerConnection : NetworkBehaviour
 
 		// We know we are starting in the hangar scene
 		// We spawn the player controller for this client
-		SpawnPlayer();
+		PlayerObjectManager.CmdSpawnCharacterIntoGames();
 	}
 
 	// When the local players index is updated
@@ -47,12 +47,6 @@ public class PlayerConnection : NetworkBehaviour
 	{
 		HangarLobby.Instance.UpdateHangarStates();
 	}
-
-	// Spawns a character controller for this client
-	public void SpawnPlayer() => PlayerObjectManager.CmdSpawnCharacterIntoGames();
-
-	// Spawns a ship controller for this client
-	public void SpawnShip() => PlayerObjectManager.CmdSpawnShipIntoGames();
 
 	[ClientRpc]
 	// Cause all the hangar doors to update
@@ -74,7 +68,7 @@ public class PlayerConnection : NetworkBehaviour
 
 	[Command]
 	// The game is over and we are moving back to the hangar
-	public void CmdTransitionFromGameToHangar() => PlayerSceneManager.RpcLoadHangarScene();
+	public void CmdTransitionFromGameToHangar(bool online) => PlayerSceneManager.RpcLoadHangarScene(online);
 
 	[Command]
 	// Start a new node event

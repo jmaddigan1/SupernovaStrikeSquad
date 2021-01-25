@@ -31,6 +31,8 @@ public class Tween : MonoBehaviour
 		{
 			Destroy(this);
 		}
+
+		transform.SetParent(null);
 	}
 
 	public IEnumerator coEase_Transform(Transform target, AnimationCurve curve,

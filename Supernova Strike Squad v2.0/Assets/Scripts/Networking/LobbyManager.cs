@@ -31,5 +31,18 @@ public class LobbyManager : NetworkBehaviour
 	#endregion
 
 	#region Client
+
+	void OnGUI()
+	{
+		GUILayout.BeginVertical("box");
+		if (GUILayout.Button("X"))
+		{
+			EndGame();
+		}
+		GUILayout.EndVertical();
+	}
+
+	public void EndGame() => PlayerConnection.LocalPlayer.CmdTransitionFromGameToHangar(LobbyType == LobbyType.Steam);
+
 	#endregion
 }

@@ -78,12 +78,6 @@ public class NodeMapMenu : NetworkBehaviour
 	}
 
 	[ClientRpc]
-	void RpcSpawnShip()
-	{
-		PlayerConnection.LocalPlayer.SpawnShip();
-	}
-
-	[ClientRpc]
 	public void RpcOpenMenu()
 	{
 		ContentAnchor.SetActive(true);
@@ -187,9 +181,6 @@ public class NodeMapMenu : NetworkBehaviour
 	IEnumerator PlayEvent(NodeEvent eventData)
 	{
 		eventData.OnStartEvent();
-
-		// TODO: Put this in the node event scripts
-		RpcSpawnShip();
 
 		LevelGenerator.Build(eventData.Environment);
 

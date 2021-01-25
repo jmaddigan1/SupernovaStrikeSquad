@@ -6,11 +6,25 @@ using Steamworks;
 
 public class SNSSNetworkManager : NetworkManager
 {
+	public static SNSSNetworkManager Instance;
+
 	private Stack<int> openIDs = new Stack<int>();
+
+	public override void Awake()
+	{	
+		if (Instance)
+		{
+			Destroy(gameObject);
+		}
+
+		Instance = this;
+		DontDestroyOnLoad(gameObject);
+
+		base.Awake();
+	}
 
 	public override void OnStartServer() {
 		for (int index = 5; index >= 0; index--) openIDs.Push(index);
-		DontDestroyOnLoad(gameObject);
 	}
 
 	public override void OnServerAddPlayer(NetworkConnection conn)
