@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mirror; 
+using Mirror;
 
-public class ProjectilesBase : NetworkBehaviour
+// NOTE: Each projectile is spawned by the local clients weapon
+// NOTE: Each projectile is synced by its owner not the server
+
+// This is so we can get the smoothest gameplay. This could change
+
+public class ProjectilesBase : NetworkBehaviour, IDamageSource
 {
 	// Public Members
 	// The forward speed of the projectile
 	public float Speed = 75.0f;
+
+	public int Damage = 1;
 
 	// Private Members
 	private Rigidbody myRigidbody;
@@ -18,27 +25,44 @@ public class ProjectilesBase : NetworkBehaviour
 		// Get this projectiles rigidbody
 		myRigidbody = GetComponent<Rigidbody>();
 
-		// If we are NOT its owner
-		// Remove this projectiles rigidbody
-		if (!hasAuthority)
+		// Destroy this projectile after 2s
+		if (isServer) Destroy(gameObject, 2);
+	}
+
+	#region Client
+
+	private void FixedUpdate()
+	{
+		if (hasAuthority)
 		{
-			Destroy(myRigidbody);
-			return;
+			myRigidbody.MovePosition(myRigidbody.position + transform.forward * Speed * Time.fixedDeltaTime);
 		}
-
-		// Start moving the projectile
-		myRigidbody.velocity = transform.forward * Speed;
-
-		// Set this projectiles lifetime
-		Destroy(gameObject, 2.0f);
 	}
 
-	// When this projectile collides with 
-	void OnCollisionEnter(Collision collision)
-    {
-		// Do nothing if we are NOT the projectile owner
-        if (hasAuthority == false) return;
-
-        Debug.LogError(collision.gameObject.name);
+	public int GetDamage()
+	{
+		return Damage;
 	}
+
+	#endregion
+
+	#region Server
+
+	// When we destroy this projectile we want to destroy it on all clients
+	void OnDestroy()
+	{
+		if (isServer) NetworkServer.Destroy(gameObject);
+	}
+
+	//[Command]
+	//// When this projectile hits a target we want to deal damage to it
+	//private void CmdDealDamage(GameObject target, int damage)
+	//{
+	//	if (target.TryGetComponent<IDamageable>(out IDamageable t))
+	//	{
+	//		t.DealDamage(damage);
+	//	}
+	//}
+
+	#endregion
 }

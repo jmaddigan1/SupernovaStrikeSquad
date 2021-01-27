@@ -69,6 +69,7 @@ MonoBehaviour:
     type: 3}
   characterPrefab: {fileID: 7288695489326231439, guid: f5607911209a03449bec2703c970434a,
     type: 3}
+  PlayerObject: {fileID: 0}
 --- !u!114 &2641607813899706171
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,20 +4,40 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    //
-    private Transform target;
+	[SerializeField]
+	private Transform cameraTransform = null;
 
-    //
-    private Vector3 offset;
+	//
+	private KeyCode freeCameraKey = KeyCode.LeftShift;
 
-    //
-    public void SetTarget(Transform newTarget, Vector3 cameraOffset)
+	private Transform target;
+
+	private Vector3 offset;
+
+	private bool freeCamera;
+
+	//
+	public void SetTarget(Transform newTarget, Vector3 cameraOffset)
 	{
-        offset = cameraOffset;
-        target = newTarget;
+		offset = cameraOffset;
+		target = newTarget;
 
-        transform.parent = newTarget;
+		transform.parent = newTarget;
 
-        transform.localPosition = offset;
-    }
+		transform.localPosition = Vector3.zero;
+
+		cameraTransform.localPosition = offset;
+	}
+
+	void FixedUpdate()
+	{
+		freeCamera = Input.GetKey(freeCameraKey);
+
+		if (freeCamera)
+		{
+			float yaw = 5 * -Input.GetAxis("Mouse X");
+
+			transform.Rotate (0, yaw, 0);
+		}
+	}
 }

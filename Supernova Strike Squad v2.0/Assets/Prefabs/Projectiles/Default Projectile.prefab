@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4445290591184703184}
   - component: {fileID: 1940271715609510280}
+  - component: {fileID: 3777585796170625192}
   - component: {fileID: -1201128393183190882}
   - component: {fileID: 8470926906060979996}
   - component: {fileID: 5211520928376924524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Default Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +51,19 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   Speed: 75
+  Damage: 1
+--- !u!114 &3777585796170625192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376027486423127939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801175ef3c542df4ba7431f8513e0f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1201128393183190882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +126,7 @@ GameObject:
   - component: {fileID: 4306976281069097127}
   - component: {fileID: 6411003923798766412}
   - component: {fileID: 1971727325830081898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

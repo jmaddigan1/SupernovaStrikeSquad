@@ -61,6 +61,8 @@ public class NodeEvent_Arean : NodeEvent
 	{
 		EnemyCount--;
 
+		Debug.Log("EnemyCount: " + EnemyCount);
+
 		if (EnemyCount <= 0)
 		{
 			WaveIndex++;

@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+// The Level Generator build a given environment when given EnvironmentData
 public class LevelGenerator : NetworkBehaviour
 {
 	// Global Members
+	// The Level LevelGenerator Singleton
 	public static LevelGenerator Instance;
-
 
 	// Editor References
 	[SerializeField]
 	private GameObject asteroidPrefab = null;
 
+	// Private Members
+	private EnvironmentData environment;
 
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
@@ -30,6 +33,8 @@ public class LevelGenerator : NetworkBehaviour
 	[Server]
 	void BuildEnvironment(EnvironmentData data)
 	{
+		environment = data;
+
 		for (int count = 0; count < data.AsteroidCount; count++)
 		{
 			GameObject go = Instantiate(asteroidPrefab);
@@ -42,28 +47,20 @@ public class LevelGenerator : NetworkBehaviour
 				 UnityEngine.Random.Range(-data.Size, data.Size)
 			);
 
-			//scale = Mathf.Clamp(scale, data.MinAsteroidSize, scale * data.MaxAsteroidSize);
-
 			go.transform.localScale = Vector3.one * scale;
 			NetworkServer.Spawn(go);
 		}
 	}
 
+	void OnDrawGizmos()
+	{
+		if (environment !=null) Gizmos.DrawWireSphere(transform.position, environment.Size * 2);
+	}
+
 	#region Level Generator Wrapper Methods
 
-	public static void Build(EnvironmentData data)
-	{
-		if (ValidSingleton())
-		{
-			Instance.BuildEnvironment(data);
-		}
-
-	}
-
-	public static void Remove()
-	{
-
-	}
+	public static void Build(EnvironmentData data) { if (ValidSingleton()) Instance.BuildEnvironment(data); }
+	public static void Remove() { }
 
 	static bool ValidSingleton()
 	{

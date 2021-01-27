@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using Mirror;
 
-public class Enemy : MonoBehaviour
+public class Enemy : NetworkBehaviour
 {
 	public Action<Enemy> OnDeath;
 
@@ -17,11 +18,8 @@ public class Enemy : MonoBehaviour
 			);
 	}
 
-	[ContextMenu("KILL")]
-	public void Die()
+	void OnDestroy()
 	{
-		OnDeath.Invoke(this);
-
-		Destroy(gameObject);
+		OnDeath?.Invoke(this);
 	}
 }

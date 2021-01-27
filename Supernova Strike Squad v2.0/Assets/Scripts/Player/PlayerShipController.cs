@@ -33,4 +33,12 @@ public class PlayerShipController : NetworkBehaviour
 			transform.Rotate(-y * 45 * Time.deltaTime, x * 45 * Time.deltaTime, 0);
 		}
 	}
+
+	void OnDestroy()
+	{
+		if (hasAuthority)
+		{
+			FindObjectOfType<CameraController>().SetTarget(null, cameraOffset);
+		}
+	}
 }

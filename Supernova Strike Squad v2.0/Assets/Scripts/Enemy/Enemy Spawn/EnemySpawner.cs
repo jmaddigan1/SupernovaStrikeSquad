@@ -49,13 +49,13 @@ public class EnemySpawner : NetworkBehaviour
 		}
 	}
 
-	//
+	[Server]
 	public void SpawnWave(EnemyWave enemyWave, Action<Enemy> onDeathCallback = null)
 	{
 		foreach (SpawnParameters enemy in enemyWave.Enemies) SpawnEnemies(enemy, onDeathCallback);
 	}
 
-	//
+	[Server]
 	void SpawnEnemies(SpawnParameters spawnParameters, Action<Enemy> onDeathCallback = null)
 	{
 		for (int count = 0; count < spawnParameters.EnemyCount; count++)
@@ -64,7 +64,7 @@ public class EnemySpawner : NetworkBehaviour
 		}
 	}
 
-	//
+	[Server]
 	private Enemy SpawnEnemy(EnemyID enemy, Action<Enemy> onDeathCallback = null)
 	{
 		if (enemyDictionary.ContainsKey(enemy) == false)
@@ -84,35 +84,21 @@ public class EnemySpawner : NetworkBehaviour
 		return null;
 	}
 
-
 	#region Static Singleton Wrappers
 
-	//
-	public static void SpawnEnemies(EnemyWave enemyWave, Action<Enemy> onDeathCallback = null)
-	{
-		if (Instance == null)
-		{
-			Debug.LogError("ERROR: There is no 'EnemySpawner' in the scene");
-		}
-		else
-		{
-			Instance.SpawnWave(enemyWave, onDeathCallback);
-		}
+	public static void SpawnEnemies(EnemyWave enemyWave, Action<Enemy> onDeathCallback = null)	{
+		if (ValidSingleton()) Instance.SpawnWave(enemyWave, onDeathCallback); 
 	}
 
-	//
-	public static Enemy Spawn(EnemyID enemyID, Action<Enemy> onDeathCallback = null)
+	static bool ValidSingleton()
 	{
 		if (Instance == null)
 		{
 			Debug.LogError("ERROR: There is no 'EnemySpawner' in the scene");
-		}
-		else
-		{
-			return Instance.SpawnEnemy(enemyID, onDeathCallback);
+			return false;
 		}
 
-		return null;
+		return true;
 	}
 
 	#endregion

@@ -24,11 +24,8 @@ public class NodeMapMenu : NetworkBehaviour
 	// The NodeController manages the nodes for the node map
 	public NodeMapNodeController NodeController = null;
 
-	[SerializeField]
-	private GameObject EnemySpawnerPrefab = null;
-
-	[SerializeField]
-	private GameObject LevelGeneratorPrefab = null;
+	[SerializeField] private GameObject EnemySpawnerPrefab = null;
+	[SerializeField] private GameObject LevelGeneratorPrefab = null;
 
 	[SerializeField]
 	private Node NodePrafab = null;
@@ -77,17 +74,8 @@ public class NodeMapMenu : NetworkBehaviour
 		}
 	}
 
-	[ClientRpc]
-	public void RpcOpenMenu()
-	{
-		ContentAnchor.SetActive(true);
-	}
-
-	[ClientRpc]
-	public void RpcCloseMenu()
-	{
-		ContentAnchor.SetActive(false);
-	}
+	[ClientRpc] public void RpcOpenMenu() => ContentAnchor.SetActive(true);
+	[ClientRpc] public void RpcCloseMenu() => ContentAnchor.SetActive(false);
 
 	#endregion
 
@@ -160,6 +148,8 @@ public class NodeMapMenu : NetworkBehaviour
 		StartCoroutine(StartNewEvent(eventData));
 	}
 
+	#region Manage Event
+
 	[Server]
 	IEnumerator StartNewEvent(NodeEvent eventData)
 	{
@@ -208,6 +198,8 @@ public class NodeMapMenu : NetworkBehaviour
 		RpcCloseMenu();
 		yield return new WaitForSeconds(0.5f);
 	}
+
+	#endregion
 
 	#endregion
 }
