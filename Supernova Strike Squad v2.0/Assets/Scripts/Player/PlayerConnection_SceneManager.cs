@@ -9,7 +9,7 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 	public GameObject NodeMapPrefab = null;
 
 	[ClientRpc]
-	public void RpcLoadGameScene(GameData data) => 
+	public void RpcLoadGameScene() => 
 		PlayerConnection.LocalPlayer.StartCoroutine(coLoadGameScene());
 
 	[ClientRpc]

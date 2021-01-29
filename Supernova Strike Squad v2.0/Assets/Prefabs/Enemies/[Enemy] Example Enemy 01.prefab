@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  MaxHealth: 25
+  MaxHealth: 5
   CurrentHealth: 0
 --- !u!54 &6335510965274036559
 Rigidbody:

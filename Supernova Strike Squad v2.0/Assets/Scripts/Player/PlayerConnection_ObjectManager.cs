@@ -30,4 +30,24 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 		PlayerObject = Instantiate(characterPrefab);
 		NetworkServer.Spawn(PlayerObject, connectionToClient);
 	}
+
+	public void PausePlayerObject()
+	{
+		if (!hasAuthority) return;
+
+		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
+		{
+			shipController.Pause(true);
+		}
+	}
+
+	public void UnpausePlayerObject()
+	{
+		if (!hasAuthority) return; 
+		
+		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
+		{
+			shipController.Pause(false);
+		}
+	}
 }

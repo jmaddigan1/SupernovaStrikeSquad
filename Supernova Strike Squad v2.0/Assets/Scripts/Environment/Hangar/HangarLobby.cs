@@ -43,9 +43,6 @@ public class HangarLobby : MonoBehaviour
 
 	public void StartGame()
 	{
-		// TODO: Find a way to fill this out
-		 GameData data = null;
-
-		PlayerConnection.LocalPlayer.CmdTransitionFromHangarToGame(data);
+		PlayerConnection.LocalPlayer.CmdTransitionFromHangarToGame();
 	}
 }

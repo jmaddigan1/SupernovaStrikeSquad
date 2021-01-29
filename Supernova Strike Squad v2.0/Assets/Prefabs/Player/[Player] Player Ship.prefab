@@ -55,6 +55,7 @@ MonoBehaviour:
   syncInterval: 0.1
   Speed: 15
   cameraOffset: {x: 0, y: 2, z: -6}
+  Paused: 1
 --- !u!114 &7769195681768059682
 MonoBehaviour:
   m_ObjectHideFlags: 0

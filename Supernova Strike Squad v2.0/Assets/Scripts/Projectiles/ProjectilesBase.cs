@@ -54,15 +54,5 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 		if (isServer) NetworkServer.Destroy(gameObject);
 	}
 
-	//[Command]
-	//// When this projectile hits a target we want to deal damage to it
-	//private void CmdDealDamage(GameObject target, int damage)
-	//{
-	//	if (target.TryGetComponent<IDamageable>(out IDamageable t))
-	//	{
-	//		t.DealDamage(damage);
-	//	}
-	//}
-
 	#endregion
 }

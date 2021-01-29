@@ -14,8 +14,6 @@ public class NodeMapMenu : NetworkBehaviour
 {
 	public static NodeMapMenu Instance;
 
-	public static int nodeMapMenuCount = 0;
-
 	[SerializeField]
 	// The DepthController manages the depth groups for the node map
 	public NodeMapDepthController DepthController = null;
@@ -33,21 +31,11 @@ public class NodeMapMenu : NetworkBehaviour
 	[SerializeField]
 	private GameObject ContentAnchor = null;
 
+	public NodeMapData CurrentNodeMap { get; private set; }
+
 	// Private Members
 	// Is there currently a node event running on the server?
 	private bool eventRunning = false;
-
-	private void OnGUI()
-	{
-		GUILayout.BeginHorizontal();
-		GUILayout.Space(250);
-		GUILayout.BeginVertical("box");
-		GUILayout.Label("NodeMap MenuCount: " + nodeMapMenuCount);
-		GUILayout.Label("EnemySpawner: " + EnemySpawner.Instance);
-		GUILayout.Label("LevelGenerator: " + LevelGenerator.Instance);
-		GUILayout.EndVertical();
-		GUILayout.EndHorizontal();
-	}
 
 	#region Client
 	// The server has told us we have a new NodeMap
@@ -55,7 +43,8 @@ public class NodeMapMenu : NetworkBehaviour
 	[ClientRpc]
 	public void RpcGenerateNodeMap(string mapDataJson)
 	{
-		nodeMapMenuCount++;
+		NodeController.Clear();
+		DepthController.Clear();
 
 		// We have received the node map data from the server
 		// There is a problem however
@@ -64,11 +53,11 @@ public class NodeMapMenu : NetworkBehaviour
 
 		// This is OK because we only need to send the ID of the node we want to play to the server
 		// clients don't need to know all the information for each events
-		NodeMapData mapData = JsonUtility.FromJson<NodeMapData>(mapDataJson);
+		CurrentNodeMap = JsonUtility.FromJson<NodeMapData>(mapDataJson);
 
-		DepthController.Init(mapData.Depth);
+		DepthController.Init(CurrentNodeMap.Depth);
 
-		foreach (NodeData node in mapData.Nodes)
+		foreach (NodeData node in CurrentNodeMap.Nodes)
 		{
 			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
 		}
@@ -76,6 +65,9 @@ public class NodeMapMenu : NetworkBehaviour
 
 	[ClientRpc] public void RpcOpenMenu() => ContentAnchor.SetActive(true);
 	[ClientRpc] public void RpcCloseMenu() => ContentAnchor.SetActive(false);
+
+	[ClientRpc] public void RpcPausePlayer() => PlayerConnection.LocalPlayer.PlayerObjectManager.PausePlayerObject();
+	[ClientRpc] public void RpcUnpausePlayer() => PlayerConnection.LocalPlayer.PlayerObjectManager.UnpausePlayerObject();
 
 	#endregion
 
@@ -148,6 +140,31 @@ public class NodeMapMenu : NetworkBehaviour
 		StartCoroutine(StartNewEvent(eventData));
 	}
 
+	[Server]
+	public void OnCompletedNode(bool wasCompleted)
+	{
+		if (wasCompleted)
+		{
+			Debug.Log("NODE CONPLETED!: You can move on");
+
+			CurrentNodeMap.CurrentDepth++;
+
+			if (CurrentNodeMap.Completed())
+			{
+				Debug.Log("Node Map Completed!");
+				return;
+			}
+		}
+		else
+		{
+			Debug.Log("NODE FAILED!: Retry?");
+		}
+
+		string dataJson = JsonUtility.ToJson(CurrentNodeMap); 
+
+		RpcGenerateNodeMap(dataJson);
+	}
+
 	#region Manage Event
 
 	[Server]
@@ -172,6 +189,8 @@ public class NodeMapMenu : NetworkBehaviour
 	{
 		eventData.OnStartEvent();
 
+		RpcUnpausePlayer();
+
 		LevelGenerator.Build(eventData.Environment);
 
 		while (eventData.IsOver() == false)
@@ -179,9 +198,12 @@ public class NodeMapMenu : NetworkBehaviour
 			yield return null;
 		}
 
+		RpcPausePlayer();
+
 		eventData.OnEndEvent();
 
-		// TODO: Make this method work
+		OnCompletedNode(true);
+
 		LevelGenerator.Remove();
 	}
 

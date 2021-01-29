@@ -61,9 +61,9 @@ public class PlayerConnection : NetworkBehaviour
 
 	[Command]
 	// The players are ready and we are entering game
-	public void CmdTransitionFromHangarToGame(GameData data)
+	public void CmdTransitionFromHangarToGame()
 	{
-		PlayerSceneManager.RpcLoadGameScene(data);
+		PlayerSceneManager.RpcLoadGameScene();
 	}
 
 	[Command]

@@ -20,5 +20,14 @@ public class NodeMapDepthController : MonoBehaviour
 		}
 	}
 
+	public void Clear()
+	{
+		foreach (Transform depthNode in DepthList) {
+			Destroy(depthNode.gameObject);
+		}
+
+		DepthList.Clear();
+	}
+
 	public Transform GetDepthAnchor(int depth) => DepthList[depth];
 }

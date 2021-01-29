@@ -24,6 +24,22 @@ public class Node : MonoBehaviour
 		return this;
 	}
 
+	private void Update()
+	{
+		if (TryGetComponent<Image>(out Image image))
+		{
+			if (NodeData.Depth < NodeMap.CurrentNodeMap.CurrentDepth) {
+				image.color = Color.red;
+			}
+			else if (NodeData.Depth > NodeMap.CurrentNodeMap.CurrentDepth) {
+				image.color = Color.blue;
+			}
+			else {
+				image.color = Color.green;
+			}
+		}
+	}
+
 	void OnDrawGizmos()
 	{
 		foreach (Node node in NodeMap.NodeController.GetNodes(NodeData.ConnectedNodes))

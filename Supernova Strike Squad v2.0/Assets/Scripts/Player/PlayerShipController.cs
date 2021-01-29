@@ -9,6 +9,8 @@ public class PlayerShipController : NetworkBehaviour
 
 	public Vector3 cameraOffset = new Vector3(0, 2, -6);
 
+	public bool Paused = true;
+
 	public override void OnStartAuthority()
 	{
 		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
@@ -23,9 +25,9 @@ public class PlayerShipController : NetworkBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (hasAuthority)
+		if (hasAuthority && !Paused)
 		{
-			transform.position += transform.forward * Speed * Time.deltaTime; 
+			transform.position += transform.forward * Speed * Time.deltaTime;
 
 			float x = Input.GetAxisRaw("Horizontal");
 			float y = Input.GetAxisRaw("Vertical");
@@ -41,4 +43,6 @@ public class PlayerShipController : NetworkBehaviour
 			FindObjectOfType<CameraController>().SetTarget(null, cameraOffset);
 		}
 	}
+
+	public void Pause(bool state) => Paused = state;
 }
