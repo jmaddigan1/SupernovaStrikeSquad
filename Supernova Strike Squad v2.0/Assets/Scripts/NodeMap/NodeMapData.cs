@@ -16,6 +16,6 @@ public class NodeMapData
 
 	public bool Completed()
 	{
-		return CurrentDepth > Depth;
+		return CurrentDepth >= Depth;
 	}
 }

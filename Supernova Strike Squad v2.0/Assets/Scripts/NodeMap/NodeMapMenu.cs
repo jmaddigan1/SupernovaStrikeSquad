@@ -37,6 +37,71 @@ public class NodeMapMenu : NetworkBehaviour
 	// Is there currently a node event running on the server?
 	private bool eventRunning = false;
 
+	#region GUI / Debug
+
+
+	private void OnGUI()
+	{
+		if (isServer == false) return;
+
+		float width = 300;
+
+		GUILayout.BeginHorizontal();
+		GUILayout.Space(Screen.width - width);
+		GUILayout.BeginVertical("box", GUILayout.Width(width));
+
+		GUILayout.Label("NodeMap Menu Editor");
+
+		GUIRegion(() => {
+
+			GUILayout.Label("Options");
+
+			GUIRegion(() => {
+
+				GUILayout.Label("Node Settings");
+
+				if (GUILayout.Button("Kill all Enemies")) {
+
+					foreach (Enemy enemy in FindObjectsOfType<Enemy>()) {
+						enemy.gameObject.GetComponent<Health>().DealDamage(100000);
+					}
+				}
+
+			});
+
+			GUIRegion(() => {
+
+				GUILayout.Label("Enemy Settings");
+
+			});
+
+		});
+
+		GUIRegion(() => {
+
+			GUILayout.Label("Settings");
+
+		});
+
+		GUILayout.EndVertical();
+		GUILayout.EndHorizontal();
+	}
+
+	void GUIRegion(Action action)
+	{
+		GUI.color = new Color(1, 1, 1, 0.25f);
+
+		GUILayout.BeginVertical("box");
+
+		GUI.color = new Color(1, 1, 1, 1);
+
+		action.Invoke();
+
+		GUILayout.EndVertical();
+	}
+
+	#endregion
+
 	#region Client
 	// The server has told us we have a new NodeMap
 	// We want to load that map and begin a new game
@@ -61,6 +126,12 @@ public class NodeMapMenu : NetworkBehaviour
 		{
 			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
 		}
+	}
+
+	[ClientRpc]
+	public void RpcCompletedNode()
+	{
+
 	}
 
 	[ClientRpc] public void RpcOpenMenu() => ContentAnchor.SetActive(true);
@@ -151,6 +222,7 @@ public class NodeMapMenu : NetworkBehaviour
 
 			if (CurrentNodeMap.Completed())
 			{
+				OnNodeMapCompleted();
 				Debug.Log("Node Map Completed!");
 				return;
 			}
@@ -163,6 +235,16 @@ public class NodeMapMenu : NetworkBehaviour
 		string dataJson = JsonUtility.ToJson(CurrentNodeMap); 
 
 		RpcGenerateNodeMap(dataJson);
+	}
+
+	[Server]
+	public void OnNodeMapCompleted()
+	{
+		LevelGenerator.Remove();
+
+		LobbyManager.Instance.EndGame();
+
+		RpcCompletedNode();
 	}
 
 	#region Manage Event

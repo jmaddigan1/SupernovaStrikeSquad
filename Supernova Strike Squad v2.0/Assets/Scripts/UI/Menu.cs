@@ -46,20 +46,21 @@ public class Menu : MonoBehaviour
 		if (CurrentMenu)
 		{
 			yield return CurrentMenu.CloseLastMenu();
-
-			CurrentMenu.gameObject.SetActive(false);
 		}
 
 		CurrentMenu = this;
 
-		yield return CurrentMenu.OpenTransition.Play();
+		if (CurrentMenu.OpenTransition)  yield return CurrentMenu.OpenTransition.Play();
 
 		transitioning = false;
 	}
 
 	private IEnumerator CloseLastMenu()
 	{
-		yield return CloseTransition.Play();
+		if (CloseTransition) {
+			yield return CloseTransition.Play();
+			CurrentMenu.gameObject.SetActive(false);
+		} 
 	}
 
 	private void OnValidate()

@@ -20,6 +20,8 @@ public class LevelGenerator : NetworkBehaviour
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
 
+	private List<GameObject> environmentObjects = new List<GameObject>();
+
 	void Start()
 	{
 		if (Instance)
@@ -49,6 +51,16 @@ public class LevelGenerator : NetworkBehaviour
 
 			go.transform.localScale = Vector3.one * scale;
 			NetworkServer.Spawn(go);
+
+			environmentObjects.Add(go);
+		}
+	}
+
+	[Server]
+	void RemoveEnvironment( )
+	{
+		foreach (GameObject gameObject in environmentObjects) {
+			NetworkServer.Destroy(gameObject);
 		}
 	}
 
@@ -59,8 +71,11 @@ public class LevelGenerator : NetworkBehaviour
 
 	#region Level Generator Wrapper Methods
 
-	public static void Build(EnvironmentData data) { if (ValidSingleton()) Instance.BuildEnvironment(data); }
-	public static void Remove() { }
+	public static void Build(EnvironmentData data)
+	{ if (ValidSingleton()) Instance.BuildEnvironment(data); }
+
+	public static void Remove()
+	{ if (ValidSingleton()) Instance.RemoveEnvironment(); }
 
 	static bool ValidSingleton()
 	{

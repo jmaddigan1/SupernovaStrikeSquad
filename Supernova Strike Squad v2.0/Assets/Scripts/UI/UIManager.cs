@@ -10,9 +10,6 @@ public class UIManager : MonoBehaviour
 {
 	public static UIManager Instance;
 
-	[SerializeField]
-	private Menu startingMenu = null;
-
 	void Awake()
 	{
 		if (Instance == null)
@@ -24,11 +21,6 @@ public class UIManager : MonoBehaviour
 		{
 			Destroy(this);
 		}
-	}
-
-	void Start()
-	{
-		if (startingMenu) startingMenu.Open();
 	}
 
 	// Load a single player scene
