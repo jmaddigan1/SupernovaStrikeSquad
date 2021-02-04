@@ -35,9 +35,13 @@ public class CameraController : MonoBehaviour
 
 		if (freeCamera)
 		{
-			float yaw = 5 * -Input.GetAxis("Mouse X");
+			float yaw = 3 * -Input.GetAxis("Mouse X");
 
 			transform.Rotate (0, yaw, 0);
+		}
+		else
+		{
+			transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, Time.fixedDeltaTime * 5);
 		}
 	}
 }

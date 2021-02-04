@@ -19,6 +19,7 @@ public class LevelGenerator : NetworkBehaviour
 
 	// Public Members
 	public AnimationCurve AsteroidSizeCurve;
+	public AnimationCurve ObjectSpawningDistanceCurve;
 
 	private List<GameObject> environmentObjects = new List<GameObject>();
 
@@ -41,32 +42,43 @@ public class LevelGenerator : NetworkBehaviour
 		{
 			GameObject go = Instantiate(asteroidPrefab);
 
-			float scale = AsteroidSizeCurve.Evaluate(Random.Range(0.0f, 1.0f)) * data.MaxAsteroidSize;
+			float x = Random.Range(-1.0f, 1.0f);
+			float y = Random.Range(-1.0f, 1.0f);
+			float z = Random.Range(-1.0f, 1.0f);
 
-			go.transform.position = new Vector3(
-				 UnityEngine.Random.Range(-data.Size, data.Size),
-				 UnityEngine.Random.Range(-data.Size, data.Size),
-				 UnityEngine.Random.Range(-data.Size, data.Size)
-			);
+			Vector3 direction = new Vector3(x, y, z).normalized;
+
+			float min = ObjectSpawningDistanceCurve.Evaluate(Random.Range(0f, 1f)) * data.Size;
+
+			Vector3 pos = direction * Random.Range(min, data.Size);
+
+			go.transform.position = pos;
+
+			// SCALE
+			float scale = Mathf.Clamp(AsteroidSizeCurve.Evaluate(Random.Range(0.0f, 1.0f)) * data.MaxAsteroidSize, data.MinAsteroidSize, data.MaxAsteroidSize);
 
 			go.transform.localScale = Vector3.one * scale;
+
+			// SPAWN
 			NetworkServer.Spawn(go);
 
+			// KEEP TRACK
 			environmentObjects.Add(go);
 		}
 	}
 
 	[Server]
-	void RemoveEnvironment( )
+	void RemoveEnvironment()
 	{
-		foreach (GameObject gameObject in environmentObjects) {
+		foreach (GameObject gameObject in environmentObjects)
+		{
 			NetworkServer.Destroy(gameObject);
 		}
 	}
 
 	void OnDrawGizmos()
 	{
-		if (environment !=null) Gizmos.DrawWireSphere(transform.position, environment.Size * 2);
+		if (environment != null) Gizmos.DrawWireSphere(transform.position, environment.Size);
 	}
 
 	#region Level Generator Wrapper Methods

@@ -12,7 +12,7 @@ public class NodeEvent_Arean : NodeEvent
 	public int WaveIndex;
 
 	// The Wave data we are managing
-	public EnemyWaveData currentWaveData;
+	public EnemyWaveData WaveData;
 
 	public override void OnStartEvent()
 	{
@@ -21,61 +21,28 @@ public class NodeEvent_Arean : NodeEvent
 		EnemyCount = 0;
 		WaveIndex = 0;
 
-		EnemyWaveData waveData = new EnemyWaveData
-		{
-			Waves = new List<EnemyWave>
-			{
-				new EnemyWave {
-					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 3, EnemyID = EnemyID.ExampleEnemyID1 },
-						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyID.ExampleEnemyID2 },
-					}
-				},
-				new EnemyWave {
-					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 5, EnemyID = EnemyID.ExampleEnemyID1 },
-						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyID.ExampleEnemyID2 },
-						new SpawnParameters { EnemyCount = 1, EnemyID = EnemyID.ExampleEnemyID3 },
-					}
-				}
-			}
-		};
+		EnemyCount = WaveData.Waves[WaveIndex].GetEnemyCount();
 
-		Environment = new EnvironmentData
-		{
-			Size = 100,
-
-			AsteroidCount = 50,
-			MinAsteroidSize = 5,
-			MaxAsteroidSize = 55,
-		};
-
-		currentWaveData = waveData;
-
-		EnemyCount = currentWaveData.Waves[WaveIndex].GetEnemyCount();
-
-		EnemySpawner.SpawnEnemies(currentWaveData.Waves[WaveIndex], OnEnemyDeath);
+		EnemySpawner.SpawnEnemies(WaveData.Waves[WaveIndex], OnEnemyDeath);
 	}
 
 	void OnEnemyDeath(Enemy enemy)
 	{
 		EnemyCount--;
 
-		Debug.Log("EnemyCount: " + EnemyCount);
-
 		if (EnemyCount <= 0)
 		{
 			WaveIndex++;
 
-			if (WaveIndex > currentWaveData.Waves.Count - 1)
+			if (WaveIndex > WaveData.Waves.Count - 1)
 			{
 				Debug.Log("Event Done");
 			}
 			else
 			{
-				EnemyCount = currentWaveData.Waves[WaveIndex].GetEnemyCount();
+				EnemyCount = WaveData.Waves[WaveIndex].GetEnemyCount();
 
-				EnemySpawner.SpawnEnemies(currentWaveData.Waves[WaveIndex], OnEnemyDeath);
+				EnemySpawner.SpawnEnemies(WaveData.Waves[WaveIndex], OnEnemyDeath);
 			}
 		}
 	}

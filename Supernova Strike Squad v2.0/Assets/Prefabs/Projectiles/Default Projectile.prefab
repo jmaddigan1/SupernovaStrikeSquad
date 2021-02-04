@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  Speed: 75
+  Speed: 150
   Damage: 1
 --- !u!114 &3777585796170625192
 MonoBehaviour:

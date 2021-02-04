@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  Speed: 15
+  Speed: 35
   cameraOffset: {x: 0, y: 2, z: -6}
   Paused: 1
 --- !u!114 &7769195681768059682

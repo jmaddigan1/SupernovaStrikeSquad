@@ -94,7 +94,7 @@ public class EnemySpawner : NetworkBehaviour
 	{
 		if (Instance == null)
 		{
-			Debug.LogError("ERROR: There is no 'EnemySpawner' in the scene");
+			// Debug.LogError("ERROR: There is no 'EnemySpawner' in the scene");
 			return false;
 		}
 

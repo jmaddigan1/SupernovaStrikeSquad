@@ -118,11 +118,11 @@ public class NodeMapMenu : NetworkBehaviour
 
 		// This is OK because we only need to send the ID of the node we want to play to the server
 		// clients don't need to know all the information for each events
-		CurrentNodeMap = JsonUtility.FromJson<NodeMapData>(mapDataJson);
+		NodeMapData nodeMap = JsonUtility.FromJson<NodeMapData>(mapDataJson);
 
-		DepthController.Init(CurrentNodeMap.Depth);
+		DepthController.Init(nodeMap.Depth);
 
-		foreach (NodeData node in CurrentNodeMap.Nodes)
+		foreach (NodeData node in nodeMap.Nodes)
 		{
 			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
 		}
@@ -168,30 +168,10 @@ public class NodeMapMenu : NetworkBehaviour
 		if (isServer)
 		{
 			// Get the NodeMap data from something
-			NodeMapData mapData = new NodeMapData
-			{
-				Depth = 6,
-
-				Nodes = new List<NodeData> {
-				new NodeData { Name = "TempName 0", Depth = 0, Event = new NodeEvent_Arean(),  ConnectedNodes = new List<int>{ 1, 2 } },
-
-				new NodeData { Name = "TempName 1", Depth = 1, ConnectedNodes = new List<int>{ 3 } },
-				new NodeData { Name = "TempName 2", Depth = 1, ConnectedNodes = new List<int>{ 3 } },
-
-				new NodeData { Name = "TempName 3", Depth = 2, ConnectedNodes = new List<int>{ 4, 7 } },
-
-				new NodeData { Name = "TempName 4", Depth = 3, ConnectedNodes = new List<int>{ 5, 6, 7 } },
-
-				new NodeData { Name = "TempName 5", Depth = 4, ConnectedNodes = new List<int>{ 8 } },
-				new NodeData { Name = "TempName 6", Depth = 4, ConnectedNodes = new List<int>{ 8 } },
-				new NodeData { Name = "TempName 7", Depth = 4, ConnectedNodes = new List<int>{ 8 } },
-
-				new NodeData { Name = "TempName 8", Depth = 5, ConnectedNodes = new List<int>{ } },
-			}
-			};
+			CurrentNodeMap = Campaigns.TestCampaign();
 
 			// Give each node its index
-			for (int i = 0; i < mapData.Nodes.Count; i++) mapData.Nodes[i].Index = i;
+			for (int i = 0; i < CurrentNodeMap.Nodes.Count; i++) CurrentNodeMap.Nodes[i].Index = i;
 
 			// NOTE: Because of the NodeEvent in NodeMapData -> Node -> NodeEvent
 			// We cannot send the normal map data class over the server
@@ -199,7 +179,7 @@ public class NodeMapMenu : NetworkBehaviour
 
 			// So as a fix, we are sending the node data as a string
 			// This will lose all the node event data, however the clients don't need to know this anyways
-			string dataJson = JsonUtility.ToJson(mapData);
+			string dataJson = JsonUtility.ToJson(CurrentNodeMap);
 
 			RpcGenerateNodeMap(dataJson); 
 		}

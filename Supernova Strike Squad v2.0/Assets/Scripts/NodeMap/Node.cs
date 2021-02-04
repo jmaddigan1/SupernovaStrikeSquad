@@ -8,6 +8,9 @@ public class Node : MonoBehaviour
 	[SerializeField]
 	private Button Button = null;
 
+	[SerializeField]
+	private Text NodeName = null;
+
 	public NodeMapMenu NodeMap;
 	public NodeData NodeData;
 
@@ -15,6 +18,8 @@ public class Node : MonoBehaviour
 	{
 		NodeMap = nodeMap;
 		NodeData = nodeData;
+
+		NodeName.text = nodeData.Name;
 
 		Button.onClick.AddListener(() => {
 			Debug.Log("Node Click - ID:" + nodeData.Index);

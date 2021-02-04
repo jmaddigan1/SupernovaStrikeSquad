@@ -13,7 +13,7 @@ public class PlayerShipController : NetworkBehaviour
 
 	public override void OnStartAuthority()
 	{
-		FindObjectOfType<CameraController>().SetTarget(transform, cameraOffset);
+		FindObjectOfType<ShipCamera>().SetTarget(transform, cameraOffset);
 
 		PlayerConnection.LocalPlayer.PlayerObjectManager.PlayerObject = gameObject;
 
@@ -40,7 +40,8 @@ public class PlayerShipController : NetworkBehaviour
 	{
 		if (hasAuthority)
 		{
-			FindObjectOfType<CameraController>().SetTarget(null, cameraOffset);
+			var camera = FindObjectOfType<CameraController>();
+			if (camera) camera.SetTarget(null, cameraOffset);
 		}
 	}
 
