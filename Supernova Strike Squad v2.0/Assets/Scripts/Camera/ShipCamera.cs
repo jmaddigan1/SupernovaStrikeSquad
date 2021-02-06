@@ -32,17 +32,13 @@ public class ShipCamera : MonoBehaviour
         // Blocker
         if (Target = null) return;
 
-        Vector2 input = new Vector2(Input.GetAxis("Vertical"), Input.GetAxisRaw("Horizontal"));
-        Vector3 target = new Vector3(input.x, input.y, 0);
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        Vector3 pos = Vector3.Lerp(Cam.transform.localScale, target, Time.deltaTime * 5);
+        float camPosX = (input.x * 1.0f);
+        float camPosY = 1;
+        float camPosZ = -7.5f;
 
-        Cam.transform.localPosition = pos;
-
-        if (true)
-		{
-
-		}
+        transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(camPosX, camPosY, camPosZ), Time.deltaTime * 2);
 
     }
 }

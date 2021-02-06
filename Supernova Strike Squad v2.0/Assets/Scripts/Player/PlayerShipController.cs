@@ -5,6 +5,8 @@ using Mirror;
 
 public class PlayerShipController : NetworkBehaviour
 {
+	[SerializeField] private Transform shipModel = null;
+
 	public float Speed = 15.0f;
 
 	public Vector3 cameraOffset = new Vector3(0, 2, -6);
@@ -32,7 +34,16 @@ public class PlayerShipController : NetworkBehaviour
 			float x = Input.GetAxisRaw("Horizontal");
 			float y = Input.GetAxisRaw("Vertical");
 
+
 			transform.Rotate(-y * 45 * Time.deltaTime, x * 45 * Time.deltaTime, 0);
+
+			float p = -Input.GetAxisRaw("Horizontal") * 25.0f;
+			float r = -Input.GetAxisRaw("Vertical") * 5.0f;
+
+			Quaternion currentRot = shipModel.transform.localRotation;
+			Quaternion targetRot = Quaternion.Euler(r, 0, p);
+
+			shipModel.transform.localRotation = Quaternion.Lerp(currentRot, targetRot, Time.deltaTime * 2);
 		}
 	}
 
