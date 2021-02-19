@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.01
+  syncInterval: 0.1
   cameraOffset: {x: 0, y: 2.25, z: -1.5}
   InputVelocity: {x: 0, y: 0}
 --- !u!54 &7288695489326231434
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.01
+  syncInterval: 0.1
   clientAuthority: 0
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
