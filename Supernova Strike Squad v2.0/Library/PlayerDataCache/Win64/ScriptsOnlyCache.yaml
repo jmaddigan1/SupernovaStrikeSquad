@@ -35,8 +35,6 @@ ScriptsOnlyBuild:
     - WeaponsSystems
     Mirror.Components.dll:
     - Mirror.NetworkTransform
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.FizzySteam.FizzySteamworks
     - Mirror.NetworkIdentity
@@ -223,8 +221,6 @@ ScriptsOnlyBuild:
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
