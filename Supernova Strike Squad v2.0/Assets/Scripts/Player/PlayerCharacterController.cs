@@ -9,7 +9,6 @@ public class PlayerCharacterController : NetworkBehaviour
 {
 	public Vector3 cameraOffset = new Vector3(0, 2.25f, -1.5f);
 
-	[SyncVar]
 	public Vector2 InputVelocity;
 
 	// Private Members
@@ -24,6 +23,9 @@ public class PlayerCharacterController : NetworkBehaviour
 
 
 	void Start() => myRigidbody = GetComponent<Rigidbody>();
+
+	[Command]
+	public void UpdateInput(Vector3 newInput) => InputVelocity = newInput;
 
 	#region Client
 
@@ -62,7 +64,7 @@ public class PlayerCharacterController : NetworkBehaviour
 		if (hasAuthority)
 		{
 			// Client sends input to server via SyncVar
-			InputVelocity = new Vector2(Input.GetAxis("Vertical"), Input.GetAxisRaw("Horizontal"));
+			UpdateInput(new Vector2(Input.GetAxis("Vertical"), Input.GetAxisRaw("Horizontal")));
 		}
 
 		if (isServer)
