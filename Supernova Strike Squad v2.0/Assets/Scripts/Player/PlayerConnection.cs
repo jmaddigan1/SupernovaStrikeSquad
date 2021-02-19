@@ -13,8 +13,8 @@ public class PlayerConnection : NetworkBehaviour
 	[SyncVar(hook = nameof(OnPlayerIDUpdate))]
 	public int playerID = -1;
 
-	public PlayerConnection_SceneManager PlayerSceneManager = null;
-	public PlayerConnection_ObjectManager PlayerObjectManager = null;
+	public PlayerConnection_SceneManager Scene = null;
+	public PlayerConnection_ObjectManager Object = null;
 
 	// When a player connects to the game
 	// We want to make sure its gameobject cannot be destroyed
@@ -39,7 +39,7 @@ public class PlayerConnection : NetworkBehaviour
 
 		// We know we are starting in the hangar scene
 		// We spawn the player controller for this client
-		PlayerObjectManager.CmdSpawnCharacterIntoGames();
+		Object.CmdSpawnCharacterIntoGames();
 	}
 
 	// When the local players index is updated
@@ -63,18 +63,18 @@ public class PlayerConnection : NetworkBehaviour
 	// The players are ready and we are entering game
 	public void CmdTransitionFromHangarToGame()
 	{
-		PlayerSceneManager.RpcLoadGameScene();
+		Scene.RpcLoadGameScene();
 	}
 
 	[Command]
 	// The game is over and we are moving back to the hangar
-	public void CmdTransitionFromGameToHangar(bool online) => PlayerSceneManager.RpcLoadHangarScene(online);
+	public void CmdTransitionFromGameToHangar(bool online) => Scene.RpcLoadHangarScene(online);
 
 	[Command]
 	// Start a new node event
 	public void CmdStartNewEvent(int nodeID)
 	{
-		NodeMapMenu.Instance.StartEvent(NodeMapMenu.Instance.CurrentNodeMap.Nodes[nodeID].Event);
+		NodeMapMenu.Instance.StartEvent(NodeMapMenu.Instance.CurrentNodeMap_Server.Nodes[nodeID].Event);
 	}
 
 	#endregion

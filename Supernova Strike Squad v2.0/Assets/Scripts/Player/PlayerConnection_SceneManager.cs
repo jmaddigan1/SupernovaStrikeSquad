@@ -26,7 +26,7 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 
 		if (isServer && NodeMapMenu.Instance == null) NetworkServer.Spawn(Instantiate(NodeMapPrefab));
 
-		PlayerConnection.LocalPlayer.PlayerObjectManager.CmdSpawnShipIntoGames();
+		PlayerConnection.LocalPlayer.Object.CmdSpawnShipIntoGames();
 	}
 
 	IEnumerator coLoadHangarScene(bool online)
@@ -41,6 +41,6 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 
 		if (isServer && NodeMapMenu.Instance) NetworkServer.Destroy(NodeMapMenu.Instance.gameObject);
 
-		PlayerConnection.LocalPlayer.PlayerObjectManager.CmdSpawnCharacterIntoGames();
+		PlayerConnection.LocalPlayer.Object.CmdSpawnCharacterIntoGames();
 	}
 }

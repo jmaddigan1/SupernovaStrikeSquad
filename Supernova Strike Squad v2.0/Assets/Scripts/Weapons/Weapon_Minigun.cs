@@ -46,7 +46,8 @@ public class Weapon_Minigun : WeaponBase
 	[Command]
 	void CmdShoot()
 	{
-		GameObject go = Instantiate(shot, Barrels[0].position, Barrels[0].rotation);
-		NetworkServer.Spawn(go, connectionToClient);
+		GameObject projectile = Instantiate(shot, Barrels[0].position, Barrels[0].rotation);
+
+		NetworkServer.Spawn(projectile, connectionToClient);
 	}
 }

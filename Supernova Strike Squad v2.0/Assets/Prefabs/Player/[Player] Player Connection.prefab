@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   playerID: -1
-  PlayerSceneManager: {fileID: 2641607813899706171}
-  PlayerObjectManager: {fileID: 2226768675233351170}
+  Scene: {fileID: 2641607813899706171}
+  Object: {fileID: 2226768675233351170}
 --- !u!114 &2226768675233351170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,10 +33,10 @@ public class Node : MonoBehaviour
 	{
 		if (TryGetComponent<Image>(out Image image))
 		{
-			if (NodeData.Depth < NodeMap.CurrentNodeMap.CurrentDepth) {
+			if (NodeData.Depth < NodeMap.CurrentNodeMap_Client.CurrentDepth) {
 				image.color = Color.red;
 			}
-			else if (NodeData.Depth > NodeMap.CurrentNodeMap.CurrentDepth) {
+			else if (NodeData.Depth > NodeMap.CurrentNodeMap_Client.CurrentDepth) {
 				image.color = Color.blue;
 			}
 			else {

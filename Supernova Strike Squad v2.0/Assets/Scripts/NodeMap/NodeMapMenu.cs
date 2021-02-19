@@ -31,7 +31,8 @@ public class NodeMapMenu : NetworkBehaviour
 	[SerializeField]
 	private GameObject ContentAnchor = null;
 
-	public NodeMapData CurrentNodeMap { get; private set; }
+	public NodeMapData CurrentNodeMap_Client;
+	public NodeMapData CurrentNodeMap_Server;
 
 	// Private Members
 	// Is there currently a node event running on the server?
@@ -118,11 +119,11 @@ public class NodeMapMenu : NetworkBehaviour
 
 		// This is OK because we only need to send the ID of the node we want to play to the server
 		// clients don't need to know all the information for each events
-		NodeMapData nodeMap = JsonUtility.FromJson<NodeMapData>(mapDataJson);
+		CurrentNodeMap_Client = JsonUtility.FromJson<NodeMapData>(mapDataJson);
 
-		DepthController.Init(nodeMap.Depth);
+		DepthController.Init(CurrentNodeMap_Client.Depth);
 
-		foreach (NodeData node in nodeMap.Nodes)
+		foreach (NodeData node in CurrentNodeMap_Client.Nodes)
 		{
 			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
 		}
@@ -137,8 +138,8 @@ public class NodeMapMenu : NetworkBehaviour
 	[ClientRpc] public void RpcOpenMenu() => ContentAnchor.SetActive(true);
 	[ClientRpc] public void RpcCloseMenu() => ContentAnchor.SetActive(false);
 
-	[ClientRpc] public void RpcPausePlayer() => PlayerConnection.LocalPlayer.PlayerObjectManager.PausePlayerObject();
-	[ClientRpc] public void RpcUnpausePlayer() => PlayerConnection.LocalPlayer.PlayerObjectManager.UnpausePlayerObject();
+	[ClientRpc] public void RpcPausePlayer() => PlayerConnection.LocalPlayer.Object.PausePlayerObject();
+	[ClientRpc] public void RpcUnpausePlayer() => PlayerConnection.LocalPlayer.Object.UnpausePlayerObject();
 
 	#endregion
 
@@ -168,10 +169,10 @@ public class NodeMapMenu : NetworkBehaviour
 		if (isServer)
 		{
 			// Get the NodeMap data from something
-			CurrentNodeMap = Campaigns.TestCampaign();
+			CurrentNodeMap_Server = Campaigns.TestCampaign();
 
 			// Give each node its index
-			for (int i = 0; i < CurrentNodeMap.Nodes.Count; i++) CurrentNodeMap.Nodes[i].Index = i;
+			for (int i = 0; i < CurrentNodeMap_Server.Nodes.Count; i++) CurrentNodeMap_Server.Nodes[i].Index = i;
 
 			// NOTE: Because of the NodeEvent in NodeMapData -> Node -> NodeEvent
 			// We cannot send the normal map data class over the server
@@ -179,9 +180,9 @@ public class NodeMapMenu : NetworkBehaviour
 
 			// So as a fix, we are sending the node data as a string
 			// This will lose all the node event data, however the clients don't need to know this anyways
-			string dataJson = JsonUtility.ToJson(CurrentNodeMap);
+			string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server);
 
-			RpcGenerateNodeMap(dataJson); 
+			RpcGenerateNodeMap(dataJson);
 		}
 	}
 
@@ -198,9 +199,9 @@ public class NodeMapMenu : NetworkBehaviour
 		{
 			Debug.Log("NODE CONPLETED!: You can move on");
 
-			CurrentNodeMap.CurrentDepth++;
+			CurrentNodeMap_Server.CurrentDepth++;
 
-			if (CurrentNodeMap.Completed())
+			if (CurrentNodeMap_Server.Completed())
 			{
 				OnNodeMapCompleted();
 				Debug.Log("Node Map Completed!");
@@ -212,7 +213,7 @@ public class NodeMapMenu : NetworkBehaviour
 			Debug.Log("NODE FAILED!: Retry?");
 		}
 
-		string dataJson = JsonUtility.ToJson(CurrentNodeMap); 
+		string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server); 
 
 		RpcGenerateNodeMap(dataJson);
 	}

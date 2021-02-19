@@ -17,7 +17,7 @@ public class PlayerShipController : NetworkBehaviour
 	{
 		FindObjectOfType<ShipCamera>().SetTarget(transform, cameraOffset);
 
-		PlayerConnection.LocalPlayer.PlayerObjectManager.PlayerObject = gameObject;
+		PlayerConnection.LocalPlayer.Object.PlayerObject = gameObject;
 
 		if (TryGetComponent<WeaponsSystems>(out WeaponsSystems weaponsSystems)) {
 			weaponsSystems.EquipNewWeapon(WeaponType.Minigun);
@@ -34,18 +34,36 @@ public class PlayerShipController : NetworkBehaviour
 			float x = Input.GetAxisRaw("Horizontal");
 			float y = Input.GetAxisRaw("Vertical");
 
-
 			transform.Rotate(-y * 45 * Time.deltaTime, x * 45 * Time.deltaTime, 0);
 
-			float p = -Input.GetAxisRaw("Horizontal") * 25.0f;
-			float r = -Input.GetAxisRaw("Vertical") * 5.0f;
+			//float p = -Input.GetAxisRaw("Horizontal") * 45.0f / 4;
+			//float r = -Input.GetAxisRaw("Vertical") * 25.0f / 4;
 
-			Quaternion currentRot = shipModel.transform.localRotation;
-			Quaternion targetRot = Quaternion.Euler(r, 0, p);
+			//Quaternion currentRot = shipModel.transform.localRotation;
+			//Quaternion targetRot = Quaternion.Euler(r, 0, p);
 
-			shipModel.transform.localRotation = Quaternion.Lerp(currentRot, targetRot, Time.deltaTime * 2);
+			//shipModel.transform.localRotation = Quaternion.Lerp(currentRot, targetRot, Time.deltaTime * 2);
 		}
 	}
+
+	//// Move forward
+	//transform.position += transform.forward* Speed * Time.deltaTime;
+
+	//		float x = Input.GetAxisRaw("Horizontal");
+	//float y = Input.GetAxisRaw("Vertical");
+
+	//// Rotate the player
+	//transform.Rotate(-y* 45 * Time.deltaTime, x* 45 * Time.deltaTime, 0);
+
+	//		Vector3 lookPoint = Camera.main.ScreenPointToRay(Targeter.Instance.Reticle.position).GetPoint(100);
+
+	//// Look at the Reticle
+	//shipModel.LookAt(lookPoint, shipModel.transform.up);
+
+	//		Quaternion currentRot = shipModel.transform.localRotation;
+
+	//// Balance out the ship
+	//shipModel.transform.localRotation = Quaternion.Lerp(currentRot, Quaternion.identity, Time.deltaTime* 1);
 
 	void OnDestroy()
 	{
@@ -57,4 +75,9 @@ public class PlayerShipController : NetworkBehaviour
 	}
 
 	public void Pause(bool state) => Paused = state;
+
+	//private void OnDrawGizmos()
+	//{
+	//	Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
+	//}
 }

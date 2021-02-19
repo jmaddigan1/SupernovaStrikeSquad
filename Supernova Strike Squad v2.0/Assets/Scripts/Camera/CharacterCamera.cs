@@ -26,7 +26,7 @@ public class CharacterCamera : MonoBehaviour
 
 		Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(input.x / 2 , 3, -3 + (input.y * 0.2f)), Time.deltaTime * 2);
+		transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(input.x * 0.7f , 3, -3 + (input.y * 0.2f)), Time.deltaTime * 2);
 
 		// transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, input.y, 0), Time.deltaTime * 10);
 

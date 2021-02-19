@@ -13,7 +13,7 @@ public abstract class WeaponBase : NetworkBehaviour
 
 	public override void OnStartAuthority()
 	{
-		var objManager = PlayerConnection.LocalPlayer.PlayerObjectManager;
+		var objManager = PlayerConnection.LocalPlayer.Object;
 		var weaponsSystem = objManager.PlayerObject.GetComponent<WeaponsSystems>();
 
 		//
@@ -35,6 +35,12 @@ public abstract class WeaponBase : NetworkBehaviour
 
 	public virtual void OnShootDown() { }
 	public virtual void OnShootUp() { }
+
+	[Server]
+	public void IgnoreColliders(Collider shipCollider, Collider projectileCollider)
+	{
+		Physics.IgnoreCollision(shipCollider, projectileCollider);
+	}
 
 	void OnDrawGizmos()
 	{

@@ -54,7 +54,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   shipModel: {fileID: 1532335806180437936}
-  Speed: 35
+  Speed: 25
   cameraOffset: {x: 0, y: 2, z: -6}
   Paused: 1
 --- !u!114 &7769195681768059682

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 // NOTE: Each projectile is spawned by the local clients weapon
 // NOTE: Each projectile is synced by its owner not the server
