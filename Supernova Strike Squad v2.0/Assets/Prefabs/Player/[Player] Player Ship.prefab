@@ -53,9 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  shipModel: {fileID: 1532335806180437936}
   Speed: 25
   cameraOffset: {x: 0, y: 2, z: -6}
+  InputVelocity: {x: 0, y: 0}
   Paused: 1
 --- !u!114 &7769195681768059682
 MonoBehaviour:
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 1
+  syncInterval: 0.03333334
+  clientAuthority: 0
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01

@@ -5,65 +5,66 @@ using Mirror;
 
 public class PlayerShipController : NetworkBehaviour
 {
-	[SerializeField] private Transform shipModel = null;
+	// [SerializeField] private Transform shipModel = null;
 
+	// Public Members
+	// The speed this ship moves forward
 	public float Speed = 15.0f;
 
 	public Vector3 cameraOffset = new Vector3(0, 2, -6);
+	public Vector2 InputVelocity;
 
 	public bool Paused = true;
 
+	public void Pause(bool state) => Paused = state;
+
+	[Command]
+	public void UpdateInput(Vector3 newInput) => InputVelocity = newInput;
+
 	public override void OnStartAuthority()
 	{
+		// Set the camera settings
 		FindObjectOfType<ShipCamera>().SetTarget(transform, cameraOffset);
 
+		// Set the player object
 		PlayerConnection.LocalPlayer.Object.PlayerObject = gameObject;
 
+		// Equip our first weapon
 		if (TryGetComponent<WeaponsSystems>(out WeaponsSystems weaponsSystems)) {
 			weaponsSystems.EquipNewWeapon(WeaponType.Minigun);
+		}
+	}
+
+
+	void Start()
+	{
+		if (!isServer)
+		{
+			if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody)) Destroy(rigidbody);
 		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (hasAuthority && !Paused)
+		if (isServer)
 		{
+			// Move Forward
 			transform.position += transform.forward * Speed * Time.deltaTime;
 
-			float x = Input.GetAxisRaw("Horizontal");
-			float y = Input.GetAxisRaw("Vertical");
-
-			transform.Rotate(-y * 45 * Time.deltaTime, x * 45 * Time.deltaTime, 0);
-
-			//float p = -Input.GetAxisRaw("Horizontal") * 45.0f / 4;
-			//float r = -Input.GetAxisRaw("Vertical") * 25.0f / 4;
-
-			//Quaternion currentRot = shipModel.transform.localRotation;
-			//Quaternion targetRot = Quaternion.Euler(r, 0, p);
-
-			//shipModel.transform.localRotation = Quaternion.Lerp(currentRot, targetRot, Time.deltaTime * 2);
+			// Rotate / Steer
+			transform.Rotate(-InputVelocity.x * 45 * Time.deltaTime, InputVelocity.y * 45 * Time.deltaTime, 0);
 		}
 	}
 
-	//// Move forward
-	//transform.position += transform.forward* Speed * Time.deltaTime;
-
-	//		float x = Input.GetAxisRaw("Horizontal");
-	//float y = Input.GetAxisRaw("Vertical");
-
-	//// Rotate the player
-	//transform.Rotate(-y* 45 * Time.deltaTime, x* 45 * Time.deltaTime, 0);
-
-	//		Vector3 lookPoint = Camera.main.ScreenPointToRay(Targeter.Instance.Reticle.position).GetPoint(100);
-
-	//// Look at the Reticle
-	//shipModel.LookAt(lookPoint, shipModel.transform.up);
-
-	//		Quaternion currentRot = shipModel.transform.localRotation;
-
-	//// Balance out the ship
-	//shipModel.transform.localRotation = Quaternion.Lerp(currentRot, Quaternion.identity, Time.deltaTime* 1);
+	void FixedUpdate()
+	{
+		if (hasAuthority)
+		{
+			// Client sends input to server via SyncVar
+			UpdateInput(new Vector2(Input.GetAxisRaw("Vertical"), Input.GetAxisRaw("Horizontal")));
+		}
+	}
 
 	void OnDestroy()
 	{
@@ -73,11 +74,4 @@ public class PlayerShipController : NetworkBehaviour
 			if (camera) camera.SetTarget(null, cameraOffset);
 		}
 	}
-
-	public void Pause(bool state) => Paused = state;
-
-	//private void OnDrawGizmos()
-	//{
-	//	Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
-	//}
 }

@@ -17,7 +17,7 @@ public class PlayerCharacterController : NetworkBehaviour
 	#region Player Stats
 
 	private float Speed = 10.0f;
-	private float RotSpeed = 125.0f;
+	private float RotSpeed = 150.0f;
 
 	#endregion
 
@@ -25,7 +25,7 @@ public class PlayerCharacterController : NetworkBehaviour
 	void Start() => myRigidbody = GetComponent<Rigidbody>();
 
 	[Command]
-	public void UpdateInput(Vector3 newInput) => InputVelocity = newInput;
+	public void UpdateInput(Vector2 newInput) => InputVelocity = newInput;
 
 	#region Client
 
@@ -39,24 +39,6 @@ public class PlayerCharacterController : NetworkBehaviour
 
 	void Update()
 	{
-		if (isServer)
-		{
-			// If we are the server we update this players rotation with there InputVelocity
-			transform.Rotate(0, InputVelocity.y * RotSpeed * Time.deltaTime, 0);
-
-		}
-
-		//// If it the local player playering
-		//if (hasAuthority)
-		//{
-		//	if (Input.GetKeyDown(KeyCode.Space))
-		//	{
-		//		if (IsGrounded())
-		//		{
-		//			myRigidbody.AddForce(Vector3.up * 1000, ForceMode.Force);
-		//		}
-		//	}
-		//}
 	}
 
 	void FixedUpdate()
@@ -69,22 +51,12 @@ public class PlayerCharacterController : NetworkBehaviour
 
 		if (isServer)
 		{
-			// If we are the server we move this player forward using there InputVelocity
+			// Move the player forward
 			myRigidbody.MovePosition(transform.position + transform.forward * InputVelocity.x * Speed * Time.fixedDeltaTime);
+
+			// Rotate the player
+			transform.Rotate(0, InputVelocity.y * RotSpeed * Time.deltaTime, 0);
 		}
-
-		//if (hasAuthority)
-		//{
-		//	Vector2 input = new Vector2(Input.GetAxis("Vertical"), Input.GetAxisRaw("Horizontal"));
-
-
-		//	// Move forward
-		//	myRigidbody.MovePosition(transform.position + transform.forward * input.x * Speed * Time.fixedDeltaTime);
-
-
-		//	// Rotate the player
-		//	transform.Rotate(0, input.y * RotSpeed * Time.deltaTime, 0);
-		//}
 	}
 
 	bool IsGrounded()

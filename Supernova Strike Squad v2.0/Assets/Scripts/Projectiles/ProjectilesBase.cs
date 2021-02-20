@@ -23,8 +23,13 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 	// Start is called before the first frame update
 	void Start()
 	{
-		// Get this projectiles rigidbody
 		myRigidbody = GetComponent<Rigidbody>();
+
+		// Get this projectiles rigidbody
+		if (!isServer)
+		{
+			if (myRigidbody) Destroy(myRigidbody);
+		}
 
 		// Destroy this projectile after 2s
 		if (isServer) Destroy(gameObject, 2);
@@ -34,7 +39,7 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 
 	private void FixedUpdate()
 	{
-		if (hasAuthority)
+		if (isServer)
 		{
 			myRigidbody.MovePosition(myRigidbody.position + transform.forward * Speed * Time.fixedDeltaTime);
 		}

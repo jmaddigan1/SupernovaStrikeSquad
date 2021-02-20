@@ -34,9 +34,8 @@ ScriptsOnlyBuild:
     - Weapon_Minigun
     - WeaponsSystems
     Mirror.Components.dll:
+    - Mirror.NetworkPingDisplay
     - Mirror.NetworkTransform
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.dll:
     - Mirror.FizzySteam.FizzySteamworks
     - Mirror.NetworkIdentity
@@ -145,6 +144,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12784}
     - Class: 114
       Script: {instanceID: 12892}
+    - Class: 114
+      Script: {instanceID: 13100}
     - Class: 114
       Script: {instanceID: 13352}
     - Class: 114
@@ -276,6 +277,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12892}
     - Class: 114
       Script: {instanceID: 13034}
+    - Class: 114
+      Script: {instanceID: 13100}
     - Class: 114
       Script: {instanceID: 13352}
     - Class: 114
@@ -1067,7 +1070,7 @@ ScriptsOnlyBuild:
     className: BallManager
   - hash:
       serializedVersion: 2
-      Hash: 201c97c1739a41431d35678b1ddac15e
+      Hash: ce0deab1958165a696756ce20bebd05d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShipController

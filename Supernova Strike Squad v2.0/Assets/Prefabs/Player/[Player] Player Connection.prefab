@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2226768675233351170}
   - component: {fileID: 2641607813899706171}
   - component: {fileID: 8876088124923936083}
+  - component: {fileID: 6613080824790968590}
   m_Layer: 0
   m_Name: '[Player] Player Connection'
   m_TagString: Untagged
@@ -102,3 +103,21 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &6613080824790968590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831868532688013253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc654f29862fc2643b948f772ebb9e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showPing: 1
+  showRoundTripTime: 1
+  position: {x: 15, y: 0}
+  fontSize: 24
+  textColor: {r: 1, g: 1, b: 1, a: 0.3137255}
+  format: '{0}ms'

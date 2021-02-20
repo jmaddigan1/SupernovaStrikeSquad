@@ -50,9 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  Speed: 150
+  Speed: 200
   Damage: 1
-  Owner: {fileID: 0}
 --- !u!114 &3777585796170625192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 1
-  syncInterval: 0.2
-  clientAuthority: 1
+  syncInterval: 0.06666667
+  clientAuthority: 0
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
