@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public class PlayerConnection_ObjectManager : NetworkBehaviour
 {
@@ -40,7 +41,6 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 			shipController.Pause(true);
 		}
 	}
-
 	public void UnpausePlayerObject()
 	{
 		if (!hasAuthority) return; 
@@ -48,6 +48,21 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
 		{
 			shipController.Pause(false);
+		}
+	}
+
+	public void PlayerEnterLevelAnimation()
+	{
+		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
+		{
+			shipController.PlayEnterLevel();
+		}
+	}	
+	public void PlayerExitLevelAnimation()
+	{
+		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
+		{
+			shipController.PlayExitLevel();
 		}
 	}
 }

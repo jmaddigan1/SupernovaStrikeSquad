@@ -14,6 +14,7 @@ public class PlayerConnection : NetworkBehaviour
 	public int playerID = -1;
 
 	public PlayerConnection_SceneManager Scene = null;
+	public PlayerConnection_NodeMapManager Map = null;
 	public PlayerConnection_ObjectManager Object = null;
 
 	// When a player connects to the game
@@ -56,26 +57,20 @@ public class PlayerConnection : NetworkBehaviour
 
 	#region Server Methods
 
+	[Server]
 	// The Server uses this to set a players ID
-	public void SetPlayerIndex(int newID) => playerID = newID;
+	public void SetPlayerIndex(int newID) => 
+		playerID = newID;
 
 	[Command]
 	// The players are ready and we are entering game
-	public void CmdTransitionFromHangarToGame()
-	{
+	public void CmdTransitionFromHangarToGame() => 
 		Scene.RpcLoadGameScene();
-	}
 
 	[Command]
 	// The game is over and we are moving back to the hangar
-	public void CmdTransitionFromGameToHangar(bool online) => Scene.RpcLoadHangarScene(online);
-
-	[Command]
-	// Start a new node event
-	public void CmdStartNewEvent(int nodeID)
-	{
-		NodeMapMenu.Instance.StartEvent(NodeMapMenu.Instance.CurrentNodeMap_Server.Nodes[nodeID].Event);
-	}
+	public void CmdTransitionFromGameToHangar(bool online) =>
+		Scene.RpcLoadHangarScene(online);
 
 	#endregion
 }

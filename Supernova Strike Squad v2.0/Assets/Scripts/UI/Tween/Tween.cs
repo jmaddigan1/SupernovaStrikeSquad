@@ -38,9 +38,6 @@ public class Tween : MonoBehaviour
 	public IEnumerator coEase_Transform(Transform target, AnimationCurve curve,
 		Vector3 axis, float start, float end, float duration, float delay, Action action = null)
 	{
-		// The starting position
-		Vector3 pos = target.localPosition;
-
 		// Wait for the delay
 		yield return new WaitForSecondsRealtime(delay);
 
@@ -53,13 +50,13 @@ public class Tween : MonoBehaviour
 			float value = curve.Evaluate(counter / duration);
 
 			if (axis == new Vector3(1, 0, 0))
-				target.localPosition = new Vector3(Mathf.LerpUnclamped(start, end, value), pos.y, pos.z);
+				target.localPosition = new Vector3(Mathf.LerpUnclamped(start, end, value), target.localPosition.y, target.localPosition.z);
 
 			if (axis == new Vector3(0, 1, 0))
-				target.localPosition = new Vector3(pos.x, Mathf.LerpUnclamped(start, end, value), pos.z);
+				target.localPosition = new Vector3(target.localPosition.x, Mathf.LerpUnclamped(start, end, value), target.localPosition.z);
 
 			if (axis == new Vector3(0, 0, 1))
-				target.localPosition = new Vector3(pos.x, pos.y, Mathf.LerpUnclamped(start, end, value));
+				target.localPosition = new Vector3(target.localPosition.x, target.localPosition.y, Mathf.LerpUnclamped(start, end, value));
 
 			yield return null;
 		}

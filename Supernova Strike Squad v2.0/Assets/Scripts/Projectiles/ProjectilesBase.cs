@@ -13,7 +13,7 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 {
 	// Public Members
 	// The forward speed of the projectile
-	public float Speed = 75.0f;
+	public float Speed = 175.0f;
 
 	public int Damage = 1;
 

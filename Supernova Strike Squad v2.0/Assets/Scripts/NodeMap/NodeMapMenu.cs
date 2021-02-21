@@ -103,46 +103,6 @@ public class NodeMapMenu : NetworkBehaviour
 
 	#endregion
 
-	#region Client
-	// The server has told us we have a new NodeMap
-	// We want to load that map and begin a new game
-	[ClientRpc]
-	public void RpcGenerateNodeMap(string mapDataJson)
-	{
-		NodeController.Clear();
-		DepthController.Clear();
-
-		// We have received the node map data from the server
-		// There is a problem however
-
-		// Because the Node events are ABSTRACT, we are missing all our event data
-
-		// This is OK because we only need to send the ID of the node we want to play to the server
-		// clients don't need to know all the information for each events
-		CurrentNodeMap_Client = JsonUtility.FromJson<NodeMapData>(mapDataJson);
-
-		DepthController.Init(CurrentNodeMap_Client.Depth);
-
-		foreach (NodeData node in CurrentNodeMap_Client.Nodes)
-		{
-			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
-		}
-	}
-
-	[ClientRpc]
-	public void RpcCompletedNode()
-	{
-
-	}
-
-	[ClientRpc] public void RpcOpenMenu() => ContentAnchor.SetActive(true);
-	[ClientRpc] public void RpcCloseMenu() => ContentAnchor.SetActive(false);
-
-	[ClientRpc] public void RpcPausePlayer() => PlayerConnection.LocalPlayer.Object.PausePlayerObject();
-	[ClientRpc] public void RpcUnpausePlayer() => PlayerConnection.LocalPlayer.Object.UnpausePlayerObject();
-
-	#endregion
-
 	#region Server
 
 	// When the NodeMap is first created we want to load the map we are playing ON THE SERVER
@@ -182,7 +142,9 @@ public class NodeMapMenu : NetworkBehaviour
 			// This will lose all the node event data, however the clients don't need to know this anyways
 			string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server);
 
-			RpcGenerateNodeMap(dataJson);
+			yield return new WaitForSeconds(0.5f);
+
+			PlayerConnection.LocalPlayer.Map.RpcBroadcastNewNodeMap(dataJson);
 		}
 	}
 
@@ -213,9 +175,9 @@ public class NodeMapMenu : NetworkBehaviour
 			Debug.Log("NODE FAILED!: Retry?");
 		}
 
-		string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server); 
+		string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server);
 
-		RpcGenerateNodeMap(dataJson);
+		PlayerConnection.LocalPlayer.Map.RpcBroadcastNewNodeMap(dataJson);
 	}
 
 	[Server]
@@ -224,8 +186,6 @@ public class NodeMapMenu : NetworkBehaviour
 		LevelGenerator.Remove();
 
 		LobbyManager.Instance.EndGame();
-
-		RpcCompletedNode();
 	}
 
 	#region Manage Event
@@ -272,19 +232,95 @@ public class NodeMapMenu : NetworkBehaviour
 
 	[Server]
 	IEnumerator OpenMenu()
-	{
+	{     
+		// Tell the client
+		// To Open the NodeMap menu
 		RpcOpenMenu();
-		yield return new WaitForSeconds(0.5f);
+
+		//  Wait for the expected animation time for the player ship to fly out
+		yield return new WaitForSeconds(1.2f);
 	}
 
 	[Server]
 	IEnumerator CloseMenu()
 	{
+		// Tell the client
+		// To Close the NodeMap menu
 		RpcCloseMenu();
-		yield return new WaitForSeconds(0.5f);
-	}
+
+		// Wait for the expected animation time for the player ship to fly in
+		yield return new WaitForSeconds(1.2f);
+	}       
 
 	#endregion
+
+	#endregion
+
+	#region Client
+	// The server has told us we have a new NodeMap
+	// We want to load that map and begin a new game
+	[Client]
+	public void GenerateNodeMap(string mapDataJson)
+	{
+		NodeController.Clear();
+		DepthController.Clear();
+
+		// We have received the node map data from the server
+		// There is a problem however
+
+		// Because the Node events are ABSTRACT, we are missing all our event data
+
+		// This is OK because we only need to send the ID of the node we want to play to the server
+		// clients don't need to know all the information for each events
+		CurrentNodeMap_Client = JsonUtility.FromJson<NodeMapData>(mapDataJson);
+
+		DepthController.Init(CurrentNodeMap_Client.Depth);
+
+		foreach (NodeData node in CurrentNodeMap_Client.Nodes)
+		{
+			NodeController.NodeList.Add(Instantiate(NodePrafab, DepthController.GetDepthAnchor(node.Depth)).Init(this, node));
+		}
+	}
+
+	[ClientRpc]
+	public void RpcPausePlayer()
+	{
+		PlayerConnection.LocalPlayer.Object.PlayerExitLevelAnimation();
+		PlayerConnection.LocalPlayer.Object.PausePlayerObject();
+	}
+
+	[ClientRpc]
+	public void RpcUnpausePlayer()
+	{
+		PlayerConnection.LocalPlayer.Object.PlayerEnterLevelAnimation();
+		PlayerConnection.LocalPlayer.Object.UnpausePlayerObject();
+	}
+
+	[ClientRpc]
+	public void RpcOpenMenu() => StartCoroutine(CoOpenMenu());
+	IEnumerator CoOpenMenu()
+	{
+		ContentAnchor.SetActive(true);
+
+		bool waiting = true;
+
+		Tween.Instance.EaseOut_Transform_ElasticY(ContentAnchor.transform, Screen.height, 0, 1.0f, 0, () => { waiting = false; });
+
+		while (waiting) yield return null;
+	}
+
+	[ClientRpc]
+	public void RpcCloseMenu() => StartCoroutine(CoCloseMenu());
+	IEnumerator CoCloseMenu()
+	{
+		bool waiting = true;
+
+		Tween.Instance.EaseIn_Transform_ElasticY(ContentAnchor.transform, 0, Screen.height, 1.0f, 0, () => { waiting = false; });
+
+		while (waiting) yield return null;
+
+		ContentAnchor.SetActive(false);
+	}
 
 	#endregion
 }

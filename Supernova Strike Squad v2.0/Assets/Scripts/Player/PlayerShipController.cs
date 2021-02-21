@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public class PlayerShipController : NetworkBehaviour
 {
-	// [SerializeField] private Transform shipModel = null;
+	[SerializeField] private Transform shipModel = null;
 
 	// Public Members
 	// The speed this ship moves forward
@@ -35,7 +36,6 @@ public class PlayerShipController : NetworkBehaviour
 		}
 	}
 
-
 	void Start()
 	{
 		if (!isServer)
@@ -47,7 +47,7 @@ public class PlayerShipController : NetworkBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (isServer)
+		if (isServer && !Paused)
 		{
 			// Move Forward
 			transform.position += transform.forward * Speed * Time.deltaTime;
@@ -55,6 +55,26 @@ public class PlayerShipController : NetworkBehaviour
 			// Rotate / Steer
 			transform.Rotate(-InputVelocity.x * 45 * Time.deltaTime, InputVelocity.y * 45 * Time.deltaTime, 0);
 		}
+
+		if (hasAuthority)
+		{
+			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+			float y = -input.y * 5;
+			float p = input.x * 10;
+			float r = -input.x * 25;
+
+			shipModel.transform.localRotation = Quaternion.Lerp(shipModel.transform.localRotation, Quaternion.Euler(y, p, r), 5 * Time.deltaTime);
+		}
+	}
+
+	public void PlayEnterLevel()
+	{
+		FindObjectOfType<ShipCamera>().PlayEnterLevel();
+	}
+	public void PlayExitLevel()
+	{
+		FindObjectOfType<ShipCamera>().PlayExitLevel();
 	}
 
 	void FixedUpdate()

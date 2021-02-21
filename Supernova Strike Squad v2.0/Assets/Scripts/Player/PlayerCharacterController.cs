@@ -37,10 +37,6 @@ public class PlayerCharacterController : NetworkBehaviour
 		PlayerConnection.LocalPlayer.Object.PlayerObject = gameObject;
 	}
 
-	void Update()
-	{
-	}
-
 	void FixedUpdate()
 	{
 		if (hasAuthority)

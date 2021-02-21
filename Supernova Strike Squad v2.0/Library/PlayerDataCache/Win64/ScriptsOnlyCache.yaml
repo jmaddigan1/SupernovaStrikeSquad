@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - NodeMapNodeController
     - PlayerCharacterController
     - PlayerConnection
+    - PlayerConnection_NodeMapManager
     - PlayerConnection_ObjectManager
     - PlayerConnection_SceneManager
     - PlayerShipController
@@ -180,6 +181,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14588}
     - Class: 114
       Script: {instanceID: 14608}
+    - Class: 114
+      Script: {instanceID: 17180}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -313,6 +316,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14566}
     - Class: 114
       Script: {instanceID: 14588}
+    - Class: 114
+      Script: {instanceID: 17180}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -980,7 +985,7 @@ ScriptsOnlyBuild:
     className: Tank
   - hash:
       serializedVersion: 2
-      Hash: f1350d9325c65306b76a27f6c8309c4c
+      Hash: 0d3ea483fe3deafe7681c111ccb7a88e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerConnection
@@ -1070,7 +1075,7 @@ ScriptsOnlyBuild:
     className: BallManager
   - hash:
       serializedVersion: 2
-      Hash: ce0deab1958165a696756ce20bebd05d
+      Hash: b3b039a64319e1449684555b743680ea
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShipController
@@ -1680,6 +1685,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 6fd2bb55b3ee5edb6040a1c5bccd0e07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerConnection_NodeMapManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

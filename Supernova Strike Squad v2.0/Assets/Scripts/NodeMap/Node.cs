@@ -22,8 +22,7 @@ public class Node : MonoBehaviour
 		NodeName.text = nodeData.Name;
 
 		Button.onClick.AddListener(() => {
-			Debug.Log("Node Click - ID:" + nodeData.Index);
-;			PlayerConnection.LocalPlayer.CmdStartNewEvent(NodeData.Index);
+			PlayerConnection.LocalPlayer.Map.CmdStartNewNode(NodeData.Index);
 		});
 
 		return this;
