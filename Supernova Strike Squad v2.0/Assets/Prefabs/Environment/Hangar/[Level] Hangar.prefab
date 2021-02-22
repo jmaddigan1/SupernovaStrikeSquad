@@ -284,17 +284,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401861319989653342}
-  m_LocalRotation: {x: -0, y: 0.38268322, z: -0, w: 0.9238797}
-  m_LocalPosition: {x: 0, y: 0, z: -3.72}
+  m_LocalRotation: {x: -0, y: 0.00000043213362, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 754670653614748573}
   m_Father: {fileID: 5914361697978195485}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 15.71, y: 2.24}
+  m_AnchoredPosition: {x: 4.37, y: 2.24}
   m_SizeDelta: {x: 8, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5559486675333638216
@@ -15922,6 +15922,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515119bd21ff59744a5ac792ab8120e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {fileID: 123720817}
+  - {fileID: 1194194088}
+  - {fileID: 1712434695}
+  - {fileID: 1789975515}
+  - {fileID: 861208741}
+  - {fileID: 1862714910}
   ShipDocks:
   - {fileID: 3918082535647990233}
   - {fileID: 5475991261086263035}

@@ -28,27 +28,12 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 	[Command]
 	public void CmdSpawnCharacterIntoGames()
 	{
+		Transform go = PlayerConnection.LocalPlayer.gameObject.transform;
+
+		Debug.Log(PlayerConnection.LocalPlayer.playerID);
+
 		PlayerObject = Instantiate(characterPrefab);
 		NetworkServer.Spawn(PlayerObject, connectionToClient);
-	}
-
-	public void PausePlayerObject()
-	{
-		if (!hasAuthority) return;
-
-		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
-		{
-			shipController.Pause(true);
-		}
-	}
-	public void UnpausePlayerObject()
-	{
-		if (!hasAuthority) return; 
-		
-		if (PlayerObject.TryGetComponent<PlayerShipController>(out PlayerShipController shipController))
-		{
-			shipController.Pause(false);
-		}
 	}
 
 	public void PlayerEnterLevelAnimation()

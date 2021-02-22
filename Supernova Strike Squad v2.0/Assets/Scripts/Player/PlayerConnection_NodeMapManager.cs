@@ -8,8 +8,6 @@ public class PlayerConnection_NodeMapManager : NetworkBehaviour
 	[ClientRpc]
 	public void RpcBroadcastNewNodeMap(string mapJson)
 	{
-		Debug.Log(mapJson);
-
 		if (NodeMapMenu.Instance == null)
 		{
 			Debug.Log("There is no NodeMapMenu.Instance");

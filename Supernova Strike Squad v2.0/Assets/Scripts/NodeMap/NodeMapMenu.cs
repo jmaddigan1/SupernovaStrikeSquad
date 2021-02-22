@@ -211,8 +211,8 @@ public class NodeMapMenu : NetworkBehaviour
 	IEnumerator PlayEvent(NodeEvent eventData)
 	{
 		eventData.OnStartEvent();
-
-		RpcUnpausePlayer();
+		
+		yield return UnpausePlayers(eventData);
 
 		LevelGenerator.Build(eventData.Environment);
 
@@ -221,7 +221,7 @@ public class NodeMapMenu : NetworkBehaviour
 			yield return null;
 		}
 
-		RpcPausePlayer();
+		yield return PausePlayers();
 
 		eventData.OnEndEvent();
 
@@ -250,7 +250,34 @@ public class NodeMapMenu : NetworkBehaviour
 
 		// Wait for the expected animation time for the player ship to fly in
 		yield return new WaitForSeconds(1.2f);
-	}       
+	}
+
+	[Server]
+	IEnumerator UnpausePlayers(NodeEvent eventData)
+	{     
+		// UnPause all players
+		RpcOnUnpausePlayer();
+		foreach (var player in FindObjectsOfType<PlayerShipController>())
+		{
+			player.transform.position = new Vector3(0, 0, -eventData.Environment.Size);
+			player.Paused = false;
+		}
+
+		yield return null;
+	}
+
+	[Server]
+	IEnumerator PausePlayers()
+	{    
+		// Pause all players
+		RpcOnPausePlayer();
+		foreach (var player in FindObjectsOfType<PlayerShipController>())
+		{
+			player.Paused = true;
+		}
+
+		yield return null;
+	}
 
 	#endregion
 
@@ -283,17 +310,15 @@ public class NodeMapMenu : NetworkBehaviour
 	}
 
 	[ClientRpc]
-	public void RpcPausePlayer()
+	public void RpcOnPausePlayer()
 	{
 		PlayerConnection.LocalPlayer.Object.PlayerExitLevelAnimation();
-		PlayerConnection.LocalPlayer.Object.PausePlayerObject();
 	}
 
 	[ClientRpc]
-	public void RpcUnpausePlayer()
+	public void RpcOnUnpausePlayer()
 	{
 		PlayerConnection.LocalPlayer.Object.PlayerEnterLevelAnimation();
-		PlayerConnection.LocalPlayer.Object.UnpausePlayerObject();
 	}
 
 	[ClientRpc]

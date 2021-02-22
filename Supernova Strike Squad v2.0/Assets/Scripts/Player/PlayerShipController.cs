@@ -17,8 +17,6 @@ public class PlayerShipController : NetworkBehaviour
 
 	public bool Paused = true;
 
-	public void Pause(bool state) => Paused = state;
-
 	[Command]
 	public void UpdateInput(Vector3 newInput) => InputVelocity = newInput;
 

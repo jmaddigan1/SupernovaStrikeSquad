@@ -25,19 +25,16 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 	{
 		myRigidbody = GetComponent<Rigidbody>();
 
-		// Get this projectiles rigidbody
-		if (!isServer)
-		{
-			if (myRigidbody) Destroy(myRigidbody);
-		}
+		// Get this projectiles myRigidbody
+		if (!isServer) Destroy(myRigidbody);
 
 		// Destroy this projectile after 2s
 		if (isServer) Destroy(gameObject, 2);
 	}
 
-	#region Client
+	#region Server
 
-	private void FixedUpdate()
+	void FixedUpdate()
 	{
 		if (isServer)
 		{
@@ -49,10 +46,6 @@ public class ProjectilesBase : NetworkBehaviour, IDamageSource
 	{
 		return Damage;
 	}
-
-	#endregion
-
-	#region Server
 
 	// When we destroy this projectile we want to destroy it on all clients
 	void OnDestroy()

@@ -55,7 +55,7 @@ public class ShipCamera : MonoBehaviour
 	{
 		playingAnimation = true;
 
-		Tween.Instance.EaseOut_Transform_ElasticZ(transform, -25, -6.5f, 2f, 0, () => { playingAnimation = false; });
+		Tween.Instance.EaseOut_Transform_ElasticZ(transform, -25, -10.5f, 2f, 0, () => { playingAnimation = false; });
 		Tween.Instance.EaseOut_Transform_QuartY(transform, 25, 0.5f, 1f, 0);
 	}
 

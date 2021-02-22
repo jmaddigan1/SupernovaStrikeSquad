@@ -8,6 +8,8 @@ public class HangarLobby : MonoBehaviour
 	// Global Members
 	public static HangarLobby Instance;
 
+	public List<Transform> SpawnPoints = new List<Transform>();
+
 	// Editor References
 	[SerializeField] 
 	private List<Dock> ShipDocks = new List<Dock>();

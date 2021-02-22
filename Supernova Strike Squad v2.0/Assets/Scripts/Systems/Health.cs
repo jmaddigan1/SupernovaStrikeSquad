@@ -10,12 +10,13 @@ public class Health : NetworkBehaviour, IDamageable
 	[SyncVar(hook = nameof(OnCurrentHealthChanged))]
 	public int CurrentHealth;
 
-	private void OnCollisionEnter(Collision other)
+	private void OnCollisionEnter(Collision collision)
 	{
 		if (isServer)
 		{
-			if (other.gameObject.TryGetComponent<IDamageSource>(out IDamageSource source)) {
-
+			if (collision.gameObject.TryGetComponent<IDamageSource>(out IDamageSource source))
+			{
+				Debug.Log($"Damage: {source.GetDamage()}");
 				DealDamage(source.GetDamage());
 			}
 		}
