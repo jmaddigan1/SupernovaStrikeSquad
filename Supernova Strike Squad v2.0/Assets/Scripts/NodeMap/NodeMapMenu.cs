@@ -142,9 +142,11 @@ public class NodeMapMenu : NetworkBehaviour
 			// This will lose all the node event data, however the clients don't need to know this anyways
 			string dataJson = JsonUtility.ToJson(CurrentNodeMap_Server);
 
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.2f);
 
 			PlayerConnection.LocalPlayer.Map.RpcBroadcastNewNodeMap(dataJson);
+
+			RpcOpenMenu();
 		}
 	}
 
@@ -211,10 +213,10 @@ public class NodeMapMenu : NetworkBehaviour
 	IEnumerator PlayEvent(NodeEvent eventData)
 	{
 		eventData.OnStartEvent();
-		
-		yield return UnpausePlayers(eventData);
 
 		LevelGenerator.Build(eventData.Environment);
+
+		yield return UnpausePlayers(eventData);
 
 		while (eventData.IsOver() == false)
 		{
@@ -263,7 +265,9 @@ public class NodeMapMenu : NetworkBehaviour
 			player.Paused = false;
 		}
 
-		yield return null;
+		LoadingScreen.Instance?.CloseScreen();
+
+		yield return new WaitForSeconds(1.0f);
 	}
 
 	[Server]
@@ -276,7 +280,9 @@ public class NodeMapMenu : NetworkBehaviour
 			player.Paused = true;
 		}
 
-		yield return null;
+		LoadingScreen.Instance?.OpenScreen();
+
+		yield return new WaitForSeconds(1.0f);
 	}
 
 	#endregion

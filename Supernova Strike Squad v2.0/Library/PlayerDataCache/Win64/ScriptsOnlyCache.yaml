@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - HangarLobby
     - Health
     - LevelGenerator
+    - LoadingScreen
     - LobbyManager
     - Menu
     - MenuTransition_DefaultClose
@@ -179,7 +180,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14568}
     - Class: 114
-      Script: {instanceID: 14610}
+      Script: {instanceID: 14608}
+    - Class: 114
+      Script: {instanceID: 33332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -365,7 +368,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14470}
     - Class: 114
-      Script: {instanceID: 14608}
+      Script: {instanceID: 14606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1682,6 +1685,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 34fcc257ea5064e7b520b83a45ee40a1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LoadingScreen
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

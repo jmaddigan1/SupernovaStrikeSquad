@@ -18,6 +18,10 @@ public class PlayerConnection_SceneManager : NetworkBehaviour
 
 	IEnumerator coLoadGameScene()
 	{
+		LoadingScreen.Instance.OpenScreen();
+
+		yield return new WaitForSecondsRealtime(2.0f);
+
 		// Load and wait for the scene to be loaded
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
 		while (!asyncLoad.isDone) yield return null;

@@ -21,6 +21,11 @@ public class HangarLobby : MonoBehaviour
 		Instance = this;
 	}
 
+	void Start()
+	{
+		LoadingScreen.Instance.CloseScreen();
+	}
+
 	public void UpdateHangarStates()
 	{
 		foreach (var player in FindObjectsOfType<PlayerConnection>())

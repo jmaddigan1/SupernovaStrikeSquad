@@ -35,6 +35,14 @@ public class PlayerCharacterController : NetworkBehaviour
 
 		// Set the local connections player object to me.
 		PlayerConnection.LocalPlayer.Object.PlayerObject = gameObject;
+		CmdMove(PlayerConnection.LocalPlayer.playerID);
+	}
+
+	[Command]
+	public void CmdMove(int id)
+	{
+		gameObject.transform.position = HangarLobby.Instance.SpawnPoints[id].position;
+
 	}
 
 	void FixedUpdate()

@@ -33,6 +33,7 @@ public class PlayerConnection_ObjectManager : NetworkBehaviour
 		Debug.Log(PlayerConnection.LocalPlayer.playerID);
 
 		PlayerObject = Instantiate(characterPrefab);
+
 		NetworkServer.Spawn(PlayerObject, connectionToClient);
 	}
 
