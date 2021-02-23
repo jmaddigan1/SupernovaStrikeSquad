@@ -20,6 +20,28 @@ public class PlayerConnection_NodeMapManager : NetworkBehaviour
 	[Command]
 	public void CmdStartNewNode(int index)
 	{
-		NodeMapMenu.Instance.StartEvent(NodeMapMenu.Instance.CurrentNodeMap_Server.Nodes[index].Event);
+		NodeMapData nodemap = NodeMapMenu.Instance.CurrentNodeMap_Server;
+
+		NodeData selectedNode = nodemap.Nodes[index];
+
+
+		// (TEMP) TODO: Remove this
+		bool constrainedToDepth = false;
+
+
+		if (selectedNode == null)
+		{
+			Debug.LogError($"ERROR: NodeID: {index} does not exist!");
+			return;
+		}
+
+		if (!constrainedToDepth || selectedNode.Depth == nodemap.CurrentDepth)
+		{
+			NodeMapMenu.Instance.StartEvent(NodeMapMenu.Instance.CurrentNodeMap_Server.Nodes[index].Event);
+		}
+		else
+		{
+			Debug.LogError($"ERROR: NodeID: {index} is not a valid node!");
+		}
 	}
 }

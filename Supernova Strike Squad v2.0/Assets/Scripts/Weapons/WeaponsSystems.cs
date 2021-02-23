@@ -48,6 +48,8 @@ public class WeaponsSystems : NetworkBehaviour
 	{
 		if (hasAuthority == false) return;
 
+		Debug.Log("adsd");
+
 		foreach (WeaponBase weapon in WeaponDictionary.Values)
 		{
 			if (Input.GetKeyDown(weapon.EquipKey))

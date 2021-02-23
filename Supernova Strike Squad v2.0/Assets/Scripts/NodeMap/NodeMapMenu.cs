@@ -265,8 +265,6 @@ public class NodeMapMenu : NetworkBehaviour
 			player.Paused = false;
 		}
 
-		LoadingScreen.Instance?.CloseScreen();
-
 		yield return new WaitForSeconds(1.0f);
 	}
 
@@ -279,8 +277,6 @@ public class NodeMapMenu : NetworkBehaviour
 		{
 			player.Paused = true;
 		}
-
-		LoadingScreen.Instance?.OpenScreen();
 
 		yield return new WaitForSeconds(1.0f);
 	}
@@ -319,12 +315,16 @@ public class NodeMapMenu : NetworkBehaviour
 	public void RpcOnPausePlayer()
 	{
 		PlayerConnection.LocalPlayer.Object.PlayerExitLevelAnimation();
+
+		LoadingScreen.Instance?.OpenScreen();
 	}
 
 	[ClientRpc]
 	public void RpcOnUnpausePlayer()
 	{
 		PlayerConnection.LocalPlayer.Object.PlayerEnterLevelAnimation();
+
+		LoadingScreen.Instance?.CloseScreen();
 	}
 
 	[ClientRpc]
