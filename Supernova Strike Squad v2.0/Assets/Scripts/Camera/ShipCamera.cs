@@ -45,7 +45,7 @@ public class ShipCamera : MonoBehaviour
 
 		if (!playingAnimation)
 		{
-			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
+			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
 			float scale = 0.5f;
 

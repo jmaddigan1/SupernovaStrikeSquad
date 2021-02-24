@@ -15,6 +15,8 @@ public class PlayerShipController : NetworkBehaviour
 	public Vector3 cameraOffset = new Vector3(0, 2, -6);
 	public Vector2 InputVelocity;
 
+	private Vector2 velocity;
+
 	public bool Paused = true;
 
 	[Command]
@@ -40,6 +42,10 @@ public class PlayerShipController : NetworkBehaviour
 		{
 			if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody)) Destroy(rigidbody);
 		}
+
+		if (!hasAuthority) {
+			Compass.Instance?.AddTarget(transform, Color.blue);
+		}
 	}
 
 	// Update is called once per frame
@@ -47,16 +53,18 @@ public class PlayerShipController : NetworkBehaviour
 	{
 		if (isServer && !Paused)
 		{
-			// Move Forward
-			transform.position += transform.forward * Speed * Time.deltaTime;
+			velocity = Vector2.Lerp(velocity, InputVelocity, Time.deltaTime * 5);
 
 			// Rotate / Steer
-			transform.Rotate(-InputVelocity.x * 45 * Time.deltaTime, InputVelocity.y * 45 * Time.deltaTime, 0);
+			transform.Rotate(-velocity.x * 45 * Time.deltaTime, velocity.y * 45 * Time.deltaTime, 0);
+
+			// Move Forward
+			transform.position += transform.forward * Speed * Time.deltaTime;
 		}
 
 		if (hasAuthority)
 		{
-			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
+			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
 			float y = -input.y * 5;
 			float p = input.x * 10;
@@ -64,15 +72,6 @@ public class PlayerShipController : NetworkBehaviour
 
 			shipModel.transform.localRotation = Quaternion.Lerp(shipModel.transform.localRotation, Quaternion.Euler(y, p, r), 5 * Time.deltaTime);
 		}
-	}
-
-	public void PlayEnterLevel()
-	{
-		FindObjectOfType<ShipCamera>().PlayEnterLevel();
-	}
-	public void PlayExitLevel()
-	{
-		FindObjectOfType<ShipCamera>().PlayExitLevel();
 	}
 
 	void FixedUpdate()
@@ -84,12 +83,6 @@ public class PlayerShipController : NetworkBehaviour
 		}
 	}
 
-	void OnDestroy()
-	{
-		if (hasAuthority)
-		{
-			var camera = FindObjectOfType<CameraController>();
-			if (camera) camera.SetTarget(null, cameraOffset);
-		}
-	}
+	public void PlayEnterLevel() => FindObjectOfType<ShipCamera>().PlayEnterLevel();
+	public void PlayExitLevel() => FindObjectOfType<ShipCamera>().PlayExitLevel();
 }

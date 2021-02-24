@@ -12,12 +12,12 @@ public class Enemy : NetworkBehaviour
 	void Start()
 	{
 		transform.position = new Vector3(
-			 UnityEngine.Random.Range(-150, 150),
-			 UnityEngine.Random.Range(-150, 150),
-			 UnityEngine.Random.Range(-150, 150)
+			 UnityEngine.Random.Range(-100f, 100f),
+			 UnityEngine.Random.Range(-100f, 100f),
+			 UnityEngine.Random.Range(-100f, 100f)
 			);
 
-		Compass.Instance.AddTarget(transform);
+		Compass.Instance?.AddTarget(transform, Color.red);
 	}
 
 	void OnDestroy()
