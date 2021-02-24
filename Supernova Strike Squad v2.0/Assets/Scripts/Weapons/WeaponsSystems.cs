@@ -46,37 +46,36 @@ public class WeaponsSystems : NetworkBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (hasAuthority == false) return;
-
-		Debug.Log("adsd");
-
-		foreach (WeaponBase weapon in WeaponDictionary.Values)
+		if (hasAuthority)
 		{
-			if (Input.GetKeyDown(weapon.EquipKey))
+			foreach (WeaponBase weapon in WeaponDictionary.Values)
 			{
-				// And it is not the same weapon we are using
-				if (weapon != CurrentWeapon)
+				if (Input.GetKeyDown(weapon.EquipKey))
 				{
+					// And it is not the same weapon we are using
 					EquipNewWeapon(weapon.Type);
 				}
 			}
-		}
 
-		if (CurrentWeapon != null)
-		{
-			if (Input.GetKeyUp(CurrentWeapon.ShootKey))
-				CurrentWeapon.OnShootUp();
+			if (CurrentWeapon != null)
+			{
+				if (Input.GetKeyUp(CurrentWeapon.ShootKey))
+					CurrentWeapon.OnShootUp();
 
-			if (Input.GetKeyDown(CurrentWeapon.ShootKey))
-				CurrentWeapon.OnShootDown();
+				if (Input.GetKeyDown(CurrentWeapon.ShootKey))
+					CurrentWeapon.OnShootDown();
+			}
 		}
 	}
 
+	[Client]
 	public void EquipNewWeapon(WeaponType weapon)
 	{
 		if (WeaponDictionary.ContainsKey(weapon) == false) {
 			Debug.LogError($"ERROR: That weapon is not registered! ({weapon})");
 		}
+
+		// TODO: Make sure its not the weapon were using
 
 		CmdSpawnWeapon(weapon);
 	}
@@ -84,9 +83,15 @@ public class WeaponsSystems : NetworkBehaviour
 	[Command]
 	public void CmdSpawnWeapon(WeaponType weapon)
 	{
-		NetworkServer.Spawn(Instantiate(WeaponDictionary[weapon].gameObject, WeaponAnchor), connectionToClient);
-	}
+		// Remove our last weapon
+		if (CurrentWeapon) 
+			NetworkServer.Destroy(CurrentWeapon.gameObject);
 
-	[Command]
-	public void CmdRemoveWeapon(GameObject weapon) => NetworkServer.Destroy(weapon);
+		// Spawn in the new weapon
+		GameObject go = Instantiate(WeaponDictionary[weapon].gameObject, WeaponAnchor);
+		CurrentWeapon = go.GetComponent<WeaponBase>();
+
+		// Spawn the weapon to all clients
+		NetworkServer.Spawn(go, connectionToClient);
+	}
 }

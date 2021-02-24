@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CameraController
     - CharacterCamera
     - ColorObjectWithAuthority
+    - Compass
     - Dock
     - Enemy
     - EnemySpawner
@@ -96,6 +97,8 @@ ScriptsOnlyBuild:
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
+      Script: {instanceID: 0}
+    - Class: 96
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -233,6 +236,8 @@ ScriptsOnlyBuild:
     - Class: 64
       Script: {instanceID: 0}
     - Class: 65
+      Script: {instanceID: 0}
+    - Class: 96
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -383,6 +388,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14476}
     - Class: 114
       Script: {instanceID: 14612}
+    - Class: 114
+      Script: {instanceID: 58970}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -813,7 +820,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: f1a2abc9a7ed4790c67647e2091cfb6f
+      Hash: 4cee59009449fbc6e3d24002b1482c78
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShipCamera
@@ -1717,6 +1724,18 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MiniMap
+  - hash:
+      serializedVersion: 2
+      Hash: e66c26642c91f27d433a75fffeced1d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Compass
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

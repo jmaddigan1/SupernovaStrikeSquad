@@ -11,6 +11,8 @@ public class ShipCamera : MonoBehaviour
 	public Transform Target;
 	public Transform Cam;
 
+	public Compass Compass;
+
 	public bool playingAnimation;
 
 	void Awake()
@@ -26,6 +28,11 @@ public class ShipCamera : MonoBehaviour
 	public void SetTarget(Transform target, Vector3 offset)
 	{
 		Target = target;
+
+		//foreach (PlayerShipController ship in FindObjectsOfType<PlayerShipController>())
+		//{
+		//	Compass.AddTarget(ship.transform);
+		//}
 
 		transform.SetParent(target);
 		transform.localPosition = offset;
