@@ -6,7 +6,7 @@ public class Enemy : NetworkBehaviour
 {
 	public Action<Enemy> OnDeath;
 
-	public EnemyID ID;
+	public EnemyType ID;
 
 	// Start is called before the first frame update
 	void Start()

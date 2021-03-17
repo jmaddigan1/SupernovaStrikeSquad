@@ -17,15 +17,15 @@ public class Events : MonoBehaviour
 			{
 				new EnemyWave {
 					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 3, EnemyID = EnemyID.ExampleEnemyID1 },
-						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyID.ExampleEnemyID2 },
+						new SpawnParameters { EnemyCount = 3, EnemyID = EnemyType.ExampleEnemyID1 },
+						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyType.ExampleEnemyID2 },
 					}
 				},
 				new EnemyWave {
 					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 5, EnemyID = EnemyID.ExampleEnemyID1 },
-						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyID.ExampleEnemyID2 },
-						new SpawnParameters { EnemyCount = 1, EnemyID = EnemyID.ExampleEnemyID3 },
+						new SpawnParameters { EnemyCount = 5, EnemyID = EnemyType.ExampleEnemyID1 },
+						new SpawnParameters { EnemyCount = 2, EnemyID = EnemyType.ExampleEnemyID2 },
+						new SpawnParameters { EnemyCount = 1, EnemyID = EnemyType.ExampleEnemyID3 },
 					}
 				}
 			}
@@ -56,9 +56,9 @@ public class Events : MonoBehaviour
 			{
 				new EnemyWave {
 					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 15, EnemyID = EnemyID.ExampleEnemyID1 },
-						new SpawnParameters { EnemyCount = 10, EnemyID = EnemyID.ExampleEnemyID2 },
-						new SpawnParameters { EnemyCount = 5, EnemyID = EnemyID.ExampleEnemyID3 },
+						new SpawnParameters { EnemyCount = 15, EnemyID = EnemyType.ExampleEnemyID1 },
+						new SpawnParameters { EnemyCount = 10, EnemyID = EnemyType.ExampleEnemyID2 },
+						new SpawnParameters { EnemyCount = 5, EnemyID = EnemyType.ExampleEnemyID3 },
 					}
 				},
 			}
@@ -89,7 +89,7 @@ public class Events : MonoBehaviour
 			{
 				new EnemyWave {
 					Enemies = new List<SpawnParameters> {
-						new SpawnParameters { EnemyCount = 10, EnemyID = EnemyID.ExampleEnemyID1 },
+						new SpawnParameters { EnemyCount = 10, EnemyID = EnemyType.ExampleEnemyID1 },
 					}
 				},
 			}

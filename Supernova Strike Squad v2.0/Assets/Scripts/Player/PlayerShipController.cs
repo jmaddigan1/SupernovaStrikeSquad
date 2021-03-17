@@ -32,7 +32,7 @@ public class PlayerShipController : NetworkBehaviour
 
 		// Equip our first weapon
 		if (TryGetComponent<WeaponsSystems>(out WeaponsSystems weaponsSystems)) {
-			weaponsSystems.EquipNewWeapon(WeaponType.Minigun);
+			weaponsSystems.CmdEquipNewWeapon(WeaponType.Minigun);
 		}
 	}
 

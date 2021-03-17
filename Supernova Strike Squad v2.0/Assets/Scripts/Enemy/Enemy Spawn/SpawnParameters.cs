@@ -1,6 +1,6 @@
 ﻿public class SpawnParameters
 {
-	public EnemyID EnemyID;
+	public EnemyType EnemyID;
 
 	public int EnemyCount;
 }

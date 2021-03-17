@@ -38,71 +38,6 @@ public class NodeMapMenu : NetworkBehaviour
 	// Is there currently a node event running on the server?
 	private bool eventRunning = false;
 
-	#region GUI / Debug
-
-
-	private void OnGUI()
-	{
-		if (isServer == false) return;
-
-		float width = 300;
-
-		GUILayout.BeginHorizontal();
-		GUILayout.Space(Screen.width - width);
-		GUILayout.BeginVertical("box", GUILayout.Width(width));
-
-		GUILayout.Label("NodeMap Menu Editor");
-
-		GUIRegion(() => {
-
-			GUILayout.Label("Options");
-
-			GUIRegion(() => {
-
-				GUILayout.Label("Node Settings");
-
-				if (GUILayout.Button("Kill all Enemies")) {
-
-					foreach (Enemy enemy in FindObjectsOfType<Enemy>()) {
-						enemy.gameObject.GetComponent<Health>().DealDamage(100000);
-					}
-				}
-
-			});
-
-			GUIRegion(() => {
-
-				GUILayout.Label("Enemy Settings");
-
-			});
-
-		});
-
-		GUIRegion(() => {
-
-			GUILayout.Label("Settings");
-
-		});
-
-		GUILayout.EndVertical();
-		GUILayout.EndHorizontal();
-	}
-
-	void GUIRegion(Action action)
-	{
-		GUI.color = new Color(1, 1, 1, 0.25f);
-
-		GUILayout.BeginVertical("box");
-
-		GUI.color = new Color(1, 1, 1, 1);
-
-		action.Invoke();
-
-		GUILayout.EndVertical();
-	}
-
-	#endregion
-
 	#region Server
 
 	// When the NodeMap is first created we want to load the map we are playing ON THE SERVER
@@ -187,7 +122,7 @@ public class NodeMapMenu : NetworkBehaviour
 	{
 		LevelGenerator.Remove();
 
-		LobbyManager.Instance.EndGame();
+		PlayerConnection.LocalPlayer.CmdTransitionFromGameToHangar(LobbyManager.Instance.LobbyType == LobbyType.Steam);
 	}
 
 	#region Manage Event

@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CharacterCamera
     - ColorObjectWithAuthority
     - Compass
+    - DebugEditor
     - Dock
     - Enemy
     - EnemySpawner
@@ -30,7 +31,6 @@ ScriptsOnlyBuild:
     - Shield
     - ShipCamera
     - SteamLobby
-    - Targeter
     - Tween
     - UIManager
     - Weapon_Minigun
@@ -176,19 +176,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14108}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 14190}
+      Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 14478}
+      Script: {instanceID: 14370}
     - Class: 114
-      Script: {instanceID: 14528}
+      Script: {instanceID: 14480}
     - Class: 114
-      Script: {instanceID: 14576}
+      Script: {instanceID: 14530}
     - Class: 114
-      Script: {instanceID: 14616}
+      Script: {instanceID: 14578}
+    - Class: 114
+      Script: {instanceID: 14618}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -315,19 +317,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14108}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 14166}
+      Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 14190}
+      Script: {instanceID: 14168}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 14478}
+      Script: {instanceID: 14370}
     - Class: 114
-      Script: {instanceID: 14528}
+      Script: {instanceID: 14480}
     - Class: 114
-      Script: {instanceID: 14576}
+      Script: {instanceID: 14530}
+    - Class: 114
+      Script: {instanceID: 14578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -378,13 +382,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13804}
     - Class: 114
-      Script: {instanceID: 14360}
+      Script: {instanceID: 14128}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14478}
+      Script: {instanceID: 14370}
     - Class: 114
-      Script: {instanceID: 14614}
+      Script: {instanceID: 14480}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -465,11 +469,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14100}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14370}
     - Class: 114
-      Script: {instanceID: 14478}
-    - Class: 114
-      Script: {instanceID: 17794}
+      Script: {instanceID: 14480}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -953,7 +955,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: fe92e56a98a8059bae64bf4d7db21718
+      Hash: d5f751e2ca6b71ca5f57fda7974577bc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon_RocketLauncher
@@ -1151,7 +1153,7 @@ ScriptsOnlyBuild:
     className: NetworkLerpRigidbody
   - hash:
       serializedVersion: 2
-      Hash: fe92e56a98a8059bae64bf4d7db21718
+      Hash: fae588c45bb45b62a94694b9dfc799ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon_Minigun
@@ -1439,12 +1441,6 @@ ScriptsOnlyBuild:
     className: NetworkIdentity
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MiniMap
-  - hash:
-      serializedVersion: 2
       Hash: 365431333bd9ad05fbef60539a6a7061
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1503,6 +1499,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HangarLobby
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DebugEditor
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1715,12 +1717,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: aa47493f5e00df6da5723105797bdfd9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Targeter
-  - hash:
-      serializedVersion: 2
       Hash: 9c1493f9c630da52130633fb513a4637
     assemblyName: Mirror.dll
     namespaceName: kcp2k
@@ -1732,4 +1728,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Hangar_Steam.unity
   - Assets/Scenes/Main.unity
   playerPath: E:/Dev/SupernovaStrikeSquad v2.0/SupernovaStrikeSquad/Supernova Strike
-    Squad v2.0/Builds/Supernova Strike Squad v2.0.exe
+    Squad v2.0/Builds/Supernova Strike Squad v2.0_Data/Supernova Strike Squad v2.0.exe

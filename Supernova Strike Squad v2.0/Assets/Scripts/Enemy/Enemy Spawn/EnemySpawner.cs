@@ -19,7 +19,7 @@ public class EnemySpawner : NetworkBehaviour
 
 	// Private Members
 	// This Dictionary is used to link enemy prefabs with Enemy IDs
-	private Dictionary<EnemyID, Enemy> enemyDictionary = new Dictionary<EnemyID, Enemy>();
+	private Dictionary<EnemyType, Enemy> enemyDictionary = new Dictionary<EnemyType, Enemy>();
 
 	void Start()
 	{
@@ -65,7 +65,7 @@ public class EnemySpawner : NetworkBehaviour
 	}
 
 	[Server]
-	private Enemy SpawnEnemy(EnemyID enemy, Action<Enemy> onDeathCallback = null)
+	private Enemy SpawnEnemy(EnemyType enemy, Action<Enemy> onDeathCallback = null)
 	{
 		if (enemyDictionary.ContainsKey(enemy) == false)
 		{

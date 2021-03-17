@@ -20,7 +20,7 @@ public class Dock : MonoBehaviour
 
 	[Header("States")]
 
-	public DockStates State = DockStates.Closed;
+	public DockState State = DockState.Closed;
 
 	public PlayerInfoDisplay GetInfoDisplay() => InfoDisplay;
 
@@ -38,11 +38,11 @@ public class Dock : MonoBehaviour
 
 	private IEnumerator coOpenDockDoors()
 	{
-		if (State == DockStates.Transitioning || State == DockStates.Open) yield return coCloseDockDoors();
+		if (State == DockState.Transitioning || State == DockState.Open) yield return coCloseDockDoors();
 
-		if (State == DockStates.Closed)
+		if (State == DockState.Closed)
 		{
-			State = DockStates.Transitioning;
+			State = DockState.Transitioning;
 
 			bool waiting = true;
 
@@ -61,12 +61,12 @@ public class Dock : MonoBehaviour
 
 			while (waiting) yield return null;
 
-			State = DockStates.Open;
+			State = DockState.Open;
 		}
 	}
 	private IEnumerator coCloseDockDoors()
 	{
-		State = DockStates.Transitioning;
+		State = DockState.Transitioning;
 
 		bool waiting = true;
 
@@ -85,6 +85,6 @@ public class Dock : MonoBehaviour
 
 		while (waiting) yield return null;
 
-		State = DockStates.Closed;
+		State = DockState.Closed;
 	}
 }

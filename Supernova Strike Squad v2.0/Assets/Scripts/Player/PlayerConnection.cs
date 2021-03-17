@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.SceneManagement;
 
 public class PlayerConnection : NetworkBehaviour
 {
@@ -16,6 +17,17 @@ public class PlayerConnection : NetworkBehaviour
 	public PlayerConnection_SceneManager Scene = null;
 	public PlayerConnection_NodeMapManager Map = null;
 	public PlayerConnection_ObjectManager Object = null;
+
+
+	public static WeaponsSystems GetLocalPlayersWeaponsSystem()
+	{
+		if (LocalPlayer && LocalPlayer.Object && LocalPlayer.Object.PlayerObject) {
+			return LocalPlayer.Object.PlayerObject.GetComponent<WeaponsSystems>();
+		}
+
+		return null;
+	}
+
 
 	// When a player connects to the game
 	// We want to make sure its gameobject cannot be destroyed
@@ -64,8 +76,10 @@ public class PlayerConnection : NetworkBehaviour
 
 	[Command]
 	// The players are ready and we are entering game
-	public void CmdTransitionFromHangarToGame() => 
+	public void CmdTransitionFromHangarToGame()
+	{
 		Scene.RpcLoadGameScene();
+	}
 
 	[Command]
 	// The game is over and we are moving back to the hangar

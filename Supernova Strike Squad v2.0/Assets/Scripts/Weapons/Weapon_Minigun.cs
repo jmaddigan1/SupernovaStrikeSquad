@@ -3,51 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+// The Mini Gun is a single barrel fast firing weapon
+// It is the default weapon for the player
 public class Weapon_Minigun : WeaponBase
 {
-	[SerializeField]
-	private GameObject shot = null;
+	// The projectile this weapon shoots
+	public GameObject ShotPrefab = null;
 
-    public float fireRate = 0.1f;
 
-    private float timer;
+	// The barrel for this weapon
+	public Transform Barrel = null;
 
-	[SerializeField]
-	private bool shooting;
 
-	public override void OnShootUp() => shooting = false;
-	public override void OnShootDown() => shooting = true;
+	// The fire rate of the Mini-gun
+	public float fireRate = 0.1f;
 
-	public override void OnEquip()
-	{
-		timer = 0.0f;
-	}	
 
+	// A timer to keep track of the time between shots
+	private float time;
+
+
+	// Reset the shooting time when we Equip or Unequip this weapon
+	public override void OnEquip() => time = 0;
+	public override void OnUnequip() => time = 0;
+
+
+	// Set the timer to 0
+	void ResetTimer() => time = 0.0f;
+
+	// Manage shooting for the Mini-gun
 	void FixedUpdate()
     {
-        if (hasAuthority == false) return;
+		// Make sure only the local client can use this
+		if (hasAuthority == false) return;
 
-		if (shooting)
+		if (Shooting)
 		{
-			timer += Time.fixedDeltaTime;
+			time += Time.fixedDeltaTime;
 
-			if (timer > fireRate)
+			if (time > fireRate)
 			{
 				CmdShoot();
-				timer = 0.0f;
+				ResetTimer();
 			}
 		}
-		else
-		{
-			timer = 0.0f;
-		}	
     }
+
+	public override void OnShootUp()
+	{
+		base.OnShootUp();
+
+		// When we stop shooting we want to reset the timer
+		ResetTimer();
+	}
+
+	#region Server
 
 	[Command]
 	void CmdShoot()
 	{
-		GameObject projectile = Instantiate(shot, Barrels[0].position, Barrels[0].rotation);
+		GameObject projectile = Instantiate(ShotPrefab, Barrel.position, Barrel.rotation);
 
 		NetworkServer.Spawn(projectile, connectionToClient);
 	}
+
+	#endregion
 }

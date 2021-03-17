@@ -43,8 +43,10 @@ public class ShipCamera : MonoBehaviour
 		// Blocker
 		if (Target = null) return;
 
+
 		if (!playingAnimation)
 		{
+
 			Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
 			float scale = 0.5f;
@@ -55,6 +57,7 @@ public class ShipCamera : MonoBehaviour
 			float camPosZ = -6.5f;
 
 			transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(camPosX, camPosY, camPosZ), Time.deltaTime * 4);
+
 		}
 	}
 
@@ -65,7 +68,6 @@ public class ShipCamera : MonoBehaviour
 		Tween.Instance.EaseOut_Transform_ElasticZ(transform, -25, -10.5f, 2f, 0, () => { playingAnimation = false; });
 		Tween.Instance.EaseOut_Transform_QuartY(transform, 25, 0.5f, 1f, 0);
 	}
-
 	public void PlayExitLevel()
 	{
 		playingAnimation = true;

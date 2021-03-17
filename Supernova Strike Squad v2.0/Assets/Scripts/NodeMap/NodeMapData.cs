@@ -8,7 +8,7 @@ public class NodeMapData
 
 	public int CurrentDepth = 0;
 
-	public CampaignType CampaignType;
+	public GameModeType CampaignType;
 
 	public List<NodeData> Nodes = new List<NodeData>();
 

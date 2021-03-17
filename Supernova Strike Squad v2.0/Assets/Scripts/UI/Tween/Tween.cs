@@ -23,16 +23,17 @@ public class Tween : MonoBehaviour
 
 	void Awake()
 	{
+		transform.SetParent(null);
+
 		if (Instance == null)
 		{
 			Instance = this;
+			DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
-			Destroy(this);
+			Destroy(gameObject);
 		}
-
-		transform.SetParent(null);
 	}
 
 	public IEnumerator coEase_Transform(Transform target, AnimationCurve curve,
@@ -44,6 +45,8 @@ public class Tween : MonoBehaviour
 		float counter = 0.0f;
 		while (counter < duration)
 		{
+			if (target == null) break;
+
 			// Add to the timer so we can calculate what percent of the animation we are through
 			counter += Time.deltaTime;
 
@@ -67,28 +70,27 @@ public class Tween : MonoBehaviour
 	IEnumerator coEase_Rotation(Transform target, AnimationCurve curve,
 		Vector3 axis, float start, float end, float duration, float delay, Action action = null)
 	{
-		// The starting position
-		Vector3 euler = target.eulerAngles;
-
 		// Wait for the delay
 		yield return new WaitForSecondsRealtime(delay);
 
 		float counter = 0.0f;
-		while (counter < duration)
+		while (counter < duration || target)
 		{
+			if (target == null) break;
+
 			// Add to the timer so we can calculate what percent of the animation we are through
 			counter += Time.deltaTime;
 
 			float value = curve.Evaluate(counter / duration);
 
 			if (axis == new Vector3(1, 0, 0))
-				target.eulerAngles = new Vector3(Mathf.LerpUnclamped(start, end, value), euler.y, euler.z);
+				target.eulerAngles = new Vector3(Mathf.LerpUnclamped(start, end, value), target.eulerAngles.y, target.eulerAngles.z);
 
 			if (axis == new Vector3(0, 1, 0))
-				target.eulerAngles = new Vector3(euler.x, Mathf.LerpUnclamped(start, end, value), euler.z);
+				target.eulerAngles = new Vector3(target.eulerAngles.x, Mathf.LerpUnclamped(start, end, value), target.eulerAngles.z);
 
 			if (axis == new Vector3(0, 0, 1))
-				target.eulerAngles = new Vector3(euler.x, euler.y, Mathf.LerpUnclamped(start, end, value));
+				target.eulerAngles = new Vector3(target.eulerAngles.x, target.eulerAngles.y, Mathf.LerpUnclamped(start, end, value));
 
 			yield return null;
 		}
@@ -99,15 +101,14 @@ public class Tween : MonoBehaviour
 	IEnumerator coEase_Scale(Transform target, AnimationCurve curve,
 		Vector3 axis, float start, float end, float duration, float delay, Action action = null)
 	{
-		// The starting position
-		Vector3 scale = target.localScale;
-
 		// Wait for the delay
 		yield return new WaitForSecondsRealtime(delay);
 
 		float counter = 0.0f;
-		while (counter < duration)
+		while (counter < duration || target)
 		{
+			if (target == null) break;
+
 			// Add to the timer so we can calculate what percent of the animation we are through
 			counter += Time.deltaTime;
 
@@ -121,35 +122,6 @@ public class Tween : MonoBehaviour
 
 			if (axis.z == 1)
 				target.localScale = new Vector3(target.localScale.x, target.localScale.y, Mathf.LerpUnclamped(start, end, value));
-
-			yield return null;
-		}
-
-		if (action != null) action.Invoke();
-	}
-
-	IEnumerator coEase_Size(RectTransform target, AnimationCurve curve,
-		Vector2 axis, float start, float end, float duration, float delay, Action action = null)
-	{
-		// The starting position
-		float width = target.sizeDelta.x;
-
-		// Wait for the delay
-		yield return new WaitForSecondsRealtime(delay);
-
-		float counter = 0.0f;
-		while (counter < duration)
-		{
-			// Add to the timer so we can calculate what percent of the animation we are through
-			counter += Time.deltaTime;
-
-			float value = curve.Evaluate(counter / duration);
-
-			if (axis == new Vector2(1, 0))
-				target.sizeDelta = new Vector2(Mathf.LerpUnclamped(start, end, value), target.sizeDelta.y);
-
-			if (axis == new Vector2(0, 1))
-				target.sizeDelta = new Vector2(target.sizeDelta.x, Mathf.LerpUnclamped(start, end, value));
 
 			yield return null;
 		}
@@ -269,45 +241,5 @@ public class Tween : MonoBehaviour
 	public void EaseOut_Rotation_ElasticX(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Rotation(target, EaseOutElastic, new Vector3(1, 0, 0), start, end, duration, delay, action));
 	public void EaseOut_Rotation_ElasticY(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Rotation(target, EaseOutElastic, new Vector3(0, 1, 0), start, end, duration, delay, action));
 	public void EaseOut_Rotation_ElasticZ(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Rotation(target, EaseOutElastic, new Vector3(0, 0, 1), start, end, duration, delay, action));
-	#endregion
-
-	// Size
-	#region Size
-	public void Ease_Size_LinerAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, Liner, new Vector3(1, 1), start, end, duration, delay, action));
-	public void Ease_Size_LinerWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, Liner, new Vector3(1, 0), start, end, duration, delay, action));
-	public void Ease_Size_LinerHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, Liner, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseOut_Size_SineAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutSine, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseOut_Size_SineWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutSine, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseOut_Size_SineHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutSine, new Vector3(0, 1), start, end, duration, delay));
-
-	public void EaseIn_Size_SineAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInSine, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseIn_Size_SineWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInSine, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseIn_Size_SineHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInSine, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseOut_Size_QuartAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutQuart, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseOut_Size_QuartWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutQuart, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseOut_Size_QuartHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutQuart, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseIn_Size_QuartAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInQuart, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseIn_Size_QuartWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInQuart, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseIn_Size_QuartHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInQuart, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseOut_Size_BounceAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutBounce, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseOut_Size_BounceWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutBounce, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseOut_Size_BounceHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutBounce, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseIn_Size_BounceAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInBounce, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseIn_Size_BounceWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInBounce, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseIn_Size_BounceHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInBounce, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseOut_Size_ElasticAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutElastic, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseOut_Size_ElasticWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutElastic, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseOut_Size_ElasticHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseOutElastic, new Vector3(0, 1), start, end, duration, delay, action));
-
-	public void EaseIn_Size_ElasticAll(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInElastic, new Vector3(1, 1), start, end, duration, delay, action));
-	public void EaseIn_Size_ElasticWidth(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInElastic, new Vector3(1, 0), start, end, duration, delay, action));
-	public void EaseIn_Size_ElasticHeight(RectTransform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Size(target, EaseInElastic, new Vector3(0, 1), start, end, duration, delay, action));
-
 	#endregion
 }

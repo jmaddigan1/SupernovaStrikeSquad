@@ -10,6 +10,8 @@ public class SNSSNetworkManager : NetworkManager
 
 	private Stack<int> openIDs = new Stack<int>();
 
+	private bool openServer;
+
 	public override void Awake()
 	{	
 		if (Instance)

@@ -67,12 +67,13 @@ MonoBehaviour:
   EquipKey: 111
   ShootKey: 32
   Type: 1
+  Shooting: 0
+  ShotPrefab: {fileID: 376027486423127939, guid: 26bb43eebffb78e46bad09ef4e004519,
+    type: 3}
   Barrels:
   - {fileID: 9024059460755318668}
   - {fileID: 4625916034617020609}
-  shot: {fileID: 376027486423127939, guid: 26bb43eebffb78e46bad09ef4e004519, type: 3}
   fireRate: 0.05
-  shooting: 0
 --- !u!1 &7737972804858480309
 GameObject:
   m_ObjectHideFlags: 0

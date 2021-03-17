@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-// the Lobby Manager manages the state of the players in the hangar
+// the Lobby Manager keeps track of the players in this lobby and data we need to keep track of between scene loads
 public class LobbyManager : NetworkBehaviour
 {
-	#region Singleton
-
 	public static LobbyManager Instance;
+
+	#region Singleton
 
 	private void Awake()
 	{
@@ -24,8 +24,9 @@ public class LobbyManager : NetworkBehaviour
 
 	#endregion
 
+	// The Game Mode / NodeMap Type we are going to load
 	public GameModeType GameMode;
-	public LobbyType LobbyType;
 
-	public void EndGame() => PlayerConnection.LocalPlayer.CmdTransitionFromGameToHangar(LobbyType == LobbyType.Steam);
+	// This keep track if we entered through steam or a local lobby
+	public LobbyType LobbyType;
 }
