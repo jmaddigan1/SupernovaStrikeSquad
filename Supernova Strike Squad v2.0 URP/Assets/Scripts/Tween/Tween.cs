@@ -127,9 +127,9 @@ public class Tween : MonoBehaviour
 	public void Ease_Transform_LinerY(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, Liner, new Vector3(0, 1, 0), start, end, duration, delay, action));
 	public void Ease_Transform_LinerZ(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, Liner, new Vector3(0, 0, 1), start, end, duration, delay, action));
 
-	public void EaseIn_Transform_SineX(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, Liner, new Vector3(1, 0, 0), start, end, duration, delay, action));
-	public void EaseIn_Transform_SineY(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, Liner, new Vector3(0, 1, 0), start, end, duration, delay, action));
-	public void EaseIn_Transform_SineZ(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, Liner, new Vector3(0, 0, 1), start, end, duration, delay, action));
+	public void EaseIn_Transform_SineX(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, EaseInSine, new Vector3(1, 0, 0), start, end, duration, delay, action));
+	public void EaseIn_Transform_SineY(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, EaseInSine, new Vector3(0, 1, 0), start, end, duration, delay, action));
+	public void EaseIn_Transform_SineZ(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, EaseInSine, new Vector3(0, 0, 1), start, end, duration, delay, action));
 
 	public void EaseOut_Transform_SineX(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, EaseOutSine, new Vector3(1, 0, 0), start, end, duration, delay, action));
 	public void EaseOut_Transform_SineY(Transform target, float start, float end, float duration, float delay = 0, Action action = null) => StartCoroutine(coEase_Transform(target, EaseOutSine, new Vector3(0, 1, 0), start, end, duration, delay, action));
