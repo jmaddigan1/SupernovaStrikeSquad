@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class MissionPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 	[SerializeField] private LayoutElement layoutElement = null;
+	[SerializeField] private Transform panelContent = null;
 
 	public MissionTypes MissionType;
 
@@ -24,7 +25,7 @@ public class MissionPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void Update()
 	{
-		layoutElement.preferredWidth = Mathf.Lerp(layoutElement.preferredWidth, TargetWidth, Time.deltaTime * 5);
+		layoutElement.preferredWidth = Mathf.Lerp(layoutElement.preferredWidth, TargetWidth, Time.deltaTime * 4);
 	}
 
 	public void RecalculateWidth()
@@ -56,7 +57,21 @@ public class MissionPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			if (missionSelect)
 			{
 				missionSelect.SelectMissionType(MissionType);
-			}	
+				ShowContent();
+			}
 		}		
+	}
+
+	public void ShowContent()
+	{
+		panelContent.gameObject.SetActive(true);
+		Tween.Instance.EaseOut_Scale_QuartX(panelContent, 0, 1, 0.5f);
+	}
+
+	public void HideContent()
+	{
+		Tween.Instance.EaseOut_Scale_QuartX(panelContent, 1, 0, 0.5f, 0, () => {
+			panelContent.gameObject.SetActive(false);
+		});
 	}
 }

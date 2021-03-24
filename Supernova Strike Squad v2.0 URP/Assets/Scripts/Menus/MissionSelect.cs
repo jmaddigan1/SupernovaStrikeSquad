@@ -44,7 +44,10 @@ public class MissionSelect : MonoBehaviour
 			{
 				missionPanel.CanBeClicked = true;
 				missionPanel.RecalculateWidth();
+				missionPanel.HideContent();
 			}
+
+			missionViewMode = false;
 		}
 		else
 		{
