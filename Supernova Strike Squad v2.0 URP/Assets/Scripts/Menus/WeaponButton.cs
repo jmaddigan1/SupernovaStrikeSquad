@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WeaponGridItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
+public class WeaponButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
 	private WeaponSelectScreen weaponSelectScreen = null;
 

@@ -49,7 +49,7 @@ public enum WeaponTypes
 
 public class WeaponSelectScreen : MonoBehaviour
 {
-    public List<WeaponGridItem> weaponButtons = new List<WeaponGridItem>();
+    public List<WeaponButton> weaponButtons = new List<WeaponButton>();
 
     public WeaponPanel WeaponPanel = null;
 
@@ -85,13 +85,12 @@ public class WeaponSelectScreen : MonoBehaviour
 
     public void Confirm(WeaponTypes weapon)
     {
-        confirmationcallback?.Invoke(weapon);
+        confirmationcallback.Invoke(weapon);
         Destroy(gameObject);
     }
 
     public void Cancel()
     {
-        confirmationcallback?.Invoke(CurrentWeapon);
         Destroy(gameObject);
     }
 

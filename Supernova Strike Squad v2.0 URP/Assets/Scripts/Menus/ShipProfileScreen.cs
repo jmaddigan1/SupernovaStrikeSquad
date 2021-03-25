@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShipProfileScreen : MonoBehaviour
 {
 	[SerializeField] private ShipSelectScreen shipSelectScreen = null;
+
+	[SerializeField] private TextMeshProUGUI nameText = null;
 
 	public void SelectNewShip()
 	{
@@ -18,6 +21,6 @@ public class ShipProfileScreen : MonoBehaviour
 
 	public void OnSelectNewShip(string shipName)
 	{
-		Debug.Log(shipName);
+		nameText.text = shipName;
 	}
 }

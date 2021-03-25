@@ -1285,6 +1285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20d428e76e6192409433f0e78f337ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipSelectScreen: {fileID: 2928000021546150161, guid: 081fa8f5fc07a484aaaeace204a420ba,
+    type: 3}
+  nameText: {fileID: 7747125470700449405}
 --- !u!1 &7747125470700449407
 GameObject:
   m_ObjectHideFlags: 0
