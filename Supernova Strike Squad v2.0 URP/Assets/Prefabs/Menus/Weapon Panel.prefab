@@ -90,6 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927692b899723154db6e9acd6ee0218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectScreen: {fileID: 4532162350317767168, guid: 5eb0ee34ee17a2b408dfe0b12642f865,
+    type: 3}
+  descriptionText: {fileID: 2443268164709217406}
+  titleText: {fileID: 858513318379049593}
 --- !u!1 &1570152133652152473
 GameObject:
   m_ObjectHideFlags: 0

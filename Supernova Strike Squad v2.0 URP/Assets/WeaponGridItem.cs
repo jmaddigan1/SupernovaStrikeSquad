@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class WeaponGridItem : MonoBehaviour
+public class WeaponGridItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private WeaponSelectScreen weaponSelectScreen = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public WeaponTypes WeaponTypes;
+
+	void Awake()
+	{
+		weaponSelectScreen = GetComponentInParent<WeaponSelectScreen>();
+	}
+
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		weaponSelectScreen.Confirm(WeaponTypes);
+	}
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		weaponSelectScreen.OnHover(WeaponTypes);
+	}
 }
