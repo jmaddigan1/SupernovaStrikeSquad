@@ -16,7 +16,7 @@ public class ShipProfileScreen : MonoBehaviour
 
 	public void Return()
 	{
-		Debug.Log("Return");
+		gameObject.SetActive(false);
 	}
 
 	public void OnSelectNewShip(string shipName)

@@ -6,10 +6,8 @@ public class Menu : MonoBehaviour
 {
 	public static Menu currentMenu;
 
-	public void Open(Menu targetMenu)
+	public void Open(Menu targetMenu = null)
 	{
-		Debug.Log(targetMenu.name);
-
 		currentMenu = this;
 
 		targetMenu.gameObject.SetActive(true);

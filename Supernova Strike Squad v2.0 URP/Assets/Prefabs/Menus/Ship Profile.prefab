@@ -1232,6 +1232,7 @@ GameObject:
   - component: {fileID: 7747125470105127521}
   - component: {fileID: 7747125470105127520}
   - component: {fileID: 7747125470105127549}
+  - component: {fileID: 4156273990610758664}
   m_Layer: 5
   m_Name: Ship Profile
   m_TagString: Untagged
@@ -1288,6 +1289,18 @@ MonoBehaviour:
   shipSelectScreen: {fileID: 2928000021546150161, guid: 081fa8f5fc07a484aaaeace204a420ba,
     type: 3}
   nameText: {fileID: 7747125470700449405}
+--- !u!114 &4156273990610758664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747125470105127522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18827b05b411be4880b955efc743655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7747125470700449407
 GameObject:
   m_ObjectHideFlags: 0
