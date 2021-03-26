@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] Transform cameraPosition;
+    public Transform CameraTarget;
 
     void Update()
     {
-        transform.position = cameraPosition.position;
+		if (CameraTarget)
+        {
+            transform.position = CameraTarget.position;
+        }
     }
 }

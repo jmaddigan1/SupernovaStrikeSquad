@@ -14,11 +14,6 @@ public class ShipProfileScreen : MonoBehaviour
 		Instantiate(shipSelectScreen, GetComponentInParent<Canvas>().transform).Open(OnSelectNewShip);
 	}
 
-	public void Return()
-	{
-		gameObject.SetActive(false);
-	}
-
 	public void OnSelectNewShip(string shipName)
 	{
 		nameText.text = shipName;

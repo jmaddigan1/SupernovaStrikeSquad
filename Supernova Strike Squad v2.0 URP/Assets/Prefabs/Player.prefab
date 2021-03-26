@@ -28,8 +28,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.95, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4638992414813377599}
-  m_RootOrder: 1
+  m_Father: {fileID: 4638992413834455184}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 180.00002}
 --- !u!212 &4638992413449218691
 SpriteRenderer:
@@ -113,7 +113,7 @@ RectTransform:
   m_Children:
   - {fileID: 4638992415057052473}
   m_Father: {fileID: 4638992414813377599}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -203,13 +203,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4638992413834455185}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4638992413449218700}
   m_Father: {fileID: 4638992414813377599}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!1 &4638992414149587266
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,12 +234,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4638992414149587266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2499999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4638992414813377599}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4638992414529824032
 GameObject:
@@ -346,6 +347,8 @@ GameObject:
   - component: {fileID: 4638992414813377592}
   - component: {fileID: 4638992414813377593}
   - component: {fileID: 4638992414813377598}
+  - component: {fileID: 1251544550465832659}
+  - component: {fileID: 699089603396204984}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -365,7 +368,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4638992414529824039}
-  - {fileID: 4638992413449218700}
   - {fileID: 4638992414149587265}
   - {fileID: 4638992413834455184}
   - {fileID: 4638992413706362699}
@@ -400,11 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e44dfa9f0e548048bfd80e0a32324a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   orientation: {fileID: 4638992413834455184}
-  MoveSpeed: 6
-  airMultiplier: 0.2
-  JumpForce: 12
-  jumpKey: 32
+  cameraTarget: {fileID: 4638992414149587265}
   isGrounded: 0
 --- !u!114 &4638992414813377598
 MonoBehaviour:
@@ -418,10 +419,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7296946692799439cb8985e32722f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   sensX: 100
   sensY: 100
   cam: {fileID: 0}
   orientation: {fileID: 4638992413834455184}
+--- !u!114 &1251544550465832659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638992414813377594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &699089603396204984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638992414813377594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
 --- !u!1 &4638992415057052474
 GameObject:
   m_ObjectHideFlags: 0

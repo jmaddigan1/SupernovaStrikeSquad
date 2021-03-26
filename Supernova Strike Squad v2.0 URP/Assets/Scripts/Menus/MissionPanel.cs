@@ -71,7 +71,7 @@ public class MissionPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	public void HideContent()
 	{
 		Tween.Instance.EaseOut_Scale_QuartX(panelContent, 1, 0, 0.5f, 0, () => {
-			panelContent.gameObject.SetActive(false);
+			panelContent?.gameObject.SetActive(false);
 		});
 	}
 }

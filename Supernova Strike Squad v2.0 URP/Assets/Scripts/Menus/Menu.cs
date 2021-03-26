@@ -6,7 +6,7 @@ public class Menu : MonoBehaviour
 {
 	public static Menu currentMenu;
 
-	public void Open(Menu targetMenu = null)
+	public virtual void Open(Menu targetMenu = null)
 	{
 		currentMenu = this;
 

@@ -51,7 +51,10 @@ public class MissionSelect : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Exit out of mission select");
+			if (TryGetComponent<ExtendedMenu>(out ExtendedMenu extendedMenu))
+			{
+				extendedMenu.Close();
+			}
 		}
 	}
 }
