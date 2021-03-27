@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum MissionTypes
 {
+	None,
 	Campaign,
 	MissionBoard,
 	Endless
@@ -17,7 +18,8 @@ public class MissionSelect : MonoBehaviour
 
 	public void SelectMissionType(MissionTypes missionType)
 	{
-		foreach (MissionPanel missionPanel in MissionPanels) {
+		foreach (MissionPanel missionPanel in MissionPanels)
+		{
 			missionPanel.CanBeClicked = false;
 		}
 

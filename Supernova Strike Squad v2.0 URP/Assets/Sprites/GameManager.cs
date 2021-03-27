@@ -2,16 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
 	public static GameManager Instance;
 
+
+	[Header("Editor References")]
+	public GameManagerSettings Settings;
+
+
+	[Header("Keybinds")]
 	public KeyCode StartButton = KeyCode.Y;
 
+
+	[Header("Players")]
 	public List<ShipBay> Ships = new List<ShipBay>();
 
-	void Awake()
+	public override void OnStartClient()
 	{
 		if (Instance)
 		{
@@ -33,6 +42,12 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator coTestGame()
 	{
+		foreach (ShipBay ship in Ships)
+		{
+			Debug.Log("SHIP LOADING");
+			Debug.Log(ship.ownerID);
+		}
+
 		yield return coChangeScene("Gameplay");
 		yield return coSimulateGame();
 
@@ -40,7 +55,6 @@ public class GameManager : MonoBehaviour
 
 		yield return coChangeScene("Main");
 	}
-
 	IEnumerator coChangeScene(string scene)
 	{
 		PlayerController.Interacting = true;

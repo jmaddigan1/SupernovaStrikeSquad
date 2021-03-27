@@ -65,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPrefab: {fileID: 5801439862607687476, guid: 6acb2fa7d8293454d86c3f23a72dc7d5,
     type: 3}
+  shipBay: {fileID: 5082178850697361310}
 --- !u!136 &722468667298582781
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6514358390348732284}
   - component: {fileID: 5082178850697361310}
+  - component: {fileID: 8330354852640487715}
   m_Layer: 0
   m_Name: Ship Bay
   m_TagString: Untagged
@@ -124,6 +126,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecba733e78de1b4f9d0a8b8882601ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  ownerID: -1
+  Animator: {fileID: 4135188038290779543}
+--- !u!114 &8330354852640487715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732768378271682413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1001 &2952645067143451088
 PrefabInstance:
   m_ObjectHideFlags: 0
