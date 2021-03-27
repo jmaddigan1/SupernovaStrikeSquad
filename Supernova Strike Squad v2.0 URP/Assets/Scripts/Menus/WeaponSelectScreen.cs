@@ -96,6 +96,6 @@ public class WeaponSelectScreen : MonoBehaviour
 
     public void OnHover(WeaponTypes weapon)
 	{
-        WeaponPanel.OnSelectNewWeapon(weapon);
+        WeaponPanel.UpdateWeaponInfo(weapon);
     }
 }

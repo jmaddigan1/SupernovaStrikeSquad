@@ -1289,6 +1289,7 @@ MonoBehaviour:
   shipSelectScreen: {fileID: 2928000021546150161, guid: 081fa8f5fc07a484aaaeace204a420ba,
     type: 3}
   nameText: {fileID: 7747125470700449405}
+  weapons: []
 --- !u!114 &5801439862607687476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSize
       value: 52.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456678571283872889, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: playerWeaponSlotIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c798d56c31dc2545956c2f9c6d2a92c, type: 3}

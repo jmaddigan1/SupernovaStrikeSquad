@@ -7,6 +7,7 @@ public class ShipBay : NetworkBehaviour
 {
 	public int ownerID = -1;
 
+	public ShipProfileScreen Profile;
 	public Animator Animator;
 
 	[SyncVar(hook = ("OnStateUpdate"))]

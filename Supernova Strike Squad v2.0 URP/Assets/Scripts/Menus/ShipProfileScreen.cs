@@ -9,6 +9,8 @@ public class ShipProfileScreen : MonoBehaviour
 
 	[SerializeField] private TextMeshProUGUI nameText = null;
 
+	public List<WeaponPanel> weapons = new List<WeaponPanel>();
+
 	public void SelectNewShip()
 	{
 		Instantiate(shipSelectScreen, GetComponentInParent<Canvas>().transform).Open(OnSelectNewShip);
