@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690508558}
   m_LocalRotation: {x: -0, y: 0.38268274, z: -0, w: 0.9238798}
-  m_LocalPosition: {x: 67, y: 7.39, z: 17.98}
+  m_LocalPosition: {x: 67, y: 7.04, z: 17.98}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2221554894897881258}
@@ -539,6 +539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship Bay
       objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}
 --- !u!4 &4844064932399314486 stripped
@@ -618,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Bay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}
@@ -737,7 +747,7 @@ PrefabInstance:
     - target: {fileID: -440829030202839650, guid: 858a11445773e6f48825141364c93220,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -440829030202839650, guid: 858a11445773e6f48825141364c93220,
         type: 3}
@@ -909,6 +919,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship Bay
       objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}
 --- !u!4 &4844064933275162890 stripped
@@ -988,6 +1003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Bay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}
@@ -1143,6 +1163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Bay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}
@@ -1663,6 +1688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Bay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330354852640487715, guid: 30030914d62a64c47a69ef11cbea8137,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30030914d62a64c47a69ef11cbea8137, type: 3}

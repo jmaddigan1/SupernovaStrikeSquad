@@ -16,6 +16,6 @@ public class ShipButton : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		shipSelectScreen.Confirm(ShipType.ToString());
+		shipSelectScreen.Confirm(ShipType);
 	}
 }

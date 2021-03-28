@@ -15,7 +15,7 @@ public enum ShipType
 
 public class ShipSelectScreen : MonoBehaviour
 {
-    Action<string> confirmationCallback;
+    Action<ShipType> confirmationCallback;
 
     public List<ShipButton> ShipButtons = new List<ShipButton>();
 
@@ -37,14 +37,14 @@ public class ShipSelectScreen : MonoBehaviour
         }
     }
 
-	public void Open(Action<string> callback)
+	public void Open(Action<ShipType> callback)
     {
         confirmationCallback = callback;
     }
 
-    public void Confirm(string weapon)
+    public void Confirm(ShipType ship)
     {
-        confirmationCallback.Invoke(weapon);
+        confirmationCallback.Invoke(ship);
         Destroy(gameObject);
     }
 

@@ -15,6 +15,8 @@ public class NetworkPlayer : Player
 		WeaponTypes.RocketsLauncher
 	};
 
+	public ShipType Ship = ShipType.ShipA;
+
 	private void Update()
 	{
 		if (RequestPlayerData())
@@ -98,10 +100,15 @@ public class NetworkPlayer : Player
 	[Command]
 	public void Cmd_UpdateWeapon(WeaponTypes weaponName, int playerWeaponSlotIndex)
 	{
-		if (playerWeaponSlotIndex < Weapons.Length)
-		{
+		if (playerWeaponSlotIndex < Weapons.Length) {
 			Weapons[playerWeaponSlotIndex] = weaponName;
 		}
+	}	
+	
+	[Command]
+	public void Cmd_UpdateShip(ShipType shipType)
+	{
+		Ship = shipType;
 	}
 
 	#endregion
