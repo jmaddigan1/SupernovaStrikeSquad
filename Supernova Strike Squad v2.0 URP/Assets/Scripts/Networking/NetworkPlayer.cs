@@ -27,6 +27,8 @@ public class NetworkPlayer : Player
 
 				Debug.Log($"[{playerID}] Player ");
 
+				Debug.Log($"Ship " + Ship.ToString());
+
 				foreach (WeaponTypes weapon in Weapons) {
 					Debug.Log($"Weapons " + weapon.ToString());
 				}
