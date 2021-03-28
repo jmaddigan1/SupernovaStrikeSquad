@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4875e6bfdc1955d41bdfe616e7edfe33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuPrefabB: {fileID: 7747125470105127522, guid: 6acb2fa7d8293454d86c3f23a72dc7d5,
+    type: 3}
   menuPrefab: {fileID: 5801439862607687476, guid: 6acb2fa7d8293454d86c3f23a72dc7d5,
     type: 3}
   shipBay: {fileID: 5082178850697361310}

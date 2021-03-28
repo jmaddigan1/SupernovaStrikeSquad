@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// When the local player enters this area we want to give the..
+// option of oping the given menu
 public class MenuTriggerArea : MonoBehaviour
 {
 	[SerializeField] private ExtendedMenu menuPrefab = null;
@@ -55,7 +57,6 @@ public class MenuTriggerArea : MonoBehaviour
 			}
 		}
 	}
-
 	void OnTriggerExit(Collider other)
 	{
 		var enteringPlayer = other.GetComponentInParent<PlayerController>();

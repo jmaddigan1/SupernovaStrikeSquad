@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 using System;
 
@@ -19,35 +20,15 @@ public class NetworkPlayer : Player
 
 	private void Update()
 	{
-		if (RequestPlayerData())
+		// Ready UP
+		if (hasAuthority)
 		{
-			foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>())
+			if (Input.GetKeyDown(KeyCode.Return))
 			{
-				int playerID = player.ID;
-
-				Debug.Log($"[{playerID}] Player ");
-
-				Debug.Log($"Ship " + Ship.ToString());
-
-				foreach (WeaponTypes weapon in Weapons) {
-					Debug.Log($"Weapons " + weapon.ToString());
-				}
-
+				Ready = !Ready;
+				Cmd_UpdateReady(Ready);
 			}
 		}
-	}
-
-	bool RequestPlayerData()
-	{
-		if (isServer)
-		{
-			if (Input.GetKeyDown(KeyCode.R))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	#region Client
@@ -69,6 +50,16 @@ public class NetworkPlayer : Player
 		base.OnStopClient();
 		if (isServer) UpdateShipBays(false);
 	}
+
+	#region RPC Calls
+
+	[ClientRpc]
+	public void Rpc_ChangeScene(string scene)
+	{
+		SceneManager.LoadScene(scene);
+	}
+
+	#endregion
 
 	#endregion
 

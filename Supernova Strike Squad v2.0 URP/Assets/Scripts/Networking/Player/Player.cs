@@ -44,6 +44,8 @@ public abstract class Player : NetworkBehaviour
 	// Get this players ID
 	public int ID { get { return playerID.ID; } set { playerID.ID = value; } }
 
+	//
+	public bool Ready = false;
 
 	// Get this players Lobby Manager
 	public PlayerLobby Lobby { get { return lobby; } }
@@ -57,9 +59,15 @@ public abstract class Player : NetworkBehaviour
 
 	// Methods
 	// OnStart and OnStop a Client
-	public override void OnStartClient() => PlayerCount++;
-	public override void OnStopClient() => PlayerCount--;
-
+	public override void OnStartClient()
+	{
+		DontDestroyOnLoad(gameObject);
+		PlayerCount++;
+	}
+	public override void OnStopClient()
+	{
+		PlayerCount--;
+	}
 
 	public virtual void OnIDChange(int oldID, int newID) { }
 
@@ -80,4 +88,32 @@ public abstract class Player : NetworkBehaviour
 	public void Cmd_UpdateColor(Color newColor) {
 		Color = newColor;
 	}
+
+	[Command]
+	public void Cmd_UpdateReady(bool ready) {
+		Ready = ready;
+	}
+
+	#region GUI
+
+	public void DrawPlayerGUI()
+	{
+		GUIStyle contentStyle = new GUIStyle();
+
+		contentStyle.alignment = TextAnchor.MiddleLeft;
+		contentStyle.fontStyle = FontStyle.Normal;
+
+		contentStyle.normal.textColor = Color.white;
+
+		GUILayout.BeginVertical("box");
+		GUILayout.Label($"[{ID}] {Username}", contentStyle);
+		GUILayout.Label($"Ready: {Ready}", contentStyle);
+		GUILayout.Label($"Ship: {Self.Ship.ToString()}", contentStyle);
+		foreach (WeaponTypes weapon in Self.Weapons)
+		{
+			GUILayout.Label($"Weapon: {weapon.ToString()}", contentStyle);
+		}
+		GUILayout.EndVertical();
+	}
+	#endregion
 }

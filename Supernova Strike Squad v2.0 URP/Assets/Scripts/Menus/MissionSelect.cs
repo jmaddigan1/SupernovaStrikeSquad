@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,20 @@ public enum MissionTypes
 	Endless
 }
 
-public class MissionSelect : MonoBehaviour
+public class MissionSelect : MonoBehaviour, IMenu
 {
 	public List<MissionPanel> MissionPanels = new List<MissionPanel>();
+
+	public void Open(Action<string[]> callback)
+	{
+
+	}
+
+	public void Close()
+	{
+
+	}
+
 
 	bool missionViewMode = false;
 
