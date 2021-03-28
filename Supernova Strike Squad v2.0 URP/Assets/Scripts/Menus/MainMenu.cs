@@ -5,37 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : Menu
 {
-	[SerializeField] private ConfirmationMenu ConfirmationMenu = null; 
-
+	// Load the hangar in local / single player mode
 	public void Play()
 	{
-		Instantiate(ConfirmationMenu, transform.parent).Open("Play Alone", (bool result) => {
-			if (result == true)
-			{
-				LoadingScreen.Instance.FadeIn(LoadHangar);
-				Destroy(gameObject);
-			}
-		});
-
+		LoadingScreen.Instance.FadeIn(LoadHangar);
+		Destroy(gameObject);
 	}
-	
+
+	// Load the hangar in online mode
 	public void Online()
 	{
-		Instantiate(ConfirmationMenu, transform.parent).Open("Join a Lobby", (bool result) => {
-			if (result == true)
-			{
-				LoadingScreen.Instance.FadeIn(LoadHangar);
-				Destroy(gameObject);
-			}
-		});
+		LoadingScreen.Instance.FadeIn(LoadHangar);
+		Destroy(gameObject);
 	}
 
+
+	// Load the hangar in its corresponding mode
 	void LoadHangar()
 	{
-		Debug.Log("test");
-
 		currentMenu = null;
+
 		SceneManager.LoadScene("Main");
+
 		LoadingScreen.Instance.FadeOut();
 	}
 }
