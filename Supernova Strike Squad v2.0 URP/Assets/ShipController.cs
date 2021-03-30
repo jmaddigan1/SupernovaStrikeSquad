@@ -8,38 +8,35 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
-	[SerializeField] private Transform cam;
+
 	[SerializeField] private Transform shipModel = null;
 	[SerializeField] private Transform cameraTarget = null;
 
-	float moveSpeed = 5f;
+	Transform cam = null;
+	Rigidbody rb = null;
+
 	float moveMultiplier = 10.0f;
-
-	[SerializeField] float xRotation;
-	[SerializeField] float yRotation;
-	[SerializeField] float zRotation;
-	[SerializeField] float zMovement;
-
-	Vector3 shipRotation;
-
-	Rigidbody rb;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
-
 		cam = FindObjectOfType<MoveCamera>().transform;
+
 		cam.GetComponent<MoveCamera>().CameraTarget = cameraTarget;
 
-		//Cursor.lockState = CursorLockMode.Locked;
-		//Cursor.visible = false;
+		Cursor.visible = false;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		ReadInput();
+		UpdateMoveDirection();
+		UpdateLookRotation();
+
+		UpdateModel();
+
+		UpdateCamera();
 
 		cam.transform.rotation = cameraTarget.rotation;
 	}
@@ -47,38 +44,40 @@ public class ShipController : MonoBehaviour
 	void FixedUpdate()
 	{
 		// MOVE FORWARD
-		rb.AddRelativeForce((moveDirection * moveMultiplier) , ForceMode.Acceleration);
+		rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
 
 		// ROTATE
 		rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
 	}
 
-	float zSpeedBuildup = 1;
-
-	float zBuildup = 0;
-	float yBuildup = 0;
-
-
 	#region Move Stuff
 	Vector3 moveDirection;
-	float moveX, moveZ;
+	float moveX, moveZ, speedPercent;
+	float minSpeedPercent = 0.9f;
 	void UpdateMoveDirection()
 	{
+		float deltaTime = Time.deltaTime;
+
 		moveX = Input.GetAxis("Horizontal");
 		moveZ = Input.GetAxis("Vertical");
 
-		float minSpeedPercent = 1.00f;
-		float maxSpeedPercent = 1.00f;
+		moveZ = moveZ + 1.0f;
+
+		float minSpeedPercent = 0.25f;
+		float maxSpeedPercent = 2.00f;
 
 		moveZ = Mathf.Clamp(moveZ, minSpeedPercent, maxSpeedPercent);
 
-		float moveSpeed = 3.5f;
+		speedPercent = Mathf.Lerp(speedPercent, Mathf.Clamp(moveZ, 0.9f, 1.5f), deltaTime * 1.0f);
+
+		float moveSpeed = 5f;
 
 		moveX = moveX * moveSpeed;
 		moveZ = moveZ * moveSpeed;
 
 		moveDirection = new Vector3(moveX, 0, moveZ);
 	}
+
 	#endregion
 
 	#region Look Stuff
@@ -87,11 +86,11 @@ public class ShipController : MonoBehaviour
 	float rotX, rotY, rotZ;
 	void UpdateLookRotation()
 	{
-		Vector2 input = GetInput();
+		Vector2 input = GetInput() / speedPercent;
 
 		float rotSpeed = 2.5f;
 
-		rotX = (rotSpeed *  input.x);
+		rotX = (rotSpeed * input.x);
 		rotY = (rotSpeed * -input.y);
 
 		rotZ = Input.GetAxis("Roll") * -2.5f;
@@ -125,14 +124,17 @@ public class ShipController : MonoBehaviour
 
 	#region Model Stuff
 
+	float mTargetY, mTargetZ;
 	void UpdateModel()
 	{
-		float yRot = rotY * 10f;
-		float zRot = rotX * 20f;
+		float deltaTime = Time.deltaTime;
+
+		mTargetY = Mathf.Lerp(mTargetY, rotY * 10f, deltaTime * 2.5f);
+		mTargetZ = Mathf.Lerp(mTargetZ, rotX * 20f, deltaTime * 2.5f);
 
 		Vector3 shipRot;
 
-		shipRot = new Vector3(yRot, zRot / 4f, -zRot);
+		shipRot = new Vector3(mTargetY, mTargetZ / 4f, -mTargetZ);
 
 		shipModel.transform.localEulerAngles = shipRot;
 	}
@@ -141,54 +143,20 @@ public class ShipController : MonoBehaviour
 
 	#region Camera Stuff
 
-	#endregion
-
-	void ReadInput()
+	float cTargetX, cTargetY, cTargetZ = 1;
+	void UpdateCamera()
 	{
-		UpdateMoveDirection();
+		float deltaTime = Time.deltaTime;
 
-		UpdateLookRotation();
+		Vector3 camOffset = new Vector3(0, 0.9f, -5.5f);
 
-		UpdateModel();
+		cTargetX = Mathf.Lerp(cTargetX, rotX * 1f, deltaTime * 0.5f);
+		cTargetY = Mathf.Lerp(cTargetY, rotZ * 1f, deltaTime * 0.5f);
 
-		//float deltaTime = Time.deltaTime;
+		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);
 
-		//float rotSpeed = 75;
-
-		//Vector2 input = GetInput();
-
-		//float x = (rotSpeed * input.x);
-		//float y = (rotSpeed * -input.y);
-
-		//float s = 5;
-
-		//zRotation = -Input.GetAxis("Horizontal") * 50;
-		//zMovement =  ((Input.GetAxis("Vertical") / 2) + 1);
-
-		//targetRotation = new Vector3(y, x, zRotation) / 40;
-
-		//x = x * deltaTime;
-		//y = y * deltaTime;
-
-		//#region MODEL
-
-		//// MODEL
-		//yBuildup = Mathf.Lerp(yBuildup, (rotSpeed * -input.y) * 0.2f, deltaTime * 3);
-		//zBuildup = Mathf.Lerp(zBuildup, (rotSpeed * -input.x) * 0.4f, deltaTime * 3);
-
-
-		//print(x);
-		//shipModel.transform.localEulerAngles = new Vector3(yBuildup, 0, zBuildup);
-
-		//#endregion
-
-		//zSpeedBuildup = Mathf.Lerp(zSpeedBuildup, zMovement, Time.deltaTime * 3);
-
-		//print(zSpeedBuildup * s);
-
-		// CAMERA
-		//Vector3 cameraOffset = new Vector3(0, 0.4f, -4);
-
-		//cameraTarget.transform.localPosition = cameraOffset + (Vector3.left * zBuildup / 18) ;
+		cameraTarget.localPosition = camOffset + new Vector3(cTargetX, cTargetY, -cTargetZ);
 	}
+
+	#endregion
 }

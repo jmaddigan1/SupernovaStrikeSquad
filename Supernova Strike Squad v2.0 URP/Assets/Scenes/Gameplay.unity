@@ -251,8 +251,8 @@ Transform:
   m_Father: {fileID: 1258797160}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &118993244
-CapsuleCollider:
+--- !u!65 &118993244
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -261,10 +261,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.73
-  m_Height: 2.91
-  m_Direction: 0
-  m_Center: {x: 0, y: -0.12, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 3.06, y: 0.49, z: 1.33}
+  m_Center: {x: 0, y: 0, z: -0.34}
 --- !u!1 &168708516
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583228971}
   m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
-  m_LocalPosition: {x: 0, y: 0.9, z: -5.32}
+  m_LocalPosition: {x: 0, y: 0.9, z: -5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6565539209863892193}
@@ -2918,10 +2917,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   shipModel: {fileID: 1258797160}
   cameraTarget: {fileID: 583228972}
-  xRotation: 0
-  yRotation: 0
-  zRotation: 0
-  zMovement: 0
 --- !u!1001 &7906124338310592269
 PrefabInstance:
   m_ObjectHideFlags: 0
