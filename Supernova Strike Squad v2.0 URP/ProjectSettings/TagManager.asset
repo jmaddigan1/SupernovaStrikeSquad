@@ -7,6 +7,8 @@ TagManager:
   - CameraHolder
   - MainCanvas
   - SpawnPoints
+  - CameraTarget
+  - Cursor
   layers:
   - Default
   - TransparentFX

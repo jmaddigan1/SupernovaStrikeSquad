@@ -6,11 +6,13 @@ public class MoveCamera : MonoBehaviour
 {
     public Transform CameraTarget;
 
-    void Update()
-    {
+
+	private void LateUpdate()
+	{
 		if (CameraTarget)
-        {
-            transform.position = CameraTarget.position;
-        }
-    }
+		{
+			transform.position = CameraTarget.position;
+		}
+	}
+
 }
