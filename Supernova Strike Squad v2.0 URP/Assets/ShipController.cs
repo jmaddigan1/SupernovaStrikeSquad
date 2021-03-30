@@ -1,14 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-// MOVE = ROTATION
-// W and S are Speed
-// A and D are z rotation
 
-public class ShipController : MonoBehaviour
+public class ShipController : NetworkBehaviour
 {
-
 	[SerializeField] private Transform shipModel = null;
 	[SerializeField] private Transform cameraTarget = null;
 
@@ -17,42 +14,78 @@ public class ShipController : MonoBehaviour
 
 	float moveMultiplier = 10.0f;
 
-	// Start is called before the first frame update
-	void Start()
+	public override void OnStartClient()
 	{
-		rb = GetComponent<Rigidbody>();
-		cam = FindObjectOfType<MoveCamera>().transform;
+		var rigidbody = GetComponent<Rigidbody>();
+	
+		if (hasAuthority)
+		{
+			var moveCamera = FindObjectOfType<MoveCamera>();
 
-		cam.GetComponent<MoveCamera>().CameraTarget = cameraTarget;
+			moveCamera.CameraTarget = cameraTarget;
+			cam = moveCamera.transform;
 
-		Cursor.visible = false;
+			Cursor.visible = false;
+		}
+
+		if (!isServer)
+		{
+			Destroy(rigidbody);
+		}
+	}
+
+	public override void OnStartServer()
+	{
+		var rigidbody = GetComponent<Rigidbody>();
+		rb = rigidbody;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		UpdateMoveDirection();
-		UpdateLookRotation();
+		//// MOVE AND ROTATE
+		//UpdateMoveDirection();
+		//UpdateLookRotation();
 
-		UpdateModel();
+		//// SHOOT
+		//UpdateShoot();
 
-		UpdateCamera();
+		if (hasAuthority)
+		{
+			// MODEL
+			UpdateModel();
 
-		cam.transform.rotation = cameraTarget.rotation;
+			// CAMERA
+			UpdateCamera();
+
+			cam.transform.rotation = cameraTarget.rotation;
+		}
 	}
 
 	void FixedUpdate()
-	{
-		// MOVE FORWARD
-		rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
+	{   
+		// This is not the server
+		// If this client is the ships owner
+		if (hasAuthority)
+		{
+			UpdateMoveDirection();
+			UpdateLookRotation();
+		}
 
-		// ROTATE
-		rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+		// If this is the server update the ships with there moveDirection and targetRotation
+		if (isServer)
+		{
+			// MOVE FORWARD
+			rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
+
+			// ROTATE
+			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+		}
 	}
 
 	#region Move Stuff
 	Vector3 moveDirection;
-	float moveX, moveZ, speedPercent;
+	float moveX, moveZ, speedPercent = 1;
 	float minSpeedPercent = 0.9f;
 	void UpdateMoveDirection()
 	{
@@ -75,14 +108,20 @@ public class ShipController : MonoBehaviour
 		moveX = moveX * moveSpeed;
 		moveZ = moveZ * moveSpeed;
 
-		moveDirection = new Vector3(moveX, 0, moveZ);
+		Cmd_UpdateMoveDirection(new Vector3(moveX, 0, moveZ));
+	}
+
+	[Command]
+	public void Cmd_UpdateMoveDirection(Vector3 moveDirection)
+	{
+		this.moveDirection = moveDirection;
 	}
 
 	#endregion
 
 	#region Look Stuff
 
-	Vector3 targetRotation;
+	Vector3 targetRotation = Vector3.one;
 	float rotX, rotY, rotZ;
 	void UpdateLookRotation()
 	{
@@ -95,7 +134,7 @@ public class ShipController : MonoBehaviour
 
 		rotZ = Input.GetAxis("Roll") * -2.5f;
 
-		targetRotation = new Vector3(rotY, rotX, rotZ);
+		Cmd_UpdateTargetRotation(new Vector3(rotY, rotX, rotZ));
 	}
 
 	Vector2 GetInput()
@@ -118,6 +157,12 @@ public class ShipController : MonoBehaviour
 		mouseY = Mathf.Clamp(mouseY, -maxDist, maxDist);
 
 		return new Vector2(mouseX, mouseY);
+	}
+
+	[Command]
+	public void Cmd_UpdateTargetRotation(Vector3 targetRotation)
+	{
+		this.targetRotation = targetRotation;
 	}
 
 	#endregion
@@ -156,6 +201,37 @@ public class ShipController : MonoBehaviour
 		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);
 
 		cameraTarget.localPosition = camOffset + new Vector3(cTargetX, cTargetY, -cTargetZ);
+	}
+
+	#endregion
+
+	#region Shooting Stuff
+	KeyCode keyCode = KeyCode.Mouse0;
+	void UpdateShoot()
+	{
+		// If we clicked the shoot key
+		if (Input.GetKeyDown(keyCode))
+		{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			// SHOOT WEAPON AT TARGET
+			// Weapon.Shoot(ray.GetPoint(150));
+
+			// If we HIT something
+			if (Physics.Raycast(ray, out hit, 150))
+			{
+				GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+				go.transform.position = hit.point;
+
+			}
+			// Else we MISSED out target
+			else
+			{
+				GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+				go.transform.position = ray.GetPoint(150);
+			}
+		}
 	}
 
 	#endregion

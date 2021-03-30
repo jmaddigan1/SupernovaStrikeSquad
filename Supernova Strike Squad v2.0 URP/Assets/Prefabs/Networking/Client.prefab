@@ -71,8 +71,11 @@ MonoBehaviour:
   playerID: {fileID: 4552450619000708995}
   Username: 
   Color: {r: 0.27426523, g: 0.26855645, b: 0.8018868, a: 1}
-  playerObjectPrefab: {fileID: 4638992414813377594, guid: 4586442df1431f44da309b6264825db9,
+  Ready: 0
+  playerObjectPrefab: {fileID: 7182322925338796591, guid: fbea356d4f4045842ab1792f6d705413,
     type: 3}
+  Weapons: 0200000000000000
+  Ship: 0
 --- !u!114 &1523851879535490370
 MonoBehaviour:
   m_ObjectHideFlags: 0
