@@ -6,8 +6,8 @@ using Mirror;
 
 public class ShipController : NetworkBehaviour
 {
-	[SerializeField] private Transform shipModel = null;
 	[SerializeField] private Transform cameraTarget = null;
+	[SerializeField] private Transform shipModel = null;
 
 	Transform cam = null;
 	Rigidbody rb = null;
@@ -16,8 +16,6 @@ public class ShipController : NetworkBehaviour
 
 	public override void OnStartClient()
 	{
-		var rigidbody = GetComponent<Rigidbody>();
-	
 		if (hasAuthority)
 		{
 			var moveCamera = FindObjectOfType<MoveCamera>();
@@ -30,48 +28,50 @@ public class ShipController : NetworkBehaviour
 
 		if (!isServer)
 		{
-			Destroy(rigidbody);
+			Destroy(GetComponent<Rigidbody>());
 		}
 	}
 
 	public override void OnStartServer()
 	{
-		var rigidbody = GetComponent<Rigidbody>();
-		rb = rigidbody;
+		rb = GetComponent<Rigidbody>();
+	}
+
+	public Collider GetCollider()
+	{
+		return GetComponentInChildren<Collider>();
 	}
 
 	// Update is called once per frame
 	void Update()
-	{
-		//// MOVE AND ROTATE
-		//UpdateMoveDirection();
-		//UpdateLookRotation();
-
-		//// SHOOT
-		//UpdateShoot();
-
-		if (hasAuthority)
-		{
-			// MODEL
-			UpdateModel();
-
-			// CAMERA
-			UpdateCamera();
-
-			cam.transform.rotation = cameraTarget.rotation;
-		}
-	}
-
-	void FixedUpdate()
-	{   
+	{    
 		// This is not the server
 		// If this client is the ships owner
 		if (hasAuthority)
 		{
 			UpdateMoveDirection();
 			UpdateLookRotation();
+
+			// MODEL
+			UpdateModel();
+
+			// CAMERA
+			UpdateCamera();
 		}
 
+	}
+
+	void LateUpdate()
+	{
+		if (hasAuthority)
+		{
+			// CAMERA
+			cam.transform.rotation = cameraTarget.rotation;
+		}
+	}
+
+	void FixedUpdate()
+	{   
 		// If this is the server update the ships with there moveDirection and targetRotation
 		if (isServer)
 		{
@@ -201,37 +201,6 @@ public class ShipController : NetworkBehaviour
 		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);
 
 		cameraTarget.localPosition = camOffset + new Vector3(cTargetX, cTargetY, -cTargetZ);
-	}
-
-	#endregion
-
-	#region Shooting Stuff
-	KeyCode keyCode = KeyCode.Mouse0;
-	void UpdateShoot()
-	{
-		// If we clicked the shoot key
-		if (Input.GetKeyDown(keyCode))
-		{
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			// SHOOT WEAPON AT TARGET
-			// Weapon.Shoot(ray.GetPoint(150));
-
-			// If we HIT something
-			if (Physics.Raycast(ray, out hit, 150))
-			{
-				GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-				go.transform.position = hit.point;
-
-			}
-			// Else we MISSED out target
-			else
-			{
-				GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-				go.transform.position = ray.GetPoint(150);
-			}
-		}
 	}
 
 	#endregion

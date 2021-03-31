@@ -13,6 +13,12 @@ public class MoveCamera : MonoBehaviour
 		{
 			transform.position = CameraTarget.position;
 		}
+
+		//if (CameraTarget)
+		//{
+		//	Vector3 targetPosition = CameraTarget.TransformPoint(new Vector3(0, 0, 0));
+		//	transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, 0.1f);
+		//}
 	}
 
 }

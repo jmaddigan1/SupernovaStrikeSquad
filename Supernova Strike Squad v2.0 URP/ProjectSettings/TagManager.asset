@@ -9,6 +9,7 @@ TagManager:
   - SpawnPoints
   - CameraTarget
   - Cursor
+  - WeaponAnchor
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Environment
   - 
   - 
   - 
