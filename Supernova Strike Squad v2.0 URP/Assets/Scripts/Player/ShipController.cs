@@ -12,7 +12,7 @@ public class ShipController : NetworkBehaviour
 	Transform cam = null;
 	Rigidbody rb = null;
 
-	float moveMultiplier = 0.0f;
+	float moveMultiplier = 10.0f;
 
 	public override void OnStartClient()
 	{
