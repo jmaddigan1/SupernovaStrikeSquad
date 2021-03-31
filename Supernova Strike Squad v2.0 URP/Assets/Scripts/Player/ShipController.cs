@@ -9,6 +9,8 @@ public class ShipController : NetworkBehaviour
 	[SerializeField] private Transform cameraTarget = null;
 	[SerializeField] private Transform shipModel = null;
 
+	public BoxCollider PlayerCollider;
+
 	Transform cam = null;
 	Rigidbody rb = null;
 
@@ -26,10 +28,10 @@ public class ShipController : NetworkBehaviour
 			Cursor.visible = false;
 		}
 
-		//if (!isServer)
-		//{
-		//	Destroy(GetComponent<Rigidbody>());
-		//}
+		if (!isServer)
+		{
+			PlayerCollider.enabled = false;
+		}
 	}
 
 	public override void OnStartServer()

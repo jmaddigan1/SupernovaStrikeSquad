@@ -190,6 +190,7 @@ MonoBehaviour:
   syncInterval: 0.1
   cameraTarget: {fileID: 1335842442358233889}
   shipModel: {fileID: 1335842442773265765}
+  PlayerCollider: {fileID: 1335842441767679057}
 --- !u!114 &-4893254836087864565
 MonoBehaviour:
   m_ObjectHideFlags: 0

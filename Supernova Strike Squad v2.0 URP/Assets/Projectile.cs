@@ -22,4 +22,12 @@ public class Projectile : NetworkBehaviour
 			Destroy(rigidbody);
 		}
 	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (isServer)
+		{
+			NetworkServer.Destroy(gameObject);
+		}
+	}
 }
