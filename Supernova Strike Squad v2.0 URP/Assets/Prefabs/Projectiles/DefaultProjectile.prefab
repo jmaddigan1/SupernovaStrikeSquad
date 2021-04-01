@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1566094170886676041}
   - component: {fileID: 1601607531625569397}
   - component: {fileID: -3589586942453589218}
-  - component: {fileID: 1202261556291041381}
+  - component: {fileID: 7597443671817045937}
   m_Layer: 0
   m_Name: DefaultProjectile
   m_TagString: Untagged
@@ -175,7 +175,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &1202261556291041381
+--- !u!114 &7597443671817045937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -16,10 +16,20 @@ public class WeaponsSystem : NetworkBehaviour
 	{
 		LocalWeaponsSystem = this;
 
+
+
 		Cmd_SpawnWeapon();
 	}
 
-	void Update()
+	private void OnGUI()
+	{
+		GUILayout.BeginVertical("box",GUILayout.Width(150));
+		GUILayout.Label("Weapon 1: " + NetworkPlayer.LocalPlayer.Self.Weapons[0].ToString());
+		GUILayout.Label("Weapon 2: " + NetworkPlayer.LocalPlayer.Self.Weapons[1].ToString());
+		GUILayout.EndVertical();
+	}
+
+	private void Update()
 	{
 		if (hasAuthority && CurrentWeapon) Shoot();
 	}

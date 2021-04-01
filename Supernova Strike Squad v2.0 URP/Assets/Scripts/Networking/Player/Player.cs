@@ -98,22 +98,22 @@ public abstract class Player : NetworkBehaviour
 
 	public void DrawPlayerGUI()
 	{
-		GUIStyle contentStyle = new GUIStyle();
+		//GUIStyle contentStyle = new GUIStyle();
 
-		contentStyle.alignment = TextAnchor.MiddleLeft;
-		contentStyle.fontStyle = FontStyle.Normal;
+		//contentStyle.alignment = TextAnchor.MiddleLeft;
+		//contentStyle.fontStyle = FontStyle.Normal;
 
-		contentStyle.normal.textColor = Color.white;
+		//contentStyle.normal.textColor = Color.white;
 
-		GUILayout.BeginVertical("box");
-		GUILayout.Label($"[{ID}] {Username}", contentStyle);
-		GUILayout.Label($"Ready: {Ready}", contentStyle);
-		GUILayout.Label($"Ship: {Self.Ship.ToString()}", contentStyle);
-		foreach (WeaponTypes weapon in Self.Weapons)
-		{
-			GUILayout.Label($"Weapon: {weapon.ToString()}", contentStyle);
-		}
-		GUILayout.EndVertical();
+		//GUILayout.BeginVertical("box");
+		//GUILayout.Label($"[{ID}] {Username}", contentStyle);
+		//GUILayout.Label($"Ready: {Ready}", contentStyle);
+		//GUILayout.Label($"Ship: {Self.Ship.ToString()}", contentStyle);
+		//foreach (WeaponTypes weapon in Self.Weapons)
+		//{
+		//	GUILayout.Label($"Weapon: {weapon.ToString()}", contentStyle);
+		//}
+		//GUILayout.EndVertical();
 	}
 	#endregion
 }

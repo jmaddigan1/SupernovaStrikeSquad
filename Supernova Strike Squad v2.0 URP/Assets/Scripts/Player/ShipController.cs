@@ -6,6 +6,8 @@ using Mirror;
 
 public class ShipController : NetworkBehaviour
 {
+	public static bool Interacting = false;
+
 	[SerializeField] private Transform cameraTarget = null;
 	[SerializeField] private Transform shipModel = null;
 
@@ -26,6 +28,7 @@ public class ShipController : NetworkBehaviour
 			cam = moveCamera.transform;
 
 			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.None;
 		}
 
 		if (!isServer)
@@ -68,14 +71,17 @@ public class ShipController : NetworkBehaviour
 		if (hasAuthority)
 		{
 			// CAMERA
-			cam.transform.rotation = cameraTarget.rotation;
+			if (cam)
+			{
+				cam.transform.rotation = cameraTarget.rotation;
+			}
 		}
 	}
 
 	void FixedUpdate()
 	{   
 		// If this is the server update the ships with there moveDirection and targetRotation
-		if (isServer)
+		if (isServer && !Interacting)
 		{
 			// MOVE FORWARD
 			rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
@@ -128,6 +134,8 @@ public class ShipController : NetworkBehaviour
 	void UpdateLookRotation()
 	{
 		Vector2 input = GetInput() / speedPercent;
+
+		if (Interacting) input = Vector2.zero;
 
 		float rotSpeed = 2.5f;
 

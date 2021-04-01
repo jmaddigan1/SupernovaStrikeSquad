@@ -10,6 +10,7 @@ using System;
 public class NetworkPlayer : Player
 {
 	[SerializeField] private GameObject playerObjectPrefab = null;
+	[SerializeField] private GameObject shipObjectPrefab = null;
 
 	public WeaponTypes[] Weapons = new WeaponTypes[] {
 		WeaponTypes.EnergyMiniGun, 
@@ -36,7 +37,9 @@ public class NetworkPlayer : Player
 	public override void OnStartAuthority()
 	{
 		base.OnStartAuthority();
-		Cmd_SpawnPlayer();
+		Cmd_SpawnShip();
+
+		//Cmd_SpawnPlayer();
 	}
 
 	public override void OnStartClient()
@@ -56,7 +59,33 @@ public class NetworkPlayer : Player
 	[ClientRpc]
 	public void Rpc_ChangeScene(string scene)
 	{
+		StartCoroutine(ChangeScene(scene));
 		SceneManager.LoadScene(scene);
+	}
+
+	private IEnumerator ChangeScene(string scene)
+	{
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+
+		// Wait until the asynchronous scene fully loads
+		while (!asyncLoad.isDone)
+		{
+			yield return null;
+		}
+
+		if (isServer)
+		{
+			if (scene == "Gameplay")
+			{
+				Cmd_SpawnShip();
+			}
+
+			if (scene == "Main")
+			{
+				Cmd_SpawnPlayer();
+			}
+		}
+
 	}
 
 	#endregion
@@ -85,6 +114,12 @@ public class NetworkPlayer : Player
 	}
 
 	[Command]
+	private void Cmd_SpawnShip()
+	{
+		NetworkServer.Spawn(Instantiate(shipObjectPrefab), connectionToClient);
+	}
+
+	[Command]
 	public void Cmd_UpdateMissionType(string[] args)
 	{
 		GameManager.Instance.Settings.UpdateMissionType(args);
@@ -102,6 +137,16 @@ public class NetworkPlayer : Player
 	public void Cmd_UpdateShip(ShipType shipType)
 	{
 		Ship = shipType;
+	}
+
+	[Command]
+	public void Cmd_ClickNode(int nodeIndex)
+	{
+		var nodemap = FindObjectOfType<NodeMap>();
+		if (nodemap)
+		{
+			nodemap.SelectNewNode(nodeIndex);
+		}
 	}
 
 	#endregion

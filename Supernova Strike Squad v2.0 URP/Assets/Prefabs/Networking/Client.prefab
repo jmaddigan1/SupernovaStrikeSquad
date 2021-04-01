@@ -72,7 +72,9 @@ MonoBehaviour:
   Username: 
   Color: {r: 0.27426523, g: 0.26855645, b: 0.8018868, a: 1}
   Ready: 0
-  playerObjectPrefab: {fileID: 7182322925338796591, guid: fbea356d4f4045842ab1792f6d705413,
+  playerObjectPrefab: {fileID: 4638992414813377594, guid: 4586442df1431f44da309b6264825db9,
+    type: 3}
+  shipObjectPrefab: {fileID: 7182322925338796591, guid: fbea356d4f4045842ab1792f6d705413,
     type: 3}
   Weapons: 0200000000000000
   Ship: 0

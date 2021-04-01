@@ -39,26 +39,26 @@ public class GameManagerSettings : NetworkBehaviour
 		}
 	}
 
-	private void OnGUI()
-	{
-		GUILayout.BeginVertical();
+	//private void OnGUI()
+	//{
+	//	GUILayout.BeginVertical();
 
-		if (isServer)
-		{
-			GUIStyle contentStyle = new GUIStyle();
-			contentStyle.alignment = TextAnchor.LowerRight;
-			contentStyle.fontStyle = FontStyle.Normal;
-			contentStyle.normal.textColor = Color.white;
+	//	if (isServer)
+	//	{
+	//		GUIStyle contentStyle = new GUIStyle();
+	//		contentStyle.alignment = TextAnchor.LowerRight;
+	//		contentStyle.fontStyle = FontStyle.Normal;
+	//		contentStyle.normal.textColor = Color.white;
 
-			// PLAYERS
-			GUILayout.BeginVertical("box", GUILayout.Width(150));
-			foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>()) {
-				player.DrawPlayerGUI();
-			}
-			GUILayout.EndVertical();
-		}
+	//		// PLAYERS
+	//		GUILayout.BeginVertical("box", GUILayout.Width(150));
+	//		foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>()) {
+	//			player.DrawPlayerGUI();
+	//		}
+	//		GUILayout.EndVertical();
+	//	}
 
-		GUILayout.Label("Press Enter to ready up! " + "Ready: " + Player.LocalPlayer.Ready);
-		GUILayout.EndVertical();
-	}
+	//	GUILayout.Label("Press Enter to ready up! " + "Ready: " + Player.LocalPlayer.Ready);
+	//	GUILayout.EndVertical();
+	//}
 }

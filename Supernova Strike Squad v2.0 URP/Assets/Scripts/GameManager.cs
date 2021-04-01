@@ -29,6 +29,22 @@ public class GameManager : NetworkBehaviour
 
 	private LobbyState lobby = LobbyState.WaitingToReady;
 
+
+
+
+
+
+	[Server]
+	public void OnMissionComplete(bool victory)
+	{
+		Debug.Log("YOU WON!!");
+	}
+
+
+
+
+
+	#region CLEAN UP
 	public override void OnStartClient()
 	{
 		if (Instance)
@@ -57,8 +73,8 @@ public class GameManager : NetworkBehaviour
 			if (canStartGame && players.Length > 0)
 			{
 				Debug.Log("START THE GAME");
-				lobby = LobbyState.ReadyToEnterGame;      
-				
+				lobby = LobbyState.ReadyToEnterGame;
+
 				// GET PLAYER INFO
 				if (isServer)
 				{
@@ -156,5 +172,7 @@ public class GameManager : NetworkBehaviour
 
 		print("Changing Scene to Hangar");
 		yield return new WaitForSecondsRealtime(0.5f);
+
 	}
+	#endregion
 }

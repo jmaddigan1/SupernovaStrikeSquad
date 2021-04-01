@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -32,9 +33,20 @@ public class PauseMenu : MonoBehaviour
 
     void UpdatePlayer(bool opening)
 	{
-        Cursor.lockState = opening ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = opening;
+        string current = SceneManager.GetActiveScene().name;
 
+		if (current == "Gameplay")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (current == "Main")
+        {
+            Cursor.lockState = opening ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = opening;
+        }
+ 
         PlayerController.Interacting = opening;
 
         menuObject.SetActive(opening);
