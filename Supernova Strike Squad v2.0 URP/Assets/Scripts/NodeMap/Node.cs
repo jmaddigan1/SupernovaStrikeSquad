@@ -9,31 +9,29 @@ public class Node : MonoBehaviour, IPointerClickHandler
 	[SerializeField] private Image nodeSprite = null;
 
 	public NodeData Data;
-	public NodeMap Map;
 
-	public Node Init(NodeMap nodemap, NodeData nodeData)
+	public Node Init(NodeData myNodeData, NodeData currentNodeData, NodeMapData currentNodeMapData)
 	{
-		Data = nodeData;
-		Map = nodemap;
+		Data = myNodeData;
 
 		nodeName.text = Data.NodeName;
 
-		UpdateColor();
+		UpdateColor(currentNodeData, currentNodeMapData);
 
 		return this;
 	}
 
-	public void UpdateColor()
+	public void UpdateColor(NodeData currentNodeData, NodeMapData currentNodeMapData)
 	{
 		#region TODO: Make this better
 
-		if (Map == null) return;
+		if (currentNodeMapData == null) return;
 
-		if (Map.CurrentNode == null)
+		if (currentNodeData == null)
 		{
 			if (Data.NodeIndex == 0)
 			{
-				nodeSprite.color = Color.green;
+				nodeSprite.color = Color.green ;
 				return;
 			}
 			else
@@ -44,27 +42,27 @@ public class Node : MonoBehaviour, IPointerClickHandler
 		}
 		else
 		{
-			if (Data.NodeIndex == Map.CurrentNode.NodeIndex)
+			if (Data.NodeIndex == currentNodeData.NodeIndex)
 			{
 				nodeSprite.color = Color.blue;
 				return;
 			}
 
-			if (Map.CurrentNode.Connections.Contains(Data.NodeIndex))
+			if (currentNodeData.Connections.Contains(Data.NodeIndex))
 			{
 				nodeSprite.color = Color.green;
 				return;
 			}
 
-			if ( Map.CurrentNode.NodeIndex > Data.NodeIndex)
+			if (currentNodeData.NodeIndex > Data.NodeIndex)
 			{
 				nodeSprite.color = Color.blue + Color.white;
 				return;
 			}
 
-			if (Map.CurrentNode.NodeIndex < Data.NodeIndex)
+			if (currentNodeData.NodeIndex < Data.NodeIndex)
 			{
-				nodeSprite.color = Color.red ;
+				nodeSprite.color = Color.red;
 				return;
 			}
 		}
@@ -76,13 +74,13 @@ public class Node : MonoBehaviour, IPointerClickHandler
 		Player.LocalPlayer.Self.Cmd_ClickNode(Data.NodeIndex);
 	}
 
-	private void OnDrawGizmos()
-	{
-		if (Map == null) return;
+	//private void OnDrawGizmos()
+	//{
+	//	if (Map == null) return;
 
-		foreach (int nodeIndex in Data.Connections)
-		{
-			Gizmos.DrawLine(transform.position, Map.Nodes[nodeIndex].transform.position);
-		}
-	}
+	//	foreach (int nodeIndex in Data.Connections)
+	//	{
+	//		Gizmos.DrawLine(transform.position, Map.Nodes[nodeIndex].transform.position);
+	//	}
+	//}
 }

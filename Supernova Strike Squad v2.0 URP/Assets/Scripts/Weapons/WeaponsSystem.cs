@@ -21,14 +21,6 @@ public class WeaponsSystem : NetworkBehaviour
 		Cmd_SpawnWeapon();
 	}
 
-	private void OnGUI()
-	{
-		GUILayout.BeginVertical("box",GUILayout.Width(150));
-		GUILayout.Label("Weapon 1: " + NetworkPlayer.LocalPlayer.Self.Weapons[0].ToString());
-		GUILayout.Label("Weapon 2: " + NetworkPlayer.LocalPlayer.Self.Weapons[1].ToString());
-		GUILayout.EndVertical();
-	}
-
 	private void Update()
 	{
 		if (hasAuthority && CurrentWeapon) Shoot();
@@ -37,12 +29,20 @@ public class WeaponsSystem : NetworkBehaviour
 	void Shoot()
 	{
 		// Check if we start or stop shooting
+		if (ShipController.Interacting)
+		{
+			if (CurrentWeapon.GetShooting()) {
+				CurrentWeapon.OnStopShooting();
+			}
+		}
+		else
+		{
+			if (Input.GetKeyDown(CurrentWeapon.ShootKey))
+				CurrentWeapon.OnStartShooting();
 
-		if (Input.GetKeyDown(CurrentWeapon.ShootKey))
-			CurrentWeapon.OnStartShooting();
-
-		if (Input.GetKeyUp(CurrentWeapon.ShootKey))
-			CurrentWeapon.OnStopShooting();
+			if (Input.GetKeyUp(CurrentWeapon.ShootKey))
+				CurrentWeapon.OnStopShooting();
+		}	
 	}
 
 	[Command]

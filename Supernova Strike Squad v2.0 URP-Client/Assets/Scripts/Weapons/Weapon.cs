@@ -21,6 +21,8 @@ public abstract class Weapon : NetworkBehaviour
 		if (hasAuthority) WeaponUpdate();
 	}
 
+	public virtual bool GetShooting() { return shooting; }
+
 	public virtual void WeaponUpdate() { }
 
 	public virtual void OnEquip() { }

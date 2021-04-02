@@ -34,33 +34,36 @@ public class NodeMap : NetworkBehaviour
 			// Send the current Node Map to all clients
 			if (Input.GetKeyDown(KeyCode.P))
 			{
-				Rpc_BuildMap(CurrentNodemap);
+				Rpc_BuildMap(CurrentNodemap, CurrentNode);
 			}
 		}
 	}
 
 	[ClientRpc]
-	public void Rpc_BuildMap(NodeMapData data)
+	public void Rpc_BuildMap(NodeMapData newMapData, NodeData newNodeData)
 	{
 		PausePlayer(true);
 		ClearNodeMap();
 
+		CurrentNodemap = newMapData;
+
 		ContentAnchor.gameObject.SetActive(true);
 
-		Debug.Log("Node Node Map");
-		Debug.Log(data.MapCurrentDepth);
+		CurrentNode = newNodeData;
 
 		// DEPTH
-		for (int depth = 0; depth < data.MapDepth; depth++)
+		for (int depth = 0; depth < newMapData.MapDepth; depth++)
 		{
 			Instantiate(DepthGroupPrefab, ContentAnchor);
 		}
 
 		// NODES
-		foreach (NodeData nodeData in data.Nodes)
+		foreach (NodeData nodeData in newMapData.Nodes)
 		{
+			Debug.Log(CurrentNode);
+
 			Node node = Instantiate(NodePrefab, ContentAnchor.GetChild(nodeData.NodeDepth));
-			Nodes.Add(node.Init(this, nodeData));
+			Nodes.Add(node.Init(nodeData, CurrentNode, CurrentNodemap));
 		}
 	}
 
@@ -100,7 +103,7 @@ public class NodeMap : NetworkBehaviour
 			// Increment the map depth
 			CurrentNodemap.MapCurrentDepth = CurrentNode.NodeDepth;
 
-			Rpc_BuildMap(CurrentNodemap);
+			Rpc_BuildMap(CurrentNodemap, CurrentNode);
 		}
 	}
 
