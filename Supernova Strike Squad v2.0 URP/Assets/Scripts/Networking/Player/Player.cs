@@ -97,31 +97,5 @@ public abstract class Player : NetworkBehaviour
 		Ready = ready;
 	}
 
-	public virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-	}
-
-	#region GUI
-
-	public void DrawPlayerGUI()
-	{
-		//GUIStyle contentStyle = new GUIStyle();
-
-		//contentStyle.alignment = TextAnchor.MiddleLeft;
-		//contentStyle.fontStyle = FontStyle.Normal;
-
-		//contentStyle.normal.textColor = Color.white;
-
-		//GUILayout.BeginVertical("box");
-		//GUILayout.Label($"[{ID}] {Username}", contentStyle);
-		//GUILayout.Label($"Ready: {Ready}", contentStyle);
-		//GUILayout.Label($"Ship: {Self.Ship.ToString()}", contentStyle);
-		//foreach (WeaponTypes weapon in Self.Weapons)
-		//{
-		//	GUILayout.Label($"Weapon: {weapon.ToString()}", contentStyle);
-		//}
-		//GUILayout.EndVertical();
-	}
-
-	#endregion
+	public virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode) { }
 }

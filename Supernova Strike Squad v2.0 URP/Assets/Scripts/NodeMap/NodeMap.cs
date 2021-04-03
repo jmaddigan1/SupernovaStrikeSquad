@@ -20,6 +20,7 @@ public class NodeMap : NetworkBehaviour
 	{
 		eventManager = GetComponent<NodeMapEventManager>();
 		CurrentNodemap = NodeMapPresets.TestMap();
+		CurrentNode = CurrentNodemap.Nodes[0];
 	}
 	public override void OnStartClient()
 	{

@@ -21,7 +21,13 @@ public class LobbyItem : NetworkBehaviour
 
 	// 
 	[SerializeField] private Image playerColor = null;
+	
+	//
+	[SerializeField] private Image playerReady = null;
 
+
+	[SyncVar(hook ="OnReady")]
+	public bool Ready;
 
 	void Awake()
 	{
@@ -56,5 +62,22 @@ public class LobbyItem : NetworkBehaviour
 	{
 		nameText.text = username;
 		playerColor.color = color;
+	}
+
+	[Client]
+	public void UpdateReady(bool state)
+	{
+		Cmd_UpdateReady(state);
+	}
+
+	[Command]
+	private void Cmd_UpdateReady(bool state)
+	{
+		Ready = state;
+	}
+
+	public void OnReady(bool oldState, bool newState)
+	{
+		playerReady.color = newState ? Color.green : Color.red;
 	}
 }

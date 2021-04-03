@@ -28,6 +28,7 @@ public class NetworkPlayer : Player
 			{
 				Ready = !Ready;
 				Cmd_UpdateReady(Ready);
+				LobbyItem.LocalItem.UpdateReady(Ready);
 			}
 		}
 	}
