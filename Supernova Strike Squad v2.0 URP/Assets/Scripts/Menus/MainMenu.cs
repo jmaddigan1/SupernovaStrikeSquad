@@ -23,10 +23,7 @@ public class MainMenu : Menu
 	// Load the hangar in its corresponding mode
 	void LoadHangar()
 	{
-		currentMenu = null;
-
 		SceneManager.LoadScene("Main");
-
-		LoadingScreen.Instance.FadeOut();
+		//LoadingScreen.Instance.FadeOut();
 	}
 }

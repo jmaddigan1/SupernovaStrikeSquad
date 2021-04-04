@@ -30,9 +30,15 @@ public class ShipSelectScreen : MonoBehaviour
                 ShipButtons[index].GetComponentInChildren<TextMeshProUGUI>().text = types.GetValue(index).ToString();
                 ShipButtons[index].ShipType = (ShipType)(types.GetValue(index));
             }
-            else
+        }
+    }
+
+	private void Update()
+	{
+        if (PlayerController.Interacting) {
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //  ShipButtons[index].gameObject.SetActive(false);
+                Cancel();
             }
         }
     }

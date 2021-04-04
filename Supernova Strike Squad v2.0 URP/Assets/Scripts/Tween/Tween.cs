@@ -36,6 +36,15 @@ public class Tween : MonoBehaviour
 	public IEnumerator coEase_Transform(Transform target, AnimationCurve curve,
 		Vector3 axis, float start, float end, float duration, float delay, Action action = null)
 	{
+		if (axis == new Vector3(1, 0, 0))
+			target.localPosition = new Vector3(Mathf.LerpUnclamped(start, end, 0), target.localPosition.y, target.localPosition.z);
+
+		if (axis == new Vector3(0, 1, 0))
+			target.localPosition = new Vector3(target.localPosition.x, Mathf.LerpUnclamped(start, end, 0), target.localPosition.z);
+
+		if (axis == new Vector3(0, 0, 1))
+			target.localPosition = new Vector3(target.localPosition.x, target.localPosition.y, Mathf.LerpUnclamped(start, end, 0));
+
 		// Wait for the delay
 		yield return new WaitForSecondsRealtime(delay);
 

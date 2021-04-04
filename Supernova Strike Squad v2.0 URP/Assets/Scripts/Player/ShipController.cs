@@ -52,7 +52,7 @@ public class ShipController : NetworkBehaviour
 	{    
 		// This is not the server
 		// If this client is the ships owner
-		if (hasAuthority)
+		if (NetworkClient.ready && hasAuthority)
 		{
 			UpdateMoveDirection();
 			UpdateLookRotation();

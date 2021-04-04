@@ -139,6 +139,17 @@ public class GameManager : NetworkBehaviour
 		LoadingScreen.Instance.FadeOut(() => { wait = false; });
 		while (wait) yield return null;
 
+		foreach (ShipBay ship in FindObjectsOfType<ShipBay>()) {
+			foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>())
+			{
+				if (player.ID == ship.ownerID)
+				{
+					ship.Open = true;
+					continue;
+				}
+			}
+		}
+
 		lobby = LobbyState.WaitingToReady;
 	}
 
@@ -154,7 +165,6 @@ public class GameManager : NetworkBehaviour
 
 	[ClientRpc] public void Rpc_FadeInLoadingScreen(bool runOnServer ) 
 	{
-		// If were NOT the server OR 
 		if (!isServer || runOnServer) LoadingScreen.Instance.FadeIn();
 	}
 	[ClientRpc] public void Rpc_FadeOutLoadingScreen(bool runOnServer)

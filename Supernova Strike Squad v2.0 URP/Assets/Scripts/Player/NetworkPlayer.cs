@@ -57,6 +57,12 @@ public class NetworkPlayer : Player
 
 	public override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
+		StartCoroutine(coOnSceneLoaded(scene));
+	}
+	IEnumerator coOnSceneLoaded(Scene scene)
+	{
+		while (!NetworkClient.ready) yield return null;
+
 		if (scene.name == "Gameplay")
 		{
 			Cmd_SpawnShip();
@@ -65,6 +71,7 @@ public class NetworkPlayer : Player
 		if (scene.name == "Main")
 		{
 			Cmd_SpawnPlayer();
+			PlayerController.Interacting = false;
 		}
 	}
 

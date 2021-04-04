@@ -34,18 +34,25 @@ public class PlayerController : NetworkBehaviour
 
 	KeyCode jumpKey = KeyCode.Space;
 
-	public override void OnStartAuthority()
+	public override void OnStartClient()
 	{
-		FindObjectOfType<MoveCamera>().CameraTarget = cameraTarget;
+		base.OnStartClient();
 
-		rb = GetComponent<Rigidbody>();
-		rb.freezeRotation = true;
+		if (hasAuthority)
+		{
+			FindObjectOfType<MoveCamera>().CameraTarget = cameraTarget;
+
+			rb = GetComponent<Rigidbody>();
+			rb.freezeRotation = true;
+		}
 	}
 
 	void Update()
 	{
 		if (hasAuthority)
 		{
+			Debug.Log("Interacting: " + Interacting);
+
 			isGrounded = Physics.Raycast(transform.position, Vector3.down, 1 + 0.1f);
 
 			ControlDrag();

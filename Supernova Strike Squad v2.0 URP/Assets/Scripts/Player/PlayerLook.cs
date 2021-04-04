@@ -8,8 +8,8 @@ public class PlayerLook : NetworkBehaviour
 	[SerializeField] private float sensX;
 	[SerializeField] private float sensY;
 
-	[SerializeField] private Transform cam;
-	[SerializeField] private Transform orientation;
+	[SerializeField] private Transform cam = null;
+	[SerializeField] private Transform orientation = null;
 
 	float mouseX;
 	float mouseY;
