@@ -22,13 +22,13 @@ public class ShipBay : NetworkBehaviour
 
 	private void FixedUpdate()
 	{
-		bool ours = ownerID == Player.LocalPlayer.ID;
-		ownerPlatform.gameObject.SetActive(ours);
+		//bool ours = ownerID == Player.LocalPlayer.ID;
+		//ownerPlatform.gameObject.SetActive(ours);
 	}
 
-	private void OnDrawGizmos()
-	{
-		Gizmos.color = Open ? Color.green : Color.red;
-		Gizmos.DrawCube(transform.position + Vector3.up * 5, Vector3.one * 2);
-	}
+	//private void OnDrawGizmos()
+	//{
+	//	Gizmos.color = Open ? Color.green : Color.red;
+	//	Gizmos.DrawCube(transform.position + Vector3.up * 5, Vector3.one * 2);
+	//}
 }

@@ -1,27 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Mirror;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Mirror;
 
 public enum LobbyState
 {
 	WaitingToReady,
 	ReadyToEnterGame,
-	PlayingTransition
+	PlayingTransition,
+	InGame
 }
 
 public class GameManager : NetworkBehaviour
 {
 	public static GameManager Instance;
 
-
 	[Header("Editor References")]
 	public GameManagerSettings Settings;
-
-
-	[Header("Keybinds")]
-	public KeyCode StartButton = KeyCode.Y;
 
 	private LobbyState lobby = LobbyState.WaitingToReady;
 
@@ -38,96 +32,143 @@ public class GameManager : NetworkBehaviour
 		}
 	}
 
-	[Server]
-	public void OnMissionComplete(bool victory)
+	private void Update()
 	{
-		Debug.Log("YOU WON!!");
+		if (!isServer) return;
+
+		switch (lobby)
+		{
+			case LobbyState.WaitingToReady:
+				HandleWaitingForPlayers();
+				break;
+			case LobbyState.ReadyToEnterGame:
+				HandleEnterGame();
+				break;
+			case LobbyState.PlayingTransition:
+				HandleGameTransition();
+				break;
+
+			default:break;
+		}
 	}
 
-	//[Server]
-	//public IEnumerator LoadSceneServer(string sceneName)
-	//{
-	//	string oldScene = SceneManager.GetActiveScene().name;
-
-	//	AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-
-	//	while (!asyncLoad.isDone)
-	//	{
-	//		yield return null;
-	//	}
-
-	//	SceneManager.UnloadSceneAsync(oldScene);
-
-	//	Rpc_LoadScene(sceneName);
-	//}
-
-	//[ClientRpc]
-	//public void Rpc_LoadScene(string sceneName)
-	//{
-	//	if (!isServer)
-	//	{
-	//		StartCoroutine(LoadSceneClient(sceneName));
-	//	}
-	//}
-
-	//[Client]
-	//public IEnumerator LoadSceneClient(string sceneName)
-	//{
-	//	AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-	//	while (!asyncLoad.isDone)
-	//	{
-	//		yield return null;
-	//	}
-	//}
-
-	#region CLEAN UP
-	private void FixedUpdate()
+	public void HandleWaitingForPlayers()
 	{
-		if (lobby == LobbyState.WaitingToReady)
+		var players = FindObjectsOfType<Player>();
+
+		bool start = true;
+		foreach (Player player in players)
 		{
-			var players = FindObjectsOfType<Player>();
 
-			bool canStartGame = true;
-			foreach (Player player in players)
-			{
-				if (player.Ready == false) canStartGame = false;
+			if (player.Ready == false) {
+				start = false;
 			}
 
-			if (canStartGame && players.Length > 0)
-			{
-				Debug.Log("START THE GAME");
-				lobby = LobbyState.ReadyToEnterGame;
-
-				// GET PLAYER INFO
-				if (isServer)
-				{
-					foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>())
-					{
-						int playerID = player.ID;
-
-						Debug.Log($"[{playerID}] Player ");
-
-						Debug.Log($"Ship " + player.Ship.ToString());
-
-						foreach (WeaponTypes weapon in player.Weapons)
-						{
-							Debug.Log($"Weapons " + weapon.ToString());
-						}
-
-					}
-				}
-			}
 		}
 
+		// If we have at least 1 player
+		// And all player are ready
+		if (start && players.Length > 0) {
+			lobby = LobbyState.ReadyToEnterGame;
+		}
+	}
+
+	public void HandleEnterGame()
+	{
 		if (lobby == LobbyState.ReadyToEnterGame)
 		{
-			var networkManager = FindObjectOfType<CustomNetworkManager>();
-			networkManager.ServerChangeScene("Gameplay");
+			foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>()) {
+				PrintPlayerInfo(player);
+			}
+
+			StartCoroutine(coGameTransition());
 
 			lobby = LobbyState.PlayingTransition;
 		}
 	}
 
-	#endregion
+	public void HandleGameTransition()
+	{
+		if (lobby == LobbyState.PlayingTransition)
+		{
+			lobby = LobbyState.InGame;
+		}
+	}
+
+	private IEnumerator coGameTransition()
+	{
+		bool wait = true;
+
+		// Wait for fade
+		Rpc_FadeInLoadingScreen(false);
+		LoadingScreen.Instance.FadeIn(() => { wait = false; });
+		while (wait) yield return null;
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		// Change to the game scene
+		var networkManager = FindObjectOfType<CustomNetworkManager>();
+		networkManager.ServerChangeScene("Gameplay");
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		// Open and start the Node Map
+		var nodeMap = FindObjectOfType<NodeMap>();
+		nodeMap.StartNodeMap(Settings);
+	}
+
+	private IEnumerator coLobbyTransition()
+	{
+		bool wait = true;
+
+		// Wait for fade in
+		Rpc_FadeInLoadingScreen(false);
+		LoadingScreen.Instance.FadeIn(() => { wait = false; });
+		while (wait) yield return null;
+
+		yield return new WaitForSecondsRealtime(2.5f);
+
+		// Change to the game scene
+		var networkManager = FindObjectOfType<CustomNetworkManager>();
+		networkManager.ServerChangeScene("Main");
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		wait = true;
+		Rpc_FadeOutLoadingScreen(false);
+		LoadingScreen.Instance.FadeOut(() => { wait = false; });
+		while (wait) yield return null;
+
+		lobby = LobbyState.WaitingToReady;
+	}
+
+	[Server]
+	public void OnMissionComplete(bool victory)
+	{
+		foreach (NetworkPlayer player in FindObjectsOfType<NetworkPlayer>()) {
+			player.Ready = false;
+		}
+
+		StartCoroutine(coLobbyTransition());
+	}
+
+	[ClientRpc] public void Rpc_FadeInLoadingScreen(bool runOnServer ) 
+	{
+		// If were NOT the server OR 
+		if (!isServer || runOnServer) LoadingScreen.Instance.FadeIn();
+	}
+	[ClientRpc] public void Rpc_FadeOutLoadingScreen(bool runOnServer)
+	{
+		if (!isServer || runOnServer) LoadingScreen.Instance.FadeOut();
+	}
+
+	public void PrintPlayerInfo(NetworkPlayer player)
+	{
+		Debug.Log($"[{player.ID}] Player ");
+		Debug.Log($"Ship " + player.Ship.ToString());
+		foreach (WeaponTypes weapon in player.Weapons)
+		{
+			Debug.Log($"Weapons " + weapon.ToString());
+		}
+	}
 }

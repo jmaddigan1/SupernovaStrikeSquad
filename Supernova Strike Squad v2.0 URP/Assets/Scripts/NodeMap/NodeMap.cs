@@ -7,37 +7,41 @@ using Mirror;
 public class NodeMap : NetworkBehaviour
 {
 	[SerializeField] private NodeMapEventManager eventManager = null;
-	[SerializeField] private Transform ContentAnchor = null;
-	[SerializeField] private DepthGroup DepthGroupPrefab = null;
-	[SerializeField] private Node NodePrefab = null;
+	[SerializeField] private DepthGroup depthGroupPrefab = null;
+	[SerializeField] private Node nodePrefab = null;
+
+	public Transform ContentAnchor = null;
 
 	public NodeMapData CurrentNodemap;
 	public NodeData CurrentNode;
 
 	public List<Node> Nodes = new List<Node>();
 
-	public override void OnStartServer()
+	public void StartNodeMap(GameManagerSettings settings)
 	{
 		eventManager = GetComponent<NodeMapEventManager>();
-		CurrentNodemap = NodeMapPresets.TestMap();
-		CurrentNode = CurrentNodemap.Nodes[0];
-	}
-	public override void OnStartClient()
-	{
-		DontDestroyOnLoad(transform.parent.gameObject);
+
+		ParseNodeMapInitializationData(settings);
+
+		Rpc_BuildMap(CurrentNodemap, CurrentNode);
 	}
 
-	private void Update()
+	void ParseNodeMapInitializationData(GameManagerSettings settings)
 	{
-		if (isServer)
+		// DEFAULT TEST
+		if (settings.MissionTypes == MissionTypes.None)
 		{
-			// TEMP
-			// Send the current Node Map to all clients
-			if (Input.GetKeyDown(KeyCode.P))
-			{
-				Rpc_BuildMap(CurrentNodemap, CurrentNode);
-			}
+
 		}
+
+		// 
+		if (settings.MissionTypes == MissionTypes.Campaign) { }
+		if (settings.MissionTypes == MissionTypes.MissionBoard) { }
+		if (settings.MissionTypes == MissionTypes.Endless) { }
+
+		// TMP
+		CurrentNodemap = NodeMapPresets.TestMap();
+		CurrentNode = CurrentNodemap.Nodes[0];
 	}
 
 	[ClientRpc]
@@ -55,15 +59,19 @@ public class NodeMap : NetworkBehaviour
 		// DEPTH
 		for (int depth = 0; depth < newMapData.MapDepth; depth++)
 		{
-			Instantiate(DepthGroupPrefab, ContentAnchor);
+			Instantiate(depthGroupPrefab, ContentAnchor);
 		}
 
 		// NODES
 		foreach (NodeData nodeData in newMapData.Nodes)
 		{
-			Debug.Log(CurrentNode);
+			// ?? Does this make this code work (4 print lines)
+			//Debug.Log(CurrentNode);
+			//Debug.Log(nodePrefab);
+			//Debug.Log(ContentAnchor);
+			// Debug.Log(nodeData);
 
-			Node node = Instantiate(NodePrefab, ContentAnchor.GetChild(nodeData.NodeDepth));
+			Node node = Instantiate(nodePrefab, ContentAnchor.GetChild(nodeData.NodeDepth));
 			Nodes.Add(node.Init(nodeData, CurrentNode, CurrentNodemap));
 		}
 	}
@@ -98,6 +106,7 @@ public class NodeMap : NetworkBehaviour
 		if (CurrentNode.NodeDepth == CurrentNodemap.MapDepth - 1)
 		{
 			GameManager.Instance.OnMissionComplete(true);
+
 		}
 		else
 		{
@@ -115,13 +124,15 @@ public class NodeMap : NetworkBehaviour
 		if (CurrentNode == null) return (nodeIndex == 0);
 
 
-		if (nodeIndex >= CurrentNodemap.Nodes.Count) {
+		if (nodeIndex >= CurrentNodemap.Nodes.Count)
+		{
 			return false;
 		}
 
 		NodeData node = CurrentNodemap.Nodes[nodeIndex];
 
-		if (CurrentNode.Connections.Contains(node.NodeIndex)) {
+		if (CurrentNode.Connections.Contains(node.NodeIndex))
+		{
 			return true;
 		}
 		else
@@ -169,8 +180,8 @@ public class NodeMapData
 }
 public class NodeData
 {
-	public string NodeName = "UnNamed";
-	public string NodeDescription = "NoDescription";
+	public string NodeName;
+	public string NodeDescription;
 
 	public NodeEvent Event;
 
@@ -187,7 +198,7 @@ public class NodeEvent
 {
 	public string EventName;
 	public string EventDescription;
-	
+
 	public NodeEvent()
 	{
 	}
@@ -203,14 +214,14 @@ public static class NodeMapPresets
 
 			Nodes = new List<NodeData>()
 			{
-				MakeNode("Node A", 0, new List<int>(){ 1, 5 },		NodeEventPresets.TestEvent() ),
-				MakeNode("Node B", 1, new List<int>(){ 2,3,4 }, NodeEventPresets.TestEvent() ),
-				MakeNode("Node C", 2, new List<int>(){ 5 },		NodeEventPresets.TestEvent() ),
-				MakeNode("Node D", 2, new List<int>() {5,6 },	NodeEventPresets.TestEvent() ),
-				MakeNode("Node E", 2, new List<int>(){ 5,7 },	NodeEventPresets.TestEvent() ),
-				MakeNode("Node F", 3, new List<int>(){ 7 },		NodeEventPresets.TestEvent() ),
-				MakeNode("Node G", 3, new List<int>(){ 7 },		NodeEventPresets.TestEvent() ),
-				MakeNode("Node H", 4, new List<int>(){ },		NodeEventPresets.TestEvent() ),
+				MakeNode("Node A", 0, new List<int>() { 1, 5 },      NodeEventPresets.TestEvent() ),
+				MakeNode("Node B", 1, new List<int>() { 2,3,4 },     NodeEventPresets.TestEvent() ),
+				MakeNode("Node C", 2, new List<int>() { 5 },         NodeEventPresets.TestEvent() ),
+				MakeNode("Node D", 2, new List<int>() { 5,6 },       NodeEventPresets.TestEvent() ),
+				MakeNode("Node E", 2, new List<int>() { 5,7 },       NodeEventPresets.TestEvent() ),
+				MakeNode("Node F", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
+				MakeNode("Node G", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
+				MakeNode("Node H", 4, new List<int>() { },           NodeEventPresets.TestEvent() ),
 			}
 		};
 

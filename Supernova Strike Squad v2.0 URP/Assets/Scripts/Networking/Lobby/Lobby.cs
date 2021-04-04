@@ -26,6 +26,8 @@ public class Lobby : MonoBehaviour
 		}
 
 		Instance = this;
+
+		DontDestroyOnLoad(GetComponentInParent<Canvas>().gameObject);
 	}   
 	
 	// Show or Hide the Lobby

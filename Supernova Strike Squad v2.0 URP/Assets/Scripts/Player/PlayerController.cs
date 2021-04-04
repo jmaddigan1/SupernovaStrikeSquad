@@ -84,6 +84,8 @@ public class PlayerController : NetworkBehaviour
 
 	void ControlDrag()
 	{
+		if (rb == null) return;
+	
 		if (isGrounded)
 		{
 			rb.drag = groundDrag;
@@ -96,6 +98,8 @@ public class PlayerController : NetworkBehaviour
 
 	void MovePlayer()
 	{
+		if (rb == null) return;
+
 		if (isGrounded)
 		{
 			rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
