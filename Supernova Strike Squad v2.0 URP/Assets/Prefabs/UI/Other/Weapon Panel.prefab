@@ -95,7 +95,7 @@ MonoBehaviour:
   descriptionText: {fileID: 2443268164709217406}
   titleText: {fileID: 858513318379049593}
   myType: 0
-  playerWeaponSlotIndex: 0
+  playerWeaponSlotIndex: 1
 --- !u!1 &1570152133652152473
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 32.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.25
+  m_fontSize: 17.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.15
+  m_fontSize: 52.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 3855890102597521033}
   - component: {fileID: 6277345793651353160}
   m_Layer: 5
-  m_Name: Iron
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

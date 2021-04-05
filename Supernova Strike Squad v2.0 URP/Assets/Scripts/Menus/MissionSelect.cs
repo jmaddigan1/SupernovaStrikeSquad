@@ -11,22 +11,48 @@ public enum MissionTypes
 	Endless
 }
 
-public class MissionSelect : MonoBehaviour, IMenu
+public class MissionSelect : Menu
 {
 	public List<MissionPanel> MissionPanels = new List<MissionPanel>();
 
-	public void Open(Action<string[]> callback)
-	{
+	private bool missionViewMode = false;
 
+	private void Start()
+	{
+		UpdateCursor(CursorLockMode.None, true);
 	}
 
-	public void Close()
+	private void Update()
 	{
-
+		// If the player is interacting with a menu
+		if (PlayerController.Interacting)
+		{
+			if (Input.GetKeyDown(KeyCode.Escape)) {
+				CloseMenu();
+			}
+		}
 	}
 
+	public override void CloseMenu()
+	{
+		if (missionViewMode)
+		{
+			foreach (MissionPanel missionPanel in MissionPanels)
+			{
+				missionPanel.CanBeClicked = true;
+				missionPanel.RecalculateWidth();
+				missionPanel.HideContent();
+			}
 
-	bool missionViewMode = false;
+			missionViewMode = false;
+		}
+		else
+		{
+			UpdateCursor(CursorLockMode.Locked, false);
+
+			base.CloseMenu();
+		}
+	}
 
 	public void SelectMissionType(MissionTypes missionType)
 	{
@@ -52,23 +78,6 @@ public class MissionSelect : MonoBehaviour, IMenu
 
 	public void Return()
 	{
-		if (missionViewMode)
-		{
-			foreach (MissionPanel missionPanel in MissionPanels)
-			{
-				missionPanel.CanBeClicked = true;
-				missionPanel.RecalculateWidth();
-				missionPanel.HideContent();
-			}
 
-			missionViewMode = false;
-		}
-		else
-		{
-			if (TryGetComponent<ExtendedMenu>(out ExtendedMenu extendedMenu))
-			{
-				extendedMenu.Close();
-			}
-		}
 	}
 }

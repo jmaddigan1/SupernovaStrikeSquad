@@ -47,7 +47,9 @@ GameObject:
   - component: {fileID: 489059122209322449}
   - component: {fileID: 489059122209322448}
   - component: {fileID: 6038651316857270691}
-  - component: {fileID: 6606381373800195219}
+  - component: {fileID: 5460700564142515508}
+  - component: {fileID: 8259018625047237011}
+  - component: {fileID: 3760655951267564804}
   m_Layer: 5
   m_Name: 'Mission Select '
   m_TagString: Untagged
@@ -101,11 +103,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c16acf102bfd749952eb45090e6fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentMenu: {fileID: 0}
+  OpenTransition: {fileID: 8259018625047237011}
+  CloseTransition: {fileID: 3760655951267564804}
   MissionPanels:
   - {fileID: 8537772968368507532}
   - {fileID: 2867757863573372470}
   - {fileID: 3237424067739158258}
---- !u!114 &6606381373800195219
+--- !u!225 &5460700564142515508
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489059122209322450}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8259018625047237011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,9 +131,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 489059122209322450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0ebf4eb3e8a94a4d88e65e78287f9c2, type: 3}
+  m_Script: {fileID: 11500000, guid: b03ec4dbd2cf8e64b8ad9deec878dee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enter: 1
+  Direction: 0.5
+--- !u!114 &3760655951267564804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489059122209322450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03ec4dbd2cf8e64b8ad9deec878dee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enter: 0
+  Direction: 0.5
 --- !u!1 &489059122687709647
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutElement: {fileID: 2637573725521768449}
   panelContent: {fileID: 781597424653481286}
-  MissionType: 0
+  MissionType: 1
   TargetWidth: 0
   CanBeClicked: 1
 --- !u!114 &2637573725521768449
@@ -815,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutElement: {fileID: 2962776031168122503}
   panelContent: {fileID: 5476773466194227364}
-  MissionType: 1
+  MissionType: 2
   TargetWidth: 0
   CanBeClicked: 1
 --- !u!114 &2962776031168122503
@@ -1008,7 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutElement: {fileID: 2765684207072342807}
   panelContent: {fileID: 2486377015550828073}
-  MissionType: 2
+  MissionType: 3
   TargetWidth: 0
   CanBeClicked: 1
 --- !u!114 &2765684207072342807
@@ -1297,7 +1330,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6038651316857270691}
-        m_MethodName: Return
+        m_MethodName: CloseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

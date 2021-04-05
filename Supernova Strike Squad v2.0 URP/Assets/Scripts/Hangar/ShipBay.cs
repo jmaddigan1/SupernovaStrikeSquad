@@ -7,10 +7,9 @@ public class ShipBay : NetworkBehaviour
 {
 	[SerializeField] private Transform ownerPlatform = null;
 
-	public int ownerID = -1;
-
-	public ShipProfileScreen Profile;
 	public Animator Animator;
+
+	public int ownerID = -1;
 
 	[SyncVar(hook = ("OnStateUpdate"))]
 	public bool Open = false;
@@ -22,13 +21,7 @@ public class ShipBay : NetworkBehaviour
 
 	private void FixedUpdate()
 	{
-		//bool ours = ownerID == Player.LocalPlayer.ID;
-		//ownerPlatform.gameObject.SetActive(ours);
+		bool ours = ownerID == Player.LocalPlayer.ID;
+		ownerPlatform.gameObject.SetActive(ours);
 	}
-
-	//private void OnDrawGizmos()
-	//{
-	//	Gizmos.color = Open ? Color.green : Color.red;
-	//	Gizmos.DrawCube(transform.position + Vector3.up * 5, Vector3.one * 2);
-	//}
 }

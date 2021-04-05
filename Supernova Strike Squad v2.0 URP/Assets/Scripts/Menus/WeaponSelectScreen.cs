@@ -47,7 +47,7 @@ public enum WeaponTypes
     EnergyPulse,
 }
 
-public class WeaponSelectScreen : MonoBehaviour
+public class WeaponSelectScreen : Menu
 {
     public List<WeaponButton> weaponButtons = new List<WeaponButton>();
 
@@ -57,7 +57,8 @@ public class WeaponSelectScreen : MonoBehaviour
 
     Action<WeaponTypes> confirmationcallback;
 
-    private void Awake()
+    // Setup: Name all the buttons
+    void Awake()
 	{
         Array types = Enum.GetValues(typeof(WeaponTypes));
 
@@ -78,24 +79,33 @@ public class WeaponSelectScreen : MonoBehaviour
     public void Open(Action<WeaponTypes> callback, WeaponTypes currentWeapon)
     {
         CurrentWeapon = currentWeapon;
+
         confirmationcallback = callback;
+
+        GetComponent<CanvasGroup>().alpha = 0f;
+
+        OpenMenu(null, false);
 
         // TODO: Update
     }
 
     public void Confirm(WeaponTypes weapon)
-    {
-        confirmationcallback.Invoke(weapon);
-        Destroy(gameObject);
+    {       
+        // Setup the Destroy to happen after the menu close animation
+        callback = () => {
+            confirmationcallback.Invoke(weapon);
+            Destroy(gameObject);
+        };
+
+        CloseMenu();
     }
 
     public void Cancel()
-    {
-        Destroy(gameObject);
+    {       
+        // Setup the Destroy to happen after the menu close animation
+        callback = () => { Destroy(gameObject); };
+        CloseMenu();
     }
 
-    public void OnHover(WeaponTypes weapon)
-	{
-        WeaponPanel.UpdateWeaponInfo(weapon);
-    }
+	public void OnHover(WeaponTypes weapon) => WeaponPanel.UpdateWeaponInfo(weapon);
 }

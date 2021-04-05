@@ -20,8 +20,12 @@ public class WeaponPanel : MonoBehaviour
 		UpdateWeaponInfo(myType);
 	}
 
+	// NOTE: Called by a button 
 	public void SelectNewWeapon()
 	{
+		print("Click");
+
+		// Spawn the weapon pick menu
 		Instantiate(selectScreen, GetComponentInParent<Canvas>().transform).Open(OnSelectNewWeapon, WeaponTypes.Arc);
 	}
 

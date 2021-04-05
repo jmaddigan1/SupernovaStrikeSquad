@@ -7,8 +7,11 @@ using Mirror;
 public class NodeMap : NetworkBehaviour
 {
 	[SerializeField] private NodeMapEventManager eventManager = null;
+
 	[SerializeField] private DepthGroup depthGroupPrefab = null;
 	[SerializeField] private Node nodePrefab = null;
+
+	[SerializeField] private Menu menuBehaviour = null;
 
 	public Transform ContentAnchor = null;
 
@@ -47,13 +50,13 @@ public class NodeMap : NetworkBehaviour
 	[ClientRpc]
 	public void Rpc_BuildMap(NodeMapData newMapData, NodeData newNodeData)
 	{
+		menuBehaviour.OpenMenu(null, false);
+
 		PausePlayer(true);
+
 		ClearNodeMap();
 
 		CurrentNodemap = newMapData;
-
-		ContentAnchor.gameObject.SetActive(true);
-
 		CurrentNode = newNodeData;
 
 		// DEPTH
@@ -65,12 +68,6 @@ public class NodeMap : NetworkBehaviour
 		// NODES
 		foreach (NodeData nodeData in newMapData.Nodes)
 		{
-			// ?? Does this make this code work (4 print lines)
-			//Debug.Log(CurrentNode);
-			//Debug.Log(nodePrefab);
-			//Debug.Log(ContentAnchor);
-			// Debug.Log(nodeData);
-
 			Node node = Instantiate(nodePrefab, ContentAnchor.GetChild(nodeData.NodeDepth));
 			Nodes.Add(node.Init(nodeData, CurrentNode, CurrentNodemap));
 		}
@@ -82,8 +79,6 @@ public class NodeMap : NetworkBehaviour
 		if (ValidateNode(nodeIndex))
 		{
 			PausePlayer(false);
-
-			ContentAnchor.gameObject.SetActive(false);
 
 			NodeData nodeData = CurrentNodemap.Nodes[nodeIndex];
 			NodeEvent nodeEvent = nodeData.Event;
@@ -97,7 +92,14 @@ public class NodeMap : NetworkBehaviour
 	[Server]
 	public void StartNewEvent()
 	{
+		Rpc_HideNodeMap();
 		eventManager.StartNewEvent();
+	}
+
+	[ClientRpc]
+	public void Rpc_HideNodeMap()
+	{
+		menuBehaviour.CloseMenu();
 	}
 
 	[Server]
@@ -106,7 +108,6 @@ public class NodeMap : NetworkBehaviour
 		if (CurrentNode.NodeDepth == CurrentNodemap.MapDepth - 1)
 		{
 			GameManager.Instance.OnMissionComplete(true);
-
 		}
 		else
 		{

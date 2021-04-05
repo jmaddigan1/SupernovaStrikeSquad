@@ -51,8 +51,6 @@ public class PlayerController : NetworkBehaviour
 	{
 		if (hasAuthority)
 		{
-			Debug.Log("Interacting: " + Interacting);
-
 			isGrounded = Physics.Raycast(transform.position, Vector3.down, 1 + 0.1f);
 
 			ControlDrag();

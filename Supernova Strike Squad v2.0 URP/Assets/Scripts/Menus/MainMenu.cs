@@ -24,6 +24,6 @@ public class MainMenu : Menu
 	void LoadHangar()
 	{
 		SceneManager.LoadScene("Main");
-		//LoadingScreen.Instance.FadeOut();
+		LoadingScreen.Instance.FadeOut();
 	}
 }

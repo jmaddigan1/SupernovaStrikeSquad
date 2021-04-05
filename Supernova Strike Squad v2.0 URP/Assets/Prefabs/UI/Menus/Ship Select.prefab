@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 2928000021546150163}
   - component: {fileID: 2928000021546150162}
   - component: {fileID: 2928000021546150161}
+  - component: {fileID: 7552824634797760817}
+  - component: {fileID: 474134881924093435}
+  - component: {fileID: 2362764151585093883}
   m_Layer: 5
   m_Name: Ship Select
   m_TagString: Untagged
@@ -64,11 +67,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337596f0a3170504da12743111554a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentMenu: {fileID: 0}
+  OpenTransition: {fileID: 474134881924093435}
+  CloseTransition: {fileID: 2362764151585093883}
   ShipButtons:
   - {fileID: 6602024908897509747}
   - {fileID: 6284184109466159915}
   - {fileID: 6284184111061777123}
   - {fileID: 6284184110988269362}
+--- !u!225 &7552824634797760817
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928000021546150160}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &474134881924093435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928000021546150160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03ec4dbd2cf8e64b8ad9deec878dee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enter: 1
+  Direction: 0.75
+--- !u!114 &2362764151585093883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928000021546150160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03ec4dbd2cf8e64b8ad9deec878dee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enter: 0
+  Direction: 0.75
 --- !u!1 &2928000022872567212
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2036705142729970969, guid: aea12751a03e3274eb2d12265362ed77,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -837,6 +888,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aea12751a03e3274eb2d12265362ed77, type: 3}
+--- !u!224 &5393767441866870946 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
+    type: 3}
+  m_PrefabInstance: {fileID: 2550266795290279589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6602024908897509747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8717636887274971094, guid: aea12751a03e3274eb2d12265362ed77,
@@ -849,12 +906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7e81f6aa1c3be4ca4cebab41261cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5393767441866870946 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
-    type: 3}
-  m_PrefabInstance: {fileID: 2550266795290279589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3444880604976338173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,6 +917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036705142729970969, guid: aea12751a03e3274eb2d12265362ed77,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
         type: 3}
@@ -1004,6 +1060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2036705142729970969, guid: aea12751a03e3274eb2d12265362ed77,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1140,6 +1201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036705142729970969, guid: aea12751a03e3274eb2d12265362ed77,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7619770381213822471, guid: aea12751a03e3274eb2d12265362ed77,
         type: 3}

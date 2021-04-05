@@ -13,7 +13,7 @@ public enum ShipType
     ShipD,
 }
 
-public class ShipSelectScreen : MonoBehaviour
+public class ShipSelectScreen : Menu
 {
     Action<ShipType> confirmationCallback;
 
@@ -33,29 +33,41 @@ public class ShipSelectScreen : MonoBehaviour
         }
     }
 
-	private void Update()
+	void Update()
 	{
-        if (PlayerController.Interacting) {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
+        if (PlayerController.Interacting)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
                 Cancel();
             }
         }
     }
 
-	public void Open(Action<ShipType> callback)
+    public void Open(Action<ShipType> callback)
     {
         confirmationCallback = callback;
-    }
 
+        // Hide this menu till the animation starts
+        GetComponent<CanvasGroup>().alpha = 0f;
+        OpenMenu(null, false);
+    }
+    
+    // NOTE: Confirm is called by clicking on a 'ShipButton'
     public void Confirm(ShipType ship)
     {
-        confirmationCallback.Invoke(ship);
-        Destroy(gameObject);
+        // Setup the Destroy to happen after the menu close animation
+        callback = () => {
+            confirmationCallback.Invoke(ship);
+            Destroy(gameObject);
+        };
+
+        CloseMenu(); 
     }
 
     public void Cancel()
     {
-        Destroy(gameObject);
-    }
+        // Setup the Destroy to happen after the menu close animation
+        callback = () => { Destroy(gameObject); };
+        CloseMenu();  
+    }   
 }

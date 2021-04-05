@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
 	public Menu ParentMenu;
 
 	// When this menu is closed we call this
-	private System.Action callback;
+	protected System.Action callback;
 
 	// This menus Open and Close Transitions
 	public MenuTransition OpenTransition = null;
@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour
 	/// <param name="parent">The Menu that has opened us.</param>
 	/// <param name="closeParentMenu">Do we want to destroy our parent?</param>
 	/// <param name="closeCallback">The callback for when we are closed.</param>
-	private void OpenMenu(Menu parent, bool closeParentMenu = true, System.Action closeCallback = null)
+	public virtual void OpenMenu(Menu parent, bool closeParentMenu = true, System.Action closeCallback = null)
 	{
 		ParentMenu = parent;
 		callback = closeCallback;
@@ -36,11 +36,10 @@ public class Menu : MonoBehaviour
 		StartCoroutine(coOpenMenu(closeParentMenu));
 	}
 
-	private void CloseMenu()
+	public virtual void CloseMenu()
 	{
 		StartCoroutine(coCloseMenu());
 	}
-
 
 	IEnumerator coOpenMenu(bool closeParentMenu)
 	{
@@ -72,5 +71,11 @@ public class Menu : MonoBehaviour
 		target.gameObject.SetActive(true);
 		target.GetComponent<CanvasGroup>().alpha = 0f;
 		target.OpenMenu(this, true);
+	}
+
+	public void UpdateCursor(CursorLockMode mode, bool visible)
+	{
+		Cursor.lockState = mode;
+		Cursor.visible = visible;
 	}
 }

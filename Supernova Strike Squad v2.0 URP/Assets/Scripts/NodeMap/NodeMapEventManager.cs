@@ -6,6 +6,8 @@ using Mirror;
 
 public class NodeMapEventManager : NetworkBehaviour
 {
+	[SerializeField] private Menu menuBehaviour = null;
+
 	private NodeMap nodeMap;
 
 	public override void OnStartServer()
@@ -21,8 +23,10 @@ public class NodeMapEventManager : NetworkBehaviour
 
 	IEnumerator coStartNewEvent()
 	{
+		yield return new WaitForSecondsRealtime(1.5f);
+
 		GameManager.Instance.Rpc_FadeOutLoadingScreen(true);
-		nodeMap.ContentAnchor.gameObject.SetActive(false);
+		//nodeMap.ContentAnchor.gameObject.SetActive(false);
 
 		yield return new WaitForSecondsRealtime(1.5f);
 
@@ -32,8 +36,10 @@ public class NodeMapEventManager : NetworkBehaviour
 
 	IEnumerator coEndEvent()
 	{
+		yield return new WaitForSecondsRealtime(1.5f);
+
 		GameManager.Instance.Rpc_FadeInLoadingScreen(true);
-		nodeMap.ContentAnchor.gameObject.SetActive(true);
+		//nodeMap.ContentAnchor.gameObject.SetActive(true);
 
 		yield return new WaitForSecondsRealtime(0.5f);
 
