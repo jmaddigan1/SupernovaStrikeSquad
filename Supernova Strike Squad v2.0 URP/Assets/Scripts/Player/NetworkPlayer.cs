@@ -38,8 +38,6 @@ public class NetworkPlayer : Player
 	public override void OnStartAuthority()
 	{
 		base.OnStartAuthority();
-		//Cmd_SpawnShip();
-
 		Cmd_SpawnPlayer();
 	}
 
@@ -131,13 +129,15 @@ public class NetworkPlayer : Player
 	[Command]
 	public void Cmd_SpawnPlayer()
 	{
-		NetworkServer.Spawn(Instantiate(playerObjectPrefab), connectionToClient);
+		GameObject go = Instantiate(playerObjectPrefab, transform.position, transform.rotation);
+		NetworkServer.Spawn(go, connectionToClient);
 	}
 
 	[Command]
 	public void Cmd_SpawnShip()
 	{
-		NetworkServer.Spawn(Instantiate(shipObjectPrefab), connectionToClient);
+		GameObject go = Instantiate(shipObjectPrefab, transform.position, transform.rotation);
+		NetworkServer.Spawn(go, connectionToClient);
 	}
 
 	[Command]
