@@ -6,21 +6,18 @@ using Mirror;
 public class Projectile : NetworkBehaviour
 {
 	Rigidbody rb;
-	private void Start()
+
+	public override void OnStartServer()
+	{
+		Destroy(gameObject, 1f);
+	}
+
+	public override void OnStartClient()
 	{
 		Rigidbody rigidbody = GetComponent<Rigidbody>();
 
-		if (isServer)
-		{
-			rb = rigidbody;
-			rb.velocity = transform.forward * 500;
-
-			Destroy(gameObject, 1f);
-		}
-		else
-		{
-			Destroy(rigidbody);
-		}
+		rb = rigidbody;
+		rb.velocity = transform.forward * 1000;
 	}
 
 	private void OnCollisionEnter(Collision collision)

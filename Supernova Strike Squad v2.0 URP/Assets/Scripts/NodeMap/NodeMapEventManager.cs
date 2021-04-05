@@ -15,35 +15,51 @@ public class NodeMapEventManager : NetworkBehaviour
 		nodeMap = GetComponent<NodeMap>();
 	}
 
-	[Server] public void StartNewEvent()
-		=> StartCoroutine(coStartNewEvent());
+	[Server] public void StartNewEvent(NodeEvent nodeEvent)
+		=> StartCoroutine(coStartNewEvent(nodeEvent));
 
 	[Server] public void EndEvent()
 		=> StartCoroutine(coEndEvent());
 
-	IEnumerator coStartNewEvent()
+	IEnumerator coStartNewEvent(NodeEvent nodeEvent)
 	{
 		yield return new WaitForSecondsRealtime(1.5f);
-
 		GameManager.Instance.Rpc_FadeOutLoadingScreen(true);
-		//nodeMap.ContentAnchor.gameObject.SetActive(false);
+		yield return new WaitForSecondsRealtime(0.5f);
 
-		yield return new WaitForSecondsRealtime(1.5f);
+		StartCoroutine(coPlayEvent(nodeEvent));
+	}
 
-		// TEMP
+	IEnumerator coPlayEvent(NodeEvent nodeEvent)
+	{
+		nodeEvent.OnEventStart();
+
+		nodeMap.Rpc_PausePlayer(false);
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		while (!nodeEvent.IsEventOver())
+		{
+			//
+
+			yield return null;
+		}
+
+		nodeEvent.OnEventEnd();
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		nodeMap.Rpc_PausePlayer(true);
+
 		EndEvent();
 	}
 
 	IEnumerator coEndEvent()
 	{
-		yield return new WaitForSecondsRealtime(1.5f);
-
+		yield return new WaitForSecondsRealtime(0.5f);
 		GameManager.Instance.Rpc_FadeInLoadingScreen(true);
-		//nodeMap.ContentAnchor.gameObject.SetActive(true);
-
 		yield return new WaitForSecondsRealtime(0.5f);
 
-		// TEMP
 		nodeMap.CompleteNode();
 	}
 }

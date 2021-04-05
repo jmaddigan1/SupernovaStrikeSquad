@@ -52,12 +52,14 @@ public class NodeMap : NetworkBehaviour
 	{
 		menuBehaviour.OpenMenu(null, false);
 
-		PausePlayer(true);
-
 		ClearNodeMap();
 
-		CurrentNodemap = newMapData;
-		CurrentNode = newNodeData;
+		// Only update the current Node Map and Node if we are NOT the servers
+		if (!isServer )
+		{
+			CurrentNodemap = newMapData;
+			CurrentNode = newNodeData;
+		}
 
 		// DEPTH
 		for (int depth = 0; depth < newMapData.MapDepth; depth++)
@@ -78,7 +80,7 @@ public class NodeMap : NetworkBehaviour
 	{
 		if (ValidateNode(nodeIndex))
 		{
-			PausePlayer(false);
+			Rpc_PausePlayer(false);
 
 			NodeData nodeData = CurrentNodemap.Nodes[nodeIndex];
 			NodeEvent nodeEvent = nodeData.Event;
@@ -93,7 +95,7 @@ public class NodeMap : NetworkBehaviour
 	public void StartNewEvent()
 	{
 		Rpc_HideNodeMap();
-		eventManager.StartNewEvent();
+		eventManager.StartNewEvent(CurrentNode.Event);
 	}
 
 	[ClientRpc]
@@ -162,101 +164,9 @@ public class NodeMap : NetworkBehaviour
 		ContentAnchor.DetachChildren();
 	}
 
-	void PausePlayer(bool state)
+	[ClientRpc]
+	public void Rpc_PausePlayer(bool state)
 	{
 		ShipController.Interacting = state;
-	}
-}
-
-public class NodeMapData
-{
-	public List<NodeData> Nodes;
-
-	public int MapDepth;
-	public int MapCurrentDepth;
-
-	public NodeMapData()
-	{
-	}
-}
-public class NodeData
-{
-	public string NodeName;
-	public string NodeDescription;
-
-	public NodeEvent Event;
-
-	public int NodeDepth;
-	public int NodeIndex;
-
-	public List<int> Connections;
-
-	public NodeData()
-	{
-	}
-}
-public class NodeEvent
-{
-	public string EventName;
-	public string EventDescription;
-
-	public NodeEvent()
-	{
-	}
-}
-
-public static class NodeMapPresets
-{
-	public static NodeMapData TestMap()
-	{
-		NodeMapData nodeMap = new NodeMapData()
-		{
-			MapDepth = 5,
-
-			Nodes = new List<NodeData>()
-			{
-				MakeNode("Node A", 0, new List<int>() { 1, 5 },      NodeEventPresets.TestEvent() ),
-				MakeNode("Node B", 1, new List<int>() { 2,3,4 },     NodeEventPresets.TestEvent() ),
-				MakeNode("Node C", 2, new List<int>() { 5 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node D", 2, new List<int>() { 5,6 },       NodeEventPresets.TestEvent() ),
-				MakeNode("Node E", 2, new List<int>() { 5,7 },       NodeEventPresets.TestEvent() ),
-				MakeNode("Node F", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node G", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node H", 4, new List<int>() { },           NodeEventPresets.TestEvent() ),
-			}
-		};
-
-		// Give each node its index
-		for (int index = 0; index < nodeMap.Nodes.Count; index++)
-			nodeMap.Nodes[index].NodeIndex = index;
-
-		return nodeMap;
-	}
-
-	public static NodeData MakeNode(string name, int depth, List<int> connections = null, NodeEvent nodeEvent = null)
-	{
-		return new NodeData()
-		{
-			NodeName = name,
-			NodeDepth = depth,
-
-			Connections = connections,
-
-			Event = nodeEvent
-		};
-	}
-}
-public static class NodeEventPresets
-{
-	public static NodeEvent TestEvent()
-	{
-		NodeEvent nodeEvent = new NodeEvent()
-		{
-			EventName = "Test Event",
-
-			EventDescription = "A description for the test Node"
-		};
-
-		return nodeEvent;
 	}
 }

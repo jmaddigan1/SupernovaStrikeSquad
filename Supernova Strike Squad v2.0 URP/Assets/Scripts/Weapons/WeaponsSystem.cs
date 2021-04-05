@@ -7,16 +7,14 @@ public class WeaponsSystem : NetworkBehaviour
 {
 	public static WeaponsSystem LocalWeaponsSystem;
 
-	[SerializeField] private Transform weaponAnchor = null;
 	[SerializeField] private Weapon startingWeapon = null;
 
-	public Weapon CurrentWeapon;
+	public Transform WeaponAnchor = null;
+	public Weapon CurrentWeapon = null;
 
 	public override void OnStartAuthority()
 	{
 		LocalWeaponsSystem = this;
-
-
 
 		Cmd_SpawnWeapon();
 	}
@@ -48,6 +46,6 @@ public class WeaponsSystem : NetworkBehaviour
 	[Command]
 	public void Cmd_SpawnWeapon()
 	{
-		NetworkServer.Spawn(Instantiate(startingWeapon.gameObject, weaponAnchor), connectionToClient);
+		NetworkServer.Spawn(Instantiate(startingWeapon.gameObject, WeaponAnchor), connectionToClient);
 	}
 }

@@ -81,15 +81,16 @@ public class ShipController : NetworkBehaviour
 	void FixedUpdate()
 	{   
 		// If this is the server update the ships with there moveDirection and targetRotation
-		if (isServer && !Interacting)
+		if (isServer && !Interacting && !ForceStop)
 		{
 			// MOVE FORWARD
-			rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
+			// rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
 
 			// ROTATE
-			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+			// rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
 		}
 	}
+	public bool ForceStop = false;
 
 	#region Move Stuff
 	Vector3 moveDirection;

@@ -32,23 +32,27 @@ public class Weapon_Energy_MiniGun : Weapon
 
 		if (Physics.Raycast(ray, out RaycastHit hit, 150, LayerMask.GetMask("Environment")))
 		{
-			Cmd_SpawnProjectile(hit.point);
+			Cmd_SpawnProjectile(hit.point,transform.position);
 		}
 		else
 		{
-			Cmd_SpawnProjectile(ray.GetPoint(150));
+			Cmd_SpawnProjectile(ray.GetPoint(150), transform.position);
 		}
 	}
 
 	[Command]
-	public void Cmd_SpawnProjectile(Vector3 target)
+	public void Cmd_SpawnProjectile(Vector3 target, Vector3 start)
 	{
+		Debug.Log("SERVER POS" + transform.position);
+		Debug.Log("CLIENT POS" + start);
+
 		//SPAWN
-		GameObject go = Instantiate(projectilePrefab, transform.position, transform.rotation).gameObject;
-		NetworkServer.Spawn(go);
+		GameObject go = Instantiate(projectilePrefab, start, transform.rotation).gameObject;   
 
 		// ROTATE
 		go.transform.LookAt(target);
+
+		NetworkServer.Spawn(go, connectionToClient);
 
 		// FIX COLLISION WITH OWNER
 		ShipController ship = GetComponentInParent<ShipController>();

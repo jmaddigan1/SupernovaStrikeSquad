@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3774638359320106267}
   - component: {fileID: 7112466956839927624}
   - component: {fileID: 2472164755876795296}
-  - component: {fileID: 1354601334996312146}
-  m_Layer: 0
+  - component: {fileID: 6212111924555877237}
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3657573820966039749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1009}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 8}
   m_Children: []
   m_Father: {fileID: 6909545726079243796}
   m_RootOrder: 0
@@ -80,8 +80,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1354601334996312146
-SphereCollider:
+--- !u!65 &6212111924555877237
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91,7 +91,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7604263925027020465
 GameObject:
@@ -102,11 +102,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6909545726079243796}
-  - component: {fileID: 1566094170886676041}
+  - component: {fileID: 2828289487366156574}
   - component: {fileID: 1601607531625569397}
   - component: {fileID: -3589586942453589218}
-  - component: {fileID: 7597443671817045937}
-  m_Layer: 0
+  - component: {fileID: -507059047408927759}
+  m_Layer: 9
   m_Name: DefaultProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,13 +122,13 @@ Transform:
   m_GameObject: {fileID: 7604263925027020465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51945, y: 0.51945, z: 37.60448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3774638359320106267}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1566094170886676041
+--- !u!114 &2828289487366156574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-3589586942453589218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &7597443671817045937
+--- !u!114 &-507059047408927759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,12 +184,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 7604263925027020465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Script: {fileID: 11500000, guid: ad225009ad414e1428332cab226f38fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
+  interpolationBackTime: 0.1
+  extrapolationMode: 1
+  useExtrapolationTimeLimit: 1
+  extrapolationTimeLimit: 5
+  useExtrapolationDistanceLimit: 0
+  extrapolationDistanceLimit: 20
+  sendPositionThreshold: 0
+  sendRotationThreshold: 0
+  sendScaleThreshold: 0
+  sendVelocityThreshold: 0
+  sendAngularVelocityThreshold: 0
+  receivedPositionThreshold: 0
+  receivedRotationThreshold: 0
+  snapPositionThreshold: 0
+  snapRotationThreshold: 0
+  snapScaleThreshold: 0
+  positionLerpSpeed: 0.85
+  rotationLerpSpeed: 0.85
+  scaleLerpSpeed: 0.85
+  timeCorrectionSpeed: 0.1
+  snapTimeThreshold: 0.3
+  syncPosition: 0
+  syncRotation: 0
+  syncScale: 0
+  syncVelocity: 0
+  syncAngularVelocity: 0
+  isPositionCompressed: 0
+  isRotationCompressed: 0
+  isScaleCompressed: 0
+  isVelocityCompressed: 0
+  isAngularVelocityCompressed: 0
+  automaticallyResetTime: 1
+  isSmoothingAuthorityChanges: 0
+  transformSource: 0
+  whenToUpdateTransform: 0
+  sendRate: 30
+  networkChannel: 1
+  childObjectToSync: {fileID: 0}
+  setVelocityInsteadOfPositionOnNonOwners: 0
+  maxPositionDifferenceForVelocitySyncing: 10
+  useLocalTransformOnly: 0
+  ownerChangeIndicator: 1
+  receivedStatesCounter: 0
