@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2828289487366156574}
   - component: {fileID: 1601607531625569397}
   - component: {fileID: -3589586942453589218}
-  - component: {fileID: -507059047408927759}
+  - component: {fileID: 8778465547493911003}
   m_Layer: 9
   m_Name: DefaultProjectile
   m_TagString: Untagged
@@ -175,7 +175,7 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &-507059047408927759
+--- !u!114 &8778465547493911003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  interpolationBackTime: 0.1
+  interpolationBackTime: 0.05
   extrapolationMode: 1
   useExtrapolationTimeLimit: 1
   extrapolationTimeLimit: 5
@@ -212,7 +212,7 @@ MonoBehaviour:
   snapTimeThreshold: 0.3
   syncPosition: 0
   syncRotation: 0
-  syncScale: 0
+  syncScale: 7
   syncVelocity: 0
   syncAngularVelocity: 0
   isPositionCompressed: 0
@@ -222,9 +222,9 @@ MonoBehaviour:
   isAngularVelocityCompressed: 0
   automaticallyResetTime: 1
   isSmoothingAuthorityChanges: 0
-  transformSource: 0
-  whenToUpdateTransform: 0
-  sendRate: 30
+  transformSource: 1
+  whenToUpdateTransform: 1
+  sendRate: 15
   networkChannel: 1
   childObjectToSync: {fileID: 0}
   setVelocityInsteadOfPositionOnNonOwners: 0

@@ -43,9 +43,6 @@ public class Weapon_Energy_MiniGun : Weapon
 	[Command]
 	public void Cmd_SpawnProjectile(Vector3 target, Vector3 start)
 	{
-		Debug.Log("SERVER POS" + transform.position);
-		Debug.Log("CLIENT POS" + start);
-
 		//SPAWN
 		GameObject go = Instantiate(projectilePrefab, start, transform.rotation).gameObject;   
 

@@ -84,10 +84,10 @@ public class ShipController : NetworkBehaviour
 		if (isServer && !Interacting && !ForceStop)
 		{
 			// MOVE FORWARD
-			// rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
+			rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
 
 			// ROTATE
-			// rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
 		}
 	}
 	public bool ForceStop = false;

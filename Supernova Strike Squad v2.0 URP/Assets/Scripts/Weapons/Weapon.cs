@@ -14,7 +14,7 @@ public abstract class Weapon : NetworkBehaviour
 	public override void OnStartAuthority()
 	{
 		WeaponsSystem.LocalWeaponsSystem.CurrentWeapon = this;
-		transform.parent = WeaponsSystem.LocalWeaponsSystem.WeaponAnchor;
+		transform.SetParent(WeaponsSystem.LocalWeaponsSystem.WeaponAnchor, false);
 	}
 
 	private void Update()

@@ -15,15 +15,19 @@ public class Projectile : NetworkBehaviour
 	public override void OnStartClient()
 	{
 		Rigidbody rigidbody = GetComponent<Rigidbody>();
-
 		rb = rigidbody;
-		rb.velocity = transform.forward * 1000;
+
+		rb.velocity = transform.forward * 500;
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (isServer)
 		{
+			if (collision.transform.TryGetComponent<IDamageable>(out IDamageable damageable)) {
+				damageable.TakeDamage(1);
+			}
+
 			NetworkServer.Destroy(gameObject);
 		}
 	}
