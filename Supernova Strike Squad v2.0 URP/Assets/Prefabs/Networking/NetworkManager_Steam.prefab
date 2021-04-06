@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5825246360487220748}
   - component: {fileID: 3339429171022484379}
   - component: {fileID: 5825246360487220736}
-  - component: {fileID: 5825246360487220737}
   - component: {fileID: 5825246360487220750}
+  - component: {fileID: 2409169053999561028}
   m_Layer: 0
   m_Name: NetworkManager_Steam
   m_TagString: Untagged
@@ -48,15 +48,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
+  PersistNetworkManagerToOfflineScene: 0
   runInBackground: 1
   autoStartServerBuild: 1
-  showDebugMessages: 0
   serverTickRate: 30
   serverBatching: 0
   serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 5825246360487220737}
+  transport: {fileID: 5825246360487220737, guid: 7c38144d9408f9e4f96b0408509d5cb2,
+    type: 3}
   networkAddress: localhost
   maxConnections: 8
   disconnectInactiveConnections: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
   - {fileID: 7182322925338796591, guid: fbea356d4f4045842ab1792f6d705413, type: 3}
   - {fileID: 7604263925027020465, guid: d4696c20afcbf9d4f9e11ada03a489e4, type: 3}
   - {fileID: 7877940740961817794, guid: cf0ec538696021a4593eba443c074778, type: 3}
+  - {fileID: 6087859394375058376, guid: 84d5147c6b7ad9b4290ecbfbe7195556, type: 3}
 --- !u!114 &3339429171022484379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +103,19 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1009888441282682076, guid: be4e5266378ca454e97deed79815628b,
     type: 3}
   canvas: {fileID: 0}
---- !u!114 &5825246360487220737
+--- !u!114 &5825246360487220750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825246360487220751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2409169053999561028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,15 +132,3 @@ MonoBehaviour:
   SteamAppID: 480
   AllowSteamRelay: 1
   SteamUserID: 0
---- !u!114 &5825246360487220750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5825246360487220751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
