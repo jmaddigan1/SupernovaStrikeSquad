@@ -56,17 +56,16 @@ MonoBehaviour:
   serverBatchInterval: 0
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 5825246360487220737, guid: 7c38144d9408f9e4f96b0408509d5cb2,
-    type: 3}
+  transport: {fileID: 2409169053999561028}
   networkAddress: localhost
-  maxConnections: 8
+  maxConnections: 6
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 3774539291664902623, guid: 8ff155ea75aa3014d94de9cbb36e4c5c,
     type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 8708646296551614550, guid: 5e94aff2ae6240c4d879fb393eec585e, type: 3}
   - {fileID: 4638992414813377594, guid: 4586442df1431f44da309b6264825db9, type: 3}

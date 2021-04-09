@@ -223,7 +223,7 @@ MonoBehaviour:
   automaticallyResetTime: 1
   isSmoothingAuthorityChanges: 0
   transformSource: 1
-  whenToUpdateTransform: 1
+  whenToUpdateTransform: 0
   sendRate: 15
   networkChannel: 1
   childObjectToSync: {fileID: 0}

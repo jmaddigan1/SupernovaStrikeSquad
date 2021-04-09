@@ -24,10 +24,6 @@ public class Health : NetworkBehaviour, IDamageable
 	{
 		if (!isServer) return;
 
-		print($"damage: {damage}");
-		print($"currentHealth: {currentHealth}");
-		print($"currentShield: {currentShield}");
-
 		if (currentShield <= 0)
 		{
 			// Damage to my health
@@ -80,7 +76,6 @@ public class Health : NetworkBehaviour, IDamageable
 	void ColorModel(Color color)
 	{
 		foreach (Renderer renderer in GetComponentsInChildren<Renderer>()) {
-			Debug.Log("COLOR");
 			renderer.material.color = color;
 		}
 	}
