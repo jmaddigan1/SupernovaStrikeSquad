@@ -14,93 +14,86 @@ public enum Directions
 	NorthWest
 }
 
-public class TrackPlayerState : FSMState
+public class TrackPlayerStateData
 {
-	//// Direction Dictionary
-	//public Dictionary<Directions, Vector2> DirectionDictionary =
-	//new Dictionary<Directions, Vector2>() {
-
-	//	{ Directions.North,     new Vector2( 0,  1) },
-	//	{ Directions.NorthEast, new Vector2( 1,  1) },
-	//	{ Directions.East,      new Vector2( 1,  0) },
-	//	{ Directions.SouthEast, new Vector2( 1, -1) },
-	//	{ Directions.South,     new Vector2( 0, -1) },
-	//	{ Directions.SouthWest, new Vector2(-1, -1) },
-	//	{ Directions.West,      new Vector2(-1,  0) },
-	//	{ Directions.NorthWest, new Vector2(-1,  1) },
-
-	//};
-
-	[SerializeField] private Transform target = null;
-
-	public GameObject Self;
-
-	public bool ShouldDodge = false;
-
-	Vector2 Size = new Vector2(1.0f, 1.0f);
-
-	public float MoveSpeed = 15;
+	public float MoveSpeed = 25f;
 	public float RotSpeed = 1;
+	public float RotationMultiplier = 1f;
 	public float DodgeSpeed = 25;
 	public float RayDist = 1.5f;
 	public float RayRange = 12;
+	public bool ShouldDodge = false;
+	public Vector2 Size = new Vector2(1.0f, 1.0f);
+}
 
-	public Vector2 DodgeDirection;
-
+public class TrackPlayerState : FSMState
+{
+	// Private Members
+	private TrackPlayerStateData data;
 	private Rigidbody myRigidbody;
+	private EnemyBase enemy;
+	private GameObject self;
 
-	public TrackPlayerState(GameObject self, Transform target)
+	public Vector2 dodgeDirection;
+
+	public TrackPlayerState(EnemyBase enemyBase, TrackPlayerStateData data)
 	{
-		this.target = target;
-		this.Self = self;
+		stateID = FSMStateID.TrackTarget;
 
-		stateID = FSMStateID.TrackPlayer;
+		//this.target = enemyBase.Target;
+		this.self = enemyBase.gameObject;
+		this.enemy = enemyBase;
+		this.data = data;
 
-		myRigidbody = Self.GetComponent<Rigidbody>();
+		EnemyUtilities.FindTarget(enemy);
+
+		myRigidbody = self.GetComponent<Rigidbody>();
 	}
 
 	public override void EnterStateInit()
 	{
-		base.EnterStateInit();
+		enemy.MoveSpeed = 25;
+		enemy.RotationSpeed = 2;
+		enemy.RotationMultiplier = 1;
 
-		myRigidbody = Self.GetComponent<Rigidbody>();
+		EnemyUtilities.FindTarget(enemy);
 	}
 
 	public override void Act()
 	{
-		if (target == null) return;
-
-		Quaternion oldRotation = Self.transform.rotation;
-
-		// Rotate towards the target
-		Quaternion rotation = Quaternion.LookRotation(target.transform.position - Self.transform.position);
-		Self.transform.rotation = Quaternion.Slerp(Self.transform.rotation, rotation, Time.deltaTime * RotSpeed);
-
-		// Look for obstacles
-		EnemyUtilities.Dodge(Self.transform, ref DodgeDirection, ref ShouldDodge, DodgeSpeed, Size, RayDist, RayRange);
-
-		if (ShouldDodge)
-		{
-			// Revert our rotations
-			Self.transform.rotation = oldRotation;
-			Vector3 newDodge = new Vector3(-DodgeDirection.y, DodgeDirection.x);
-			Self.transform.Rotate(-newDodge * Time.deltaTime * DodgeSpeed);
-		}
-
-		//Self.transform.position += Self.transform.forward * MoveSpeed * Time.deltaTime;
-	}
-
-	public override void FixedAct()
-	{
-		// myRigidbody.AddRelativeForce(Vector3.forward, ForceMode.Acceleration)
-		myRigidbody.MovePosition(myRigidbody.position + Self.transform.forward * MoveSpeed * Time.fixedDeltaTime);
 	}
 
 	public override void Reason()
 	{
-		Vector3 targetDir = target.position - Self.transform.position;
-		float angle = Vector3.Angle(targetDir, Self.transform.forward);
+		Debug.Log(self.transform);
+		Debug.Log(enemy.transform);
 
-		// Debug.Log((int)angle);
+		// If the Player is in attack range
+		if (enemy.Target == null) return;
+
+
+		float targetAngle = EnemyUtilities.GetAngle(self.transform, enemy.Target);
+		if (targetAngle < enemy.AttackAngle)
+		{
+			Debug.Log($"TrackPlayerState | Found Player!");
+			enemy.PerformTransition(Transition.FoundTarget);
+			return;
+		}
+
+		// If the player is too far away	
+		float targetDist = EnemyUtilities.GetDistance(self.transform, enemy.Target);
+		if (targetDist > enemy.EscapeRange)
+		{
+			Debug.Log($"TrackPlayerState | Lost Player!");
+			enemy.PerformTransition(Transition.LostTarget);
+			return;
+		}
+
+		if (targetDist < 10)
+		{
+			Debug.Log($"TrackPlayerState | Lost Player!");
+			enemy.PerformTransition(Transition.ApproachedPlayer);
+			return;
+		}
 	}
 }

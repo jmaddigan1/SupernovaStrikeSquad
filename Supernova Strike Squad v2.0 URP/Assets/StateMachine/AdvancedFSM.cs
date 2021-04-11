@@ -13,15 +13,18 @@ using System.Collections.Generic;
 public enum Transition
 {
 	None = 0,
-	TargetInRange,
+	FoundTarget,
+	LostTarget,
+	ApproachedPlayer,
 }
 
 public enum FSMStateID
 {
 	None = 0,
 	Patrol,
-	TrackPlayer,
+	TrackTarget,
 	ShootPlayer,
+	Retreating,
 }
 
 public class AdvancedFSM : FSM
@@ -29,8 +32,8 @@ public class AdvancedFSM : FSM
 	private List<FSMState> fsmStates;
 
 	//The fsmStates are not changing directly but updated by using transitions
-	private FSMStateID currentStateID;
-	public FSMStateID CurrentStateID { get { return currentStateID; } }
+	[SerializeField]
+	public FSMStateID CurrentStateID;
 
 	private FSMState currentState;
 	public FSMState CurrentState { get { return currentState; } }
@@ -57,7 +60,7 @@ public class AdvancedFSM : FSM
 		{
 			fsmStates.Add(fsmState);
 			currentState = fsmState;
-			currentStateID = fsmState.ID;
+			CurrentStateID = fsmState.ID;
 			return;
 		}
 
@@ -124,10 +127,10 @@ public class AdvancedFSM : FSM
 		}
 
 		// Update the currentStateID and currentState		
-		currentStateID = id;
+		CurrentStateID = id;
 		foreach (FSMState state in fsmStates)
 		{
-			if (state.ID == currentStateID)
+			if (state.ID == CurrentStateID)
 			{
 				currentState = state;
 				currentState.EnterStateInit();

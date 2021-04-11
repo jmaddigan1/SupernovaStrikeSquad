@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Mirror;
 
-public class FSM : MonoBehaviour
+public class FSM : NetworkBehaviour
 {
     protected virtual void Initialize() { }
     protected virtual void FSMUpdate() { }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public class EnemyBase : AdvancedFSM
 {    
@@ -9,7 +10,18 @@ public class EnemyBase : AdvancedFSM
     //
     public EnemyType EnemyType;
 
-    public Transform Target;
+    public Transform Target = null;
+    public Rigidbody MyRigidbody = null;
+
+    // Starting Stats
+    public float MoveSpeed = 25;
+    public float RotationSpeed = 1;
+    public float RotationMultiplier = 1;
+
+    public float PatrolDetectionRange = 300;
+    public float PatrolPointRange = 10;
+    public float AttackAngle = 10;
+    public float EscapeRange = 350;
 
     override public IEnumerator Start()
     {
@@ -22,27 +34,19 @@ public class EnemyBase : AdvancedFSM
     protected override void Initialize()
     {
         // Create the FSM for the tank.
-        ConstructFSM();
+        if (isServer)
+        {
+            ConstructFSM();
+        }
     }
 
     // Update each frame.
     protected override void FSMUpdate()
     {
-       //  if (CurrentState != null && isServer)
-        if (CurrentState != null)
+        if (CurrentState != null && isServer)
         {
             CurrentState.Reason();
             CurrentState.Act();
-        }
-    }
-
-    // Update each physics update.
-    protected override void FSMFixedUpdate()
-    {      
-        if (CurrentState != null)
-        {
-            CurrentState.FixedReason();
-            CurrentState.FixedAct();
         }
     }
 
@@ -54,9 +58,10 @@ public class EnemyBase : AdvancedFSM
 
     }
 
-    public GameObject GetTarget()
+	[SerializeField] GameObject shot = null;
+	public void Shoot()
 	{
-        return Target.gameObject;
-       // return FindObjectOfType<ShipController>().gameObject;
-	}
+        GameObject go = Instantiate(shot, transform.position + transform.forward * 3, transform.rotation);
+        NetworkServer.Spawn(go);
+    }
 }

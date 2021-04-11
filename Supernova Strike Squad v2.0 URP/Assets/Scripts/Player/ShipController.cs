@@ -11,7 +11,7 @@ public class ShipController : NetworkBehaviour
 	[SerializeField] private Transform cameraTarget = null;
 	[SerializeField] private Transform shipModel = null;
 
-	public BoxCollider PlayerCollider;
+	public SphereCollider PlayerCollider;
 
 	Transform cam = null;
 	Rigidbody rb = null;
@@ -204,9 +204,9 @@ public class ShipController : NetworkBehaviour
 	{
 		float deltaTime = Time.deltaTime;
 
-		Vector3 camOffset = new Vector3(0, 0.9f, -5.5f);
+		Vector3 camOffset = new Vector3(0, 1.2f, -5.5f);
 
-		cTargetX = Mathf.Lerp(cTargetX, rotX * 1f, deltaTime * 0.5f);
+		cTargetX = Mathf.Lerp(cTargetX, rotX * 1.5f, deltaTime * 0.5f);
 		cTargetY = Mathf.Lerp(cTargetY, rotZ * 1f, deltaTime * 0.5f);
 
 		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);

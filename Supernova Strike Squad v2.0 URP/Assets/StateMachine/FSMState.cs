@@ -106,6 +106,7 @@ public abstract class FSMState
     {
 
     }
+
     /// <summary>
     /// Decides if the state should transition to another on its list
     /// NPC is a reference to the npc tha is controlled by this class

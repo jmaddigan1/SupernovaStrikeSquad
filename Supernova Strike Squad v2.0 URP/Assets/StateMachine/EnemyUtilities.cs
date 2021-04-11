@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,28 @@ public static class EnemyUtilities
 			{ Directions.West,      new Vector2(-1,  0) },
 			{ Directions.NorthWest, new Vector2(-1,  1) },
 		};
+	}
+
+	// Find all the players in the scene
+	public static void FindTarget(EnemyBase enemy)
+	{
+		enemy.Target = null;
+		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
+		{
+			// If we don't have a target, default this to the target
+			if (enemy.Target == null)
+			{
+				enemy.Target = ship.transform;
+				continue;
+			}
+
+			// Else we look for the closest player for our target
+			if (Vector3.Distance(ship.transform.position, enemy.transform.position) <
+				Vector3.Distance(enemy.Target.position, enemy.transform.position))
+			{
+				enemy.Target = ship.transform;
+			}
+		}
 	}
 
 	public static void Dodge(Transform self, ref Vector2 DodgeDirection, ref bool ShouldDodge, float dodgeSpeed, Vector3 raySize, float rayOffset, float rayRange)
@@ -61,5 +84,31 @@ public static class EnemyUtilities
 			Debug.DrawRay(pos, self.transform.TransformDirection(Vector3.forward) * range, Color.white);
 			return false;
 		}
+	}
+
+	public static float GetAngle(Transform self, Transform target)
+	{
+		Vector3 targetDir = target.position - self.transform.position;
+		float angle = Vector3.Angle(targetDir, self.transform.forward);
+
+		return angle;
+	}
+
+	public static float GetAngle(Transform self, Vector3 target)
+	{
+		Vector3 targetDir = target- self.transform.position;
+		float angle = Vector3.Angle(targetDir, self.transform.forward);
+
+		return angle;
+	}
+
+	public static float GetDistance(Transform self, Transform target)
+	{
+		return Vector3.Distance(self.position, target.position);
+	}
+
+	public static float GetDistance(Transform self, Vector3 target)
+	{
+		return Vector3.Distance(self.position, target);
 	}
 }

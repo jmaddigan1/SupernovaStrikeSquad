@@ -24,8 +24,10 @@ public class Projectile : NetworkBehaviour
 	{
 		if (isServer)
 		{
+			Debug.Log("HIT!!");
 			if (collision.transform.TryGetComponent<IDamageable>(out IDamageable damageable)) {
 				damageable.TakeDamage(1);
+				Debug.Log("HIT AND DAMAGED!");
 			}
 
 			NetworkServer.Destroy(gameObject);

@@ -105,9 +105,9 @@ public class EnemySpawner : NetworkBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 5 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 4 },
+						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
+						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
 					}
 				},
 

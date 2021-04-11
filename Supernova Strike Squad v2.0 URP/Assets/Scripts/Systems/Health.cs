@@ -63,13 +63,19 @@ public class Health : NetworkBehaviour, IDamageable
 
 	public void OnHealthChange(float oldValue, float newValue)
 	{
-		Color newColor = Color.Lerp(Color.red, Color.white, newValue / MaxHealth);
+		Color R = new Color(1, 0, 0, 0.2f);
+		Color W = new Color(1, 1, 1, 0.2f);
+
+		Color newColor = Color.Lerp(R, W, newValue / MaxHealth);
 		ColorModel(newColor);
 	}
 
 	public void OnShieldChange(float oldValue, float newValue)
 	{
-		Color newColor = Color.Lerp(Color.blue, Color.white, newValue / MaxHealth);
+		Color B = new Color(0, 0, 1, 0.2f);
+		Color W = new Color(1, 1, 1, 0.2f);
+
+		Color newColor = Color.Lerp(B, W, newValue / MaxHealth);
 		ColorModel(newColor);
 	}
 
