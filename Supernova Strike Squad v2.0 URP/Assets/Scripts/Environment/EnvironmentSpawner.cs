@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+public enum EnvironmentType
+{
+	Sphere, 
+	Square
+}
+
 public class EnvironmentParameters
 {
-	public float EnvironmentSize;
+	public EnvironmentType EnvironmentType;
+
+	public Vector3 EnvironmentSize;
 
 	public int AsteroidCount;
 	public float AsteroidMinSize;
@@ -43,7 +51,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 		for (int count = 0; count < environment.AsteroidCount; count++)
 		{
 			// POSITION
-			Vector3 point = GetRandomPosition(environment.EnvironmentSize);
+			Vector3 point = GetRandomPosition(environment.EnvironmentSize, environment.EnvironmentType);
 
 			// SCALE
 			float size = GetRandomSize(environment.AsteroidMinSize, environment.AsteroidMaxSize);
@@ -61,15 +69,31 @@ public class EnvironmentSpawner : NetworkBehaviour
 
 	}
 
-	public Vector3 GetRandomPosition(float range)
+	public Vector3 GetRandomPosition(Vector3 environmentSize, EnvironmentType environmentType)
 	{
 		Vector3 point = Vector3.zero;
 
-		point.x = Random.Range(-1f, 1);
-		point.y = Random.Range(-1f, 1);
-		point.z = Random.Range(-1f, 1);
+		if (environmentType == EnvironmentType.Sphere)
+		{
+			point.x = Random.Range(-1f, 1);
+			point.y = Random.Range(-1f, 1);
+			point.z = Random.Range(-1f, 1);
 
-		return point.normalized * range;
+			return point.normalized * environmentSize.x;
+		}
+
+		if (environmentType == EnvironmentType.Square)
+		{
+			point.x = Random.Range(-1f, 1) * (environmentSize.x);
+			point.y = Random.Range(-1f, 1) * (environmentSize.y);
+			point.z = Random.Range(-1f, 1) * (environmentSize.z);
+
+			point.z += 50;
+
+			return point;
+		}
+
+		return point;
 	}
 
 	public float GetRandomSize(float min, float max)
@@ -81,18 +105,56 @@ public class EnvironmentSpawner : NetworkBehaviour
 	{
 		if (CurrentEnvironment == null) return;
 
-		Gizmos.DrawWireSphere(transform.position, CurrentEnvironment.EnvironmentSize);
+		// SPHERE
+		if (CurrentEnvironment.EnvironmentType == EnvironmentType.Sphere)
+		{
+			Gizmos.DrawWireSphere(transform.position, CurrentEnvironment.EnvironmentSize.x);
+		}
+
+		// SQUARE
+		if (CurrentEnvironment.EnvironmentType == EnvironmentType.Square)
+		{
+			Gizmos.DrawWireCube(transform.position, CurrentEnvironment.EnvironmentSize * 2);
+		}
 	}
 
-	public static EnvironmentParameters Default()
+	public static EnvironmentParameters DefaultAreana()
 	{
 		return new EnvironmentParameters()
 		{
-			EnvironmentSize = 200f,
+			EnvironmentType = EnvironmentType.Sphere,
+
+			EnvironmentSize = new Vector3(200,0,0),
 
 			AsteroidCount = 50,
 			AsteroidMinSize = 15,
 			AsteroidMaxSize = 35
+		};
+	}
+	public static EnvironmentParameters DefaultRun()
+	{
+		return new EnvironmentParameters()
+		{
+			EnvironmentType = EnvironmentType.Square,
+
+			EnvironmentSize = new Vector3(200, 200, 2000),
+
+			AsteroidCount = 75,
+			AsteroidMinSize = 35,
+			AsteroidMaxSize = 200
+		};
+	}	
+	public static EnvironmentParameters DefaultBoss()
+	{
+		return new EnvironmentParameters()
+		{
+			EnvironmentType = EnvironmentType.Sphere,
+
+			EnvironmentSize = new Vector3(500, 0, 0),
+
+			AsteroidCount = 75,
+			AsteroidMinSize = 35,
+			AsteroidMaxSize = 200
 		};
 	}
 }

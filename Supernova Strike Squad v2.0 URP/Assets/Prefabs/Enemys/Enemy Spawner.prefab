@@ -48,6 +48,7 @@ MonoBehaviour:
   syncInterval: 0.1
   enemyPrefabs:
   - {fileID: 6004753861540703181, guid: 704607814d18b494583064a2bf1c018d, type: 3}
+  - {fileID: 7211607005168676528, guid: 9f54dcca39659f047af0ceb80f8bbc4e, type: 3}
 --- !u!114 &5377917634286712523
 MonoBehaviour:
   m_ObjectHideFlags: 0

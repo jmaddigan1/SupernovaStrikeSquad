@@ -2,31 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeEvent_Arena : NodeEvent
+public class NodeEvent_Boss : NodeEvent
 {
-	bool eventOver = false;
-
-	public NodeEvent_Arena()
-	{
-	}
-
 	public override bool IsEventOver()
 	{
-		return eventOver;
+		return false;
 	}
 
 	public override void OnEventStart()
 	{
 		// ENVIRONMENT
-		Environment = EnvironmentSpawner.DefaultAreana();
+		Environment = EnvironmentSpawner.DefaultBoss();
 		EnvironmentSpawner.Instance.Spawn(Environment);
 
 		// ENEMYS
-		EnemySpawner.Instance.Spawn(EnemySpawner.Default(), OnEndEncounter);
-		
+		EnemySpawner.Instance.SpawnEnemy(EnemyType.TestBoss, OnBossDeath);
+
 		// Move players to there starting positions
-		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
-		{
+		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>()) {
 			ship.transform.position = -Vector3.forward * Environment.EnvironmentSize.x / 2;
 		}
 
@@ -37,15 +30,10 @@ public class NodeEvent_Arena : NodeEvent
 
 	public override void OnEventEnd()
 	{
-		EnvironmentSpawner.Instance.Clear();
-
-		EnemySpawner.Instance.Clear();
-
-		// Debug.Log("Event End");
 	}
 
-	public void OnEndEncounter(bool victory)
+	public void OnBossDeath()
 	{
-		eventOver = true;
+
 	}
 }

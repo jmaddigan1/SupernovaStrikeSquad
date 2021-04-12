@@ -31,7 +31,9 @@ public class ShootPlayerState : FSMState
 		this.enemy = enemyBase;
 		this.data = data;
 
-		shootTimer = new Timer(0.1f, Shoot);
+		if (enemy.shot != null) {
+			shootTimer = new Timer(0.1f, Shoot);
+		}
 
 		FindTargets();
 	}
@@ -48,7 +50,7 @@ public class ShootPlayerState : FSMState
 		// If the Player has exited out attack range
 		if (EnemyUtilities.GetAngle(self.transform, enemy.Target) < 10)
 		{
-			shootTimer.IncrementTime();
+			shootTimer?.IncrementTime();
 		}
 	}
 

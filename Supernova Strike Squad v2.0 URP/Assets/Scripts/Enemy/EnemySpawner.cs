@@ -5,7 +5,8 @@ using Mirror;
 
 public enum EnemyType
 {
-	TestEnemy
+	TestEnemy,
+	TestBoss
 }
 
 public class EnemySpawner : NetworkBehaviour
@@ -92,7 +93,7 @@ public class EnemySpawner : NetworkBehaviour
 		}
 	}
 
-	void SpawnEnemy(EnemyType enemy, System.Action OnDeathCallback = null)
+	public void SpawnEnemy(EnemyType enemy, System.Action OnDeathCallback = null)
 	{
 		GameObject go = Instantiate(EnemyDictionary[enemy]);
 		NetworkServer.Spawn(go);

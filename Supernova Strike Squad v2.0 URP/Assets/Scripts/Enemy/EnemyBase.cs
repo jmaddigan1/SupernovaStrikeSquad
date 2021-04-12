@@ -61,7 +61,7 @@ public class EnemyBase : AdvancedFSM
 
     }
 
-	[SerializeField] GameObject shot = null;
+	[SerializeField]public GameObject shot = null;
 	public void Shoot()
 	{
         GameObject go = Instantiate(shot, transform.position + transform.forward * 3, transform.rotation);

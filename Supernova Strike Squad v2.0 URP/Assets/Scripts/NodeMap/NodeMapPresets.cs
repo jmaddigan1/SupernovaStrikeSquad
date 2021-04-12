@@ -10,14 +10,14 @@ public static class NodeMapPresets
 
 			Nodes = new List<NodeData>()
 			{
-				MakeNode("Node A", 0, new List<int>() { 1, 5 },      NodeEventPresets.TestEvent() ),
-				MakeNode("Node B", 1, new List<int>() { 2,3,4 },     NodeEventPresets.TestEvent() ),
-				MakeNode("Node C", 2, new List<int>() { 5 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node D", 2, new List<int>() { 5,6 },       NodeEventPresets.TestEvent() ),
-				MakeNode("Node E", 2, new List<int>() { 5,7 },       NodeEventPresets.TestEvent() ),
-				MakeNode("Node F", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node G", 3, new List<int>() { 7 },         NodeEventPresets.TestEvent() ),
-				MakeNode("Node H", 4, new List<int>() { },           NodeEventPresets.TestEvent() ),
+				MakeNode("Node A", 0, new List<int>() { 1, 5 },      NodeEventPresets.TestAreana() ),
+				MakeNode("Node B", 1, new List<int>() { 2,3,4 },     NodeEventPresets.TestBoss() ),
+				MakeNode("Node C", 2, new List<int>() { 5 },         NodeEventPresets.TestRunner()   ),
+				MakeNode("Node D", 2, new List<int>() { 5,6 },       NodeEventPresets.TestBoss()   ),
+				MakeNode("Node E", 2, new List<int>() { 5,7 },       NodeEventPresets.TestAreana() ),
+				MakeNode("Node F", 3, new List<int>() { 7 },         NodeEventPresets.TestAreana() ),
+				MakeNode("Node G", 3, new List<int>() { 7 },         NodeEventPresets.TestAreana() ),
+				MakeNode("Node H", 4, new List<int>() { },           NodeEventPresets.TestAreana() ),
 			}
 		};
 

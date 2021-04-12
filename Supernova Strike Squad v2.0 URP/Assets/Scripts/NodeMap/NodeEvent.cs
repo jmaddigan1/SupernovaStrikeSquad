@@ -3,6 +3,8 @@
 	public string EventName;
 	public string EventDescription;
 
+	public EnvironmentParameters Environment;
+
 	public NodeEvent()
 	{
 	}
