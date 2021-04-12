@@ -18,7 +18,6 @@ public class ShootPlayerState : FSMState
 {
 	private ShootPlayerStateData data;
 	private EnemyBase enemy;
-	private Transform target;
 	private GameObject self;
 	private List<Target> ships = new List<Target>();
 
@@ -47,7 +46,7 @@ public class ShootPlayerState : FSMState
 	public override void Act()
 	{
 		// If the Player has exited out attack range
-		if (EnemyUtilities.GetAngle(self.transform, target) < 10)
+		if (EnemyUtilities.GetAngle(self.transform, enemy.Target) < 10)
 		{
 			shootTimer.IncrementTime();
 		}
@@ -55,19 +54,19 @@ public class ShootPlayerState : FSMState
 
 	public override void Reason()
 	{
-		if (target == null) return;
+		if (enemy.Target == null) return;
 
 		// If the Player has exited out attack range
-		if (EnemyUtilities.GetAngle(self.transform, target) > 25)
+		if (EnemyUtilities.GetAngle(self.transform, enemy.Target) > 25)
 		{
-			Debug.Log($"ShootState | Lost Player!");
+			//Debug.Log($"ShootState | Lost Player!");
 			enemy.PerformTransition(Transition.LostTarget);
 			return;
 		}
 
-		if (EnemyUtilities.GetDistance(self.transform, target) < 35)
+		if (EnemyUtilities.GetDistance(self.transform, enemy.Target) < 35)
 		{
-			Debug.Log($"Done Shooting | Done Shooting!");
+			//Debug.Log($"Done Shooting | Done Shooting!");
 			enemy.PerformTransition(Transition.ApproachedPlayer);
 			return;
 		}
@@ -80,19 +79,22 @@ public class ShootPlayerState : FSMState
 
 	void FindTargets()
 	{
+
+		Debug.Log("Look for Targets: " + GameObject.FindObjectsOfType<ShipController>().Length);
+
 		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
 		{
-			if (target == null)
+			if (enemy.Target == null)
 			{
-				target = ship.transform;
+				enemy.Target = ship.transform;
 				continue;
 			}
 
 			if (Vector3.Distance(ship.transform.position, self.transform.position) <
-				Vector3.Distance(target.position, self.transform.position))
+				Vector3.Distance(enemy.Target.position, self.transform.position))
 			{
-				Debug.Log("Found Target");
-				target = ship.transform;
+				//Debug.Log("Found Target");
+				enemy.Target = ship.transform;
 			}
 		}
 	}

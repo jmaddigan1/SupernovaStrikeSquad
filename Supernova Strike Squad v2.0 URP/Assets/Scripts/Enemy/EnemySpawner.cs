@@ -17,8 +17,10 @@ public class EnemySpawner : NetworkBehaviour
 
 	public EnemyWaveData CurrentEncounter;
 
-	int currentWave;
+	OnEndEncounter OnEndEncounter;
 
+	int currentWave;
+	int enemyCount;
 
 	Dictionary<EnemyType, GameObject> EnemyDictionary = new Dictionary<EnemyType, GameObject>();
 
@@ -58,7 +60,7 @@ public class EnemySpawner : NetworkBehaviour
 	}
 
 	[Server]
-	public void Spawn(EnemyWaveData encounterData)
+	public void Spawn(EnemyWaveData encounterData, OnEndEncounter endEncounterCallback = null)
 	{
 		// Clear the last encounter
 		Clear();
@@ -66,6 +68,10 @@ public class EnemySpawner : NetworkBehaviour
 		// Update the current encounter
 		CurrentEncounter = encounterData;
 		currentWave = 0;
+
+		// Setup the callback
+		if (endEncounterCallback != null)
+			OnEndEncounter += endEncounterCallback;
 
 		SpawnWave(CurrentEncounter.EnemyWaves[currentWave]);
 	}
@@ -90,6 +96,32 @@ public class EnemySpawner : NetworkBehaviour
 	{
 		GameObject go = Instantiate(EnemyDictionary[enemy]);
 		NetworkServer.Spawn(go);
+
+		if (go.TryGetComponent<EnemyBase>(out EnemyBase enemyBase)) {
+			enemyBase.OnDeath += OnEnemyDeath;
+			enemyCount++;
+		}
+	}
+
+	void OnEnemyDeath()
+	{
+		enemyCount--;
+
+		// If all the enemies are dead
+		if (enemyCount <= 0)
+		{
+			currentWave++;
+
+			// If we were on the last wave
+			if (currentWave == CurrentEncounter.EnemyWaves.Count)
+			{
+				OnEndEncounter?.Invoke(true);
+			}
+			else
+			{
+				SpawnWave(CurrentEncounter.EnemyWaves[currentWave]);
+			}
+		}
 	}
 
 	public static EnemyWaveData Default()
@@ -105,7 +137,7 @@ public class EnemySpawner : NetworkBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 4 },
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 3 },
 						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
 						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
 					}

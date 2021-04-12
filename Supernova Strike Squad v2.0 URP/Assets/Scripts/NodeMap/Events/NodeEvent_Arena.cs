@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class NodeEvent_Arena : NodeEvent
 {
+	bool eventOver = false;
+
 	public NodeEvent_Arena()
 	{
 	}
 
 	public override bool IsEventOver()
 	{
-		// Debug.Log("Event Update");
-
-		return false;
+		return eventOver;
 	}
 
 	public override void OnEventStart()
@@ -21,7 +21,7 @@ public class NodeEvent_Arena : NodeEvent
 		EnvironmentSpawner.Instance.Spawn(EnvironmentSpawner.Default());
 
 		// ENEMYS
-		EnemySpawner.Instance.Spawn(EnemySpawner.Default());
+		EnemySpawner.Instance.Spawn(EnemySpawner.Default(), OnEndEncounter);
 		
 		// Move players to there starting positions
 		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
@@ -41,5 +41,10 @@ public class NodeEvent_Arena : NodeEvent
 		EnemySpawner.Instance.Clear();
 
 		// Debug.Log("Event End");
+	}
+
+	public void OnEndEncounter(bool victory)
+	{
+		eventOver = true;
 	}
 }

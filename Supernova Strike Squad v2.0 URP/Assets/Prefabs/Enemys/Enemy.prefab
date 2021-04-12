@@ -209,14 +209,14 @@ MonoBehaviour:
   CurrentStateID: 0
   EnemyType: 0
   Target: {fileID: 0}
-  MyRigidbody: {fileID: 0}
+  MyRigidbody: {fileID: -1193729901966424219}
   MoveSpeed: 25
   RotationSpeed: 1
   RotationMultiplier: 1
-  PatrolDetectionRange: 75
-  PatrolPointRange: 5
+  PatrolDetectionRange: 300
+  PatrolPointRange: 10
   AttackAngle: 10
-  EscapeRange: 125
+  EscapeRange: 420
   shot: {fileID: 7604263925027020465, guid: d4696c20afcbf9d4f9e11ada03a489e4, type: 3}
   Points: []
 --- !u!114 &3129165665154803163

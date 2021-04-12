@@ -65,8 +65,6 @@ public class TrackPlayerState : FSMState
 
 	public override void Reason()
 	{
-		Debug.Log(self.transform);
-		Debug.Log(enemy.transform);
 
 		// If the Player is in attack range
 		if (enemy.Target == null) return;
@@ -75,7 +73,7 @@ public class TrackPlayerState : FSMState
 		float targetAngle = EnemyUtilities.GetAngle(self.transform, enemy.Target);
 		if (targetAngle < enemy.AttackAngle)
 		{
-			Debug.Log($"TrackPlayerState | Found Player!");
+			//Debug.Log($"TrackPlayerState | Found Player!");
 			enemy.PerformTransition(Transition.FoundTarget);
 			return;
 		}
@@ -84,14 +82,14 @@ public class TrackPlayerState : FSMState
 		float targetDist = EnemyUtilities.GetDistance(self.transform, enemy.Target);
 		if (targetDist > enemy.EscapeRange)
 		{
-			Debug.Log($"TrackPlayerState | Lost Player!");
+			//Debug.Log($"TrackPlayerState | Lost Player!");
 			enemy.PerformTransition(Transition.LostTarget);
 			return;
 		}
 
 		if (targetDist < 10)
 		{
-			Debug.Log($"TrackPlayerState | Lost Player!");
+			//Debug.Log($"TrackPlayerState | Lost Player!");
 			enemy.PerformTransition(Transition.ApproachedPlayer);
 			return;
 		}

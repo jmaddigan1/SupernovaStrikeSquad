@@ -26,7 +26,7 @@ public class PatrolState : FSMState
 
 		enemy.Target = null;
 
-		findPlayersTimer = new Timer(3f, FindTargets);
+		findPlayersTimer = new Timer(2f, FindTargets);
 		updatePatrolPointTimer = new Timer(5f, UpdatePatrolPoint);
 
 	}
@@ -106,7 +106,7 @@ public class PatrolState : FSMState
 
 		if (Vector3.Distance(self.transform.position, currentTarget.position) < enemy.PatrolDetectionRange)
 		{
-			Debug.Log($"PatrolState | Found a Player!");
+			// Debug.Log($"PatrolState | Found a Player!");
 			enemy.PerformTransition(Transition.FoundTarget);
 		}
 	}

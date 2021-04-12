@@ -359,7 +359,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   MaxHealth: 10
-  MaxShield: 10
+  MaxShield: 50
   currentHealth: 0
   currentShield: 0
 --- !u!114 &2204348270846755921

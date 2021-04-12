@@ -5,7 +5,10 @@ using Mirror;
 using System;
 
 public class EnemyBase : AdvancedFSM
-{    
+{
+    // Delegates
+    public OnEnemyDeath OnDeath;
+
     // Public Members
     //
     public EnemyType EnemyType;
@@ -21,7 +24,7 @@ public class EnemyBase : AdvancedFSM
     public float PatrolDetectionRange = 300;
     public float PatrolPointRange = 10;
     public float AttackAngle = 10;
-    public float EscapeRange = 350;
+    public float EscapeRange = 420;
 
     override public IEnumerator Start()
     {

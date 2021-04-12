@@ -8,9 +8,12 @@ public class TargetDummy : EnemyBase
 
 	private void Awake()
 	{
-		MyRigidbody = GetComponent<Rigidbody>();
-
 		BuildPatrolPoints();
+	}
+
+	private void OnDestroy()
+	{
+		OnDeath?.Invoke();
 	}
 
 	protected override void FSMFixedUpdate()
@@ -74,7 +77,8 @@ public class TargetDummy : EnemyBase
 
 	}
 
-	void BuildPatrolPoints()
+	// TODO: Put this in utils
+	private void BuildPatrolPoints()
 	{
 		int patrolPointsCount = 5;
 
@@ -89,31 +93,5 @@ public class TargetDummy : EnemyBase
 
 			Points.Add(new Vector3(x, y, z).normalized * Random.Range(0, 100));
 		}
-	}
-
-	private void OnDrawGizmos()
-	{
-		foreach (Vector3 point in Points)
-		{
-			Gizmos.DrawCube(point, Vector3.one);
-		}
-
-		if (Target)
-		{
-			Gizmos.DrawLine(transform.position, Target.position);
-		}
-	}
-	private void OnDrawGizmosSelected()
-	{
-		Gizmos.color = new Color(1, 0, 0, 0.2f);
-		Gizmos.DrawSphere(transform.position, PatrolDetectionRange);
-
-		//Gizmos.color = new Color(0, 1, 0, 0.2f);
-		//Gizmos.DrawWireSphere(transform.position, PatrolEscapeRange);
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		//MyRigidbody.AddExplosionForce( 2000, collision.contacts[0].point, 5);
 	}
 }
