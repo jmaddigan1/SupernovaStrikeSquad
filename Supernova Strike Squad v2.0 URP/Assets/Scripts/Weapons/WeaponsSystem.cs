@@ -11,6 +11,7 @@ public class WeaponsSystem : NetworkBehaviour
 
 	public Transform WeaponAnchor = null;
 	public Weapon CurrentWeapon = null;
+	public ShipController ShipController = null;
 
 	public override void OnStartAuthority()
 	{
@@ -35,7 +36,7 @@ public class WeaponsSystem : NetworkBehaviour
 		}
 		else
 		{
-			if (Input.GetKeyDown(CurrentWeapon.ShootKey))
+			if (Input.GetKeyDown(CurrentWeapon.ShootKey) && ShipController.boosting == false)
 				CurrentWeapon.OnStartShooting();
 
 			if (Input.GetKeyUp(CurrentWeapon.ShootKey))

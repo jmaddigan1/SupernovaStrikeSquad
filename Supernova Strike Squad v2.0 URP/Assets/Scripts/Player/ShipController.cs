@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+// The properties of a Ship
+public class ShipData
+{
+
+}
 
 public class ShipController : NetworkBehaviour
 {
@@ -12,6 +17,7 @@ public class ShipController : NetworkBehaviour
 	[SerializeField] private Transform shipModel = null;
 
 	public SphereCollider PlayerCollider;
+	public WeaponsSystem WeaponsSystem;
 
 	Transform cam = null;
 	Rigidbody rb = null;
@@ -62,6 +68,9 @@ public class ShipController : NetworkBehaviour
 
 			// CAMERA
 			UpdateCamera();
+
+			// BOOST
+			UpdateBoost();
 		}
 
 	}
@@ -84,7 +93,7 @@ public class ShipController : NetworkBehaviour
 		if (isServer && !Interacting && !ForceStop)
 		{
 			// MOVE FORWARD
-			rb.AddRelativeForce((moveDirection * moveMultiplier), ForceMode.Acceleration);
+			rb.AddRelativeForce((moveDirection * boostPower * moveMultiplier), ForceMode.Acceleration);
 
 			// ROTATE
 			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
@@ -95,7 +104,7 @@ public class ShipController : NetworkBehaviour
 	#region Move Stuff
 	Vector3 moveDirection;
 	float moveX, moveZ, speedPercent = 1;
-	float minSpeedPercent = 0.9f;
+	float minSpeedPercent = 0.25f;
 	void UpdateMoveDirection()
 	{
 		float deltaTime = Time.deltaTime;
@@ -105,14 +114,11 @@ public class ShipController : NetworkBehaviour
 
 		moveZ = moveZ + 1.0f;
 
-		float minSpeedPercent = 0.25f;
-		float maxSpeedPercent = 2.00f;
-
-		moveZ = Mathf.Clamp(moveZ, minSpeedPercent, maxSpeedPercent);
+		moveZ = Mathf.Clamp(moveZ, minSpeedPercent, 2.0f);
 
 		speedPercent = Mathf.Lerp(speedPercent, Mathf.Clamp(moveZ, 0.9f, 1.5f), deltaTime * 1.0f);
 
-		float moveSpeed = 5f;
+		float moveSpeed = 10f;
 
 		moveX = moveX * moveSpeed;
 		moveZ = moveZ * moveSpeed;
@@ -190,7 +196,7 @@ public class ShipController : NetworkBehaviour
 
 		Vector3 shipRot;
 
-		shipRot = new Vector3(mTargetY, mTargetZ / 4f, -mTargetZ);
+		shipRot = new Vector3(mTargetY, mTargetZ / 4f, -mTargetZ );
 
 		shipModel.transform.localEulerAngles = shipRot;
 	}
@@ -212,6 +218,51 @@ public class ShipController : NetworkBehaviour
 		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);
 
 		cameraTarget.localPosition = camOffset + new Vector3(cTargetX, cTargetY, -cTargetZ);
+	}
+
+	#endregion
+
+	#region Boost Stuff
+
+	[SyncVar]
+	public bool boosting = false;
+	float boostPower = 0f;
+	float boostMin = 1f;
+	float boostMax = 5f;
+	void UpdateBoost()
+	{
+		// START
+		if (Input.GetKeyDown(KeyCode.Space) && boosting == false) {
+			OnStartBoosting();
+		}
+
+		// STOP
+		if (Input.GetKeyUp(KeyCode.Space) && boosting == true) {
+			OnStopBoosting();
+		}
+
+		if (isServer)
+		{
+			boostPower = Mathf.Lerp(boostPower, boosting ? boostMax : boostMin, Time.deltaTime * 1);
+		}
+	}
+
+	void OnStartBoosting()
+	{
+		if (WeaponsSystem.CurrentWeapon) {
+			WeaponsSystem.CurrentWeapon.OnStopShooting();
+		}
+
+		Cmd_UpdateBoost(true);
+	}
+	void OnStopBoosting() 
+	{
+		Cmd_UpdateBoost(false);
+	}
+
+	public void Cmd_UpdateBoost(bool state)
+	{
+		boosting = state;
 	}
 
 	#endregion

@@ -325,7 +325,9 @@ MonoBehaviour:
   cameraTarget: {fileID: 1335842442358233889}
   shipModel: {fileID: 1335842442773265765}
   PlayerCollider: {fileID: 1632542500820332158}
+  WeaponsSystem: {fileID: -4893254836087864565}
   ForceStop: 0
+  boosting: 0
 --- !u!114 &-4893254836087864565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +346,7 @@ MonoBehaviour:
     type: 3}
   WeaponAnchor: {fileID: 7929873649180612502}
   CurrentWeapon: {fileID: 0}
+  ShipController: {fileID: 8807519427650283054}
 --- !u!114 &6612899542428691487
 MonoBehaviour:
   m_ObjectHideFlags: 0
