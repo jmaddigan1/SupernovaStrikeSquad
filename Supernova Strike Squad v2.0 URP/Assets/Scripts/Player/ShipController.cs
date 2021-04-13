@@ -73,6 +73,11 @@ public class ShipController : NetworkBehaviour
 			UpdateBoost();
 		}
 
+		if (isServer)
+		{
+			boostPower = Mathf.Lerp(boostPower, boosting ? boostMax : boostMin, Time.deltaTime * 1);
+		}
+
 	}
 
 	void LateUpdate()
@@ -239,11 +244,6 @@ public class ShipController : NetworkBehaviour
 		// STOP
 		if (Input.GetKeyUp(KeyCode.Space) && boosting == true) {
 			OnStopBoosting();
-		}
-
-		if (isServer)
-		{
-			boostPower = Mathf.Lerp(boostPower, boosting ? boostMax : boostMin, Time.deltaTime * 1);
 		}
 	}
 
