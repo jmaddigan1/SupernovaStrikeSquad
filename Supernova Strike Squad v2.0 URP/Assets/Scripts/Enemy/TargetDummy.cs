@@ -13,7 +13,9 @@ public class TargetDummy : EnemyBase
 
 	private void OnDestroy()
 	{
-		OnDeath?.Invoke();
+		if (!CustomNetworkManager.ApplicationIsQuitting) {
+			OnDeath?.Invoke();
+		}
 	}
 
 	protected override void FSMFixedUpdate()

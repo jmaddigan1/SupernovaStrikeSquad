@@ -14,6 +14,9 @@ public class Health : NetworkBehaviour, IDamageable
 	[SyncVar(hook = "OnShieldChange"), SerializeField]
 	float currentShield = 0;
 
+	public  OnHealthUpdate OnHealthUpdate;
+	public  OnShieldUpdate OnShieldUpdate;
+
 	public override void OnStartServer()
 	{
 		currentHealth = MaxHealth;
@@ -63,7 +66,9 @@ public class Health : NetworkBehaviour, IDamageable
 
 	public void OnHealthChange(float oldValue, float newValue)
 	{
-		Color R = new Color(1, 0, 0, 0.2f);
+		OnHealthUpdate?.Invoke(newValue, MaxHealth);
+
+		   Color R = new Color(1, 0, 0, 0.2f);
 		Color W = new Color(1, 1, 1, 0.2f);
 
 		Color newColor = Color.Lerp(R, W, newValue / MaxHealth);
@@ -72,10 +77,12 @@ public class Health : NetworkBehaviour, IDamageable
 
 	public void OnShieldChange(float oldValue, float newValue)
 	{
+		OnShieldUpdate?.Invoke(newValue, MaxShield);
+
 		Color B = new Color(0, 0, 1, 0.2f);
 		Color W = new Color(1, 1, 1, 0.2f);
 
-		Color newColor = Color.Lerp(B, W, newValue / MaxHealth);
+		Color newColor = Color.Lerp(B, W, newValue / MaxShield);
 		ColorModel(newColor);
 	}
 

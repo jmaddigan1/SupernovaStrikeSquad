@@ -44,7 +44,7 @@ public class Weapon_Energy_MiniGun : Weapon
 	public void Cmd_SpawnProjectile(Vector3 target, Vector3 start)
 	{
 		//SPAWN
-		GameObject go = Instantiate(projectilePrefab, start, transform.rotation).gameObject;   
+		GameObject go = Instantiate(projectilePrefab, start, transform.rotation).gameObject;
 
 		// ROTATE
 		go.transform.LookAt(target);

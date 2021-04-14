@@ -61,10 +61,32 @@ public class EnemyBase : AdvancedFSM
 
     }
 
+    public List<Collider> myColliders = new List<Collider>();
+
 	[SerializeField]public GameObject shot = null;
-	public void Shoot()
+	public void Shoot(Transform target)
 	{
         GameObject go = Instantiate(shot, transform.position + transform.forward * 3, transform.rotation);
+
+        if (go.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+        {
+            Vector3 point = target.position + rigidbody.velocity.normalized * 5;
+            go.transform.LookAt(point);
+        }
+		else
+		{
+            go.transform.LookAt(target);
+		}
+
+        // FIX COLLISION WITH OWNER
+        foreach (Collider collider in myColliders)
+		{
+            Collider projectileColliders = go.GetComponentInChildren<Collider>();
+            Collider playerCollider = collider;
+
+            Physics.IgnoreCollision(projectileColliders, playerCollider);
+        }
+
         NetworkServer.Spawn(go);
     }
 }

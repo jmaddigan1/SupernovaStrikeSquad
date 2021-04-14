@@ -3,9 +3,10 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Node : MonoBehaviour, IPointerClickHandler
+public class Node : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] private TextMeshProUGUI nodeName = null;
+	[SerializeField] private NodeDataPanel dataPanel = null;
 	[SerializeField] private Image nodeSprite = null;
 
 	public NodeData Data;
@@ -13,6 +14,8 @@ public class Node : MonoBehaviour, IPointerClickHandler
 	public Node Init(NodeData myNodeData, NodeData currentNodeData, NodeMapData currentNodeMapData)
 	{
 		Data = myNodeData;
+
+		dataPanel.UpdateData(Data);
 
 		nodeName.text = Data.NodeName;
 
@@ -74,13 +77,12 @@ public class Node : MonoBehaviour, IPointerClickHandler
 		Player.LocalPlayer.Self.Cmd_ClickNode(Data.NodeIndex);
 	}
 
-	//private void OnDrawGizmos()
-	//{
-	//	if (Map == null) return;
-
-	//	foreach (int nodeIndex in Data.Connections)
-	//	{
-	//		Gizmos.DrawLine(transform.position, Map.Nodes[nodeIndex].transform.position);
-	//	}
-	//}
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		dataPanel.gameObject.SetActive(true);
+	}
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		dataPanel.gameObject.SetActive(false);
+	}
 }

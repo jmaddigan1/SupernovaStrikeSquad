@@ -217,6 +217,8 @@ MonoBehaviour:
   PatrolPointRange: 10
   AttackAngle: 10
   EscapeRange: 420
+  myColliders:
+  - {fileID: 7742062485150867384}
   shot: {fileID: 7604263925027020465, guid: d4696c20afcbf9d4f9e11ada03a489e4, type: 3}
   Points: []
 --- !u!114 &3129165665154803163

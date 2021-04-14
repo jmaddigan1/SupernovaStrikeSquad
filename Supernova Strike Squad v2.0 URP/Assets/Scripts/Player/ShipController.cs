@@ -23,7 +23,7 @@ public class ShipData
 	public float SpeedPercent = 1;
 
 	// Min and Max percent speed.
-	public float MinSpeedPercent = 0.3f;
+	public float MinSpeedPercent = 0.7f;
 	public float MaxSpeedPercent = 2.0f;
 
 	#endregion
@@ -39,6 +39,8 @@ public class ShipController : NetworkBehaviour
 	[SerializeField] private Transform cameraTarget = null;
 	// The ships model so we can add procedural animation.
 	[SerializeField] private Transform shipModel = null;
+	// The local players HUD.
+	[SerializeField] private PlayerHUD HUD = null;
 
 
 	// This ships collider / Shield sphere.
@@ -72,17 +74,10 @@ public class ShipController : NetworkBehaviour
 
 			rb = GetComponent<Rigidbody>();
 		}
-
-		if (!isServer)
+		else
 		{
-			PlayerCollider.enabled = false;
+			HUD.enabled = false;
 		}
-	}
-
-	// Get this ships collider.
-	public Collider GetCollider()
-	{
-		return GetComponentInChildren<Collider>();
 	}
 
 	private void Update()
@@ -102,18 +97,15 @@ public class ShipController : NetworkBehaviour
 
 			// BOOST
 			UpdateBoost();
-		}
 
-		if (isServer)
-		{
 			boostPower = Mathf.Lerp(boostPower, boosting ? boostMax : boostMin, Time.deltaTime * 1);
 		}
-
 	}
 	private void FixedUpdate()
 	{   
 		// If this is the server update the ships with there moveDirection and targetRotation
-		if (isServer && !Interacting && !ForceStop)
+		//if (hasAuthority && !Interacting && !ForceStop)
+		if (hasAuthority)
 		{
 			// MOVE FORWARD
 			rb.AddRelativeForce((Data.MoveDirection * boostPower * 10), ForceMode.Acceleration);
@@ -182,7 +174,7 @@ public class ShipController : NetworkBehaviour
 
 		rotZ = Input.GetAxis("Roll") * -2.5f;
 
-		Cmd_UpdateTargetRotation(new Vector3(rotY, rotX, rotZ));
+		targetRotation = new Vector3(rotY, rotX, rotZ);
 	}
 
 	Vector2 GetInput()
@@ -205,12 +197,6 @@ public class ShipController : NetworkBehaviour
 		mouseY = Mathf.Clamp(mouseY, -maxDist, maxDist);
 
 		return new Vector2(mouseX, mouseY);
-	}
-
-	[Command]
-	public void Cmd_UpdateTargetRotation(Vector3 targetRotation)
-	{
-		this.targetRotation = targetRotation;
 	}
 
 	#endregion
@@ -290,5 +276,11 @@ public class ShipController : NetworkBehaviour
 
 	#endregion
 
+
+	// Utility Methods
+	// Get this ships collider.
+	public Collider GetCollider() => GetComponentInChildren<Collider>();
+
+	// Properties
 	float DeltaTime { get { return Time.deltaTime; } }
 }

@@ -76,7 +76,7 @@ public class ShootPlayerState : FSMState
 
 	public void Shoot()
 	{
-		enemy.Shoot();
+		enemy.Shoot(enemy.Target);
 	}
 
 	void FindTargets()

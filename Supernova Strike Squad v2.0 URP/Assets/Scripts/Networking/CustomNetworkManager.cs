@@ -49,4 +49,14 @@ public class CustomNetworkManager : NetworkManager
 	public static void ReleaseID(int ID) {
 		OpenIDs.Push(ID);
 	}
+
+
+	#region ApplicationIsQuitting
+	public static bool ApplicationIsQuitting;
+	[RuntimeInitializeOnLoadMethod]
+	static void RunOnStart()
+	{
+		Application.quitting += () => ApplicationIsQuitting = true;
+	}
+	#endregion
 }
