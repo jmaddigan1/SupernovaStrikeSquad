@@ -412,7 +412,7 @@ MonoBehaviour:
   isAngularVelocityCompressed: 0
   automaticallyResetTime: 1
   isSmoothingAuthorityChanges: 0
-  transformSource: 1
+  transformSource: 0
   whenToUpdateTransform: 0
   sendRate: 30
   networkChannel: 1

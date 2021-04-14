@@ -9,7 +9,7 @@ public class Projectile : NetworkBehaviour
 
 	public override void OnStartServer()
 	{
-		Destroy(gameObject, 1f);
+		Destroy(gameObject, 0.25f);
 	}
 
 	public override void OnStartClient()
@@ -17,7 +17,7 @@ public class Projectile : NetworkBehaviour
 		Rigidbody rigidbody = GetComponent<Rigidbody>();
 		rb = rigidbody;
 
-		rb.velocity = transform.forward * 500;
+		rb.velocity = transform.forward * 1500;
 	}
 
 	private void OnCollisionEnter(Collision collision)

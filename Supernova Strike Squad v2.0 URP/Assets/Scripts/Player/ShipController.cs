@@ -6,24 +6,58 @@ using Mirror;
 // The properties of a Ship
 public class ShipData
 {
+	#region Movement Members
 
+	// The speed of this ship
+	public float MoveSpeed = 10f;
+
+	// The direction we are moving.
+	public Vector3 MoveDirection;
+
+	// The ships forward momentum.
+	public float MoveX;
+	// The ships strafe momentum.
+	public float MoveZ;
+
+	// The percentage of our speed we are using.
+	public float SpeedPercent = 1;
+
+	// Min and Max percent speed.
+	public float MinSpeedPercent = 0.3f;
+	public float MaxSpeedPercent = 2.0f;
+
+	#endregion
 }
 
 public class ShipController : NetworkBehaviour
 {
+	// Is the local ships owner interacting with any menus or the like?
 	public static bool Interacting = false;
 
+
+	// What we want our camera to move towards.
 	[SerializeField] private Transform cameraTarget = null;
+	// The ships model so we can add procedural animation.
 	[SerializeField] private Transform shipModel = null;
 
-	public SphereCollider PlayerCollider;
-	public WeaponsSystem WeaponsSystem;
 
+	// This ships collider / Shield sphere.
+	public SphereCollider PlayerCollider;
+	// This Ships Weapon Systems.
+	public WeaponsSystem WeaponsSystem;
+	// This Ships Stats.
+	public ShipData Data = new ShipData();
+
+	// Make the player stop moving
+	public bool ForceStop = false;
+
+	// The Scene camera.
 	Transform cam = null;
+	// This ships rigidbody.
 	Rigidbody rb = null;
 
-	float moveMultiplier = 10.0f;
 
+	// When the server starts.
 	public override void OnStartClient()
 	{
 		if (hasAuthority)
@@ -35,6 +69,8 @@ public class ShipController : NetworkBehaviour
 
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.None;
+
+			rb = GetComponent<Rigidbody>();
 		}
 
 		if (!isServer)
@@ -43,18 +79,13 @@ public class ShipController : NetworkBehaviour
 		}
 	}
 
-	public override void OnStartServer()
-	{
-		rb = GetComponent<Rigidbody>();
-	}
-
+	// Get this ships collider.
 	public Collider GetCollider()
 	{
 		return GetComponentInChildren<Collider>();
 	}
 
-	// Update is called once per frame
-	void Update()
+	private void Update()
 	{    
 		// This is not the server
 		// If this client is the ships owner
@@ -79,8 +110,19 @@ public class ShipController : NetworkBehaviour
 		}
 
 	}
+	private void FixedUpdate()
+	{   
+		// If this is the server update the ships with there moveDirection and targetRotation
+		if (isServer && !Interacting && !ForceStop)
+		{
+			// MOVE FORWARD
+			rb.AddRelativeForce((Data.MoveDirection * boostPower * 10), ForceMode.Acceleration);
 
-	void LateUpdate()
+			// ROTATE
+			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+		}
+	}
+	private void LateUpdate()
 	{
 		if (hasAuthority)
 		{
@@ -92,60 +134,44 @@ public class ShipController : NetworkBehaviour
 		}
 	}
 
-	void FixedUpdate()
-	{   
-		// If this is the server update the ships with there moveDirection and targetRotation
-		if (isServer && !Interacting && !ForceStop)
-		{
-			// MOVE FORWARD
-			rb.AddRelativeForce((moveDirection * boostPower * moveMultiplier), ForceMode.Acceleration);
-
-			// ROTATE
-			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
-		}
-	}
-	public bool ForceStop = false;
 
 	#region Move Stuff
-	Vector3 moveDirection;
-	float moveX, moveZ, speedPercent = 1;
-	float minSpeedPercent = 0.25f;
+
 	void UpdateMoveDirection()
 	{
-		float deltaTime = Time.deltaTime;
+		// Read Input from keyboard.
+		Data.MoveX = Input.GetAxis("Horizontal");
+		Data.MoveZ = Input.GetAxis("Vertical");
 
-		moveX = Input.GetAxis("Horizontal");
-		moveZ = Input.GetAxis("Vertical");
+		// Remap the input to positive values. (0f - 2f)
+		Data.MoveZ = Data.MoveZ + 1.0f;
 
-		moveZ = moveZ + 1.0f;
+		// Clamp the new ship momentum to its Min and Max value. (0.3f - 2.0f)
+		Data.MoveZ = Mathf.Clamp(Data.MoveZ, Data.MinSpeedPercent, Data.MaxSpeedPercent);
 
-		moveZ = Mathf.Clamp(moveZ, minSpeedPercent, 2.0f);
 
-		speedPercent = Mathf.Lerp(speedPercent, Mathf.Clamp(moveZ, 0.9f, 1.5f), deltaTime * 1.0f);
+		// Calculate the percent of our speed we are using.
+		// And Smooth it towards the target value
+		Data.SpeedPercent = Mathf.Lerp(Data.SpeedPercent, Mathf.Clamp(Data.MoveZ, Data.MinSpeedPercent, Data.MaxSpeedPercent), DeltaTime);
 
-		float moveSpeed = 10f;
 
-		moveX = moveX * moveSpeed;
-		moveZ = moveZ * moveSpeed;
+		// Multiply our speed percent with 
+		Data.MoveX = Data.MoveX * Data.MoveSpeed;
+		Data.MoveZ = Data.MoveZ * Data.MoveSpeed;
 
-		Cmd_UpdateMoveDirection(new Vector3(moveX, 0, moveZ));
-	}
 
-	[Command]
-	public void Cmd_UpdateMoveDirection(Vector3 moveDirection)
-	{
-		this.moveDirection = moveDirection;
+		// Update our move direction for the local player
+		Data.MoveDirection = new Vector3(Data.MoveX, 0, Data.MoveZ);
 	}
 
 	#endregion
-
 	#region Look Stuff
 
 	Vector3 targetRotation = Vector3.one;
 	float rotX, rotY, rotZ;
 	void UpdateLookRotation()
 	{
-		Vector2 input = GetInput() / speedPercent;
+		Vector2 input = GetInput() / Data.SpeedPercent;
 
 		if (Interacting) input = Vector2.zero;
 
@@ -188,7 +214,6 @@ public class ShipController : NetworkBehaviour
 	}
 
 	#endregion
-
 	#region Model Stuff
 
 	float mTargetY, mTargetZ;
@@ -207,7 +232,6 @@ public class ShipController : NetworkBehaviour
 	}
 
 	#endregion
-
 	#region Camera Stuff
 
 	float cTargetX, cTargetY, cTargetZ = 1;
@@ -220,13 +244,12 @@ public class ShipController : NetworkBehaviour
 		cTargetX = Mathf.Lerp(cTargetX, rotX * 1.5f, deltaTime * 0.5f);
 		cTargetY = Mathf.Lerp(cTargetY, rotZ * 1f, deltaTime * 0.5f);
 
-		cTargetZ = Mathf.Lerp(cTargetZ, (speedPercent - minSpeedPercent) * 5, deltaTime * 2.5f);
+		cTargetZ = Mathf.Lerp(cTargetZ, (Data.SpeedPercent - Data.MinSpeedPercent) * 5, deltaTime * 2.5f);
 
 		cameraTarget.localPosition = camOffset + new Vector3(cTargetX, cTargetY, -cTargetZ);
 	}
 
 	#endregion
-
 	#region Boost Stuff
 
 	[SyncVar]
@@ -266,4 +289,6 @@ public class ShipController : NetworkBehaviour
 	}
 
 	#endregion
+
+	float DeltaTime { get { return Time.deltaTime; } }
 }
