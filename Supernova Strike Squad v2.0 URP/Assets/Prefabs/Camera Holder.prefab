@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8130880392517366340}
   - component: {fileID: 6670543603433941046}
   m_Layer: 0
-  m_Name: Camera (1)
-  m_TagString: Untagged
+  m_Name: Real Camera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,4 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26ea019c71b07f4e8b6c2fa0a869805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwitchTargetKey: 323
   CameraTarget: {fileID: 0}
+  Targets: []
