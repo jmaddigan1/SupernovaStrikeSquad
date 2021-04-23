@@ -25,8 +25,7 @@ public class CustomNetworkManager : NetworkManager
 	{
 		for (int i = NetworkServer.maxConnections; i >= 0; i--) OpenIDs.Push(i); 
 
-		if (TryGetComponent<NetworkManagerHUD>(out var HUD))
-		{
+		if (TryGetComponent<NetworkManagerHUD>(out var HUD)) {
 			HUD.enabled = false;
 		}
 	}
@@ -34,8 +33,7 @@ public class CustomNetworkManager : NetworkManager
 	// Refuse connections if the server is not open
 	public override void OnServerConnect(NetworkConnection conn)
 	{
-		if (Open == false)
-		{
+		if (Open == false) {
 			conn.Disconnect();
 		}
 	}
@@ -49,7 +47,6 @@ public class CustomNetworkManager : NetworkManager
 	public static void ReleaseID(int ID) {
 		OpenIDs.Push(ID);
 	}
-
 
 	#region ApplicationIsQuitting
 	public static bool ApplicationIsQuitting;

@@ -127,8 +127,7 @@ public class NodeMap : NetworkBehaviour
 		if (CurrentNode == null) return (nodeIndex == 0);
 
 
-		if (nodeIndex >= CurrentNodemap.Nodes.Count)
-		{
+		if (nodeIndex >= CurrentNodemap.Nodes.Count) {
 			return false;
 		}
 

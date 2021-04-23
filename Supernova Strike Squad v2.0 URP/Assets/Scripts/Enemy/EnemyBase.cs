@@ -28,11 +28,11 @@ public class EnemyBase : AdvancedFSM
 
 	private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, PatrolDetectionRange);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireSphere(transform.position, PatrolDetectionRange);
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, EscapeRange);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, EscapeRange);
 	}
 
 	override public IEnumerator Start()

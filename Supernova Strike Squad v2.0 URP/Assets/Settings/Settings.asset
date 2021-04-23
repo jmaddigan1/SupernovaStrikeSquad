@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MasterVolume: 1
   AmbientVolume: 0.2
-  UIVolume: 0.3
+  UIVolume: 0.45

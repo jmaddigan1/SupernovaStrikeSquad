@@ -11,6 +11,26 @@ public class TargetDummy : EnemyBase
 		BuildPatrolPoints();
 	}
 
+	public override void OnStartServer()
+	{
+		base.OnStartServer(); 
+		
+		EnvironmentSpawner environment = FindObjectOfType<EnvironmentSpawner>();
+		if (environment != null && environment.CurrentEnvironment != null)
+		{
+			OnSpawn(environment.CurrentEnvironment);
+		}
+	}
+
+	void OnSpawn(EnvironmentParameters environment)
+	{
+		float x = Random.Range(-1f, 1);
+		float z = Random.Range(-1f, 1);
+
+		Vector3 pos = new Vector3(x, 0, z).normalized * environment.EnvironmentSize.x;
+		transform.position = pos;
+	}
+		
 	private void OnDestroy()
 	{
 		if (!CustomNetworkManager.ApplicationIsQuitting) {
