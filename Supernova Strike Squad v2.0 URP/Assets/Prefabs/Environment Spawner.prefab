@@ -48,6 +48,30 @@ MonoBehaviour:
   syncInterval: 0.1
   AsteroidPrefab: {fileID: 6087859394375058376, guid: 84d5147c6b7ad9b4290ecbfbe7195556,
     type: 3}
+  spawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0023498535
+      inSlope: 4.9215717
+      outSlope: 4.9215717
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.20146613
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.129717
+      outSlope: 0.129717
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19999999
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &292639148080886255
 MonoBehaviour:
   m_ObjectHideFlags: 0

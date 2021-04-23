@@ -27,6 +27,8 @@ public class EnvironmentSpawner : NetworkBehaviour
 	[SerializeField]
 	private GameObject AsteroidPrefab = null;
 
+	[SerializeField]
+	private AnimationCurve spawnCurve;
 
 	public EnvironmentParameters CurrentEnvironment;
 
@@ -79,7 +81,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 			point.y = Random.Range(-1f, 1);
 			point.z = Random.Range(-1f, 1);
 
-			return point.normalized * environmentSize.x;
+			return point.normalized * spawnCurve.Evaluate(Random.Range(0,1f)) * environmentSize.x;
 		}
 
 		if (environmentType == EnvironmentType.Square)

@@ -213,10 +213,10 @@ MonoBehaviour:
   MoveSpeed: 25
   RotationSpeed: 1
   RotationMultiplier: 1
-  PatrolDetectionRange: 300
+  PatrolDetectionRange: 150
   PatrolPointRange: 10
   AttackAngle: 10
-  EscapeRange: 420
+  EscapeRange: 300
   myColliders:
   - {fileID: 7742062485150867384}
   shot: {fileID: 7604263925027020465, guid: d4696c20afcbf9d4f9e11ada03a489e4, type: 3}

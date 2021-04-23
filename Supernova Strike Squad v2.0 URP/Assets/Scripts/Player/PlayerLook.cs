@@ -10,6 +10,7 @@ public class PlayerLook : NetworkBehaviour
 
 	[SerializeField] private Transform cam = null;
 	[SerializeField] private Transform orientation = null;
+	[SerializeField] private Transform cameraTarget = null;
 
 	float mouseX;
 	float mouseY;
@@ -24,7 +25,7 @@ public class PlayerLook : NetworkBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 
-		cam = FindObjectOfType<MoveCamera>().transform;
+		cam = FindObjectOfType<CameraController>().transform;
 	}
 
 	void Update()
@@ -39,7 +40,7 @@ public class PlayerLook : NetworkBehaviour
 
 			xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-			cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+			cameraTarget.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 			orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
 		}		
 	}

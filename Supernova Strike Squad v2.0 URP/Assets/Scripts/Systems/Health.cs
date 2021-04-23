@@ -8,19 +8,39 @@ public class Health : NetworkBehaviour, IDamageable
 	public float MaxHealth = 10;
 	public float MaxShield = 0;
 
+	public float RechargeTimer = 0;
+	public float RechargeDelay = 2;
+	public float RechargeSpeed = 2;
+
+	public bool Invincible = false;
+
 	[SyncVar(hook = "OnHealthChange"), SerializeField]
 	float currentHealth = 0;
 
 	[SyncVar(hook = "OnShieldChange"), SerializeField]
 	float currentShield = 0;
 
-	public  OnHealthUpdate OnHealthUpdate;
-	public  OnShieldUpdate OnShieldUpdate;
+	public OnHealthUpdate OnHealthUpdate;
+	public OnShieldUpdate OnShieldUpdate;
 
 	public override void OnStartServer()
 	{
 		currentHealth = MaxHealth;
 		currentShield = MaxShield;
+	}
+
+	private void FixedUpdate()
+	{
+		if (!isServer) return;
+
+		if (MaxShield > 0 && currentShield < MaxShield)
+		{
+			RechargeTimer += Time.fixedDeltaTime;
+
+			if (RechargeTimer > RechargeDelay) {
+				currentShield += RechargeSpeed * Time.fixedDeltaTime;
+			}
+		}
 	}
 
 	public void TakeDamage(float damage)
@@ -38,6 +58,8 @@ public class Health : NetworkBehaviour, IDamageable
 			{
 				OnDeath();
 			}
+
+			RechargeTimer = 0;
 		}
 		else
 		{
@@ -56,25 +78,26 @@ public class Health : NetworkBehaviour, IDamageable
 			{
 				currentShield = currentShield - damage;
 			}
+
+			RechargeTimer = 0;
 		}
 	}
 
-	public void OnDeath()
+	private void OnDeath()
 	{
-		NetworkServer.Destroy(gameObject);
+		if (!Invincible) NetworkServer.Destroy(gameObject);
 	}
 
 	public void OnHealthChange(float oldValue, float newValue)
 	{
 		OnHealthUpdate?.Invoke(newValue, MaxHealth);
 
-		   Color R = new Color(1, 0, 0, 0.2f);
+		Color R = new Color(1, 0, 0, 0.2f);
 		Color W = new Color(1, 1, 1, 0.2f);
 
 		Color newColor = Color.Lerp(R, W, newValue / MaxHealth);
 		ColorModel(newColor);
 	}
-
 	public void OnShieldChange(float oldValue, float newValue)
 	{
 		OnShieldUpdate?.Invoke(newValue, MaxShield);

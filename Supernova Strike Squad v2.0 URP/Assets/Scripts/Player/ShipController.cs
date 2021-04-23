@@ -27,6 +27,10 @@ public class ShipData
 	public float MaxSpeedPercent = 2.0f;
 
 	#endregion
+
+	#region Rotation Members
+
+	#endregion
 }
 
 public class ShipController : NetworkBehaviour
@@ -36,7 +40,7 @@ public class ShipController : NetworkBehaviour
 
 
 	// What we want our camera to move towards.
-	[SerializeField] private Transform cameraTarget = null;
+	[SerializeField] public Transform cameraTarget = null;
 	// The ships model so we can add procedural animation.
 	[SerializeField] private Transform shipModel = null;
 	// The local players HUD.
@@ -47,6 +51,8 @@ public class ShipController : NetworkBehaviour
 	public SphereCollider PlayerCollider;
 	// This Ships Weapon Systems.
 	public WeaponsSystem WeaponsSystem;
+	// This ships rigidbody.
+	public Rigidbody Rigidbody;
 	// This Ships Stats.
 	public ShipData Data = new ShipData();
 
@@ -55,33 +61,53 @@ public class ShipController : NetworkBehaviour
 
 	// The Scene camera.
 	Transform cam = null;
-	// This ships rigidbody.
-	Rigidbody rb = null;
 
+	// Utility Methods
+	// Get this ships collider so we can make a collision exception for out projectiles.
+	public Collider GetCollider() => GetComponentInChildren<Collider>();
+
+	// Properties
+	// A clean way of getting DeltaTime
+	float DeltaTime { get { return Time.deltaTime; } }
 
 	// When the server starts.
 	public override void OnStartClient()
 	{
 		if (hasAuthority)
 		{
-			var moveCamera = FindObjectOfType<MoveCamera>();
+			SetupCamera();
 
-			moveCamera.CameraTarget = cameraTarget;
-			cam = moveCamera.transform;
-
+			// We don't want to see the cursor when were flying
 			Cursor.visible = false;
+
+			// We don't want to lock the cursor in the center of the screen like the player
 			Cursor.lockState = CursorLockMode.None;
 
-			rb = GetComponent<Rigidbody>();
+			// We want to subscript to the on death event
+			if (TryGetComponent<Health>(out Health health))
+			{
+				health.OnHealthUpdate += OnHealthChange;
+			}
 		}
-		else
-		{
-			HUD.enabled = false;
-		}
+
+		// Wee only turn of the HUD for the local ship
+		HUD.enabled = hasAuthority;
 	}
 
+	// Setup the player camera for the local player
+	void SetupCamera()
+	{
+		// Find the camera in the scene
+		var camera = FindObjectOfType<CameraController>();
+		cam = camera.transform;
+
+		// Set the target to us (The local players ship)
+		camera.CameraTarget = cameraTarget;
+	}
+
+	//
 	private void Update()
-	{    
+	{
 		// This is not the server
 		// If this client is the ships owner
 		if (NetworkClient.ready && hasAuthority)
@@ -101,31 +127,42 @@ public class ShipController : NetworkBehaviour
 			boostPower = Mathf.Lerp(boostPower, boosting ? boostMax : boostMin, Time.deltaTime * 1);
 		}
 	}
+	//
 	private void FixedUpdate()
-	{   
+	{
 		// If this is the server update the ships with there moveDirection and targetRotation
 		//if (hasAuthority && !Interacting && !ForceStop)
 		if (hasAuthority)
 		{
 			// MOVE FORWARD
-			rb.AddRelativeForce((Data.MoveDirection * boostPower * 10), ForceMode.Acceleration);
+			Rigidbody.AddRelativeForce((Data.MoveDirection * boostPower * 10), ForceMode.Acceleration);
 
 			// ROTATE
-			rb.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
+			Rigidbody.AddRelativeTorque(targetRotation, ForceMode.Acceleration);
 		}
 	}
+	//
 	private void LateUpdate()
 	{
-		if (hasAuthority)
+		if (hasAuthority && cam)
 		{
-			// CAMERA
-			if (cam)
-			{
-				cam.transform.rotation = cameraTarget.rotation;
-			}
+			cam.rotation = cameraTarget.rotation;
 		}
 	}
 
+	public void OnHealthChange(float newValue, float maxValue)
+	{
+		// If we have died
+		if (newValue < 0)
+		{
+			// Find the camera in the scene
+			// Set our camera to the "Look Around mode"
+			var camera = FindObjectOfType<CameraController>();
+
+			camera.transform.SetParent(null);
+			camera.UpdateCameraMode(false);
+		}
+	}
 
 	#region Move Stuff
 
@@ -212,7 +249,7 @@ public class ShipController : NetworkBehaviour
 
 		Vector3 shipRot;
 
-		shipRot = new Vector3(mTargetY, mTargetZ / 4f, -mTargetZ );
+		shipRot = new Vector3(mTargetY, mTargetZ / 4f, -mTargetZ);
 
 		shipModel.transform.localEulerAngles = shipRot;
 	}
@@ -246,25 +283,28 @@ public class ShipController : NetworkBehaviour
 	void UpdateBoost()
 	{
 		// START
-		if (Input.GetKeyDown(KeyCode.Space) && boosting == false) {
+		if (Input.GetKeyDown(KeyCode.Space) && boosting == false)
+		{
 			OnStartBoosting();
 		}
 
 		// STOP
-		if (Input.GetKeyUp(KeyCode.Space) && boosting == true) {
+		if (Input.GetKeyUp(KeyCode.Space) && boosting == true)
+		{
 			OnStopBoosting();
 		}
 	}
 
 	void OnStartBoosting()
 	{
-		if (WeaponsSystem.CurrentWeapon) {
+		if (WeaponsSystem.CurrentWeapon)
+		{
 			WeaponsSystem.CurrentWeapon.OnStopShooting();
 		}
 
 		Cmd_UpdateBoost(true);
 	}
-	void OnStopBoosting() 
+	void OnStopBoosting()
 	{
 		Cmd_UpdateBoost(false);
 	}
@@ -275,12 +315,4 @@ public class ShipController : NetworkBehaviour
 	}
 
 	#endregion
-
-
-	// Utility Methods
-	// Get this ships collider.
-	public Collider GetCollider() => GetComponentInChildren<Collider>();
-
-	// Properties
-	float DeltaTime { get { return Time.deltaTime; } }
 }

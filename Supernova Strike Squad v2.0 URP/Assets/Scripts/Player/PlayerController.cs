@@ -40,7 +40,7 @@ public class PlayerController : NetworkBehaviour
 
 		if (hasAuthority)
 		{
-			FindObjectOfType<MoveCamera>().CameraTarget = cameraTarget;
+			FindObjectOfType<CameraController>().CameraTarget = cameraTarget;
 
 			rb = GetComponent<Rigidbody>();
 			rb.freezeRotation = true;

@@ -160,6 +160,12 @@ MonoBehaviour:
   syncInterval: 0.1
   MaxHealth: 10
   MaxShield: 10
+  RechargeTimer: 0
+  RechargeDelay: 2
+  RechargeSpeed: 2
+  Invincible: 0
+  currentHealth: 0
+  currentShield: 0
 --- !u!54 &9150057725533526807
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,4 +181,4 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3

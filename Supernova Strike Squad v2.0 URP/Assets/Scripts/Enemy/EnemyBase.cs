@@ -21,12 +21,21 @@ public class EnemyBase : AdvancedFSM
     public float RotationSpeed = 1;
     public float RotationMultiplier = 1;
 
-    public float PatrolDetectionRange = 300;
+    public float PatrolDetectionRange = 150;
     public float PatrolPointRange = 10;
     public float AttackAngle = 10;
-    public float EscapeRange = 420;
+    public float EscapeRange = 300;
 
-    override public IEnumerator Start()
+	private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, PatrolDetectionRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, EscapeRange);
+	}
+
+	override public IEnumerator Start()
     {
         Initialize();
 
@@ -68,15 +77,17 @@ public class EnemyBase : AdvancedFSM
 	{
         GameObject go = Instantiate(shot, transform.position + transform.forward * 3, transform.rotation);
 
-        if (go.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
-        {
-            Vector3 point = target.position + rigidbody.velocity.normalized * 5;
-            go.transform.LookAt(point);
-        }
-		else
-		{
-            go.transform.LookAt(target);
-		}
+        //      if (go.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+        //      {
+        //          Vector3 point = target.position + rigidbody.velocity.normalized * 2;
+        //          go.transform.LookAt(point);
+        //      }
+        //else
+        //{
+        //          go.transform.LookAt(target);
+        //      }
+
+        go.transform.LookAt(target);
 
         // FIX COLLISION WITH OWNER
         foreach (Collider collider in myColliders)

@@ -5,57 +5,81 @@ using Mirror;
 
 public class Weapon_Energy_MiniGun : Weapon
 {
-	[SerializeField] private Transform projectilePrefab = null;
+	// What this weapon shoots
+	[SerializeField]
+	private Transform projectilePrefab = null;
 
-	public float fireRate = 0.1f;
+	// The muzzle flash when we shoot
+	[SerializeField]
+	private Transform muzzelFlash = null;
 
-	float time = 0;
 
+	// Public Members
+	// How fast does this weapon shoot
+	public float FireRate = 0.1f;
+
+	// Private Members
+	// a tracker for our fire rate
+	private float time = 0;
+
+
+	// Increment the shooting timer
+	bool IncrementTime() => (time += Time.deltaTime) > FireRate;
+
+
+	// Weapon Update is called once per frame
 	public override void WeaponUpdate()
 	{
-		if (shooting)
-		{
+		if (shooting) {
 			if (IncrementTime()) Shoot();
-		}
+		} 
 	}
 
-	bool IncrementTime()
-	{
-		return (time += Time.deltaTime) > fireRate;
-	}
-
-	void Shoot()
+	//
+	private void Shoot()
 	{
 		time = 0f;
 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-		if (Physics.Raycast(ray, out RaycastHit hit, 150, LayerMask.GetMask("Environment")))
-		{
-			Cmd_SpawnProjectile(hit.point,transform.position);
-		}
-		else
-		{
-			Cmd_SpawnProjectile(ray.GetPoint(150), transform.position);
-		}
+		Cmd_SpawnProjectile(ray.GetPoint(150), transform.position);
+		//if (Physics.Raycast(ray, out RaycastHit hit, 150, LayerMask.GetMask("Environment")))
+		//{
+		//	Cmd_SpawnProjectile(hit.point,transform.position);
+		//}
+		//else
+		//{
+		//	Cmd_SpawnProjectile(ray.GetPoint(150), transform.position);
+		//}
 	}
+
+	#region Command Methods
 
 	[Command]
 	public void Cmd_SpawnProjectile(Vector3 target, Vector3 start)
 	{
-		//SPAWN
 		GameObject go = Instantiate(projectilePrefab, start, transform.rotation).gameObject;
-
-		// ROTATE
 		go.transform.LookAt(target);
 
 		NetworkServer.Spawn(go, connectionToClient);
 
-		// FIX COLLISION WITH OWNER
 		ShipController ship = GetComponentInParent<ShipController>();
 		Collider projectileColliders = go.GetComponentInChildren<Collider>();
 		Collider playerCollider = ship.GetCollider();
 
 		Physics.IgnoreCollision(projectileColliders, playerCollider);
+
+
+		//Rpc_SpawnMuzzelFlash();
 	}
+	#endregion
+
+	#region RPC Methods
+
+	[ClientRpc]
+	public void Rpc_SpawnMuzzelFlash()
+	{
+		Instantiate(muzzelFlash, transform);
+	}
+	#endregion
 }
