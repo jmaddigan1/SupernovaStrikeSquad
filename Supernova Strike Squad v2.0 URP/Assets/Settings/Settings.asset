@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e090bc9ee86044c9839061105d72e8, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
+  MasterVolume: 1
+  AmbientVolume: 0.2
+  UIVolume: 0.3

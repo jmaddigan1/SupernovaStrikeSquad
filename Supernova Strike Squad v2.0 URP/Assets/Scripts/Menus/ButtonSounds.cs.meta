@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5b4bef15eb8db224797123caab40d72f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  - clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  - settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

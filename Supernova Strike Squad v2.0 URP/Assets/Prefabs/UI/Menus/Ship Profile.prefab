@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1884484114540736823}
   - component: {fileID: 1884484114540736816}
   - component: {fileID: 1884484114540736817}
+  - component: {fileID: 2133489159123702329}
   m_Layer: 5
   m_Name: Return Button
   m_TagString: Untagged
@@ -34,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 4461742890193754194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.6, y: -25.75}
-  m_SizeDelta: {x: 299.2, y: 51.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1884484114540736823
 CanvasRenderer:
@@ -130,6 +131,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2133489159123702329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884484114540736819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &1884484115088606448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1056,7 @@ GameObject:
   - component: {fileID: 2537185675576927630}
   - component: {fileID: 5836956675155697349}
   - component: {fileID: 2638710963467243564}
+  - component: {fileID: 2664316708487936347}
   m_Layer: 5
   m_Name: Swap Button
   m_TagString: Untagged
@@ -1062,10 +1079,10 @@ RectTransform:
   m_Father: {fileID: 4461742890193754194}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 448.80002, y: -25.75}
-  m_SizeDelta: {x: 299.2, y: 51.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2537185675576927630
 CanvasRenderer:
@@ -1158,6 +1175,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2664316708487936347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219511082077600263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &6354526970427596328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,32 +1837,32 @@ PrefabInstance:
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 504.90002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -180.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1009.80005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 736330332076680648, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 360.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8507867780420575950, guid: 771fda49db4818645b99be1f9e614f84,
         type: 3}

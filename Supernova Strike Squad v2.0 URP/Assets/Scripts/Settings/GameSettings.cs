@@ -5,11 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Settings", menuName = "ScriptableObjects/GameSettings", order = 1)]
 public class GameSettings : ScriptableObject
 {
-	public int settingsValue1;
-	public int settingsValue2;
-	public int settingsValue3;
-
-	public string settingsName1;
-	public string settingsName2;
-	public string settingsName3;
+	[Range(0, 1)] public float MasterVolume = 1;
+	[Range(0, 1)] public float AmbientVolume = 0.3f;
+	[Range(0, 1)] public float UIVolume = 0.2f;
 }

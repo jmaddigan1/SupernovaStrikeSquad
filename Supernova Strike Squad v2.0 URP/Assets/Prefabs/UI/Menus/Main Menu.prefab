@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 548012056631097772}
   - component: {fileID: 6198266616365386973}
   - component: {fileID: 262732941596909110}
+  - component: {fileID: 7017233647343787926}
   m_Layer: 5
   m_Name: Credits Button
   m_TagString: Untagged
@@ -263,6 +264,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7017233647343787926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690923334290102874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &9035258882096151354
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +534,7 @@ GameObject:
   - component: {fileID: 9035258882299728384}
   - component: {fileID: 9035258882299728385}
   - component: {fileID: 9035258882299728386}
+  - component: {fileID: 5403109292254232870}
   m_Layer: 5
   m_Name: Online Button
   m_TagString: Untagged
@@ -636,6 +653,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5403109292254232870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035258882299728396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &9035258882384473047
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +892,7 @@ GameObject:
   - component: {fileID: 9035258883061852464}
   - component: {fileID: 9035258883061852465}
   - component: {fileID: 9035258883061852466}
+  - component: {fileID: 5777737513055419066}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -978,6 +1011,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5777737513055419066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035258883061852476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &9035258883477194006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1171,7 @@ GameObject:
   - component: {fileID: 9035258883478387892}
   - component: {fileID: 9035258883478387893}
   - component: {fileID: 9035258883478387894}
+  - component: {fileID: 624557198430998303}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -1241,6 +1290,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &624557198430998303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035258883478387888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1001 &7270998069767757656
 PrefabInstance:
   m_ObjectHideFlags: 0

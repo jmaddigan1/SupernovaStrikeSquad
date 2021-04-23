@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 612647299272106680}
   - component: {fileID: 6592676072940699836}
   - component: {fileID: 8717636887274971094}
+  - component: {fileID: 8864222819492874093}
   m_Layer: 5
   m_Name: Ship Button
   m_TagString: Untagged
@@ -133,6 +134,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShipType: 0
+--- !u!114 &8864222819492874093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71914857174771448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4bef15eb8db224797123caab40d72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 0b45cb0e614096144a22ff891e66ed15, type: 3}
+  clickClip: {fileID: 8300000, guid: c4b6bf4f42244d44397863d7d25b8b75, type: 3}
+  settings: {fileID: 11400000, guid: f4e381b113a35ac4b9bc0ab367254f15, type: 2}
 --- !u!1 &8658952550728352909
 GameObject:
   m_ObjectHideFlags: 0
