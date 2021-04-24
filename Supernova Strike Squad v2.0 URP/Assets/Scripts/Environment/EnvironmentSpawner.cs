@@ -30,6 +30,9 @@ public class EnvironmentSpawner : NetworkBehaviour
 	[SerializeField]
 	private AnimationCurve spawnCurve;
 
+	[SerializeField]
+	private AnimationCurve sizeCurve;
+
 	public EnvironmentParameters CurrentEnvironment;
 
 	public override void OnStartServer()
@@ -100,7 +103,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 
 	public float GetRandomSize(float min, float max)
 	{
-		return Random.Range(min, max);
+		return (Random.Range(min, max) * sizeCurve.Evaluate(Random.Range(0f, 1f)));
 	}
 
 	void OnDrawGizmos()
@@ -129,8 +132,8 @@ public class EnvironmentSpawner : NetworkBehaviour
 			EnvironmentSize = new Vector3(200,0,0),
 
 			AsteroidCount = 50,
-			AsteroidMinSize = 15,
-			AsteroidMaxSize = 35
+			AsteroidMinSize = 50,
+			AsteroidMaxSize = 150
 		};
 	}
 	public static EnvironmentParameters DefaultRun()
