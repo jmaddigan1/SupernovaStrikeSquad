@@ -27,7 +27,7 @@ public class NodeEvent_Runner : NodeEvent
 		EnvironmentSpawner.Instance.Spawn(Environment);
 
 		// ENEMYS
-		// EnemySpawner.Instance.Spawn(EnemySpawner.Default());
+		 EnemySpawner.Instance.Spawn(EnemySpawner.DefaultRun());
 
 		// Get players
 		ships = GameObject.FindObjectsOfType<ShipController>();

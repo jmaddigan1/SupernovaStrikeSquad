@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 831894888}
   - component: {fileID: 831894887}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Skybox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968956320
 GameObject:
@@ -658,7 +658,7 @@ PrefabInstance:
     - target: {fileID: 6042759454504656246, guid: 51952bb7c3b2b4849aaa4199af427f33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6042759454504656246, guid: 51952bb7c3b2b4849aaa4199af427f33,
         type: 3}
@@ -1014,6 +1014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneId
       value: 1964676860
+      objectReference: {fileID: 0}
+    - target: {fileID: 292639148080886255, guid: 7696cb75424159b4b96f3d30b4058d5b,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 7696cb75424159b4b96f3d30b4058d5b
       objectReference: {fileID: 0}
     - target: {fileID: 292639148080886257, guid: 7696cb75424159b4b96f3d30b4058d5b,
         type: 3}

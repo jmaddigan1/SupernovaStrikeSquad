@@ -25,9 +25,23 @@ public class TargetDummy : EnemyBase
 	void OnSpawn(EnvironmentParameters environment)
 	{
 		float x = Random.Range(-1f, 1);
+		float y = Random.Range(-1f, 1);
 		float z = Random.Range(-1f, 1);
 
-		Vector3 pos = new Vector3(x, 0, z).normalized * environment.EnvironmentSize.x;
+		Vector3 pos = Vector3.zero;
+
+		if (environment.EnvironmentType == EnvironmentType.Sphere)
+		{
+			pos = new Vector3(x, 0, z).normalized * environment.EnvironmentSize.x;
+		}
+
+		if (environment.EnvironmentType == EnvironmentType.Square)
+		{
+			Vector3 size = environment.EnvironmentSize;
+			Vector3 r = new Vector3(x, y, z);
+			pos = new Vector3(r.x * size.x, r.y * size.y, r.z * size.z);
+		}
+
 		transform.position = pos;
 	}
 		

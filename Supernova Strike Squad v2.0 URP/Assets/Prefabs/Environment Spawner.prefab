@@ -46,6 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  runnerBounds: {fileID: 4590479842475998144, guid: 4bd6df6afbc6d224a8329c2ad229fc27,
+    type: 3}
+  areanaBounds: {fileID: 4590479842475998144, guid: 785134eed6dd5824d8dd9d55bf62acf4,
+    type: 3}
   AsteroidPrefab: {fileID: 6087859394375058376, guid: 84d5147c6b7ad9b4290ecbfbe7195556,
     type: 3}
   spawnCurve:

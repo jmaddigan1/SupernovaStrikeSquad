@@ -157,5 +157,38 @@ public class EnemySpawner : NetworkBehaviour
 				}
 			}
 		};
+	}	
+	public static EnemyWaveData DefaultRun()
+	{
+		return new EnemyWaveData()
+		{
+			// The Waves in this Data
+			EnemyWaves = new List<EnemyWave>()
+			{
+				// Wave ONE
+				new EnemyWave()
+				{
+					// List of SpawnParameters for this wave
+					EnemyList = new List<SpawnParameters>()
+					{
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 15 },
+						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
+						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+					}
+				},
+
+				// Wave TWO
+				new EnemyWave()
+				{
+					// List of SpawnParameters for this wave
+					EnemyList = new List<SpawnParameters>()
+					{
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+					}
+				}
+			}
+		};
 	}
 }

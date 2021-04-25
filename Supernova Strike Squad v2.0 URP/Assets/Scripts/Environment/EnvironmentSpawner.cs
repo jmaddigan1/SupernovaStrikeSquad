@@ -24,6 +24,9 @@ public class EnvironmentSpawner : NetworkBehaviour
 {
 	public static EnvironmentSpawner Instance;
 
+	[SerializeField] GameObject runnerBounds = null;
+	[SerializeField] GameObject areanaBounds = null;
+
 	[SerializeField]
 	private GameObject AsteroidPrefab = null;
 
@@ -53,6 +56,19 @@ public class EnvironmentSpawner : NetworkBehaviour
 	{
 		CurrentEnvironment = environment;
 
+		// BOUNDS
+		// TODO: FIX THIS NATHEN
+		if (environment.EnvironmentType == EnvironmentType.Square)
+		{
+			GameObject bounds = Instantiate(runnerBounds);
+			bounds.transform.localScale = environment.EnvironmentSize * 2f;
+		}
+		if (environment.EnvironmentType == EnvironmentType.Sphere)
+		{
+			GameObject bounds = Instantiate(areanaBounds);
+			bounds.transform.localScale = Vector3.one * environment.EnvironmentSize.x * 2;
+		}
+
 		for (int count = 0; count < environment.AsteroidCount; count++)
 		{
 			// POSITION
@@ -65,6 +81,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 			GameObject go = Instantiate(AsteroidPrefab, point, Quaternion.identity, transform);
 			go.transform.localScale = Vector3.one * size;
 			NetworkServer.Spawn(go);
+
 		}
 	}
 
@@ -103,7 +120,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 
 	public float GetRandomSize(float min, float max)
 	{
-		return (Random.Range(min, max) * sizeCurve.Evaluate(Random.Range(0f, 1f)));
+		return Mathf.Clamp(sizeCurve.Evaluate(Random.Range(0.0f, 1.0f)) * max, min, max);
 	}
 
 	void OnDrawGizmos()
@@ -132,7 +149,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 			EnvironmentSize = new Vector3(200,0,0),
 
 			AsteroidCount = 50,
-			AsteroidMinSize = 50,
+			AsteroidMinSize = 25,
 			AsteroidMaxSize = 150
 		};
 	}
@@ -144,7 +161,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 
 			EnvironmentSize = new Vector3(200, 200, 2000),
 
-			AsteroidCount = 75,
+			AsteroidCount = 150,
 			AsteroidMinSize = 35,
 			AsteroidMaxSize = 200
 		};
