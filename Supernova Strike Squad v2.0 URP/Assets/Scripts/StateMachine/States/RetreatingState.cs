@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class RetreatingState : FSMState
 {
+	private EnemyStateData enemyData;
+
 	Transform retreatTarget;
 
-	private EnemyBase enemy;
-	private GameObject self;
+	// Properties
+	public GameObject Self { get { return enemyData.EnemyBase.gameObject; } }
 
-	public RetreatingState(EnemyBase enemyBase)
+	public RetreatingState(EnemyStateData enemyData)
 	{
-		stateID = FSMStateID.Retreating; 
-		
-		this.self = enemyBase.gameObject;
-		this.enemy = enemyBase;
+		stateID = FSMStateID.Retreating;
+
+		this.enemyData = enemyData;
 	}
 
 	public override void EnterStateInit()
 	{
 		base.EnterStateInit();
 
-		enemy.MoveSpeed = 35;
-		enemy.RotationSpeed = 2.0f;
-		enemy.RotationMultiplier = 1;
+		enemyData.Movement.MoveSpeed = 35;
+		enemyData.Movement.RotationSpeed = 2;
+		enemyData.Movement.RotationMultiplier = 1;
 
 		retreatTarget = new GameObject("Retreat Target").transform;
+
 		MoveRetreatPoint();
 
-		enemy.Target = retreatTarget;
+		enemyData.Movement.Target = retreatTarget;
 	}
 
 	public override void Act()
@@ -43,17 +45,17 @@ public class RetreatingState : FSMState
 
 		float dist = Random.Range(25f, 50f);
 
-		retreatTarget.position = enemy.Target.position + new Vector3(x, y, z).normalized * dist;
+		retreatTarget.position = enemyData.Movement.Target.position + new Vector3(x, y, z).normalized * dist;
 	}
 
 	public override void Reason()
 	{
-		if (EnemyUtilities.GetDistance(self.transform, enemy.Target.transform) < 10)
+		if (EnemyUtilities.GetDistance(Self.transform, enemyData.Movement.Target.transform) < 10)
 		{
-			enemy.Target = null;
+			enemyData.Movement.Target = null;
 			FindTargets();
 			GameObject.Destroy(retreatTarget.gameObject);
-			enemy.PerformTransition(Transition.LostTarget);
+			enemyData.Movement.PerformTransition(Transition.LostTarget);
 		}
 	}
 
@@ -64,17 +66,17 @@ public class RetreatingState : FSMState
 		foreach (Target ship in GameObject.FindObjectsOfType<Target>())
 		{
 			// If we don't have a target, default this to the target
-			if (enemy.Target == null)
+			if (enemyData.Movement.Target == null)
 			{
-				enemy.Target = ship.transform;
+				enemyData.Movement.Target = ship.transform;
 				continue;
 			}
 
 			// Else we look for the closest player for our target
-			if (Vector3.Distance(ship.transform.position, self.transform.position) <
-				Vector3.Distance(enemy.Target.position, self.transform.position))
+			if (Vector3.Distance(ship.transform.position, Self.transform.position) <
+				Vector3.Distance(enemyData.Movement.Target.position, Self.transform.position))
 			{
-				enemy.Target = ship.transform;
+				enemyData.Movement.Target = ship.transform;
 			}
 		}
 	}

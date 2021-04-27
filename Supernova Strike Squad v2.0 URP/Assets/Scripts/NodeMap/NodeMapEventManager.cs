@@ -15,10 +15,12 @@ public class NodeMapEventManager : NetworkBehaviour
 		nodeMap = GetComponent<NodeMap>();
 	}
 
-	[Server] public void StartNewEvent(NodeEvent nodeEvent)
+	[Server]
+	public void StartNewEvent(NodeEvent nodeEvent)
 		=> StartCoroutine(coStartNewEvent(nodeEvent));
 
-	[Server] public void EndEvent()
+	[Server]
+	public void EndEvent()
 		=> StartCoroutine(coEndEvent());
 
 	//
@@ -33,7 +35,7 @@ public class NodeMapEventManager : NetworkBehaviour
 
 		GameManager.Instance.Rpc_FadeOutLoadingScreen(true);
 
-		yield return new WaitForSecondsRealtime(0.5f);
+		yield return new WaitForSecondsRealtime(1.5f);
 
 		nodeMap.Rpc_PausePlayer(false);
 

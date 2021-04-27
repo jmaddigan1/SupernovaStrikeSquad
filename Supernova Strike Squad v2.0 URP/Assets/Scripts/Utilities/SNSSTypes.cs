@@ -6,7 +6,9 @@ using UnityEngine;
 public enum EnemyType
 {
 	//
-	TestEnemy,
+	Fighter,
+	Charger,
+	Juggernaut,
 
 	//
 	TestBoss

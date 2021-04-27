@@ -5,6 +5,9 @@ using Mirror;
 
 public class Health : NetworkBehaviour, IDamageable
 {
+	[SerializeField]
+	private Renderer shieldRenderer = null;
+
 	public float MaxHealth = 10;
 	public float MaxShield = 0;
 
@@ -23,10 +26,23 @@ public class Health : NetworkBehaviour, IDamageable
 	public OnHealthUpdate OnHealthUpdate;
 	public OnShieldUpdate OnShieldUpdate;
 
+	public Color ShieldColor;
+
 	public override void OnStartServer()
 	{
 		currentHealth = MaxHealth;
 		currentShield = MaxShield;
+	}
+
+	public override void OnStartClient()
+	{
+		if (shieldRenderer) {
+
+			MaterialPropertyBlock block = new MaterialPropertyBlock();
+
+			block.SetColor("_ShieldColor", ShieldColor);
+			shieldRenderer.SetPropertyBlock(block);
+		}
 	}
 
 	private void FixedUpdate()

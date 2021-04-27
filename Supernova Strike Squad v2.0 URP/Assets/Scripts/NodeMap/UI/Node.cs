@@ -34,7 +34,7 @@ public class Node : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 		{
 			if (Data.NodeIndex == 0)
 			{
-				nodeSprite.color = Color.green ;
+				nodeSprite.color = Color.green;
 				return;
 			}
 			else

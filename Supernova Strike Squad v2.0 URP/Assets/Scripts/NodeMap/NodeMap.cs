@@ -3,12 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
+public class NodeMapData
+{
+	public List<NodeData> Nodes;
+
+	public int MapDepth;
+	public int MapCurrentDepth;
+
+	public NodeMapData()
+	{
+	}
+}
+
+public class NodeData
+{
+	public string NodeName;
+	public string NodeDescription;
+
+	public int NodeDepth;
+	public int NodeIndex;
+
+	public List<int> Connections;
+
+	[System.NonSerialized]
+	public NodeEvent Event;
+
+	public NodeData()
+	{
+	}
+}
 
 public class NodeMap : NetworkBehaviour
 {
 	[SerializeField] private NodeMapEventManager eventManager = null;
 
-	[SerializeField] private DepthGroup depthGroupPrefab = null;
+	[SerializeField] private GameObject depthGroupPrefab = null;
 	[SerializeField] private Node nodePrefab = null;
 
 	[SerializeField] private Menu menuBehaviour = null;
@@ -57,7 +86,7 @@ public class NodeMap : NetworkBehaviour
 		ClearNodeMap();
 
 		// Only update the current Node Map and Node if we are NOT the servers
-		if (!isServer )
+		if (!isServer)
 		{
 			CurrentNodemap = newMapData;
 			CurrentNode = newNodeData;
@@ -82,8 +111,6 @@ public class NodeMap : NetworkBehaviour
 	{
 		if (ValidateNode(nodeIndex))
 		{
-			Rpc_PausePlayer(false);
-
 			NodeData nodeData = CurrentNodemap.Nodes[nodeIndex];
 			NodeEvent nodeEvent = nodeData.Event;
 
@@ -129,7 +156,8 @@ public class NodeMap : NetworkBehaviour
 		if (CurrentNode == null) return (nodeIndex == 0);
 
 
-		if (nodeIndex >= CurrentNodemap.Nodes.Count) {
+		if (nodeIndex >= CurrentNodemap.Nodes.Count)
+		{
 			return false;
 		}
 
@@ -169,35 +197,5 @@ public class NodeMap : NetworkBehaviour
 	public void Rpc_PausePlayer(bool state)
 	{
 		ShipController.Interacting = state;
-	}
-}
-
-public class NodeMapData
-{
-	public List<NodeData> Nodes;
-
-	public int MapDepth;
-	public int MapCurrentDepth;
-
-	public NodeMapData()
-	{
-	}
-}
-
-public class NodeData
-{
-	public string NodeName;
-	public string NodeDescription;
-
-	public int NodeDepth;
-	public int NodeIndex;
-
-	public List<int> Connections;
-
-	[System.NonSerialized]
-	public NodeEvent Event;
-
-	public NodeData()
-	{
 	}
 }

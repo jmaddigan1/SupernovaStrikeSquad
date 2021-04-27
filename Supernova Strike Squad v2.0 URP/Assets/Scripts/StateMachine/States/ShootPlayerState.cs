@@ -2,55 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootPlayerStateData
-{
-	public float MoveSpeed = 5f;
-	public float RotSpeed = 0.4f;
-	public float RotationMultiplier = 1f;
-	public float DodgeSpeed = 25;
-	public float RayDist = 1.5f;
-	public float RayRange = 12;
-	public bool ShouldDodge = false;
-	public Vector2 Size = new Vector2(1.0f, 1.0f);
-}
-
 public class ShootPlayerState : FSMState
 {
-	private ShootPlayerStateData data;
-	private EnemyBase enemy;
-	private GameObject self;
-	private List<Target> ships = new List<Target>();
+	private EnemyStateData enemyData;
 
 	private Timer shootTimer;
 
-	public ShootPlayerState(EnemyBase enemyBase, ShootPlayerStateData data)
+	private List<Target> targets = new List<Target>();
+
+	// Properties
+	public GameObject Self { get { return enemyData.EnemyBase.gameObject; } }
+
+	public ShootPlayerState(EnemyStateData enemyData)
 	{
 		stateID = FSMStateID.ShootPlayer;
 
-		this.self = enemyBase.gameObject;
-		this.enemy = enemyBase;
-		this.data = data;
+		this.enemyData = enemyData;
 
-		if (enemy.shot != null) {
-			shootTimer = new Timer(0.1f, Shoot);
-		}
+		shootTimer = new Timer(0.1f, Shoot);
 
-		FindTargets();
+		EnemyUtilities.FindTarget(enemyData.Movement);
 	}
 
 	public override void EnterStateInit()
 	{
-		enemy.MoveSpeed = 15;
-		enemy.RotationSpeed = 1.5f;
-		enemy.RotationMultiplier = 1;
+		enemyData.Movement.MoveSpeed = 15;
+		enemyData.Movement.RotationSpeed = 1.5f;
+		enemyData.Movement.RotationMultiplier = 1.0f;
 	}
 
 	public override void Act()
 	{
-		if (enemy.Target == null) return;
+		if (enemyData.Movement.Target == null) return;
 
 		// If the Player has exited out attack range
-		if (EnemyUtilities.GetAngle(self.transform, enemy.Target) < 10)
+		if (EnemyUtilities.GetAngle(Self.transform, enemyData.Movement.Target) < 10)
 		{
 			shootTimer?.IncrementTime();
 		}
@@ -58,55 +44,33 @@ public class ShootPlayerState : FSMState
 
 	public override void Reason()
 	{
-		if (enemy.Target == null) return;
+		if (enemyData.Movement.Target == null) return;
 
 		// If the Player has exited out attack range
-		if (EnemyUtilities.GetAngle(self.transform, enemy.Target) > 15)
+		if (EnemyUtilities.GetAngle(Self.transform, enemyData.Movement.Target) > 15)
 		{
 			//Debug.Log($"ShootState | Lost Player!");
-			enemy.PerformTransition(Transition.LostTarget);
+			enemyData.Movement.PerformTransition(Transition.LostTarget);
 			return;
 		}
 
-		if (EnemyUtilities.GetDistance(self.transform, enemy.Target) < 35)
+		if (EnemyUtilities.GetDistance(Self.transform, enemyData.Movement.Target) < 35)
 		{
 			//Debug.Log($"Done Shooting | Done Shooting!");
-			enemy.PerformTransition(Transition.ApproachedPlayer);
+			enemyData.Movement.PerformTransition(Transition.ApproachedPlayer);
 			return;
 		}
 
-		if (EnemyUtilities.GetDistance(self.transform, enemy.Target) > enemy.EscapeRange)
+		if (EnemyUtilities.GetDistance(Self.transform, enemyData.Movement.Target) > enemyData.Movement.EscapeRange)
 		{
 			//Debug.Log($"ShootState | Lost Player!");
-			enemy.PerformTransition(Transition.LostTarget);
+			enemyData.Movement.PerformTransition(Transition.LostTarget);
 			return;
 		}
 	}
 
 	public void Shoot()
 	{
-		enemy.Shoot(enemy.Target);
-	}
-
-	void FindTargets()
-	{
-
-		Debug.Log("Look for Targets: " + GameObject.FindObjectsOfType<ShipController>().Length);
-
-		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
-		{
-			if (enemy.Target == null)
-			{
-				enemy.Target = ship.transform;
-				continue;
-			}
-
-			if (Vector3.Distance(ship.transform.position, self.transform.position) <
-				Vector3.Distance(enemy.Target.position, self.transform.position))
-			{
-				//Debug.Log("Found Target");
-				enemy.Target = ship.transform;
-			}
-		}
+		enemyData.EnemyBase.Shoot(enemyData.Movement.Target);
 	}
 }

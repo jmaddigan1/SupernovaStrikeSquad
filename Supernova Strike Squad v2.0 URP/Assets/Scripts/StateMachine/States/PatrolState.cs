@@ -4,70 +4,72 @@ using UnityEngine;
 
 public class PatrolState : FSMState
 {
+	private EnemyStateData enemyData;
+
 	private List<Vector3> patrolPoints;
 
-	private EnemyBase enemy;
-	private GameObject self;
-
-	private List<Target> ships = new List<Target>();
+	private List<Target> targets = new List<Target>();
 
 	private Timer findPlayersTimer;
 	private Timer updatePatrolPointTimer;
 
 	private int pointIndex;
 
-	public PatrolState(EnemyBase enemyBase, List<Vector3> patrolPoints)
+	// Properties
+	public GameObject Self { get { return enemyData.EnemyBase.gameObject; } }
+
+	// Constructor
+	public PatrolState(EnemyStateData enemyData, List<Vector3> patrolPoints)
 	{
 		stateID = FSMStateID.Patrol;
 
 		this.patrolPoints = patrolPoints;
-		this.self = enemyBase.gameObject;
-		this.enemy = enemyBase;
-
-		enemy.Target = null;
+		this.enemyData = enemyData;
 
 		findPlayersTimer = new Timer(2f, FindTargets);
 		updatePatrolPointTimer = new Timer(5f, UpdatePatrolPoint);
 
+		enemyData.Movement.Target = null;
 	}
 
 	public override void EnterStateInit()
 	{
-		enemy.MoveSpeed = 25;
-		enemy.RotationSpeed = 1;
-		enemy.RotationMultiplier = 1;
-		enemy.Target = null;
+		enemyData.Movement.MoveSpeed = 25;
+		enemyData.Movement.RotationSpeed = 1;
+		enemyData.Movement.RotationMultiplier = 1;
+
+		enemyData.Movement.Target = null;
 	}
 
 	public override void Act()
 	{
-		enemy.Target = null;
+		enemyData.Movement.Target = null;
 
 		// Check if we are near the patrol point.
-		if (EnemyUtilities.GetDistance(self.transform, patrolPoints[pointIndex]) < enemy.PatrolPointRange)
+		if (EnemyUtilities.GetDistance(Self.transform, patrolPoints[pointIndex]) < enemyData.Movement.PatrolPointRange)
 		{
 			pointIndex = (pointIndex + 1) % patrolPoints.Count;
 		}
 
 		// Look at the target
-		float rotSpeed = enemy.RotationSpeed * enemy.RotationMultiplier;
-		Quaternion neededRotation = Quaternion.LookRotation(patrolPoints[pointIndex] - self.transform.position, self.transform.up);
-		self.transform.rotation = Quaternion.Slerp(self.transform.rotation, neededRotation, Time.deltaTime * rotSpeed);
+		float rotSpeed = enemyData.Movement.RotationSpeed * enemyData.Movement.RotationMultiplier;
+		Quaternion neededRotation = Quaternion.LookRotation(patrolPoints[pointIndex] - Self.transform.position, Self.transform.up);
+		Self.transform.rotation = Quaternion.Slerp(Self.transform.rotation, neededRotation, Time.deltaTime * rotSpeed);
 
 		// If the target is NOT in front of us
-		if (EnemyUtilities.GetAngle(self.transform, patrolPoints[pointIndex]) > 1)
+		if (EnemyUtilities.GetAngle(Self.transform, patrolPoints[pointIndex]) > 1)
 		{
 			// We want to slowly increase out rotation speed multiplier
-			enemy.RotationMultiplier = Mathf.Lerp(enemy.RotationMultiplier, 3f, Time.deltaTime * 0.5f);
+			enemyData.Movement.RotationMultiplier = Mathf.Lerp(enemyData.Movement.RotationMultiplier, 3f, Time.deltaTime * 0.5f);
 		}
 		else
 		{
 			// Else we are looking at the target
-			enemy.RotationMultiplier = Mathf.Lerp(enemy.RotationMultiplier, 1f, Time.deltaTime * 3.5f);
+			enemyData.Movement.RotationMultiplier = Mathf.Lerp(enemyData.Movement.RotationMultiplier, 1f, Time.deltaTime * 3.5f);
 		}
 
 		// Move forward
-		self.transform.position += self.transform.forward * enemy.MoveSpeed * Time.deltaTime;
+		Self.transform.position += Self.transform.forward * enemyData.Movement.MoveSpeed * Time.deltaTime;
 
 		// Update the Timers
 		updatePatrolPointTimer.IncrementTime();
@@ -83,8 +85,7 @@ public class PatrolState : FSMState
 	{
 		Transform currentTarget = null;
 
-		if (self.transform == null) return;
-		
+		if (Self.transform == null) return;
 
 		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())
 		{
@@ -96,23 +97,23 @@ public class PatrolState : FSMState
 			}
 
 			Debug.Log(ship.transform);
-			Debug.Log(self.transform);
+			Debug.Log(Self.transform);
 
 			// Else we look for the closest player for our target
-			if (Vector3.Distance(ship.transform.position, self.transform.position) <
-				Vector3.Distance(currentTarget.position, self.transform.position))
+			if (Vector3.Distance(ship.transform.position, Self.transform.position) <
+				Vector3.Distance(currentTarget.position, Self.transform.position))
 			{
 				currentTarget = ship.transform;
-				enemy.Target = ship.transform;
+				enemyData.Movement.Target = ship.transform;
 			}
 		}
 
 		if (currentTarget == null) return;
 
-		if (Vector3.Distance(self.transform.position, currentTarget.position) < enemy.PatrolDetectionRange)
+		if (Vector3.Distance(Self.transform.position, currentTarget.position) < enemyData.Movement.PatrolDetectionRange)
 		{
 			// Debug.Log($"PatrolState | Found a Player!");
-			enemy.PerformTransition(Transition.FoundTarget);
+			enemyData.Movement.PerformTransition(Transition.FoundTarget);
 		}
 	}
 

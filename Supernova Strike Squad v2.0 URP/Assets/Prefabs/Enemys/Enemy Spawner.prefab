@@ -47,8 +47,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   enemyPrefabs:
-  - {fileID: 6004753861540703181, guid: 704607814d18b494583064a2bf1c018d, type: 3}
+  - {fileID: 2599513470943930881, guid: 00d3b43cb73caf64e927bcd8c261f218, type: 3}
+  - {fileID: 1429187782598552782, guid: efdc5a6409b145a488ba075ae0622392, type: 3}
+  - {fileID: 4102236073958014507, guid: a7cc2049ef0fd7945b8b122ad876d453, type: 3}
   - {fileID: 7211607005168676528, guid: 9f54dcca39659f047af0ceb80f8bbc4e, type: 3}
+  spawnedEnemies: []
 --- !u!114 &5377917634286712523
 MonoBehaviour:
   m_ObjectHideFlags: 0

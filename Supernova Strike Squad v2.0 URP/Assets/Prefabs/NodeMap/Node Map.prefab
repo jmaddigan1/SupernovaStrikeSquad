@@ -190,7 +190,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   eventManager: {fileID: 772100103}
-  depthGroupPrefab: {fileID: 1670099813317130016, guid: 69cc4a38e15d62d4a888d7077cf1f9eb,
+  depthGroupPrefab: {fileID: 6417190850456443760, guid: 69cc4a38e15d62d4a888d7077cf1f9eb,
     type: 3}
   nodePrefab: {fileID: 9093481273712246381, guid: 9c544de3dacab3e41add7980c2d6926c,
     type: 3}

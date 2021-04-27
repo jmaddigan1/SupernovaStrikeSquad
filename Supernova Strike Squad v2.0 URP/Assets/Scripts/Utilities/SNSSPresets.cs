@@ -19,9 +19,9 @@ public class SNSSPresets : MonoBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 3 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Fighter,EnemyCount =5 },
+						new SpawnParameters(){ Enemy = EnemyType.Charger,EnemyCount = 2 },
+						new SpawnParameters(){ Enemy = EnemyType.Juggernaut,EnemyCount = 1 },
 					}
 				},
 
@@ -31,9 +31,9 @@ public class SNSSPresets : MonoBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Fighter,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Charger,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Juggernaut,EnemyCount = 1 },
 					}
 				}
 			}
@@ -52,9 +52,9 @@ public class SNSSPresets : MonoBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 15 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Fighter,EnemyCount = 15 },
+						new SpawnParameters(){ Enemy = EnemyType.Charger,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Juggernaut,EnemyCount = 1 },
 					}
 				},
 
@@ -64,9 +64,9 @@ public class SNSSPresets : MonoBehaviour
 					// List of SpawnParameters for this wave
 					EnemyList = new List<SpawnParameters>()
 					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Fighter,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Charger,EnemyCount = 1 },
+						new SpawnParameters(){ Enemy = EnemyType.Juggernaut,EnemyCount = 1 },
 					}
 				}
 			}

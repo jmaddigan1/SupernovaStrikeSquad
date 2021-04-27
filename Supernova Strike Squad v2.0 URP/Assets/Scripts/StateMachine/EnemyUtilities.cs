@@ -22,7 +22,7 @@ public static class EnemyUtilities
 	}
 
 	// Find all the players in the scene
-	public static void FindTarget(EnemyBase enemy)
+	public static void FindTarget(EnemyMovement enemy)
 	{
 		enemy.Target = null;
 		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())

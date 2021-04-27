@@ -28,35 +28,33 @@ public class TrackPlayerStateData
 
 public class TrackPlayerState : FSMState
 {
-	// Private Members
-	private TrackPlayerStateData data;
+	private EnemyStateData enemyData;
+
 	private Rigidbody myRigidbody;
-	private EnemyBase enemy;
-	private GameObject self;
 
 	public Vector2 dodgeDirection;
 
-	public TrackPlayerState(EnemyBase enemyBase, TrackPlayerStateData data)
+	// Properties
+	public GameObject Self { get { return enemyData.EnemyBase.gameObject; } }
+
+	public TrackPlayerState(EnemyStateData enemyData )
 	{
 		stateID = FSMStateID.TrackTarget;
 
-		//this.target = enemyBase.Target;
-		this.self = enemyBase.gameObject;
-		this.enemy = enemyBase;
-		this.data = data;
+		this.enemyData = enemyData;
 
-		EnemyUtilities.FindTarget(enemy);
+		EnemyUtilities.FindTarget(enemyData.Movement);
 
-		myRigidbody = self.GetComponent<Rigidbody>();
+		myRigidbody = Self.GetComponent<Rigidbody>();
 	}
 
 	public override void EnterStateInit()
 	{
-		enemy.MoveSpeed = 25;
-		enemy.RotationSpeed = 2;
-		enemy.RotationMultiplier = 1;
+		enemyData.Movement.MoveSpeed = 25;
+		enemyData.Movement.RotationSpeed = 2;
+		enemyData.Movement.RotationMultiplier = 1;
 
-		EnemyUtilities.FindTarget(enemy);
+		EnemyUtilities.FindTarget(enemyData.Movement);
 	}
 
 	public override void Act()
@@ -67,30 +65,30 @@ public class TrackPlayerState : FSMState
 	{
 
 		// If the Player is in attack range
-		if (enemy.Target == null) return;
+		if (enemyData.Movement.Target == null) return;
 
 
-		float targetAngle = EnemyUtilities.GetAngle(self.transform, enemy.Target);
-		if (targetAngle < enemy.AttackAngle)
+		float targetAngle = EnemyUtilities.GetAngle(Self.transform, enemyData.Movement.Target);
+		if (targetAngle < enemyData.Movement.AttackAngle)
 		{
 			//Debug.Log($"TrackPlayerState | Found Player!");
-			enemy.PerformTransition(Transition.FoundTarget);
+			enemyData.Movement.PerformTransition(Transition.FoundTarget);
 			return;
 		}
 
 		// If the player is too far away	
-		float targetDist = EnemyUtilities.GetDistance(self.transform, enemy.Target);
-		if (targetDist > enemy.EscapeRange)
+		float targetDist = EnemyUtilities.GetDistance(Self.transform, enemyData.Movement.Target);
+		if (targetDist > enemyData.Movement.EscapeRange)
 		{
 			//Debug.Log($"TrackPlayerState | Lost Player!");
-			enemy.PerformTransition(Transition.LostTarget);
+			enemyData.Movement.PerformTransition(Transition.LostTarget);
 			return;
 		}
 
 		if (targetDist < 10)
 		{
 			//Debug.Log($"TrackPlayerState | Lost Player!");
-			enemy.PerformTransition(Transition.ApproachedPlayer);
+			enemyData.Movement.PerformTransition(Transition.ApproachedPlayer);
 			return;
 		}
 	}
