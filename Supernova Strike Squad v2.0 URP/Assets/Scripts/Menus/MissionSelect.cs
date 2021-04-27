@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MissionTypes
-{
-	None,
-	Campaign,
-	MissionBoard,
-	Endless
-}
 
 public class MissionSelect : Menu
 {

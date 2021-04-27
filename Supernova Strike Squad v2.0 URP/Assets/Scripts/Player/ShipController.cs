@@ -134,6 +134,8 @@ public class ShipController : NetworkBehaviour
 		//if (hasAuthority && !Interacting && !ForceStop)
 		if (hasAuthority)
 		{
+			Rigidbody.isKinematic = Interacting;
+
 			// MOVE FORWARD
 			Rigidbody.AddRelativeForce((Data.MoveDirection * boostPower * 10), ForceMode.Acceleration);
 

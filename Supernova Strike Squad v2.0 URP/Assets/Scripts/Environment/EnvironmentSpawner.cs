@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public enum EnvironmentType
-{
-	Sphere, 
-	Square
-}
 
 public class EnvironmentParameters
 {
@@ -38,6 +33,10 @@ public class EnvironmentSpawner : NetworkBehaviour
 
 	public EnvironmentParameters CurrentEnvironment;
 
+	public List<GameObject> spawnedObjects = new List<GameObject>();
+
+	private GameObject eventBounds;
+
 	public override void OnStartServer()
 	{
 		if (Instance)
@@ -56,18 +55,7 @@ public class EnvironmentSpawner : NetworkBehaviour
 	{
 		CurrentEnvironment = environment;
 
-		// BOUNDS
-		// TODO: FIX THIS NATHEN
-		if (environment.EnvironmentType == EnvironmentType.Square)
-		{
-			GameObject bounds = Instantiate(runnerBounds);
-			bounds.transform.localScale = environment.EnvironmentSize * 2f;
-		}
-		if (environment.EnvironmentType == EnvironmentType.Sphere)
-		{
-			GameObject bounds = Instantiate(areanaBounds);
-			bounds.transform.localScale = Vector3.one * environment.EnvironmentSize.x * 2;
-		}
+		Rpc_SpawnBounds(environment);
 
 		for (int count = 0; count < environment.AsteroidCount; count++)
 		{
@@ -80,14 +68,38 @@ public class EnvironmentSpawner : NetworkBehaviour
 			// SPAWN
 			GameObject go = Instantiate(AsteroidPrefab, point, Quaternion.identity, transform);
 			go.transform.localScale = Vector3.one * size;
+			spawnedObjects.Add(go);
+				
 			NetworkServer.Spawn(go);
-
 		}
 	}
 
 	[Server]
 	public void Clear()
 	{
+		foreach (GameObject spawnedObject in spawnedObjects) {
+			NetworkServer.Destroy(spawnedObject);
+		}
+
+		spawnedObjects.Clear();
+	}
+
+	[ClientRpc]
+	public void Rpc_SpawnBounds(EnvironmentParameters environment)
+	{
+		if (eventBounds) Destroy(eventBounds.gameObject);
+		if (environment.EnvironmentType == EnvironmentType.Square)
+		{
+			GameObject bounds = Instantiate(runnerBounds);
+			bounds.transform.localScale = environment.EnvironmentSize * 2f;
+			eventBounds = bounds;
+		}
+		if (environment.EnvironmentType == EnvironmentType.Sphere)
+		{
+			GameObject bounds = Instantiate(areanaBounds);
+			bounds.transform.localScale = Vector3.one * environment.EnvironmentSize.x * 2;
+			eventBounds = bounds;
+		}
 
 	}
 
@@ -138,45 +150,5 @@ public class EnvironmentSpawner : NetworkBehaviour
 		{
 			Gizmos.DrawWireCube(transform.position, CurrentEnvironment.EnvironmentSize * 2);
 		}
-	}
-
-	public static EnvironmentParameters DefaultAreana()
-	{
-		return new EnvironmentParameters()
-		{
-			EnvironmentType = EnvironmentType.Sphere,
-
-			EnvironmentSize = new Vector3(200,0,0),
-
-			AsteroidCount = 50,
-			AsteroidMinSize = 25,
-			AsteroidMaxSize = 150
-		};
-	}
-	public static EnvironmentParameters DefaultRun()
-	{
-		return new EnvironmentParameters()
-		{
-			EnvironmentType = EnvironmentType.Square,
-
-			EnvironmentSize = new Vector3(200, 200, 2000),
-
-			AsteroidCount = 150,
-			AsteroidMinSize = 35,
-			AsteroidMaxSize = 200
-		};
-	}	
-	public static EnvironmentParameters DefaultBoss()
-	{
-		return new EnvironmentParameters()
-		{
-			EnvironmentType = EnvironmentType.Sphere,
-
-			EnvironmentSize = new Vector3(500, 0, 0),
-
-			AsteroidCount = 75,
-			AsteroidMinSize = 35,
-			AsteroidMaxSize = 200
-		};
 	}
 }

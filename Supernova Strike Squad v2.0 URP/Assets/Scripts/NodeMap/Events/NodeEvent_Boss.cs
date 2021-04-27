@@ -12,7 +12,7 @@ public class NodeEvent_Boss : NodeEvent
 	public override void OnEventStart()
 	{
 		// ENVIRONMENT
-		Environment = EnvironmentSpawner.DefaultBoss();
+		Environment = SNSSPresets.DefaultBossEnvironment();
 		EnvironmentSpawner.Instance.Spawn(Environment);
 
 		// ENEMYS

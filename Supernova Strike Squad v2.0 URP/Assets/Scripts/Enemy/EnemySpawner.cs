@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public enum EnemyType
-{
-	TestEnemy,
-	TestBoss
-}
-
 public class EnemySpawner : NetworkBehaviour
 {
 	public static EnemySpawner Instance;
@@ -17,6 +11,8 @@ public class EnemySpawner : NetworkBehaviour
 	private List<EnemyBase> enemyPrefabs = new List<EnemyBase>();
 
 	public EnemyWaveData CurrentEncounter;
+
+	public List<GameObject> spawnedEnemies = new List<GameObject>();
 
 	OnEndEncounter OnEndEncounter;
 
@@ -57,7 +53,11 @@ public class EnemySpawner : NetworkBehaviour
 	[Server]
 	public void Clear()
 	{
+		foreach (GameObject spawnedObject in spawnedEnemies) {
+			NetworkServer.Destroy(spawnedObject);
+		}
 
+		spawnedEnemies.Clear();
 	}
 
 	[Server]
@@ -98,6 +98,8 @@ public class EnemySpawner : NetworkBehaviour
 		GameObject go = Instantiate(EnemyDictionary[enemy]);
 		NetworkServer.Spawn(go);
 
+		spawnedEnemies.Add(go);
+
 		if (go.TryGetComponent<EnemyBase>(out EnemyBase enemyBase)) {
 			enemyBase.OnDeath += OnEnemyDeath;
 			enemyCount++;
@@ -123,72 +125,5 @@ public class EnemySpawner : NetworkBehaviour
 				SpawnWave(CurrentEncounter.EnemyWaves[currentWave]);
 			}
 		}
-	}
-
-	public static EnemyWaveData Default()
-	{
-		return new EnemyWaveData()
-		{
-			// The Waves in this Data
-			EnemyWaves = new List<EnemyWave>()
-			{
-				// Wave ONE
-				new EnemyWave()
-				{
-					// List of SpawnParameters for this wave
-					EnemyList = new List<SpawnParameters>()
-					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 3 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-					}
-				},
-
-				// Wave TWO
-				new EnemyWave()
-				{
-					// List of SpawnParameters for this wave
-					EnemyList = new List<SpawnParameters>()
-					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-					}
-				}
-			}
-		};
-	}	
-	public static EnemyWaveData DefaultRun()
-	{
-		return new EnemyWaveData()
-		{
-			// The Waves in this Data
-			EnemyWaves = new List<EnemyWave>()
-			{
-				// Wave ONE
-				new EnemyWave()
-				{
-					// List of SpawnParameters for this wave
-					EnemyList = new List<SpawnParameters>()
-					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 15 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 2 },
-						//new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-					}
-				},
-
-				// Wave TWO
-				new EnemyWave()
-				{
-					// List of SpawnParameters for this wave
-					EnemyList = new List<SpawnParameters>()
-					{
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-						new SpawnParameters(){ Enemy = EnemyType.TestEnemy,EnemyCount = 1 },
-					}
-				}
-			}
-		};
 	}
 }

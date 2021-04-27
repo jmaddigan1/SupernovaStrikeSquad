@@ -2,13 +2,6 @@
 using System.Collections;
 using UnityEngine;
 
-public enum LobbyState
-{
-	WaitingToReady,
-	ReadyToEnterGame,
-	PlayingTransition,
-	InGame
-}
 
 public class GameManager : NetworkBehaviour
 {

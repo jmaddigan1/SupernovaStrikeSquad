@@ -2,17 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SNSSTypes : MonoBehaviour
+//
+public enum EnemyType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	//
+	TestEnemy,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	//
+	TestBoss
+}
+
+// 
+public enum RewardType
+{
+	// If this a temporary reward like ammo or health.
+	// A 'during encounter' pickup..
+	Temp,
+
+	// Or is this a permanent reward
+	// You are given this after completing a encounter.
+	Permanent
+}
+
+// The shape of the environment
+public enum EnvironmentType
+{
+	Sphere,
+	Square
+}
+
+//
+public enum LobbyState
+{
+	//
+	WaitingToReady,
+
+	//
+	ReadyToEnterGame,
+
+	//
+	PlayingTransition,
+
+	//
+	InGame
+}
+
+//
+public enum MissionTypes
+{
+	//
+	None,
+
+	//
+	Campaign,
+
+	//
+	MissionBoard,
+
+	//
+	Endless
 }

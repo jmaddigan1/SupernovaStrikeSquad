@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 35814412368180763}
   - component: {fileID: 6004753861540703181}
   - component: {fileID: 3129165665154803163}
+  - component: {fileID: 1672129836761330885}
   - component: {fileID: -1193729901966424219}
   - component: {fileID: 803725296592827538}
   - component: {fileID: 6929140710672895622}
@@ -382,14 +383,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  MaxHealth: 10
-  MaxShield: 10
+  MaxHealth: 5
+  MaxShield: 5
   RechargeTimer: 0
-  RechargeDelay: 2
-  RechargeSpeed: 2
+  RechargeDelay: 10
+  RechargeSpeed: 1
   Invincible: 0
   currentHealth: 0
   currentShield: 0
+--- !u!114 &1672129836761330885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446586739198149912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7243ddb05a70c49a8e095b567d537a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  RewardToDrop: {fileID: 8676075631798095471, guid: b5f4d8df19ac2094ab332b958719b83d,
+    type: 3}
 --- !u!54 &-1193729901966424219
 Rigidbody:
   m_ObjectHideFlags: 0

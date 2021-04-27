@@ -10,14 +10,14 @@ public static class NodeMapPresets
 
 			Nodes = new List<NodeData>()
 			{
-				MakeNode( 0, new List<int>() { 1, 2, 5 },      NodeEventPresets.TestAreana() ),
-				MakeNode( 1, new List<int>() { 2, 3, 4 },	   NodeEventPresets.TestRunner() ),
-				MakeNode( 2, new List<int>() { 5 },			   NodeEventPresets.TestBoss()   ),
-				MakeNode( 2, new List<int>() { 5,6 },		   NodeEventPresets.TestAreana() ),
-				MakeNode( 2, new List<int>() { 5,7 },          NodeEventPresets.TestAreana() ),
-				MakeNode( 3, new List<int>() { 7 },            NodeEventPresets.TestAreana() ),
-				MakeNode( 3, new List<int>() { 7 },            NodeEventPresets.TestAreana() ),
-				MakeNode( 4, new List<int>() { },              NodeEventPresets.TestAreana() ),
+				MakeNode( 0, new List<int>() { 1, 2, 5 },     SNSSPresets.TestAreana() ),
+				MakeNode( 1, new List<int>() { 2, 3, 4 },     SNSSPresets.TestRunner() ),
+				MakeNode( 2, new List<int>() { 5 },           SNSSPresets.TestBoss()   ),
+				MakeNode( 2, new List<int>() { 5,6 },         SNSSPresets.TestAreana() ),
+				MakeNode( 2, new List<int>() { 5,7 },         SNSSPresets.TestAreana() ),
+				MakeNode( 3, new List<int>() { 7 },           SNSSPresets.TestAreana() ),
+				MakeNode( 3, new List<int>() { 7 },           SNSSPresets.TestAreana() ),
+				MakeNode( 4, new List<int>() { },             SNSSPresets.TestAreana() ),
 			}
 		};
 

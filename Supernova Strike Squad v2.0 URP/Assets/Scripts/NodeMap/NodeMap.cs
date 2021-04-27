@@ -26,6 +26,8 @@ public class NodeMap : NetworkBehaviour
 
 		ParseNodeMapInitializationData(settings);
 
+		Rpc_PausePlayer(true);
+
 		Rpc_BuildMap(CurrentNodemap, CurrentNode);
 	}
 
@@ -167,5 +169,35 @@ public class NodeMap : NetworkBehaviour
 	public void Rpc_PausePlayer(bool state)
 	{
 		ShipController.Interacting = state;
+	}
+}
+
+public class NodeMapData
+{
+	public List<NodeData> Nodes;
+
+	public int MapDepth;
+	public int MapCurrentDepth;
+
+	public NodeMapData()
+	{
+	}
+}
+
+public class NodeData
+{
+	public string NodeName;
+	public string NodeDescription;
+
+	public int NodeDepth;
+	public int NodeIndex;
+
+	public List<int> Connections;
+
+	[System.NonSerialized]
+	public NodeEvent Event;
+
+	public NodeData()
+	{
 	}
 }

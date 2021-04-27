@@ -18,11 +18,11 @@ public class NodeEvent_Arena : NodeEvent
 	public override void OnEventStart()
 	{
 		// ENVIRONMENT
-		Environment = EnvironmentSpawner.DefaultAreana();
+		Environment = SNSSPresets.DefaultAreanaEnvironment();
 		EnvironmentSpawner.Instance.Spawn(Environment);
 
 		// ENEMYS
-		EnemySpawner.Instance.Spawn(EnemySpawner.Default(), OnEndEncounter);
+		EnemySpawner.Instance.Spawn(SNSSPresets.DefaultAreana(), OnEndEncounter);
 		
 		// Move players to there starting positions
 		foreach (ShipController ship in GameObject.FindObjectsOfType<ShipController>())

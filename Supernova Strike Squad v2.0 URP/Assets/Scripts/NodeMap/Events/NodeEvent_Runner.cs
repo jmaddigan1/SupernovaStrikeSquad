@@ -12,7 +12,7 @@ public class NodeEvent_Runner : NodeEvent
 		{
 			Vector3 endPoint = new Vector3(0, 0, Environment.EnvironmentSize.z);
 
-			if (Vector3.Distance(ship.transform.position, endPoint) < 100) {
+			if (Vector3.Distance(ship.transform.position, endPoint) < 200) {
 				return true;
 			}
 		}
@@ -23,11 +23,11 @@ public class NodeEvent_Runner : NodeEvent
 	public override void OnEventStart()
 	{
 		// ENVIRONMENT
-		Environment = EnvironmentSpawner.DefaultRun();
+		Environment = SNSSPresets.DefaultRunEnvironment();
 		EnvironmentSpawner.Instance.Spawn(Environment);
 
 		// ENEMYS
-		 EnemySpawner.Instance.Spawn(EnemySpawner.DefaultRun());
+		 EnemySpawner.Instance.Spawn(SNSSPresets.DefaultRun());
 
 		// Get players
 		ships = GameObject.FindObjectsOfType<ShipController>();
@@ -40,7 +40,6 @@ public class NodeEvent_Runner : NodeEvent
 	public override void OnEventEnd()
 	{
 		EnvironmentSpawner.Instance.Clear();
-
 		EnemySpawner.Instance.Clear();
 	}
 }
