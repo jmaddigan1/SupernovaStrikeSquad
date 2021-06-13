@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Restricted
+  m_Shader: {fileID: -6465566751694194690, guid: 7e9235842c2c751478cfaf9565dd4906,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _FillTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScanLineTexture:
+        m_Texture: {fileID: 2800000, guid: bd7bc0b1592c50f418d1294949dfd18e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EnableFillTexture: 1
+    - _EnableRimGlow: 1
+    - _EnableScanLine: 1
+    - _Fill: 0
+    - _FillRotaion: 0
+    - _InteractionOffset: 2
+    - _IntersetionMultiplier: 0
+    - _RimGlowNoiseDensity: 3
+    - _RimGlowNoiseSpeed: 1
+    - _RimPulseSpeed: 2
+    - _ScanSize: 2
+    - _ScanSpeed: 0.2
+    - _ScanlineOpacity: 0
+    - _ScanlineRotation: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 0, b: 0, a: 0}
+    - _FillOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _FillTilling: {r: 10, g: 10, b: 0, a: 0}
+    - _RimColor: {r: 2.1411636, g: 0.25249568, b: 0.25249568, a: 0}
+    - _RimPower: {r: 0.86, g: 0.22, b: 0, a: 0}
