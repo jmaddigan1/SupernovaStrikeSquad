@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ae6f7a4c11e7a43429c1da058350e103, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6778956d182abc546a6e68dcd1b406ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_5E026308_Out_0:
@@ -41,4 +41,4 @@ Material:
     m_Colors:
     - Color_53013D10: {r: 1, g: 0.86574745, b: 0.1273585, a: 0}
     - Vector2_3C1F363B: {r: 0, g: -0.5, b: 0, a: 0}
-    - _Color: {r: 0, g: 3.9533494, b: 0.5381523, a: 0}
+    - _Color: {r: 0, g: 0.98833734, b: 0.1397126, a: 0}
