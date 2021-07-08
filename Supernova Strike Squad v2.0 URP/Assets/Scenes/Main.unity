@@ -7093,6 +7093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.x
       value: 14.066999
       objectReference: {fileID: 0}
@@ -7131,55 +7136,70 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.x
       value: 2.6409175
       objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: ElectricityThickness
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.023100298
+      value: 0.016430106
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.996582
+      value: -0.9789058
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.003250977
+      value: 0.01285658
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.079247616
+      value: 0.20324422
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.054
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.07659611
+      value: -0.076812
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.034
+      value: -0.003
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.58100003
+      value: 1.825
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -189.07999
+      value: -156.56601
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 2.6100001
+      value: -1.5450001
       objectReference: {fileID: 0}
     - target: {fileID: 77569056001851233, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
@@ -9110,6 +9130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.x
       value: 17.369
       objectReference: {fileID: 0}
@@ -9147,6 +9172,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.x
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: ElectricityThickness
+      objectReference: {fileID: 0}
+    - target: {fileID: 77569055833503315, guid: 629f7d6500c3ad841a84d1c15e002dca,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 77569055833503316, guid: 629f7d6500c3ad841a84d1c15e002dca,
         type: 3}
