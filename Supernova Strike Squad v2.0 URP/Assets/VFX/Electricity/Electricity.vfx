@@ -35,7 +35,7 @@ MonoBehaviour:
     x: -1984
     y: -133
     width: 3351
-    height: 2113
+    height: 2224
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,9 +334,9 @@ VisualEffectResource:
       float3 tmp_bt = tmp_bs * tmp_bl;\n\t\t\t    float3 tmp_bu = tmp_bt * tmp_bl;\n\t\t\t   
       float3 tmp_bv = tmp_br + tmp_bu;\n\t\t\t    SetAttribute_CAC29747( /*inout
       */attributes.position, tmp_bv);\n\t\t\t}\n\t\t\t{\n\t\t\t    float3 tmp_bc
-      = attributes.position + uniform_e;\n\t\t\t    float4 tmp_bf = GenerateValueNoise(tmp_bc,
-      float3(3.07999992, 0.371504009, 4.32000017).x, (int)4, float3(3.07999992, 0.371504009,
-      4.32000017).y, float3(3.07999992, 0.371504009, 4.32000017).z);\n\t\t\t    float
+      = attributes.position + uniform_e;\n\t\t\t    float4 tmp_bf = GeneratePerlinNoise(tmp_bc,
+      float3(1.97000003, 0.478126407, 3.47000003).x, (int)4, float3(1.97000003, 0.478126407,
+      3.47000003).y, float3(1.97000003, 0.478126407, 3.47000003).z);\n\t\t\t    float
       tmp_bg = tmp_bf[1];\n\t\t\t    float tmp_bh = SampleCurve(uniform_f,attributes.Progress);\n\t\t\t   
       float tmp_bj = (float)-1 * tmp_bh;\n\t\t\t    float tmp_bk = tmp_bh - tmp_bj;\n\t\t\t   
       float tmp_bl = tmp_bg * tmp_bk;\n\t\t\t    float tmp_bm = tmp_bf[2];\n\t\t\t   
@@ -380,9 +380,9 @@ VisualEffectResource:
       float3 tmp_bs = uniform_d * tmp_bl;\n\t\t    float3 tmp_bt = tmp_bs * tmp_bl;\n\t\t   
       float3 tmp_bu = tmp_bt * tmp_bl;\n\t\t    float3 tmp_bv = tmp_br + tmp_bu;\n\t\t   
       SetAttribute_CAC29747( /*inout */attributes.position, tmp_bv);\n\t\t}\n\t\t{\n\t\t   
-      float3 tmp_bc = attributes.position + uniform_e;\n\t\t    float4 tmp_bf = GenerateValueNoise(tmp_bc,
-      float3(3.07999992, 0.371504009, 4.32000017).x, (int)4, float3(3.07999992, 0.371504009,
-      4.32000017).y, float3(3.07999992, 0.371504009, 4.32000017).z);\n\t\t    float
+      float3 tmp_bc = attributes.position + uniform_e;\n\t\t    float4 tmp_bf = GeneratePerlinNoise(tmp_bc,
+      float3(1.97000003, 0.478126407, 3.47000003).x, (int)4, float3(1.97000003, 0.478126407,
+      3.47000003).y, float3(1.97000003, 0.478126407, 3.47000003).z);\n\t\t    float
       tmp_bg = tmp_bf[1];\n\t\t    float tmp_bh = SampleCurve(uniform_f,attributes.Progress);\n\t\t   
       float tmp_bj = (float)-1 * tmp_bh;\n\t\t    float tmp_bk = tmp_bh - tmp_bj;\n\t\t   
       float tmp_bl = tmp_bg * tmp_bk;\n\t\t    float tmp_bm = tmp_bf[2];\n\t\t   
@@ -1258,7 +1258,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 13
           m_Value: {x: 3, y: 3, z: 3}
         - m_ExpressionIndex: 25
-          m_Value: {x: 3.08, y: 0.371504, z: 4.32}
+          m_Value: {x: 1.97, y: 0.4781264, z: 3.47}
         - m_ExpressionIndex: 36
           m_Value: {x: 2, y: 3, z: 2}
         - m_ExpressionIndex: 37
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614695}
   - {fileID: 8926484042661614720}
-  m_UIPosition: {x: 942, y: 1036}
+  m_UIPosition: {x: 942, y: 1147}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -4967,8 +4967,8 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614712}
   - {fileID: 8926484042661614711}
-  - {fileID: 8926484042661614998}
-  m_UIPosition: {x: 943, y: 1411}
+  - {fileID: 8926484042661615020}
+  m_UIPosition: {x: 943, y: 1522}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -5327,7 +5327,7 @@ MonoBehaviour:
   m_OutputSlots:
   - {fileID: 8926484042661614738}
   - {fileID: 8926484042661614739}
-  type: 0
+  type: 1
   dimensions: 2
 --- !u!114 &8926484042661614727
 MonoBehaviour:
@@ -5496,7 +5496,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3.08
+      m_SerializableObject: 1.97
     m_Space: 2147483647
   m_Property:
     name: frequency
@@ -5584,7 +5584,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.371504
+      m_SerializableObject: 0.4781264
     m_Space: 2147483647
   m_Property:
     name: roughness
@@ -5630,7 +5630,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 4.32
+      m_SerializableObject: 3.47
     m_Space: 2147483647
   m_Property:
     name: lacunarity
@@ -10811,69 +10811,6 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661614933}
---- !u!114 &8926484042661614998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec2c1930009b04ea08905b47262415, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 8926484042661614708}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots:
-  - {fileID: 8926484042661614999}
-  m_OutputSlots: []
-  m_Disabled: 0
-  attribute: alpha
-  Composition: 0
-  AlphaComposition: 0
-  SampleMode: 0
-  Mode: 1
-  ColorMode: 3
-  channels: 6
---- !u!114 &8926484042661614999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614999}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614998}
-    m_Value:
-      m_Type:
-        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":7.846024036407471,"outTangent":7.846024036407471,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.050929173827171329,"value":0.9994678497314453,"inTangent":0.09249786287546158,"outTangent":0.09249786287546158,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4994206428527832,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9392406344413757,"value":1.0024431943893433,"inTangent":-0.07167547196149826,"outTangent":-0.07167547196149826,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-7.824521541595459,"outTangent":-7.824521541595459,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
-    m_Space: 2147483647
-  m_Property:
-    name: Alpha
-    m_serializedType:
-      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    attributes: []
-  m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661615017}
 --- !u!114 &8926484042661615016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10912,7 +10849,7 @@ MonoBehaviour:
   - m_Id: 0
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615017}
-      inputSlot: {fileID: 8926484042661614999}
+      inputSlot: {fileID: 8926484042661615021}
     position: {x: 578, y: 1872}
     expandedSlots: []
     expanded: 0
@@ -10950,4 +10887,67 @@ MonoBehaviour:
     attributes: []
   m_Direction: 1
   m_LinkedSlots:
-  - {fileID: 8926484042661614999}
+  - {fileID: 8926484042661615021}
+--- !u!114 &8926484042661615020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ec2c1930009b04ea08905b47262415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614708}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots:
+  - {fileID: 8926484042661615021}
+  m_OutputSlots: []
+  m_Disabled: 0
+  attribute: alpha
+  Composition: 0
+  AlphaComposition: 0
+  SampleMode: 0
+  Mode: 1
+  ColorMode: 3
+  channels: 6
+--- !u!114 &8926484042661615021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615021}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661615020}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":7.846024036407471,"outTangent":7.846024036407471,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.050929173827171329,"value":0.9994678497314453,"inTangent":0.09249786287546158,"outTangent":0.09249786287546158,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4994206428527832,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9392406344413757,"value":1.0024431943893433,"inTangent":-0.07167547196149826,"outTangent":-0.07167547196149826,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-7.824521541595459,"outTangent":-7.824521541595459,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: 2147483647
+  m_Property:
+    name: Alpha
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots:
+  - {fileID: 8926484042661615017}
