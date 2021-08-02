@@ -28,6 +28,6 @@ Material:
     - Vector1_27EAB7AB: 4
     - Vector1_A2EEC25E: 0.1
     m_Colors:
-    - Color_5A37C812: {r: 0, g: 0.7495595, b: 0.8018868, a: 0}
-    - Color_8DF232EE: {r: 3.372549, g: 1.34902, b: 0, a: 0}
+    - Color_5A37C812: {r: 0, g: 0.7490196, b: 0.8, a: 0}
+    - Color_8DF232EE: {r: 3.372549, g: 1.359614, b: 0, a: 0}
     - Vector2_E7D71DA3: {r: 1, g: 5, b: 0, a: 0}
