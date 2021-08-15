@@ -535,6 +535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,6 +799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (112)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -1125,6 +1135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1295,6 +1310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1390,6 +1410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (100)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -2327,6 +2352,101 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8586770294792153069, guid: 858a11445773e6f48825141364c93220, type: 3}
+--- !u!1001 &94299717
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459673312}
+    m_Modifications:
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_Name
+      value: LatticeBrace (137)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.735001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.189587
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00082670536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00082670536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 371
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 359.866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0059664645
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0054378677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0095455935
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f, type: 3}
+--- !u!4 &94299718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 94299717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &94903077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -3433,6 +3558,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5315201298639347038, guid: 652b1ab7ceff98f49ae925f05599a466,
     type: 3}
   m_PrefabInstance: {fileID: 135009792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &138511108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 459673312}
+    m_Modifications:
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_Name
+      value: LatticeBrace (138)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.9189997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00082670536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00082670536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 372
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 359.866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0059664645
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0054378677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0095455935
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f, type: 3}
+--- !u!4 &138511109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 138511108}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &148371025
 PrefabInstance:
@@ -4230,6 +4450,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4781,6 +5006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4870,6 +5100,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -6485,6 +6720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7423,6 +7663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7512,6 +7757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -7962,6 +8212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8364,6 +8619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8453,6 +8713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -8648,6 +8913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -8910,6 +9180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8999,6 +9274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -9304,6 +9584,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9499,6 +9784,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9672,6 +9962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -10013,7 +10308,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &346192299
 BoxCollider:
@@ -10046,7 +10341,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe9d27065d2ff714c86ae9fe6a28a28c, type: 2}
+  - {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10083,7 +10378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346192298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.025631, y: 9.739667, z: 22.95876}
+  m_LocalPosition: {x: 10.55, y: 11.05, z: 22.95876}
   m_LocalScale: {x: 0.45248142, y: 5.3598213, z: 4.2864857}
   m_Children: []
   m_Father: {fileID: 459673312}
@@ -10205,6 +10500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -10560,6 +10860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -10951,6 +11256,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11060,6 +11370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -11330,6 +11645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -11696,6 +12016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11876,6 +12201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11965,6 +12295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -12229,6 +12564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (114)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -12610,6 +12950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12784,6 +13129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -13351,6 +13701,8 @@ Transform:
   - {fileID: 1435887332}
   - {fileID: 847572938}
   - {fileID: 765451256}
+  - {fileID: 94299718}
+  - {fileID: 138511109}
   m_Father: {fileID: 633599577}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13365,6 +13717,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -13455,6 +13812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -13983,6 +14345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14292,6 +14659,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -14912,6 +15284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15166,6 +15543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -15442,6 +15824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -15743,6 +16130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15937,6 +16329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -16556,6 +16953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16645,6 +17047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (94)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -16820,6 +17227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -17078,6 +17490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17268,6 +17685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17357,6 +17779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -17563,6 +17990,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17737,6 +18169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17826,6 +18263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (133)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -18352,6 +18794,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18536,6 +18983,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -19285,6 +19737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19860,6 +20317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (134)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20402,6 +20864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20928,6 +21395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21017,6 +21489,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -21425,7 +21902,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &765451256
 Transform:
@@ -21435,7 +21912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765451255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.44, y: 13.3, z: 13.24}
+  m_LocalPosition: {x: -39.44, y: 13.54, z: 13.24}
   m_LocalScale: {x: 101.9698, y: 0.18749358, z: 0.49024537}
   m_Children: []
   m_Father: {fileID: 459673312}
@@ -21472,7 +21949,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe9d27065d2ff714c86ae9fe6a28a28c, type: 2}
+  - {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21707,6 +22184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -22239,6 +22721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22411,6 +22898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22501,6 +22993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22590,6 +23087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -23282,7 +23784,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &847572938
 Transform:
@@ -23292,7 +23794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847572937}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -39.44, y: 13.3, z: 22.95876}
+  m_LocalPosition: {x: -39.44, y: 13.54, z: 22.95876}
   m_LocalScale: {x: 101.9698, y: 0.18749358, z: 0.49024537}
   m_Children: []
   m_Father: {fileID: 459673312}
@@ -23329,7 +23831,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe9d27065d2ff714c86ae9fe6a28a28c, type: 2}
+  - {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23540,6 +24042,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23669,6 +24176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -23933,7 +24445,7 @@ PrefabInstance:
     - target: {fileID: 7860547616558812460, guid: 6800a3e56e5651441a8bf5d3386515b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.34
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 7860547616558812460, guid: 6800a3e56e5651441a8bf5d3386515b8,
         type: 3}
@@ -24024,6 +24536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24113,6 +24630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (121)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -24470,6 +24992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24644,6 +25171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -25300,6 +25832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25389,6 +25926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -25628,6 +26170,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 942751433}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &943148490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943148492}
+  - component: {fileID: 943148491}
+  m_Layer: 0
+  m_Name: Area Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &943148491
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943148490}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 3
+  m_Shape: 0
+  m_Color: {r: 0.8679245, g: 0.8068657, b: 0.51174796, a: 1}
+  m_Intensity: 1.59
+  m_Range: 14.8
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 50, y: 18.935627}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 7.02e-43, y: 1.841844e-39, z: 7.02e-43, w: 3.199041e-39}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &943148492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943148490}
+  m_LocalRotation: {x: 0.50000006, y: -0.50000006, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -54.11, y: 4.75, z: -1.47}
+  m_LocalScale: {x: 1, y: 0.51115, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90}
 --- !u!4 &944041521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7867544693296303988, guid: b01f747f9594e0b45a952d55eb03c17a,
@@ -27088,6 +27722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27608,6 +28247,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27998,6 +28642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -28880,6 +29529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29299,6 +29953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29674,6 +30333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -30888,6 +31552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30998,6 +31667,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31107,6 +31781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (113)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -31469,6 +32148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -32072,6 +32756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -32869,6 +33558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -33875,6 +34569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34149,6 +34848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -34449,6 +35153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -34885,6 +35594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -36201,6 +36915,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36735,6 +37454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37051,6 +37775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37140,6 +37869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (103)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -37482,6 +38216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (119)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37571,6 +38310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -38085,6 +38829,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (125)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -38747,6 +39496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38917,6 +39671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39012,7 +39771,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1435887329
 BoxCollider:
@@ -39045,7 +39804,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe9d27065d2ff714c86ae9fe6a28a28c, type: 2}
+  - {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39082,7 +39841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435887328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.025631, y: 9.739667, z: 13.108757}
+  m_LocalPosition: {x: 10.549999, y: 11.05, z: 13.108757}
   m_LocalScale: {x: 0.45248142, y: 5.3598213, z: 4.2864857}
   m_Children: []
   m_Father: {fileID: 459673312}
@@ -39099,6 +39858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -39439,6 +40203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39528,6 +40297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -41012,6 +41786,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41756,6 +42535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41945,6 +42729,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42133,6 +42922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (105)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -42479,6 +43273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42752,6 +43551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -43237,6 +44041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -43945,6 +44754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -44958,6 +45772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45418,6 +46237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (126)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45864,6 +46688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -46336,6 +47165,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46425,6 +47259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -47228,6 +48067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47397,6 +48241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -48087,6 +48936,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48684,6 +49538,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48929,6 +49788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49018,6 +49882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -49504,6 +50373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -50751,7 +51625,7 @@ PrefabInstance:
     - target: {fileID: 6014582920567166457, guid: 38906d85d04e7e24fb0353baddb3b85c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.29
+      value: -6.07
       objectReference: {fileID: 0}
     - target: {fileID: 6014582920567166457, guid: 38906d85d04e7e24fb0353baddb3b85c,
         type: 3}
@@ -50761,7 +51635,7 @@ PrefabInstance:
     - target: {fileID: 6014582920567166457, guid: 38906d85d04e7e24fb0353baddb3b85c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.68
+      value: -19.35
       objectReference: {fileID: 0}
     - target: {fileID: 6014582920567166457, guid: 38906d85d04e7e24fb0353baddb3b85c,
         type: 3}
@@ -50821,6 +51695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -51698,6 +52577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52181,6 +53065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (106)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -52736,6 +53625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52825,6 +53719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (111)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -53466,6 +54365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53866,6 +54770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -54277,6 +55186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -54696,6 +55610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -55777,6 +56696,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56051,6 +56975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -56612,6 +57541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56701,6 +57635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -56827,6 +57766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (99)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -57108,6 +58052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57217,6 +58166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -57492,6 +58446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -58377,6 +59336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LatticeBrace (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58897,6 +59861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LatticeBrace (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594951002921324373, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2119427203668579823, guid: 0fe5beb2bde9e9a479cd1e523a5c6e2f,
         type: 3}
@@ -59997,6 +60966,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2091783997924639235, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
     - target: {fileID: 2220013194629986111, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -60917,6 +61891,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5822111642226567486, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
     - target: {fileID: 6104815590980633688, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -61287,6 +62266,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7821160102498795942, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73a3b98a4cee1164c96007a6b09eacb3, type: 2}
     - target: {fileID: 7824528362041228722, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -61417,6 +62401,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 8586950979015065742, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
+    - target: {fileID: 8660569183645731858, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed5b929b564f9d3448c286f5d4e0d9bc, type: 2}
     - target: {fileID: 8789073897718491033, guid: cb8ef303b2e03c64ab2d0fa40e799eb7,
         type: 3}
       propertyPath: m_StaticEditorFlags
