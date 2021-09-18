@@ -29126,11 +29126,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45101
       objectReference: {fileID: 0}
+    - target: {fileID: -8488867770925279783, guid: ac01c8607d23cab49904d83b49c5648b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bf4d07963684b4c9d67cffda48f87c, type: 2}
     - target: {fileID: 919132149155446097, guid: ac01c8607d23cab49904d83b49c5648b,
         type: 3}
       propertyPath: m_Name
       value: Spotlight
       objectReference: {fileID: 0}
+    - target: {fileID: 2867545526122149227, guid: ac01c8607d23cab49904d83b49c5648b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bf4d07963684b4c9d67cffda48f87c, type: 2}
     - target: {fileID: 8492056447358713179, guid: ac01c8607d23cab49904d83b49c5648b,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -67428,11 +67438,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45101
       objectReference: {fileID: 0}
+    - target: {fileID: -8488867770925279783, guid: ac01c8607d23cab49904d83b49c5648b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bf4d07963684b4c9d67cffda48f87c, type: 2}
     - target: {fileID: 919132149155446097, guid: ac01c8607d23cab49904d83b49c5648b,
         type: 3}
       propertyPath: m_Name
       value: Spotlight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2867545526122149227, guid: ac01c8607d23cab49904d83b49c5648b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bf4d07963684b4c9d67cffda48f87c, type: 2}
     - target: {fileID: 8492056447358713179, guid: ac01c8607d23cab49904d83b49c5648b,
         type: 3}
       propertyPath: m_LocalRotation.x
