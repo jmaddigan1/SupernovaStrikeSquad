@@ -62784,9 +62784,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5c2833e1ef572f44da86e2c05bcc470f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5f00b0222f5d46c4894995a92686c074, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.039
+  m_Volume: 0.256
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -62800,7 +62800,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
