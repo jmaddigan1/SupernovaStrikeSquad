@@ -1,0 +1,16 @@
+texture 
+Done = / Not done = X
+
+-Air compressor X
+-Barrel / Exported
+-Fire Exting X Exported
+-Metal Crate / Exported
+-Nuts & Bolts / Exported
+-Tool Pegboard Exported
+-Tool Box / Exported
+-Welding Setup Exported
+-Ladder X
+-Barstool / table / Exported Exported
+-Fusebox / Exported
+-All pipes / Exported
+-Reinforced box / Exported
