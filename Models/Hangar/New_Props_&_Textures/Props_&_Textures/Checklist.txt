@@ -3,7 +3,7 @@ Done = / Not done = X
 
 -Air compressor X
 -Barrel / Exported
--Fire Exting X Exported
+-Fire Exting / Exported
 -Metal Crate / Exported
 -Nuts & Bolts / Exported
 -Tool Pegboard Exported
