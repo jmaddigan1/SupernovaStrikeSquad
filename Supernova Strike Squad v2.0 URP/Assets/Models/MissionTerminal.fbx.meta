@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 79a5311fdd348cc41a013c49f87ac163
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -2907537312800233152
+    second: LobbyInteractves
   externalObjects: {}
   materials:
     materialImportMode: 1
