@@ -50621,9 +50621,9 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
-          key1: {r: 0.66828525, g: 0.45476672, b: 0.36880472, a: 1}
-          key2: {r: 0.33529413, g: 0.13137256, b: 0.078431375, a: 1}
+          key0: {r: 0.5, g: 0.39803922, b: 0.37058824, a: 0}
+          key1: {r: 0.81635153, g: 0.8773585, b: 0.8152813, a: 1}
+          key2: {r: 0.4716981, g: 0.39159843, b: 0.3715735, a: 1}
           key3: {r: 0.33529413, g: 0.13137256, b: 0.078431375, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
@@ -50638,8 +50638,8 @@ VisualEffect:
           ctime6: 0
           ctime7: 0
           atime0: 0
-          atime1: 6554
-          atime2: 53585
+          atime1: 16384
+          atime2: 59174
           atime3: 65535
           atime4: 0
           atime5: 0
@@ -50649,12 +50649,12 @@ VisualEffect:
           m_NumColorKeys: 3
           m_NumAlphaKeys: 4
         m_Name: DustCloud_Color
-        m_Overridden: 0
+        m_Overridden: 1
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 2800000, guid: f6b66eca1b1c4004897eff7af61f0be4, type: 3}
+      - m_Value: {fileID: 2800000, guid: 32e691352c92c274d85797ea8607171d, type: 3}
         m_Name: MainTexture
-        m_Overridden: 0
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!4 &1546419749
