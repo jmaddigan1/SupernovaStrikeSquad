@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 6754126304204881091}
   - component: {fileID: 1251544550465832659}
   - component: {fileID: 699089603396204984}
+  - component: {fileID: 5770545151194249509}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -356,6 +357,8 @@ MonoBehaviour:
   syncInterval: 0.1
   orientation: {fileID: 4638992413834455184}
   cameraTarget: {fileID: 4638992414149587265}
+  slopeForce: 5
+  slopeForceRayLength: 2
   isGrounded: 0
 --- !u!114 &4638992414813377598
 MonoBehaviour:
@@ -427,6 +430,21 @@ MonoBehaviour:
   compressRotation: 0
   interpolateScale: 1
   syncScale: 1
+--- !u!114 &5770545151194249509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638992414813377594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc0eec4c78ce014e91a427b5ef850e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chController: {fileID: 4638992414813377599}
+  speedUpDown: 3.2
+  playerControl: {fileID: 4638992414813377593}
 --- !u!1 &4638992415057052474
 GameObject:
   m_ObjectHideFlags: 0
