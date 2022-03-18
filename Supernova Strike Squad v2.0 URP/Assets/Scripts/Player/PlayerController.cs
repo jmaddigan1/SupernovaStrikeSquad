@@ -14,8 +14,13 @@ public class PlayerController : NetworkBehaviour
 
 	[SerializeField] private Transform orientation;
 	[SerializeField] private Transform cameraTarget = null;
-	
-	float jumpForce = 12f;
+
+    //zac slope stuff
+    [SerializeField] private float slopeForce = 5f;
+    [SerializeField] private float slopeForceRayLength = 1.5f;
+
+
+    float jumpForce = 12f;
 
 	float moveSpeed = 6f;
 	float moveMultiplier = 10.0f;
@@ -33,9 +38,11 @@ public class PlayerController : NetworkBehaviour
 	Vector3 movementDirection;
 
 	KeyCode jumpKey = KeyCode.Space;
+    LadderClimb lClimb;
 
 	public override void OnStartClient()
 	{
+        
 		base.OnStartClient();
 
 		if (hasAuthority)
@@ -45,6 +52,7 @@ public class PlayerController : NetworkBehaviour
 			rb = GetComponent<Rigidbody>();
 			rb.freezeRotation = true;
 		}
+        lClimb = GetComponent<LadderClimb>();
 	}
 
 	void Update()
@@ -105,13 +113,52 @@ public class PlayerController : NetworkBehaviour
 	{
 		if (rb == null) return;
 
-		if (isGrounded)
-		{
-			rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
-		}
-		else if (!isGrounded)
-		{
-			rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier * airMultiplier, ForceMode.Acceleration);
-		}
+        if (lClimb.inside == true)
+        {
+
+        }
+        else
+        {
+            if (isGrounded)
+            {
+                if (OnSlope() == true)
+                {
+                    rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
+                    rb.AddForce(Vector3.down + new Vector3(0, -slopeForce * 11, 0), ForceMode.Acceleration);
+                }
+                rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
+            }
+            else if (!isGrounded)
+            {
+                rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier * airMultiplier, ForceMode.Acceleration);
+            }
+
+            if ((verticalMovement != 0 || horizontalMovement != 0) && OnSlope())
+            {
+
+                //rb.AddForce(Vector3.down * (1 + 0.1f) * slopeForce * Time.deltaTime);
+            }
+        }
 	}
+
+    //zac slope stuff https://youtu.be/b7bmNDdYPzU 5:53
+    private bool OnSlope()
+    {
+        if(!isGrounded)
+        {
+            return false;
+        }
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, (1 + 0.1f)* slopeForceRayLength))
+        {
+            if(hit.normal != Vector3.up)
+            {
+                return true;
+            }            
+        }
+
+        return false;        
+    }
 }

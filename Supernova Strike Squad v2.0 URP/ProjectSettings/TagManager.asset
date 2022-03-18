@@ -11,6 +11,7 @@ TagManager:
   - Cursor
   - WeaponAnchor
   - Target
+  - Ladder
   layers:
   - Default
   - TransparentFX
