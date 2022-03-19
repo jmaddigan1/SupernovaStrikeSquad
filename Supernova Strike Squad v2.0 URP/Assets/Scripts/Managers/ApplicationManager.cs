@@ -14,10 +14,39 @@ namespace Supernova.Managers {
 		#endregion
 
 
+		#region Properties
+
+		public StateType State {
+			get;
+			private set;
+		}
+
+		#endregion
+
+
 		#region MonoBehaviour
 
 		public void Start() {
-			SceneManager.Instance.LoadScene(startingScene, sceneName => {}, false);
+			this.State = StateType.None;
+			NavigateToStartScene();
+		}
+
+		public void NavigateToStartScene() {
+			SceneManager.Instance.LoadScene(startingScene, sceneName => {
+				this.State = StateType.MainMenu;
+			}, false);
+		}
+
+		public void NavigateToMainMenuScene() {
+			SceneManager.Instance.LoadScene("Main Menu", sceneName => {
+				this.State = StateType.MainMenu;
+			}, true);
+		}
+		
+		public void NavigateToHangarScene() {
+			SceneManager.Instance.LoadScene("Hangar", sceneName => {
+				this.State = StateType.InGame;
+			}, true);
 		}
 
 		#endregion
@@ -25,9 +54,10 @@ namespace Supernova.Managers {
 
 		#region State
 
-		public enum State {
+		public enum StateType {
 			None,
-			MainMenu
+			MainMenu,
+			InGame
 		}
 
 		#endregion
