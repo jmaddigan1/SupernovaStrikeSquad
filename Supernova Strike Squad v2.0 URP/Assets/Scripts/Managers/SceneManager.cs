@@ -48,7 +48,6 @@ namespace Supernova.Managers {
 		#region MonoBehaviour
 
 		public void Update() {
-			bool isShowingPreloader = this.ScenesLoading.Count > 0;
 			for (int i = this.ScenesLoading.Count - 1; i >= 0; i--) {
 				if (this.ScenesLoading[i] == null) {
 					this.ScenesLoading.RemoveAt(i);
@@ -61,10 +60,6 @@ namespace Supernova.Managers {
 					this.LoadedScenes.Add(this.ScenesLoading[i].sceneName);
 					this.ScenesLoading.RemoveAt(i);
 				}
-			}
-
-			if (this.ScenesLoading.Count == 0 && isShowingPreloader) {
-				preloaderController.HidePreloader();
 			}
 		}
 
@@ -91,6 +86,17 @@ namespace Supernova.Managers {
 			if (showPreloader) {
 				preloaderController.ShowPreloader();
 			}
+		}
+
+		public void UnloadScene(string sceneName) {
+			if (this.LoadedScenes.Any(x => x == sceneName)) {
+				UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(sceneName);
+				this.LoadedScenes.Remove(sceneName);
+			}
+		}
+
+		public void HidePreloader() {
+			preloaderController.HidePreloader();
 		}
 
 		#endregion

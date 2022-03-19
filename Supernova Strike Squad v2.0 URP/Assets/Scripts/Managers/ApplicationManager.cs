@@ -6,14 +6,6 @@ namespace Supernova.Managers {
 
 	public class ApplicationManager : Singleton<ApplicationManager> {
 
-		#region Serialized Fields
-
-		[SerializeField]
-		private string startingScene;
-
-		#endregion
-
-
 		#region Properties
 
 		public StateType State {
@@ -32,20 +24,22 @@ namespace Supernova.Managers {
 		}
 
 		public void NavigateToStartScene() {
-			SceneManager.Instance.LoadScene(startingScene, sceneName => {
+			SceneManager.Instance.LoadScene(SceneList.MAIN_MENU, sceneName => {
 				this.State = StateType.MainMenu;
 			}, false);
 		}
 
 		public void NavigateToMainMenuScene() {
-			SceneManager.Instance.LoadScene("Main Menu", sceneName => {
+			SceneManager.Instance.LoadScene(SceneList.MAIN_MENU, sceneName => {
 				this.State = StateType.MainMenu;
 			}, true);
 		}
 		
-		public void NavigateToHangarScene() {
-			SceneManager.Instance.LoadScene("Hangar", sceneName => {
+		public void NavigateFromMainMenuToHangarScene() {
+			SceneManager.Instance.LoadScene(SceneList.HANGAR, sceneName => {
 				this.State = StateType.InGame;
+				SceneManager.Instance.UnloadScene(SceneList.MAIN_MENU);
+				SceneManager.Instance.HidePreloader();
 			}, true);
 		}
 
