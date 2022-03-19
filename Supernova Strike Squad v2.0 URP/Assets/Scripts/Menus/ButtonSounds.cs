@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Supernova.Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -12,11 +13,11 @@ public class ButtonSounds : MonoBehaviour, IPointerEnterHandler, IPointerDownHan
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		AudioSource.PlayClipAtPoint(clickClip, Camera.main.transform.position, settings.UIVolume * settings.MasterVolume);
+		AudioSource.PlayClipAtPoint(clickClip, CameraManager.Instance.Current.transform.position, settings.UIVolume * settings.MasterVolume);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		AudioSource.PlayClipAtPoint(hoverClip, Camera.main.transform.position, settings.UIVolume * settings.MasterVolume);
+		AudioSource.PlayClipAtPoint(hoverClip, CameraManager.Instance.Current.transform.position, settings.UIVolume * settings.MasterVolume);
 	}
 }

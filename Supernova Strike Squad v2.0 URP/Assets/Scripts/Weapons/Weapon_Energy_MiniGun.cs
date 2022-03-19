@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Supernova.Managers;
 
 public class Weapon_Energy_MiniGun : Weapon
 {
@@ -40,7 +41,7 @@ public class Weapon_Energy_MiniGun : Weapon
 	{
 		time = 0f;
 
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Ray ray = CameraManager.Instance.Current.ScreenPointToRay(Input.mousePosition);
 
 		Cmd_SpawnProjectile(ray.GetPoint(150), transform.position);
 		//if (Physics.Raycast(ray, out RaycastHit hit, 150, LayerMask.GetMask("Environment")))
