@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using System;
+using Supernova.Networking;
 
 public class EnemyBase : NetworkBehaviour
 {

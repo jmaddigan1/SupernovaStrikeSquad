@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Supernova.Networking;
 
 
 [RequireComponent(typeof(Player))]

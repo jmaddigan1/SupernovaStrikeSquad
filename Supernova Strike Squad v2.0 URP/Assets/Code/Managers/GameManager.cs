@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using System.Collections;
+using Supernova.Networking;
 using Supernova.Utilities;
 using UnityEngine;
 
