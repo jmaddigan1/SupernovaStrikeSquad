@@ -71,7 +71,7 @@ namespace Supernova.Editor {
 			EditorGUILayout.LabelField("Optional Defines");
 			var supernovaDebug = EditorGUILayout.Toggle("SUPERNOVA_DEBUG", SUPERNOVA_DEBUG);
 			if (supernovaDebug != SUPERNOVA_DEBUG) {
-				var symbol = "SUPERNOVA";
+				var symbol = "SUPERNOVA_DEBUG";
 				var defineSymbols = RemoveFromDefines(symbol);
 				if (supernovaDebug) { defineSymbols.Add(symbol); }
 				PlayerSettings.SetScriptingDefineSymbolsForGroup (EditorUserBuildSettings.selectedBuildTargetGroup, string.Join(";", defineSymbols.ToArray()));
