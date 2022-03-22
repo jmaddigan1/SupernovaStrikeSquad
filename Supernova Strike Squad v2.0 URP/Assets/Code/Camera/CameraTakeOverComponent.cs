@@ -6,11 +6,11 @@ namespace Supernova.Camera {
 	[RequireComponent(typeof(UnityEngine.Camera))]
 	public class CameraTakeOverComponent : MonoBehaviour {
 
-		private UnityEngine.Camera camera;
+		private UnityEngine.Camera internalCamera;
 		
 		private UnityEngine.Camera Camera {
 			get {
-				return camera = camera ?? GetComponent<UnityEngine.Camera>();
+				return internalCamera = internalCamera ?? GetComponent<UnityEngine.Camera>();
 			}
 		}
 
