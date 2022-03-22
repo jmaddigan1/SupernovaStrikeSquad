@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 	{
         string current = SceneManager.GetActiveScene().name;
 
+        //TODO: Adjust this to work with multiple scenes loadable by our SceneManager
 		if (current == "Gameplay")
         {
             Cursor.lockState = CursorLockMode.None;

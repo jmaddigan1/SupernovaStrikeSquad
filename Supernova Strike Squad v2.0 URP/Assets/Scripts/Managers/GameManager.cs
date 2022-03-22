@@ -1,5 +1,6 @@
 ﻿using Mirror;
 using System.Collections;
+using Supernova.Utilities;
 using UnityEngine;
 
 public class GameManager : NetworkBehaviour
@@ -100,7 +101,7 @@ public class GameManager : NetworkBehaviour
 
 		// Change to the game scene
 		var networkManager = FindObjectOfType<CustomNetworkManager>();
-		networkManager.ServerChangeScene("Gameplay");
+		networkManager.ServerChangeScene(SceneList.GAMEPLAY);
 
 		yield return new WaitForSecondsRealtime(0.5f);
 
