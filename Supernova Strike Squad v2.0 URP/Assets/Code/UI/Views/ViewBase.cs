@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Supernova.Managers;
 using Supernova.UI.Views.Animation;
 using UnityEngine;
 
@@ -38,7 +39,7 @@ namespace Supernova.UI.Views {
 			if (animation != null) {
 				yield return animation.OutroAnimation();
 			}
-			//ViewGraphRunner.Instance.ProcessViewNodeSelection(id);
+			ViewGraphManager.Instance.ProcessViewNodeSelection(id);
 		}
 
 	}
