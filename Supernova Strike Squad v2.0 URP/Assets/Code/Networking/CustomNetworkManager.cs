@@ -21,6 +21,13 @@ namespace Supernova.Networking {
 
 		#region Public Overrides
 
+		public override void Start() {
+			base.Start();
+			
+			//Default to a server/client when hitting start
+			StartHost();
+		}
+
 		// When the server starts we fill out the IDStack with 
 		// We turn off the NetworkManagerHUD
 		public override void OnStartServer() {
