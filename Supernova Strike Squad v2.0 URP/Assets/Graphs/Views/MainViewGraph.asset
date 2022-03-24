@@ -1,5 +1,96 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8568480112462404668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1f6a4dc2491e14bb0c29fe2b667f48, type: 3}
+  m_Name: Run Load Hangar
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 200, y: -40}
+  ports:
+    keys:
+    - entry
+    - exitNode
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8568480112462404668}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: StartGameNode
+        node: {fileID: -133180417363370637}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitNode
+      _node: {fileID: -8568480112462404668}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -2576591190707938103}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: {fileID: 0}
+  exitNode: {fileID: 0}
+--- !u!114 &-6716037073172911003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e580960966d63bd409ec7cf290a542f7, type: 3}
+  m_Name: Run Close My View
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1304, y: -40}
+  ports:
+    keys:
+    - onComplete
+    - entry
+    values:
+    - _fieldName: onComplete
+      _node: {fileID: -6716037073172911003}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: 0}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: entry
+      _node: {fileID: -6716037073172911003}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ReturnNode
+        node: {fileID: 8141596490593027441}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  <State>k__BackingField: 0
+  entry: {fileID: 0}
+  onComplete: {fileID: 0}
 --- !u!114 &-2576591190707938103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,38 +104,83 @@ MonoBehaviour:
   m_Name: Run In Game
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 632, y: -8}
+  position: {x: 632, y: -56}
   ports:
     keys:
-    - exit
     - entry
+    - settingsNode
     values:
-    - _fieldName: exit
+    - _fieldName: entry
       _node: {fileID: -2576591190707938103}
       _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
+      - fieldName: exitNode
+        node: {fileID: -8568480112462404668}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: settingsNode
+      _node: {fileID: -2576591190707938103}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: 8141596490593027441}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: {fileID: 0}
+  settingsNode: {fileID: 0}
+--- !u!114 &-995842527138607551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9874fed2b5ad06c48bbe308b4c4ee57f, type: 3}
+  m_Name: Run Close My View
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: -56}
+  ports:
+    keys:
+    - onComplete
+    - entry
+    values:
+    - _fieldName: onComplete
+      _node: {fileID: -995842527138607551}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
       - fieldName: entry
-        node: {fileID: -16218613976584526}
+        node: {fileID: 654566823628738262}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: entry
-      _node: {fileID: -2576591190707938103}
+      _node: {fileID: -995842527138607551}
       _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: StartGameNode
-        node: {fileID: -133180417363370637}
+      - fieldName: ReturnNode
+        node: {fileID: 8141596490593027441}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   entry: {fileID: 0}
-  exit: {fileID: 0}
+  onComplete: {fileID: 0}
 --- !u!114 &-133180417363370637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +194,7 @@ MonoBehaviour:
   m_Name: View
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 312, y: -8}
+  position: {x: -168, y: 8}
   ports:
     keys:
     - enter
@@ -83,7 +219,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: entry
-        node: {fileID: -2576591190707938103}
+        node: {fileID: -8568480112462404668}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -117,7 +253,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 936, y: 88}
+  position: {x: 1000, y: 184}
   ports:
     keys:
     - entry
@@ -129,9 +265,6 @@ MonoBehaviour:
       connections:
       - fieldName: SettingsNode
         node: {fileID: -133180417363370637}
-        reroutePoints: []
-      - fieldName: exit
-        node: {fileID: -2576591190707938103}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -155,6 +288,41 @@ MonoBehaviour:
   - {fileID: -133180417363370637}
   - {fileID: -16218613976584526}
   - {fileID: -2576591190707938103}
+  - {fileID: 8141596490593027441}
+  - {fileID: -8568480112462404668}
+  - {fileID: -995842527138607551}
+  - {fileID: 654566823628738262}
+--- !u!114 &654566823628738262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4952dc2076fcd41aceef17e33c5a53, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1400, y: -56}
+  ports:
+    keys:
+    - entry
+    values:
+    - _fieldName: entry
+      _node: {fileID: 654566823628738262}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: onComplete
+        node: {fileID: -995842527138607551}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: {fileID: 0}
 --- !u!114 &3196940434217650692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +336,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 0, y: 0}
+  position: {x: -472, y: 24}
   ports:
     keys:
     - exit
@@ -186,3 +354,49 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: {fileID: 0}
+--- !u!114 &8141596490593027441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c030de249d3ee8458c59efe73992ef5, type: 3}
+  m_Name: View
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: -56}
+  ports:
+    keys:
+    - enter
+    - ReturnNode
+    values:
+    - _fieldName: enter
+      _node: {fileID: 8141596490593027441}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: settingsNode
+        node: {fileID: -2576591190707938103}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: ReturnNode
+      _node: {fileID: 8141596490593027441}
+      _typeQualifiedName: Supernova.Nodes.ViewGraph.EmptyNode, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: entry
+        node: {fileID: -995842527138607551}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  enter: {fileID: 0}
+  view: {fileID: 8458700345396186866, guid: 5aa90a61cad2fa64e9831c4e0595c742, type: 3}
+  viewType: 0

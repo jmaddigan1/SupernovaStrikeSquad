@@ -8,13 +8,6 @@ public class MainMenu : Menu
 {
 	// Load the hangar in local / single player mode
 	public void Play() {
-		if (ApplicationManager.Instance) {
-			ApplicationManager.Instance.NavigateFromMainMenuToHangarScene();
-		} else {
-			Debug.LogError($"Please start from the Bootstrap scene in order to navigate between scenes");
-		}
-
-
 		//LoadingScreen.Instance.FadeIn(LoadHangar);
 		//Destroy(gameObject);
 	}

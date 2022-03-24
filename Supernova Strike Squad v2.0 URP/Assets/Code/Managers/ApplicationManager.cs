@@ -10,7 +10,7 @@ namespace Supernova.Managers {
 
 		public StateType State {
 			get;
-			private set;
+			set;
 		}
 
 		#endregion
@@ -20,27 +20,10 @@ namespace Supernova.Managers {
 
 		public void Start() {
 			this.State = StateType.None;
-			NavigateToStartScene();
-		}
-
-		public void NavigateToStartScene() {
+			
 			SceneManager.Instance.LoadScene(SceneList.MAIN_MENU, sceneName => {
 				this.State = StateType.MainMenu;
 			}, false);
-		}
-
-		public void NavigateToMainMenuScene() {
-			SceneManager.Instance.LoadScene(SceneList.MAIN_MENU, sceneName => {
-				this.State = StateType.MainMenu;
-			}, true);
-		}
-		
-		public void NavigateFromMainMenuToHangarScene() {
-			SceneManager.Instance.LoadScene(SceneList.HANGAR, sceneName => {
-				this.State = StateType.InGame;
-				SceneManager.Instance.UnloadScene(SceneList.MAIN_MENU);
-				SceneManager.Instance.HidePreloader();
-			}, true);
 		}
 
 		#endregion

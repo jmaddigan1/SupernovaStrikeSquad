@@ -102,13 +102,8 @@ namespace Supernova.Managers {
 				DestroyImmediate(this.Views.Pop().gameObject);
 			}
 		}
-
-		#endregion
-
-
-		#region Private Functions
-
-		private void PopWholeViewStack() {
+		
+		public void PopWholeViewStack() {
 			while (this.Views.Count > 0) {
 				DestroyImmediate(this.Views.Pop().gameObject);
 			}
