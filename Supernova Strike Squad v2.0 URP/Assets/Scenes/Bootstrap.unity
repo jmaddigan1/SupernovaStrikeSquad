@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 1072161736}
   - component: {fileID: 1072161737}
   - component: {fileID: 1072161738}
+  - component: {fileID: 1072161739}
   m_Layer: 0
   m_Name: '[ Code - Bootstrap ]'
   m_TagString: Untagged
@@ -410,6 +411,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCamera: {fileID: 1863588849}
+--- !u!114 &1072161739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072161734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5345af8b3b23146a7c9d09450888ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingGraph: {fileID: 11400000, guid: 45f9a2f085e5d0f469aa9953c9fa451f, type: 2}
+  viewContainer: {fileID: 1391273307}
 --- !u!1 &1142877567
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +520,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0

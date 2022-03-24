@@ -61,6 +61,10 @@ namespace Supernova.Managers {
 					this.ScenesLoading.RemoveAt(i);
 				}
 			}
+
+			if (this.ScenesLoading.Count == 0) {
+				HidePreloader();
+			}
 		}
 
 		#endregion
