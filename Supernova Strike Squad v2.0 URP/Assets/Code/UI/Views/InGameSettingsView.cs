@@ -13,6 +13,9 @@ namespace Supernova.UI.Views {
 		
 		[SerializeField]
 		private Button quitGameButton;
+		
+		[SerializeField]
+		private Button localJoinGameButton;
 
 		#endregion
 		
@@ -30,17 +33,25 @@ namespace Supernova.UI.Views {
 			get;
 			set;
 		}
+		
+		[ViewOutput]
+		public EmptyNode LocalGameJoinNode {
+			get;
+			set;
+		}
 
 		#endregion
 		
 		public override void CleanupButtonListeners() {
 			startGameButton.onClick.RemoveAllListeners();
 			quitGameButton.onClick.RemoveAllListeners();
+			localJoinGameButton.onClick.RemoveAllListeners();
 		}
 
 		public override void SetupButtonListeners() {
 			startGameButton.onClick.AddListener(() => OnProcessNode("ReturnNode"));
 			quitGameButton.onClick.AddListener(() => OnProcessNode("QuitGameNode"));
+			localJoinGameButton.onClick.AddListener(() => OnProcessNode("LocalGameJoinNode"));
 		}
 
 		public void Update() {

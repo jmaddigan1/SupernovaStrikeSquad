@@ -14,6 +14,7 @@ namespace Supernova.Nodes.ViewGraph.Process {
 			ApplicationManager.Instance.ShowMouseCursor();
 			
 			//TODO: Find out if we may just be a client to shut that down instead
+			NetworkClient.Disconnect();
 			NetworkManager.singleton.StopHost();
 
 			yield return RunPort("exitNode");
