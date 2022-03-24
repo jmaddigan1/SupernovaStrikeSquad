@@ -22,11 +22,12 @@ namespace Supernova.Nodes.ViewGraph.Process {
 			while (ApplicationManager.Instance.State == ApplicationManager.StateType.InGame) {
 
 				if (Input.GetKeyDown(KeyCode.Escape)) {
+					ApplicationManager.Instance.ShowMouseCursor();
 					yield return RunPort("settingsNode");
+					ApplicationManager.Instance.HideMouseCursor();
 				}
 				
 				yield return null;
-
 			}
 		}
 	}

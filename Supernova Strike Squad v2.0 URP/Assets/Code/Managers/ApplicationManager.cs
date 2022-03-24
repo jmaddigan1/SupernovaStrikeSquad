@@ -6,6 +6,17 @@ namespace Supernova.Managers {
 
 	public class ApplicationManager : Singleton<ApplicationManager> {
 
+		#region State
+
+		public enum StateType {
+			None,
+			MainMenu,
+			InGame
+		}
+
+		#endregion
+		
+		
 		#region Properties
 
 		public StateType State {
@@ -29,12 +40,16 @@ namespace Supernova.Managers {
 		#endregion
 		
 
-		#region State
+		#region Public Functions
 
-		public enum StateType {
-			None,
-			MainMenu,
-			InGame
+		public void ShowMouseCursor() {
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
+
+		public void HideMouseCursor() {
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 
 		#endregion
