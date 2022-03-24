@@ -31,10 +31,6 @@ namespace Supernova.Managers {
 
 		public void Start() {
 			this.State = StateType.None;
-			
-			SceneManager.Instance.LoadScene(SceneList.MAIN_MENU, sceneName => {
-				this.State = StateType.MainMenu;
-			}, false);
 		}
 
 		#endregion
