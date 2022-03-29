@@ -56,3 +56,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+[Bb]uilds/
+
+Supernova Strike Squad v2.0 URP/Builds.meta
+Supernova Strike Squad v2.0 URP/.idea/
+Supernova Strike Squad v2.0 URP/Assembly-CSharp.csproj.meta
+Supernova Strike Squad v2.0 URP/Assembly-CSharp-Editor.csproj.meta
+Supernova Strike Squad v2.0 URP/Library.meta

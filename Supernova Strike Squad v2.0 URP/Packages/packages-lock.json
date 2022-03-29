@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.github.siccity.xnode": {
+      "version": "https://github.com/siccity/xNode.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "286b9a167a539efdedd6c3d131b049edd0019d41"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -32,7 +39,7 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.3"
+        "com.unity.test-framework": "1.1.1"
       },
       "url": "https://packages.unity.com"
     },
@@ -83,7 +90,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "2.1.1",
+      "version": "2.1.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {

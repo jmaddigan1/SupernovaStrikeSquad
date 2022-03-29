@@ -287,7 +287,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4532162350317767182}
-  - component: {fileID: 4532162350317767183}
   - component: {fileID: 4532162350317767168}
   - component: {fileID: 8215269400857150154}
   - component: {fileID: 3136874956346068621}
@@ -315,24 +314,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4532162350317767183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532162350317767181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 3
-  m_AspectRatio: 1.7777778
 --- !u!114 &4532162350317767168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,8 +610,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cancel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -889,8 +874,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Weapons
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1113,11 +1098,33 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 30.9
       objectReference: {fileID: 0}
+    - target: {fileID: 858513318379049593, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 858513318379049593, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     - target: {fileID: 2443268164709217406, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
         type: 3}
       propertyPath: m_fontSize
       value: 16.35
       objectReference: {fileID: 0}
+    - target: {fileID: 2443268164709217406, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 2443268164709217406, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     - target: {fileID: 2566539300297276594, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
         type: 3}
       propertyPath: m_IsActive
@@ -1128,6 +1135,11 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 59.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4089305351986163699, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4456678571283872889, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
         type: 3}
       propertyPath: selectScreen
@@ -1135,12 +1147,6 @@ PrefabInstance:
       objectReference: {fileID: 4532162350317767168}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c798d56c31dc2545956c2f9c6d2a92c, type: 3}
---- !u!224 &844312910010550180 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 780230424612293555, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
-    type: 3}
-  m_PrefabInstance: {fileID: 100334223080246295}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4376717076228419694 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4456678571283872889, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
@@ -1153,6 +1159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927692b899723154db6e9acd6ee0218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &844312910010550180 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 780230424612293555, guid: 0c798d56c31dc2545956c2f9c6d2a92c,
+    type: 3}
+  m_PrefabInstance: {fileID: 100334223080246295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &138922550178518107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1270,6 +1282,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
 --- !u!114 &2382543759374723636 stripped
@@ -1407,6 +1430,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
 --- !u!224 &2961944128688498684 stripped
@@ -1544,14 +1578,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &3257910455367380793 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 515908354348322584}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2870249085202510199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -1564,6 +1603,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &3257910455367380793 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 515908354348322584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &973411860329698841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1681,8 +1726,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
+--- !u!224 &2854423769520813624 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 973411860329698841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3278536219506419830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -1695,12 +1757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2854423769520813624 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 973411860329698841}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1087877657945855039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1818,8 +1874,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
+--- !u!224 &2667918034484655134 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1087877657945855039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3451192488910809680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -1832,12 +1905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2667918034484655134 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1087877657945855039}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3904352463139091944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1955,6 +2022,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
 --- !u!114 &1644649899954244487 stripped
@@ -2092,14 +2170,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &1686762089546686976 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4428769655559291425}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2129029679960570958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2112,6 +2195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1686762089546686976 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4428769655559291425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5069602230410911335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2229,8 +2318,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
+--- !u!224 &7801479167937691206 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5069602230410911335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7396929161062752264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2243,12 +2349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7801479167937691206 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5069602230410911335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5329796991120032973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2366,8 +2466,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
+--- !u!224 &7199441307235083500 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5329796991120032973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7569088211856915106 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2380,12 +2497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7199441307235083500 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5329796991120032973}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5691121399315748458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2503,14 +2614,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &7270040585819682379 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5691121399315748458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7928340291850004485 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2523,6 +2639,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7270040585819682379 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5691121399315748458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5958460967138171829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2640,14 +2762,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &8695895662881913748 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5958460967138171829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8236317435825300954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2660,6 +2787,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8695895662881913748 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5958460967138171829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6207716176164968701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2777,6 +2910,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
 --- !u!224 &8951061895794718940 stripped
@@ -2914,14 +3058,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &9011420640153574039 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6273598898734414518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8641773586147476697 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -2934,6 +3083,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &9011420640153574039 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6273598898734414518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6338654862160025016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3051,14 +3206,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
---- !u!224 &9073027724758185369 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6338654862160025016}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8577842973611256791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2377324183239802479, guid: 77c89942ed73b644f830a013ac68a50f,
@@ -3071,6 +3231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791fa1fb4d0909345ba03871cd08dc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &9073027724758185369 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035060726581600289, guid: 77c89942ed73b644f830a013ac68a50f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6338654862160025016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7735854409664756389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3188,6 +3354,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: a4037bdbfdf61e048be0d4a45c89d2ac, type: 2}
+    - target: {fileID: 5009695140788214387, guid: 77c89942ed73b644f830a013ac68a50f,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a4037bdbfdf61e048be0d4a45c89d2ac,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c89942ed73b644f830a013ac68a50f, type: 3}
 --- !u!114 &5451243576673486026 stripped
