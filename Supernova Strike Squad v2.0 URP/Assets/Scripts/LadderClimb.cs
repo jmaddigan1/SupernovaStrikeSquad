@@ -37,9 +37,9 @@ public class LadderClimb : MonoBehaviour
         {
             chController.transform.position += Vector3.up / speedUpDown;
         }
-        if (inside == true && Input.GetKey("s"))
-        {
-            chController.transform.position += Vector3.down / speedUpDown;
-        }
+        //if (inside == true && Input.GetKey("s"))
+        //{
+        //    chController.transform.position += Vector3.down / speedUpDown;
+        //}
     }
 }

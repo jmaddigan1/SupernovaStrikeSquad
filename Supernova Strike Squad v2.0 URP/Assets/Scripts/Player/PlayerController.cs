@@ -16,7 +16,7 @@ public class PlayerController : NetworkBehaviour
 	[SerializeField] private Transform cameraTarget = null;
 
     //zac slope stuff
-    [SerializeField] private float slopeForce = 5f;
+    [SerializeField] private float slopeForce = 50f;
     [SerializeField] private float slopeForceRayLength = 1.5f;
 
 
