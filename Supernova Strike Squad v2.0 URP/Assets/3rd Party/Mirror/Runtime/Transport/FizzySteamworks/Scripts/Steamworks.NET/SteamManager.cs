@@ -105,7 +105,12 @@ public class SteamManager : MonoBehaviour {
 		// https://partner.steamgames.com/doc/sdk/api#initialization_and_shutdown
 		m_bInitialized = SteamAPI.Init();
 		if (!m_bInitialized) {
-			Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
+			#if UNITY_EDITOR
+				Debug.LogWarning($"[Steamworks.NET] Failed to initialize SteamAPI_Init(), since we are in editor falling back to Mock");
+			#else
+				Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
+			#endif
+			
 
 			return;
 		}
