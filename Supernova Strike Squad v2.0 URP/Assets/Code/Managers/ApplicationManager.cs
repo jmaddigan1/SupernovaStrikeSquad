@@ -14,12 +14,22 @@ namespace Supernova.Managers {
 			InGame
 		}
 
+		public enum JoinStateType {
+			Host,
+			LocalClient
+		}
+
 		#endregion
 		
 		
 		#region Properties
 
 		public StateType State {
+			get;
+			set;
+		}
+
+		public JoinStateType JoinState {
 			get;
 			set;
 		}

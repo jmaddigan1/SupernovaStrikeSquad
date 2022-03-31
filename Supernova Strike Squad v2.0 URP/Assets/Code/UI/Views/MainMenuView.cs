@@ -50,6 +50,14 @@ namespace Supernova.UI.Views {
 
 		public override void SetupUserInterface() {
 			userAvatar.sprite = AccountManager.Instance.AvatarImage;
+
+			ApplicationManager.Instance.JoinState = ApplicationManager.JoinStateType.Host;
+		}
+
+		public void Update() {
+			if (Input.GetKeyDown(KeyCode.P)) {
+				ApplicationManager.Instance.JoinState = ApplicationManager.JoinStateType.LocalClient;
+			}
 		}
 	}
 }
