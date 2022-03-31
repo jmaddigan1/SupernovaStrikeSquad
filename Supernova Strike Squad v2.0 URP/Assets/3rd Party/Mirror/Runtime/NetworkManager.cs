@@ -124,7 +124,7 @@ namespace Mirror
         public static NetworkManager singleton { get; private set; }
 
         /// <summary>Number of active player objects across all connections on the server.</summary>
-        public int numPlayers => NetworkServer.connections.Count(kv => kv.Value.identity != null);
+        public int NumberOfPlayerInGame => NetworkServer.connections.Count(kv => kv.Value.identity != null);
 
         /// <summary>True if the server is running or client is connected/connecting.</summary>
         [NonSerialized]
