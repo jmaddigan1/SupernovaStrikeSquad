@@ -13,21 +13,21 @@ namespace Mirror.Examples.Pong
             if (manager == null)
                 return;
 
-            if (manager.mode == NetworkManagerMode.ServerOnly)
+            if (manager.NetworkManagerMode == NetworkManagerMode.ServerOnly)
             {
                 if (GUILayout.Button("Stop Server"))
                 {
                     manager.StopServer();
                 }
             }
-            else if (manager.mode == NetworkManagerMode.Host)
+            else if (manager.NetworkManagerMode == NetworkManagerMode.Host)
             {
                 if (GUILayout.Button("Stop Host"))
                 {
                     manager.StopHost();
                 }
             }
-            else if (manager.mode == NetworkManagerMode.ClientOnly)
+            else if (manager.NetworkManagerMode == NetworkManagerMode.ClientOnly)
             {
                 if (GUILayout.Button("Stop Client"))
                 {

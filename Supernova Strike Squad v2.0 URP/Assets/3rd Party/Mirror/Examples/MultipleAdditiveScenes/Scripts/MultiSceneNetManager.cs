@@ -127,7 +127,7 @@ namespace Mirror.Examples.MultipleAdditiveScenes
         public override void OnStopClient()
         {
             // make sure we're not in host mode
-            if (mode == NetworkManagerMode.ClientOnly)
+            if (NetworkManagerMode == NetworkManagerMode.ClientOnly)
                 StartCoroutine(ClientUnloadSubScenes());
         }
 
