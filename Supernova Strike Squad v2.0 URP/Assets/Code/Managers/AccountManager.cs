@@ -61,16 +61,21 @@ namespace Supernova.Managers {
 		#region Public Functions
 
 		public void Initialize() {
-			if (SteamManager.Initialized) {
-				this.Account = new AccountSteam();
-			} else {
-				#if UNITY_EDITOR
-					this.Account = new AccountMock();
-				#else
-					Debug.LogError($"[Account Manager] Failed to initialize account.");
-					Application.Quit();
-				#endif
-			}
+			#if SUPERNOVA_FORCE_MOCK
+				this.Account = new AccountMock();
+			#else
+				if (SteamManager.Initialized) {
+					this.Account = new AccountSteam();
+				} else {
+					#if UNITY_EDITOR
+						this.Account = new AccountMock();
+					#else
+						Debug.LogError($"[Account Manager] Failed to initialize account.");
+						Application.Quit();
+					#endif
+				}
+			#endif
+			
 
 			this.AvatarImage = defaultMockAvatar;
 			this.AvatarTexture2DImage = defaultMockAvatarTexture;
