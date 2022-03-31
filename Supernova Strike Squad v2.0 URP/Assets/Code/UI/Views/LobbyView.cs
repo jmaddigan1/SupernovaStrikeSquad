@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Mirror;
 using Mirror.Examples.Chat;
 using Supernova.Managers;
 using Supernova.Networking;
@@ -46,6 +47,7 @@ namespace Supernova.UI.Views {
 
 		public override void SetupUserInterface() {
 			int numberOfPlayersInGame = CustomNetworkManager.singleton.NumberOfPlayerInGame;
+			bool isHost = CustomNetworkManager.singleton.NetworkManagerMode == NetworkManagerMode.Host;
 			for (int i = 0; i < players.Count; i++) {
 				bool isShowing = i < numberOfPlayersInGame;
 				players[i].gameObject.SetActive(isShowing);
@@ -54,9 +56,9 @@ namespace Supernova.UI.Views {
 
 					//TODO: Correct this for all players in the game and correct host user
 					if (i == 0) {
-						players[i].Initialize(AccountManager.Instance.AvatarImage, AccountManager.Instance.Username, true, true);
+						players[i].Initialize(AccountManager.Instance.AvatarImage, AccountManager.Instance.Username, true, true, isHost);
 					} else {
-						players[i].Initialize(null, "Connected User", false);
+						players[i].Initialize(null, "Connected User", false, false, isHost);
 					}
 				}
 			}
