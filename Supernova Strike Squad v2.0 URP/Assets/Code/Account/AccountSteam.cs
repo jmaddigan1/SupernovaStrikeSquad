@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Steamworks;
 using UnityEngine;
 
@@ -22,10 +23,11 @@ namespace Supernova.Account {
 			set;
 		}
 
-		public string AvatarLink {
+		public Action LoadAvatarAction {
 			get;
+			set;
 		}
-		
+
 		protected Callback<GameOverlayActivated_t> GameOverlayActivated {
 			get;
 			set;
@@ -44,12 +46,12 @@ namespace Supernova.Account {
 			}
 		}
 
-		public void SignIn(Action callback) {
+		public void SignIn() {
 			if (SteamManager.Initialized) {
 				this.IsSignedIn = true;
 				this.Username = SteamFriends.GetPersonaName();
 				this.ID = SteamUser.GetSteamID().ToString();
-				callback();
+				this.LoadAvatarAction();
 			}
 		}
 
@@ -67,5 +69,6 @@ namespace Supernova.Account {
 		}
 
 		#endregion
+
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Supernova.Account {
 	public interface IAccount {
@@ -17,14 +18,15 @@ namespace Supernova.Account {
 			get;
 			set;
 		}
-		
-		string AvatarLink {
+
+		Action LoadAvatarAction {
 			get;
+			set;
 		}
-		
-		
+
+
 		void Initialize();
 		
-		void SignIn(Action callback);
+		void SignIn();
 	}
 }

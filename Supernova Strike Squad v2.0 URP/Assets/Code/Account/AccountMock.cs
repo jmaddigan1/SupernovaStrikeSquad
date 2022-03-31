@@ -21,9 +21,10 @@ namespace Supernova.Account {
 			get;
 			set;
 		}
-
-		public string AvatarLink {
+		
+		public Action LoadAvatarAction {
 			get;
+			set;
 		}
 
 		#endregion
@@ -35,11 +36,10 @@ namespace Supernova.Account {
 			Debug.Log($"[Account] Mock Account");
 		}
 
-		public void SignIn(Action callback) {
+		public void SignIn() {
 			this.IsSignedIn = true;
 			this.Username = $"Supernova User";
 			this.ID = "Supernova User";
-			callback();
 		}
 
 		#endregion
