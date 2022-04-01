@@ -15,13 +15,17 @@ MonoBehaviour:
   groupInfos: []
   stickyNoteInfos: []
   systemInfos: []
-  categories: []
+  categories:
+  - name: Hologram Texture
+    collapsed: 0
+  - name: Hologram Animation
+    collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: -471
+    x: -103
     y: -134
-    width: 1837
-    height: 2003
+    width: 1469
+    height: 2024
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,18 +44,167 @@ MonoBehaviour:
   - {fileID: 8926484042661614558}
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614595}
-  - {fileID: 8926484042661614636}
   - {fileID: 8926484042661614640}
   - {fileID: 8926484042661614671}
   - {fileID: 8926484042661614699}
   - {fileID: 8926484042661614706}
   - {fileID: 8926484042661614723}
-  - {fileID: 8926484042661614821}
+  - {fileID: 8926484042661614835}
+  - {fileID: 8926484042661614841}
+  - {fileID: 8926484042661614843}
+  - {fileID: 8926484042661614845}
+  - {fileID: 8926484042661614849}
+  - {fileID: 8926484042661614851}
+  - {fileID: 8926484042661614853}
+  - {fileID: 8926484042661614886}
+  - {fileID: 8926484042661614888}
+  - {fileID: 8926484042661614897}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_UIInfos: {fileID: 114340500867371532}
-  m_ParameterInfo: []
+  m_ParameterInfo:
+  - name: Hologram Mesh
+    path: Hologram Mesh
+    tooltip: 
+    sheetType: m_NamedObject
+    realType: Mesh
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"obj":{"fileID":-2359297639435938828,"guid":"79a5311fdd348cc41a013c49f87ac163","type":3}}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Texture
+    path: 
+    tooltip: 
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Color
+    path: Hologram Color
+    tooltip: 
+    sheetType: m_Vector4f
+    realType: Color
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"r":0.0,"g":0.375,"b":0.75,"a":0.0}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Texture
+    path: Hologram Texture
+    tooltip: 
+    sheetType: m_NamedObject
+    realType: Texture2D
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"661656cabc9f3c649a21be325d6f8302","type":3}}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Tex Tilling
+    path: Hologram Tex Tilling
+    tooltip: 
+    sheetType: m_Vector2f
+    realType: Vector2
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":1.0,"y":3.0}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Tex Speed
+    path: Hologram Tex Speed
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.1
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Animation
+    path: 
+    tooltip: 
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Size
+    path: Hologram Size
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.12
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Multply Size Over Life
+    path: Hologram Multply Size Over Life
+    tooltip: 
+    sheetType: m_AnimationCurve
+    realType: AnimationCurve
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":7.846024036407471,"outTangent":7.846024036407471,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.07288222014904022,"value":0.990037739276886,"inTangent":0.26192253828048708,"outTangent":0.26192253828048708,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4994206428527832,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8686818480491638,"value":0.9930177330970764,"inTangent":-0.055793486535549167,"outTangent":-0.055793486535549167,"tangentMode":0,"leftTangentMode":4,"rightTangentMode":4,"broken":false},{"time":1.0,"value":0.0,"inTangent":-7.824521541595459,"outTangent":-7.824521541595459,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Lifetime
+    path: Hologram Lifetime
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 20
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
+  - name: Hologram Rotation
+    path: Hologram Rotation
+    tooltip: x is min, y is max. Random number between the two is chosen.
+    sheetType: m_Vector2f
+    realType: Vector2
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":360.0,"y":720.0}'
+    min: -Infinity
+    max: Infinity
+    descendantCount: 0
   m_GraphVersion: 4
   m_saved: 1
   m_SubgraphDependencies: []
@@ -72,20 +225,21 @@ VisualEffectResource:
       VFX_PASSDEPTH_SELECTION (2)\n#define VFX_USE_LIFETIME_CURRENT 1\n#define VFX_USE_ANGLEX_CURRENT
       1\n#define VFX_USE_ANGLEY_CURRENT 1\n#define VFX_USE_ANGLEZ_CURRENT 1\n#define
       VFX_USE_PARTICLEID_CURRENT 1\n#define VFX_USE_ALIVE_CURRENT 1\n#define VFX_USE_AGE_CURRENT
-      1\n#define VFX_LOCAL_SPACE 1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/Universal/VFXDefines.hlsl\"\n\n\r\n\nstruct
-      Attributes\n{\n    float lifetime;\n    float angleX;\n    float angleY;\n   
-      float angleZ;\n    uint particleId;\n    bool alive;\n    float age;\n};\n\nstruct
-      SourceAttributes\n{\n};\n\n\n\r\n\r\n#define USE_DEAD_LIST (VFX_USE_ALIVE_CURRENT
-      && !HAS_STRIPS)\r\n\r\nRWByteAddressBuffer attributeBuffer;\r\nByteAddressBuffer
-      sourceAttributeBuffer;\r\n\r\nCBUFFER_START(initParams)\r\n#if !VFX_USE_SPAWNER_FROM_GPU\r\n   
-      uint nbSpawned;\t\t\t\t\t// Numbers of particle spawned\r\n    uint spawnIndex;\t\t\t\t//
-      Index of the first particle spawned\r\n    uint dispatchWidth;\r\n#else\r\n   
-      uint offsetInAdditionalOutput;\r\n\tuint nbMax;\r\n#endif\r\n\tuint systemSeed;\r\nCBUFFER_END\r\n\r\n#if
-      USE_DEAD_LIST\r\nRWStructuredBuffer<uint> deadListIn;\r\nByteAddressBuffer
-      deadListCount; // This is bad to use a SRV to fetch deadList count but Unity
-      API currently prevent from copying to CB\r\n#endif\r\n\r\n#if VFX_USE_SPAWNER_FROM_GPU\r\nStructuredBuffer<uint>
-      eventList;\r\nByteAddressBuffer inputAdditional;\r\n#endif\r\n\r\n#if HAS_STRIPS\r\nRWBuffer<uint>
-      stripDataBuffer;\r\n#endif\r\n\r\n#include \"Packages/com.unity.visualeffectgraph/Shaders/Common/VFXCommonCompute.hlsl\"\n#include
+      1\n#define VFX_LOCAL_SPACE 1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/Universal/VFXDefines.hlsl\"\n\n\r\nCBUFFER_START(parameters)\n   
+      float Lifetime_a;\n    uint3 PADDING_0;\nCBUFFER_END\n\nstruct Attributes\n{\n   
+      float lifetime;\n    float angleX;\n    float angleY;\n    float angleZ;\n   
+      uint particleId;\n    bool alive;\n    float age;\n};\n\nstruct SourceAttributes\n{\n};\n\n\n\r\n\r\n#define
+      USE_DEAD_LIST (VFX_USE_ALIVE_CURRENT && !HAS_STRIPS)\r\n\r\nRWByteAddressBuffer
+      attributeBuffer;\r\nByteAddressBuffer sourceAttributeBuffer;\r\n\r\nCBUFFER_START(initParams)\r\n#if
+      !VFX_USE_SPAWNER_FROM_GPU\r\n    uint nbSpawned;\t\t\t\t\t// Numbers of particle
+      spawned\r\n    uint spawnIndex;\t\t\t\t// Index of the first particle spawned\r\n   
+      uint dispatchWidth;\r\n#else\r\n    uint offsetInAdditionalOutput;\r\n\tuint
+      nbMax;\r\n#endif\r\n\tuint systemSeed;\r\nCBUFFER_END\r\n\r\n#if USE_DEAD_LIST\r\nRWStructuredBuffer<uint>
+      deadListIn;\r\nByteAddressBuffer deadListCount; // This is bad to use a SRV
+      to fetch deadList count but Unity API currently prevent from copying to CB\r\n#endif\r\n\r\n#if
+      VFX_USE_SPAWNER_FROM_GPU\r\nStructuredBuffer<uint> eventList;\r\nByteAddressBuffer
+      inputAdditional;\r\n#endif\r\n\r\n#if HAS_STRIPS\r\nRWBuffer<uint> stripDataBuffer;\r\n#endif\r\n\r\n#include
+      \"Packages/com.unity.visualeffectgraph/Shaders/Common/VFXCommonCompute.hlsl\"\n#include
       \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommon.hlsl\"\n\n\r\n\r\nvoid
       SetAttribute_F0142CB9(inout float lifetime, float Lifetime) /*attribute:lifetime
       Composition:Overwrite Source:Slot Random:Off channels:XYZ */\n{\n    lifetime
@@ -127,11 +281,11 @@ VisualEffectResource:
       return;\r\n\r\n        const StripData stripData = GetStripDataFromStripIndex(stripIndex,
       PARTICLE_PER_STRIP_COUNT);\r\n\t\tInitStripAttributes(particleIndex, attributes,
       stripData);\r\n\t\t// TODO Change seed to be sure we're deterministic on random
-      with strip\r\n#endif\r\n        \r\n        {\n            SetAttribute_F0142CB9(
-      /*inout */attributes.lifetime, (float)20);\n        }\n        \n\r\n\t\t\r\n#if
-      VFX_USE_ALIVE_CURRENT\r\n        if (attributes.alive)\r\n#endif       \r\n       
-      {\r\n#if USE_DEAD_LIST\r\n\t        uint deadIndex = deadListIn.DecrementCounter();\r\n           
-      uint index = deadListIn[deadIndex];\r\n#else\r\n            uint index = particleIndex;\r\n#endif\r\n           
+      with strip\r\n#endif\r\n        \r\n        SetAttribute_F0142CB9( /*inout
+      */attributes.lifetime, Lifetime_a);\n        \n\r\n\t\t\r\n#if VFX_USE_ALIVE_CURRENT\r\n       
+      if (attributes.alive)\r\n#endif       \r\n        {\r\n#if USE_DEAD_LIST\r\n\t       
+      uint deadIndex = deadListIn.DecrementCounter();\r\n            uint index =
+      deadListIn[deadIndex];\r\n#else\r\n            uint index = particleIndex;\r\n#endif\r\n           
       attributeBuffer.Store((index * 0x1 + 0x0) << 2,asuint(attributes.lifetime));\n           
       attributeBuffer.Store((index * 0x3 + 0x4) << 2,asuint(attributes.angleX));\n           
       attributeBuffer.Store((index * 0x3 + 0x5) << 2,asuint(attributes.angleY));\n           
@@ -148,14 +302,15 @@ VisualEffectResource:
       1\n#define VFX_USE_ANGLEY_CURRENT 1\n#define VFX_USE_ANGLEZ_CURRENT 1\n#define
       VFX_USE_PARTICLEID_CURRENT 1\n#define VFX_USE_ALIVE_CURRENT 1\n#define VFX_USE_AGE_CURRENT
       1\n#define VFX_LOCAL_SPACE 1\n#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/Universal/VFXDefines.hlsl\"\n\n\r\nCBUFFER_START(parameters)\n   
-      float uniform_a;\n    float uniform_b;\n    float deltaTime_b;\n    uint PADDING_0;\nCBUFFER_END\n\nstruct
-      Attributes\n{\n    float lifetime;\n    float angleX;\n    float angleY;\n   
-      float angleZ;\n    uint particleId;\n    bool alive;\n    float age;\n};\n\nstruct
-      SourceAttributes\n{\n};\n\n\n\r\n\r\n#define USE_DEAD_LIST (VFX_USE_ALIVE_CURRENT
-      && !HAS_STRIPS)\r\n\r\nRWByteAddressBuffer attributeBuffer;\r\n\r\n#if USE_DEAD_LIST\r\nRWStructuredBuffer<uint>
-      deadListOut;\r\n#endif\r\n\r\n#if VFX_HAS_INDIRECT_DRAW\r\nRWStructuredBuffer<uint>
-      indirectBuffer;\r\n#endif\r\n\r\n#if HAS_STRIPS\r\nRWBuffer<uint> stripDataBuffer;\r\n#endif\r\n\r\n#if
-      VFX_USE_STRIPALIVE_CURRENT\r\nBuffer<uint> attachedStripDataBuffer;\r\n#endif\r\n\r\nCBUFFER_START(updateParams)\r\n   
+      float uniform_a;\n    float uniform_b;\n    float uniform_c;\n    float uniform_d;\n   
+      float deltaTime_b;\n    uint3 PADDING_0;\nCBUFFER_END\n\nstruct Attributes\n{\n   
+      float lifetime;\n    float angleX;\n    float angleY;\n    float angleZ;\n   
+      uint particleId;\n    bool alive;\n    float age;\n};\n\nstruct SourceAttributes\n{\n};\n\n\n\r\n\r\n#define
+      USE_DEAD_LIST (VFX_USE_ALIVE_CURRENT && !HAS_STRIPS)\r\n\r\nRWByteAddressBuffer
+      attributeBuffer;\r\n\r\n#if USE_DEAD_LIST\r\nRWStructuredBuffer<uint> deadListOut;\r\n#endif\r\n\r\n#if
+      VFX_HAS_INDIRECT_DRAW\r\nRWStructuredBuffer<uint> indirectBuffer;\r\n#endif\r\n\r\n#if
+      HAS_STRIPS\r\nRWBuffer<uint> stripDataBuffer;\r\n#endif\r\n\r\n#if VFX_USE_STRIPALIVE_CURRENT\r\nBuffer<uint>
+      attachedStripDataBuffer;\r\n#endif\r\n\r\nCBUFFER_START(updateParams)\r\n   
       uint nbMax;\r\n\tuint dispatchWidth;\r\n\tuint systemSeed;\r\nCBUFFER_END\r\n\r\n#include
       \"Packages/com.unity.visualeffectgraph/Shaders/Common/VFXCommonCompute.hlsl\"\n#include
       \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommon.hlsl\"\n\n\r\n\r\nvoid
@@ -181,9 +336,9 @@ VisualEffectResource:
       = attributes.position;\r\n#endif\r\n#if HAS_STRIPS\r\n            const StripData
       stripData = GetStripDataFromParticleIndex(index, PARTICLE_PER_STRIP_COUNT);\r\n           
       InitStripAttributes(index, attributes, stripData);\r\n#endif\r\n\t\t\t\r\n\t\t\t{\n\t\t\t   
-      uint tmp_y = attributes.particleId ^ asuint(uniform_a);\n\t\t\t    float tmp_z
-      = FixedRand(tmp_y);\n\t\t\t    float tmp_bb = tmp_z * (float)90;\n\t\t\t   
-      float tmp_bc = (float)180 + tmp_bb;\n\t\t\t    float tmp_bd = tmp_bc * uniform_b;\n\t\t\t   
+      uint tmp_z = attributes.particleId ^ asuint(uniform_b);\n\t\t\t    float tmp_ba
+      = FixedRand(tmp_z);\n\t\t\t    float tmp_bb = tmp_ba * uniform_c;\n\t\t\t   
+      float tmp_bc = uniform_a + tmp_bb;\n\t\t\t    float tmp_bd = tmp_bc * uniform_d;\n\t\t\t   
       float3 tmp_be = float3(tmp_bd, tmp_bd, tmp_bd);\n\t\t\t    SetAttribute_48A7BEFF(
       /*inout */attributes.angleX,  /*inout */attributes.angleY,  /*inout */attributes.angleZ,
       tmp_be);\n\t\t\t}\n\t\t\tAge( /*inout */attributes.age, deltaTime_b);\n\t\t\tReap(attributes.age,
@@ -216,10 +371,10 @@ VisualEffectResource:
       VFX_USE_OLDPOSITION_CURRENT\r\n\t\tattributes.oldPosition = attributes.position;\r\n#endif\r\n#if
       HAS_STRIPS\r\n        const StripData stripData = GetStripDataFromParticleIndex(index,
       PARTICLE_PER_STRIP_COUNT);\r\n        InitStripAttributes(index, attributes,
-      stripData);\r\n#endif\r\n\t\t\r\n\t\t{\n\t\t    uint tmp_y = attributes.particleId
-      ^ asuint(uniform_a);\n\t\t    float tmp_z = FixedRand(tmp_y);\n\t\t    float
-      tmp_bb = tmp_z * (float)90;\n\t\t    float tmp_bc = (float)180 + tmp_bb;\n\t\t   
-      float tmp_bd = tmp_bc * uniform_b;\n\t\t    float3 tmp_be = float3(tmp_bd,
+      stripData);\r\n#endif\r\n\t\t\r\n\t\t{\n\t\t    uint tmp_z = attributes.particleId
+      ^ asuint(uniform_b);\n\t\t    float tmp_ba = FixedRand(tmp_z);\n\t\t    float
+      tmp_bb = tmp_ba * uniform_c;\n\t\t    float tmp_bc = uniform_a + tmp_bb;\n\t\t   
+      float tmp_bd = tmp_bc * uniform_d;\n\t\t    float3 tmp_be = float3(tmp_bd,
       tmp_bd, tmp_bd);\n\t\t    SetAttribute_48A7BEFF( /*inout */attributes.angleX, 
       /*inout */attributes.angleY,  /*inout */attributes.angleZ, tmp_be);\n\t\t}\n\t\tAge(
       /*inout */attributes.age, deltaTime_b);\n\t\tReap(attributes.age, attributes.lifetime, 
@@ -252,14 +407,16 @@ VisualEffectResource:
       VFX_SHADERGRAPH 1\n\t\t#define HAS_SHADERGRAPH_PARAM_COLOR 1\n\t\t#define HAS_SHADERGRAPH_PARAM_ALPHA
       1\n\t\t#define VFX_NEEDS_POSWS_INTERPOLATOR 1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define
       VFX_LOCAL_SPACE 1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/Universal/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t   
-      float4 Size_b;\n\t\tCBUFFER_END\n\t\t\n\t\tstruct Attributes\n\t\t{\n\t\t   
-      float lifetime;\n\t\t    float angleX;\n\t\t    float angleY;\n\t\t    float
-      angleZ;\n\t\t    float3 position;\n\t\t    float3 color;\n\t\t    float alpha;\n\t\t   
-      bool alive;\n\t\t    float3 axisX;\n\t\t    float3 axisY;\n\t\t    float3 axisZ;\n\t\t   
-      float pivotX;\n\t\t    float pivotY;\n\t\t    float pivotZ;\n\t\t    float
-      size;\n\t\t    float scaleX;\n\t\t    float scaleY;\n\t\t    float scaleZ;\n\t\t   
-      float age;\n\t\t};\n\t\t\n\t\tstruct SourceAttributes\n\t\t{\n\t\t};\n\t\t\n\t\tTexture2D
-      _HoloTex;\n\t\tSamplerState sampler_HoloTex;\n\t\tfloat4 _HoloTex_TexelSize;\n\t\t\n\t\t\n\n\t\t\n\t\t#define
+      float4 Size_b;\n\t\t    float4 _HoloColor;\n\t\t    float2 _HoloTexTile;\n\t\t   
+      float Size_a;\n\t\t    float _HoloSpeed;\n\t\tCBUFFER_END\n\t\t\n\t\tstruct
+      Attributes\n\t\t{\n\t\t    float lifetime;\n\t\t    float angleX;\n\t\t   
+      float angleY;\n\t\t    float angleZ;\n\t\t    float3 position;\n\t\t    float3
+      color;\n\t\t    float alpha;\n\t\t    bool alive;\n\t\t    float3 axisX;\n\t\t   
+      float3 axisY;\n\t\t    float3 axisZ;\n\t\t    float pivotX;\n\t\t    float
+      pivotY;\n\t\t    float pivotZ;\n\t\t    float size;\n\t\t    float scaleX;\n\t\t   
+      float scaleY;\n\t\t    float scaleZ;\n\t\t    float age;\n\t\t};\n\t\t\n\t\tstruct
+      SourceAttributes\n\t\t{\n\t\t};\n\t\t\n\t\tTexture2D _HoloTex;\n\t\tSamplerState
+      sampler_HoloTex;\n\t\tfloat4 _HoloTex_TexelSize;\n\t\t\n\t\t\n\n\t\t\n\t\t#define
       VFX_NEEDS_COLOR_INTERPOLATOR (VFX_USE_COLOR_CURRENT || VFX_USE_ALPHA_CURRENT)\n\t\t#if
       HAS_STRIPS\n\t\t#define VFX_OPTIONAL_INTERPOLATION \n\t\t#else\n\t\t#define
       VFX_OPTIONAL_INTERPOLATION nointerpolation\n\t\t#endif\n\t\t\n\t\tByteAddressBuffer
@@ -290,9 +447,7 @@ VisualEffectResource:
       #if VFX_NEEDS_POSWS_INTERPOLATOR\n\t\t\t\tfloat3 posWS : TEXCOORD8;\n\t\t\t   
       #endif\n\t\t\t\t\n\t\t\t\t#if VFX_PASSDEPTH == VFX_PASSDEPTH_MOTION_VECTOR\n\t\t\t\tfloat4
       cPosPrevious : TEXCOORD6;\n\t\t\t\tfloat4 cPosNonJiterred : TEXCOORD7;\n\t\t\t\t#endif\n\t\t\t   
-      VFX_OPTIONAL_INTERPOLATION float4 _HoloColor : NORMAL0;\n\t\t\t    VFX_OPTIONAL_INTERPOLATION
-      float2 _HoloTexTile : NORMAL1;\n\t\t\t    VFX_OPTIONAL_INTERPOLATION float
-      _HoloSpeed : NORMAL2;\n\t\t\t    \n\n\t\t\t\t\n\t\t\t\tUNITY_VERTEX_OUTPUT_STEREO\n\t\t\t};\n\t\t\t\n\t\t\t#define
+      VFX_OPTIONAL_INTERPOLATION float _HoloAlpha : NORMAL0;\n\t\t\t    \n\n\t\t\t\t\n\t\t\t\tUNITY_VERTEX_OUTPUT_STEREO\n\t\t\t};\n\t\t\t\n\t\t\t#define
       VFX_VARYING_PS_INPUTS ps_input\n\t\t\t#define VFX_VARYING_POSCS pos\n\t\t\t#define
       VFX_VARYING_ALPHA builtInInterpolants.z\n\t\t\t#define VFX_VARYING_ALPHATHRESHOLD
       builtInInterpolants.x\n\t\t\t#define VFX_VARYING_FRAMEBLEND builtInInterpolants.y\n\t\t\t#define
@@ -355,9 +510,9 @@ VisualEffectResource:
       = (float)1;\n\t\t\t\t\t\tattributes.age = asfloat(attributeBuffer.Load((index
       * 0x2 + 0x15) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t//
       Initialize built-in needed attributes\n\t\t\t\t\t\t#if HAS_STRIPS\n\t\t\t\t\t\tInitStripAttributes(index,
-      attributes, stripData);\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t{\n\t\t\t\t   
-      SetAttribute_3278B22F( /*inout */attributes.size, (float)0.119999997);\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_7DF18693(
-      /*inout */attributes.size, attributes.age, attributes.lifetime, Size_b);\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
+      attributes, stripData);\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tSetAttribute_3278B22F(
+      /*inout */attributes.size, Size_a);\n\t\t\t\tAttributeFromCurve_7DF18693( /*inout
+      */attributes.size, attributes.age, attributes.lifetime, Size_b);\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
       (!attributes.alive)\n\t\t\t\t\treturn o;\n\t\t\t\t\n\t\t\t\to.VFX_VARYING_UV.xy
       = i.uv;\n\t\t\t    \n\t\t\t    #if VFX_SHADERGRAPH_HAS_UV1\n\t\t\t    o.uv1
       = i.uv1;\n\t\t\t    #endif\n\t\t\t    #if VFX_SHADERGRAPH_HAS_UV2\n\t\t\t   
@@ -410,12 +565,8 @@ VisualEffectResource:
       && defined (VFX_VARYING_FRAMEBLEND)\n\t\t\t\t\t\to.VFX_VARYING_UV.zw = uvData.uvs.zw;\n\t\t\t\t\t\to.VFX_VARYING_FRAMEBLEND
       = uvData.blend;\n\t\t\t\t\t\t#if USE_FLIPBOOK_MOTIONVECTORS && defined(VFX_VARYING_MOTIONVECTORSCALE)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_MOTIONVECTORSCALE
       = motionVectorScale * invFlipBookSize;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t   
-      \n\t\t\t    float4 _HoloColor__ = (float4)0;{\n\t\t\t        \n\t\t\t       
-      _HoloColor__ = float4(0, 0.368627459, 0.749019623, 0);\n\t\t\t    }\n\t\t\t   
-      o._HoloColor = _HoloColor__;float2 _HoloTexTile__ = (float2)0;{\n\t\t\t       
-      \n\t\t\t        _HoloTexTile__ = float2(1, 5);\n\t\t\t    }\n\t\t\t    o._HoloTexTile
-      = _HoloTexTile__;float _HoloSpeed__ = (float)0;{\n\t\t\t        \n\t\t\t       
-      _HoloSpeed__ = (float)0.100000001;\n\t\t\t    }\n\t\t\t    o._HoloSpeed = _HoloSpeed__;\n\n\t\t\t\t\n\t\t\t\treturn
+      \n\t\t\t    float _HoloAlpha__ = (float)0;{\n\t\t\t        \n\t\t\t       
+      _HoloAlpha__ = (float)1;\n\t\t\t    }\n\t\t\t    o._HoloAlpha = _HoloAlpha__;\n\n\t\t\t\t\n\t\t\t\treturn
       o;\n\t\t\t}\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommonOutput.hlsl\"\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\t#include
       \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl\"\n\t\t\t\t\t#include
       \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl\"\n\t\t\t\t\t#include
@@ -427,21 +578,24 @@ VisualEffectResource:
       Node: Multiply\n\t\t\tvoid Unity_Multiply_float(float A, float B, out float
       Out)\n\t\t\t{\n\t\t\t    Out = A * B;\n\t\t\t}\n\t\t\t\n\t\t\t// Node: Tiling
       And Offset\n\t\t\tvoid Unity_TilingAndOffset_float(float2 UV, float2 Tiling,
-      float2 Offset, out float2 Out)\n\t\t\t{\n\t\t\t    Out = UV * Tiling + Offset;\n\t\t\t}\n\t\t\t\n\t\t\tstruct
-      SG_Input_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t    float4 ScreenPosition;\n\t\t\t   
-      float3 TimeParameters;\n\t\t\t};\n\t\t\t\n\t\t\tstruct SG_Output_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t   
-      float Alpha_4;\n\t\t\t};\n\t\t\t\n\t\t\tSG_Output_f018e0adca2c9a14d883221109f313fc
+      float2 Offset, out float2 Out)\n\t\t\t{\n\t\t\t    Out = UV * Tiling + Offset;\n\t\t\t}\n\t\t\t\n\t\t\t//
+      Node: Multiply\n\t\t\tvoid Unity_Multiply_float(float4 A, float4 B, out float4
+      Out)\n\t\t\t{\n\t\t\t    Out = A * B;\n\t\t\t}\n\t\t\t\n\t\t\t// Node: One
+      Minus\n\t\t\tvoid Unity_OneMinus_float4(float4 In, out float4 Out)\n\t\t\t{\n\t\t\t   
+      Out = 1 - In;\n\t\t\t}\n\t\t\t\n\t\t\tstruct SG_Input_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t   
+      float4 ScreenPosition;\n\t\t\t    float3 TimeParameters;\n\t\t\t};\n\t\t\t\n\t\t\tstruct
+      SG_Output_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t    float Alpha_4;\n\t\t\t};\n\t\t\t\n\t\t\tSG_Output_f018e0adca2c9a14d883221109f313fc
       SG_Evaluate_f018e0adca2c9a14d883221109f313fc(\n\t\t\t    SG_Input_f018e0adca2c9a14d883221109f313fc
       IN,\n\t\t\t    /* Property: HoloTex */ TEXTURE2D_PARAM(_HoloTex, sampler_HoloTex),
       float4 _HoloTex_TexelSize,\n\t\t\t    /* Property: HoloTexTile */ float2 _HoloTexTile,\n\t\t\t   
-      /* Property: HoloSpeed */ float _HoloSpeed)\n\t\t\t{\n\t\t\t    // Node: Screen
-      Position\n\t\t\t    float4 _ScreenPosition_DA0E5828_Out_0 = float4(IN.ScreenPosition.xy
-      / IN.ScreenPosition.w, 0, 0);\n\t\t\t\n\t\t\t    // Node: Property\n\t\t\t   
-      float2 _Property_8D493C60_Out_0 = _HoloTexTile;\n\t\t\t\n\t\t\t    // Node:
-      Property\n\t\t\t    float _Property_6BAF9C3A_Out_0 = _HoloSpeed;\n\t\t\t\n\t\t\t   
-      // Node: Multiply\n\t\t\t    float _Multiply_2A4BFC52_Out_2;\n\t\t\t    Unity_Multiply_float(IN.TimeParameters.x,
-      _Property_6BAF9C3A_Out_0, _Multiply_2A4BFC52_Out_2);\n\t\t\t\n\t\t\t    //
-      Node: Tiling And Offset\n\t\t\t    float2 _TilingAndOffset_B269DCB1_Out_3;\n\t\t\t   
+      /* Property: HoloSpeed */ float _HoloSpeed,\n\t\t\t    /* Property: HoloAlpha
+      */ float _HoloAlpha)\n\t\t\t{\n\t\t\t    // Node: Screen Position\n\t\t\t   
+      float4 _ScreenPosition_DA0E5828_Out_0 = float4(IN.ScreenPosition.xy / IN.ScreenPosition.w,
+      0, 0);\n\t\t\t\n\t\t\t    // Node: Property\n\t\t\t    float2 _Property_8D493C60_Out_0
+      = _HoloTexTile;\n\t\t\t\n\t\t\t    // Node: Property\n\t\t\t    float _Property_6BAF9C3A_Out_0
+      = _HoloSpeed;\n\t\t\t\n\t\t\t    // Node: Multiply\n\t\t\t    float _Multiply_2A4BFC52_Out_2;\n\t\t\t   
+      Unity_Multiply_float(IN.TimeParameters.x, _Property_6BAF9C3A_Out_0, _Multiply_2A4BFC52_Out_2);\n\t\t\t\n\t\t\t   
+      // Node: Tiling And Offset\n\t\t\t    float2 _TilingAndOffset_B269DCB1_Out_3;\n\t\t\t   
       Unity_TilingAndOffset_float((_ScreenPosition_DA0E5828_Out_0.xy), _Property_8D493C60_Out_0,
       (_Multiply_2A4BFC52_Out_2.xx), _TilingAndOffset_B269DCB1_Out_3);\n\t\t\t\n\t\t\t   
       // Node: Sample Texture 2D\n\t\t\t    float4 _SampleTexture2D_678052A3_RGBA_0
@@ -450,13 +604,17 @@ VisualEffectResource:
       float _SampleTexture2D_678052A3_G_5 = _SampleTexture2D_678052A3_RGBA_0.g;\n\t\t\t   
       float _SampleTexture2D_678052A3_B_6 = _SampleTexture2D_678052A3_RGBA_0.b;\n\t\t\t   
       float _SampleTexture2D_678052A3_A_7 = _SampleTexture2D_678052A3_RGBA_0.a;\n\t\t\t\n\t\t\t   
-      // Visual Effect Master\n\t\t\t    SG_Output_f018e0adca2c9a14d883221109f313fc
-      OUT;\n\t\t\t    OUT.Alpha_4 = _SampleTexture2D_678052A3_A_7;\n\t\t\t    return
+      // Node: Property\n\t\t\t    float _Property_85A68413_Out_0 = _HoloAlpha;\n\t\t\t\n\t\t\t   
+      // Node: One Minus\n\t\t\t    float4 _OneMinus_8AC31625_Out_1;\n\t\t\t    Unity_OneMinus_float4(_SampleTexture2D_678052A3_RGBA_0,
+      _OneMinus_8AC31625_Out_1);\n\t\t\t\n\t\t\t    // Node: Multiply\n\t\t\t   
+      float4 _Multiply_AB688B9F_Out_2;\n\t\t\t    Unity_Multiply_float((_Property_85A68413_Out_0.xxxx),
+      _OneMinus_8AC31625_Out_1, _Multiply_AB688B9F_Out_2);\n\t\t\t\n\t\t\t    //
+      Visual Effect Master\n\t\t\t    SG_Output_f018e0adca2c9a14d883221109f313fc
+      OUT;\n\t\t\t    OUT.Alpha_4 = (_Multiply_AB688B9F_Out_2).x;\n\t\t\t    return
       OUT;\n\t\t\t}\n\t\t\t\n\n\t\t\t\n\t\t\t#if VFX_PASSDEPTH == VFX_PASSDEPTH_SELECTION\n\t\t\tint
       _ObjectId;\n\t\t\tint _PassValue;\n\t\t\t#endif\n\t\t\t\n\t\t\t#pragma fragment
       frag\n\t\t\tfloat4 frag(ps_input i) : SV_TARGET\n\t\t\t{\n\t\t\t\tUNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);\n\t\t\t\tVFXTransformPSInputs(i);\n\t\t\t   
-      #ifdef VFX_SHADERGRAPH\n\t\t\t        float4 _HoloColor = i._HoloColor;float2
-      _HoloTexTile = i._HoloTexTile;float _HoloSpeed = i._HoloSpeed;\n\t\t\t       
+      #ifdef VFX_SHADERGRAPH\n\t\t\t        float _HoloAlpha = i._HoloAlpha;\n\t\t\t       
       //Call Shader Graph\n\t\t\t        SG_Input_f018e0adca2c9a14d883221109f313fc
       INSG = (SG_Input_f018e0adca2c9a14d883221109f313fc)0;\n\t\t\t        float3
       posRelativeWS = VFXGetPositionRWS(i.VFX_VARYING_POSWS);\n\t\t\t        float3
@@ -464,7 +622,7 @@ VisualEffectResource:
       = ComputeScreenPos(VFXTransformPositionWorldToClip(i.VFX_VARYING_POSWS), _ProjectionParams.x);\n\t\t\t       
       INSG.TimeParameters = _TimeParameters.xyz;\n\t\t\t        \n\t\t\t        SG_Output_f018e0adca2c9a14d883221109f313fc
       OUTSG = SG_Evaluate_f018e0adca2c9a14d883221109f313fc(INSG,_HoloTex, sampler_HoloTex,
-      _HoloTex_TexelSize, _HoloTexTile, _HoloSpeed);\n\t\t\t        \n\n\t\t\t       
+      _HoloTex_TexelSize, _HoloTexTile, _HoloSpeed, _HoloAlpha);\n\t\t\t        \n\n\t\t\t       
       \n\t\t\t        float alpha = OUTSG.Alpha_4;\n\t\t\t    #else\n\t\t\t       
       float alpha = VFXGetFragmentColor(i).a;\n\t\t\t        alpha *= VFXGetTextureColor(VFX_SAMPLER(mainTexture),i).a;\t\t\n\t\t\t   
       #endif\n\t\t\t\tVFXClipFragmentColor(alpha,i);\n\t\t\t\t\n\t\t\t\t#if VFX_PASSDEPTH
@@ -496,9 +654,7 @@ VisualEffectResource:
       cPosPrevious : TEXCOORD5;\n\t\t\t\tfloat4 cPosNonJiterred : TEXCOORD6;\n\t\t\t\t#endif\n\t\t\t\t\n\t\t\t\t#if
       SHADERGRAPH_NEEDS_NORMAL_FORWARD\n\t\t\t\tfloat3 normal : TEXCOORD7;\n\t\t\t\t#endif\n\t\t\t\t#if
       SHADERGRAPH_NEEDS_TANGENT_FORWARD\n\t\t\t\tfloat4 tangent : TEXCOORD8;\n\t\t\t\t#endif\n\t\t\t\t\n\t\t       
-      VFX_OPTIONAL_INTERPOLATION float4 _HoloColor : NORMAL0;\n\t\t        VFX_OPTIONAL_INTERPOLATION
-      float2 _HoloTexTile : NORMAL1;\n\t\t        VFX_OPTIONAL_INTERPOLATION float
-      _HoloSpeed : NORMAL2;\n\t\t        \n\n\t\t\n\t\t\t\tUNITY_VERTEX_OUTPUT_STEREO\n\t\t\t};\n\t\t\t\n\t\t\tstruct
+      VFX_OPTIONAL_INTERPOLATION float _HoloAlpha : NORMAL0;\n\t\t        \n\n\t\t\n\t\t\t\tUNITY_VERTEX_OUTPUT_STEREO\n\t\t\t};\n\t\t\t\n\t\t\tstruct
       ps_output\n\t\t\t{\n\t\t\t\tfloat4 color : SV_Target0;\n\t\t#if WRITE_MOTION_VECTOR_IN_FORWARD\n\t\t\t\tfloat4
       outMotionVector : SV_Target1;\n\t\t#endif\n\t\t\t};\n\t\t\n\t\t#define VFX_VARYING_PS_INPUTS
       ps_input\n\t\t#define VFX_VARYING_POSCS pos\n\t\t#define VFX_VARYING_COLOR
@@ -565,9 +721,9 @@ VisualEffectResource:
       = (float)1;\n\t\t\t\t\t\tattributes.age = asfloat(attributeBuffer.Load((index
       * 0x2 + 0x15) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t//
       Initialize built-in needed attributes\n\t\t\t\t\t\t#if HAS_STRIPS\n\t\t\t\t\t\tInitStripAttributes(index,
-      attributes, stripData);\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t{\n\t\t\t\t   
-      SetAttribute_3278B22F( /*inout */attributes.size, (float)0.119999997);\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_7DF18693(
-      /*inout */attributes.size, attributes.age, attributes.lifetime, Size_b);\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
+      attributes, stripData);\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tSetAttribute_3278B22F(
+      /*inout */attributes.size, Size_a);\n\t\t\t\tAttributeFromCurve_7DF18693( /*inout
+      */attributes.size, attributes.age, attributes.lifetime, Size_b);\n\t\t\t\t\n\n\t\t\t\t\t\t\n\t\t\t\tif
       (!attributes.alive)\n\t\t\t\t\treturn o;\n\t\t\t\t\n\t\t\t\to.VFX_VARYING_UV.xy
       = i.uv;\n\t\t\t    \n\t\t\t    #if VFX_SHADERGRAPH_HAS_UV1\n\t\t\t    o.uv1
       = i.uv1;\n\t\t\t    #endif\n\t\t\t    #if VFX_SHADERGRAPH_HAS_UV2\n\t\t\t   
@@ -620,12 +776,8 @@ VisualEffectResource:
       && defined (VFX_VARYING_FRAMEBLEND)\n\t\t\t\t\t\to.VFX_VARYING_UV.zw = uvData.uvs.zw;\n\t\t\t\t\t\to.VFX_VARYING_FRAMEBLEND
       = uvData.blend;\n\t\t\t\t\t\t#if USE_FLIPBOOK_MOTIONVECTORS && defined(VFX_VARYING_MOTIONVECTORSCALE)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_MOTIONVECTORSCALE
       = motionVectorScale * invFlipBookSize;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t   
-      \n\t\t\t    float4 _HoloColor__ = (float4)0;{\n\t\t\t        \n\t\t\t       
-      _HoloColor__ = float4(0, 0.368627459, 0.749019623, 0);\n\t\t\t    }\n\t\t\t   
-      o._HoloColor = _HoloColor__;float2 _HoloTexTile__ = (float2)0;{\n\t\t\t       
-      \n\t\t\t        _HoloTexTile__ = float2(1, 5);\n\t\t\t    }\n\t\t\t    o._HoloTexTile
-      = _HoloTexTile__;float _HoloSpeed__ = (float)0;{\n\t\t\t        \n\t\t\t       
-      _HoloSpeed__ = (float)0.100000001;\n\t\t\t    }\n\t\t\t    o._HoloSpeed = _HoloSpeed__;\n\n\t\t\t\t\n\t\t\t\treturn
+      \n\t\t\t    float _HoloAlpha__ = (float)0;{\n\t\t\t        \n\t\t\t       
+      _HoloAlpha__ = (float)1;\n\t\t\t    }\n\t\t\t    o._HoloAlpha = _HoloAlpha__;\n\n\t\t\t\t\n\t\t\t\treturn
       o;\n\t\t\t}\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/VFXCommonOutput.hlsl\"\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\t#include
       \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl\"\n\t\t\t\t\t#include
       \"Packages/com.unity.render-pipelines.core/ShaderLibrary/Packing.hlsl\"\n\t\t\t\t\t#include
@@ -646,7 +798,9 @@ VisualEffectResource:
       And Offset\n\t\t\tvoid Unity_TilingAndOffset_float(float2 UV, float2 Tiling,
       float2 Offset, out float2 Out)\n\t\t\t{\n\t\t\t    Out = UV * Tiling + Offset;\n\t\t\t}\n\t\t\t\n\t\t\t//
       Node: Multiply\n\t\t\tvoid Unity_Multiply_float(float4 A, float4 B, out float4
-      Out)\n\t\t\t{\n\t\t\t    Out = A * B;\n\t\t\t}\n\t\t\t\n\t\t\tstruct SG_Input_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t   
+      Out)\n\t\t\t{\n\t\t\t    Out = A * B;\n\t\t\t}\n\t\t\t\n\t\t\t// Node: One
+      Minus\n\t\t\tvoid Unity_OneMinus_float4(float4 In, out float4 Out)\n\t\t\t{\n\t\t\t   
+      Out = 1 - In;\n\t\t\t}\n\t\t\t\n\t\t\tstruct SG_Input_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t   
       float4 ScreenPosition;\n\t\t\t    float3 TimeParameters;\n\t\t\t};\n\t\t\t\n\t\t\tstruct
       SG_Output_f018e0adca2c9a14d883221109f313fc\n\t\t\t{\n\t\t\t    float3 Color_6;\n\t\t\t   
       float Alpha_4;\n\t\t\t};\n\t\t\t\n\t\t\tSG_Output_f018e0adca2c9a14d883221109f313fc
@@ -654,12 +808,12 @@ VisualEffectResource:
       IN,\n\t\t\t    /* Property: HoloTex */ TEXTURE2D_PARAM(_HoloTex, sampler_HoloTex),
       float4 _HoloTex_TexelSize,\n\t\t\t    /* Property: HoloColor */ float4 _HoloColor,\n\t\t\t   
       /* Property: HoloTexTile */ float2 _HoloTexTile,\n\t\t\t    /* Property: HoloSpeed
-      */ float _HoloSpeed)\n\t\t\t{\n\t\t\t    // Node: Random Range\n\t\t\t    float
-      _RandomRange_6BAAF2EB_Out_3;\n\t\t\t    Unity_RandomRange_float((IN.TimeParameters.x.xx),
-      0, 1, _RandomRange_6BAAF2EB_Out_3);\n\t\t\t\n\t\t\t    // Node: Comparison\n\t\t\t   
-      float _Comparison_48E361B3_Out_2;\n\t\t\t    Unity_Comparison_Greater_float(_RandomRange_6BAAF2EB_Out_3,
-      0.9, _Comparison_48E361B3_Out_2);\n\t\t\t\n\t\t\t    // Node: Branch\n\t\t\t   
-      float _Branch_5583363C_Out_3;\n\t\t\t    Unity_Branch_float(_Comparison_48E361B3_Out_2,
+      */ float _HoloSpeed,\n\t\t\t    /* Property: HoloAlpha */ float _HoloAlpha)\n\t\t\t{\n\t\t\t   
+      // Node: Random Range\n\t\t\t    float _RandomRange_6BAAF2EB_Out_3;\n\t\t\t   
+      Unity_RandomRange_float((IN.TimeParameters.x.xx), 0, 1, _RandomRange_6BAAF2EB_Out_3);\n\t\t\t\n\t\t\t   
+      // Node: Comparison\n\t\t\t    float _Comparison_48E361B3_Out_2;\n\t\t\t   
+      Unity_Comparison_Greater_float(_RandomRange_6BAAF2EB_Out_3, 0.9, _Comparison_48E361B3_Out_2);\n\t\t\t\n\t\t\t   
+      // Node: Branch\n\t\t\t    float _Branch_5583363C_Out_3;\n\t\t\t    Unity_Branch_float(_Comparison_48E361B3_Out_2,
       1, 0.8, _Branch_5583363C_Out_3);\n\t\t\t\n\t\t\t    // Node: Property\n\t\t\t   
       float4 _Property_776D172D_Out_0 = _HoloColor;\n\t\t\t\n\t\t\t    // Node: Screen
       Position\n\t\t\t    float4 _ScreenPosition_DA0E5828_Out_0 = float4(IN.ScreenPosition.xy
@@ -680,11 +834,16 @@ VisualEffectResource:
       // Node: Multiply\n\t\t\t    float4 _Multiply_50AD8B23_Out_2;\n\t\t\t    Unity_Multiply_float(_Property_776D172D_Out_0,
       _SampleTexture2D_678052A3_RGBA_0, _Multiply_50AD8B23_Out_2);\n\t\t\t\n\t\t\t   
       // Node: Multiply\n\t\t\t    float4 _Multiply_2DCFD1B_Out_2;\n\t\t\t    Unity_Multiply_float((_Branch_5583363C_Out_3.xxxx),
-      _Multiply_50AD8B23_Out_2, _Multiply_2DCFD1B_Out_2);\n\t\t\t\n\t\t\t    // Visual
-      Effect Master\n\t\t\t    SG_Output_f018e0adca2c9a14d883221109f313fc OUT;\n\t\t\t   
-      OUT.Color_6 = (_Multiply_2DCFD1B_Out_2.xyz);\n\t\t\t    OUT.Alpha_4 = _SampleTexture2D_678052A3_A_7;\n\t\t\t   
-      return OUT;\n\t\t\t}\n\t\t\t\n\n\t\t\n\t\t\t#pragma fragment frag\n\t\t\tps_output
-      frag(ps_input i)\n\t\t\t{\n\t\t\t\tUNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);\n\t\t\t\tps_output
+      _Multiply_50AD8B23_Out_2, _Multiply_2DCFD1B_Out_2);\n\t\t\t\n\t\t\t    // Node:
+      Property\n\t\t\t    float _Property_85A68413_Out_0 = _HoloAlpha;\n\t\t\t\n\t\t\t   
+      // Node: One Minus\n\t\t\t    float4 _OneMinus_8AC31625_Out_1;\n\t\t\t    Unity_OneMinus_float4(_SampleTexture2D_678052A3_RGBA_0,
+      _OneMinus_8AC31625_Out_1);\n\t\t\t\n\t\t\t    // Node: Multiply\n\t\t\t   
+      float4 _Multiply_AB688B9F_Out_2;\n\t\t\t    Unity_Multiply_float((_Property_85A68413_Out_0.xxxx),
+      _OneMinus_8AC31625_Out_1, _Multiply_AB688B9F_Out_2);\n\t\t\t\n\t\t\t    //
+      Visual Effect Master\n\t\t\t    SG_Output_f018e0adca2c9a14d883221109f313fc
+      OUT;\n\t\t\t    OUT.Color_6 = (_Multiply_2DCFD1B_Out_2.xyz);\n\t\t\t    OUT.Alpha_4
+      = (_Multiply_AB688B9F_Out_2).x;\n\t\t\t    return OUT;\n\t\t\t}\n\t\t\t\n\n\t\t\n\t\t\t#pragma
+      fragment frag\n\t\t\tps_output frag(ps_input i)\n\t\t\t{\n\t\t\t\tUNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);\n\t\t\t\tps_output
       o = (ps_output)0;\n\t\t\t\tVFXTransformPSInputs(i);\n\t\t\t\t\n\t\t\t\t\t\t\t#ifdef
       VFX_VARYING_NORMAL\n\t\t\t\t\t\t\t#if USE_DOUBLE_SIDED\n\t\t\t\t\t\t\tconst
       float faceMul = frontFace ? 1.0f : -1.0f;\n\t\t\t\t\t\t\t#else\n\t\t\t\t\t\t\tconst
@@ -698,8 +857,7 @@ VisualEffectResource:
       normalScale = 1.0f;\n\t\t\t\t\t\t\t#ifdef VFX_VARYING_NORMALSCALE\n\t\t\t\t\t\t\tnormalScale
       = i.VFX_VARYING_NORMALSCALE;\n\t\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\tnormalWS
       = normalize(lerp(normalWS,mul(n,tbn),normalScale));\n\t\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t       
-      #if VFX_SHADERGRAPH        \n\t\t            float4 _HoloColor = i._HoloColor;float2
-      _HoloTexTile = i._HoloTexTile;float _HoloSpeed = i._HoloSpeed;\n\t\t           
+      #if VFX_SHADERGRAPH        \n\t\t            float _HoloAlpha = i._HoloAlpha;\n\t\t           
       //Call Shader Graph\n\t\t            SG_Input_f018e0adca2c9a14d883221109f313fc
       INSG = (SG_Input_f018e0adca2c9a14d883221109f313fc)0;\n\t\t            float3
       posRelativeWS = VFXGetPositionRWS(i.VFX_VARYING_POSWS);\n\t\t            float3
@@ -707,8 +865,8 @@ VisualEffectResource:
       = ComputeScreenPos(VFXTransformPositionWorldToClip(i.VFX_VARYING_POSWS), _ProjectionParams.x);\n\t\t           
       INSG.TimeParameters = _TimeParameters.xyz;\n\t\t            \n\t\t           
       SG_Output_f018e0adca2c9a14d883221109f313fc OUTSG = SG_Evaluate_f018e0adca2c9a14d883221109f313fc(INSG,_HoloTex,
-      sampler_HoloTex, _HoloTex_TexelSize, _HoloColor, _HoloTexTile, _HoloSpeed);\n\t\t           
-      \n\n\t\t            \n\t\t            #if HAS_SHADERGRAPH_PARAM_COLOR\n\t\t               
+      sampler_HoloTex, _HoloTex_TexelSize, _HoloColor, _HoloTexTile, _HoloSpeed,
+      _HoloAlpha);\n\t\t            \n\n\t\t            \n\t\t            #if HAS_SHADERGRAPH_PARAM_COLOR\n\t\t               
       o.color.rgb = OUTSG.Color_6.rgb;\n\t\t            #endif\n\t\t            \n\t\t           
       #if HAS_SHADERGRAPH_PARAM_ALPHA \n\t\t                o.color.a = OUTSG.Alpha_4;\n\t\t           
       #endif\n\t\t        #else\n\t\t            #define VFX_TEXTURE_COLOR VFXGetTextureColor(VFX_SAMPLER(mainTexture),i)\n\t\t           
@@ -732,152 +890,170 @@ VisualEffectResource:
   m_Infos:
     m_Expressions:
       m_Expressions:
-      - op: 1
+      - op: 8
         valueIndex: 0
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 6
-      - op: 8
+        data[3]: -1
+      - op: 1
         valueIndex: 1
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: -1
-      - op: 62
-        valueIndex: 2
-        data[0]: 0
-        data[1]: 1
-        data[2]: -1
         data[3]: 6
       - op: 1
-        valueIndex: 3
+        valueIndex: 2
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 1
-      - op: 7
+        data[3]: 2
+      - op: 62
         valueIndex: 4
-        data[0]: -1
-        data[1]: -1
+        data[0]: 1
+        data[1]: 0
         data[2]: -1
-        data[3]: -1
-      - op: 27
+        data[3]: 6
+      - op: 5
         valueIndex: 5
-        data[0]: 4
-        data[1]: 3
-        data[2]: -1
-        data[3]: 1
+        data[0]: 2
+        data[1]: -1
+        data[2]: 0
+        data[3]: 2
       - op: 1
         valueIndex: 6
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: 1
-      - op: 23
+      - op: 7
         valueIndex: 7
-        data[0]: 5
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 8
         data[0]: -1
         data[1]: -1
-        data[2]: -1
-        data[3]: 13
-      - op: 1
-        valueIndex: 9
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 49
-        valueIndex: 10
-        data[0]: 8
-        data[1]: 7
         data[2]: -1
         data[3]: -1
-      - op: 1
+      - op: 5
+        valueIndex: 8
+        data[0]: 2
+        data[1]: -1
+        data[2]: 1
+        data[3]: 2
+      - op: 27
+        valueIndex: 9
+        data[0]: 6
+        data[1]: 5
+        data[2]: -1
+        data[3]: 1
+      - op: 29
+        valueIndex: 10
+        data[0]: 7
+        data[1]: 4
+        data[2]: -1
+        data[3]: 1
+      - op: 23
         valueIndex: 11
-        data[0]: -1
+        data[0]: 8
         data[1]: -1
         data[2]: -1
-        data[3]: 13
+        data[3]: 1
       - op: 1
         valueIndex: 12
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 1
-      - op: 56
+        data[3]: 13
+      - op: 49
         valueIndex: 13
         data[0]: 11
-        data[1]: -1
+        data[1]: 10
         data[2]: -1
-        data[3]: 0
+        data[3]: -1
       - op: 1
-        valueIndex: 17
+        valueIndex: 14
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 7
-      - op: 1
-        valueIndex: 18
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 4
-      - op: 1
-        valueIndex: 22
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 23
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 24
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 2
-      - op: 1
-        valueIndex: 26
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 6
-      - op: 1
-        valueIndex: 27
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 15
-      - op: 1
-        valueIndex: 28
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
-      - op: 1
-        valueIndex: 31
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
+        data[3]: 13
       - op: 6
-        valueIndex: 34
+        valueIndex: 15
         data[0]: -1
         data[1]: -1
         data[2]: -1
         data[3]: -1
       - op: 1
+        valueIndex: 16
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 17
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 18
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 19
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 2
+      - op: 1
+        valueIndex: 21
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 22
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 7
+      - op: 1
+        valueIndex: 23
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 4
+      - op: 1
+        valueIndex: 27
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 6
+      - op: 1
+        valueIndex: 28
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 15
+      - op: 1
+        valueIndex: 29
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 1
+        valueIndex: 32
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 56
         valueIndex: 35
+        data[0]: 13
+        data[1]: -1
+        data[2]: -1
+        data[3]: 0
+      - op: 1
+        valueIndex: 39
         data[0]: -1
         data[1]: -1
         data[2]: -1
@@ -888,39 +1064,39 @@ VisualEffectResource:
     m_PropertySheet:
       m_Float:
         m_Array:
-        - m_ExpressionIndex: 3
-          m_Value: 20
-        - m_ExpressionIndex: 6
-          m_Value: 90
-        - m_ExpressionIndex: 9
-          m_Value: 180
-        - m_ExpressionIndex: 12
-          m_Value: 0.5
-        - m_ExpressionIndex: 16
-          m_Value: 0.12
-        - m_ExpressionIndex: 17
+        - m_ExpressionIndex: 5
+          m_Value: 22
+        - m_ExpressionIndex: 15
           m_Value: 1
-        - m_ExpressionIndex: 24
+        - m_ExpressionIndex: 16
+          m_Value: 20
+        - m_ExpressionIndex: 17
           m_Value: 0.1
+        - m_ExpressionIndex: 19
+          m_Value: 0.12
+        - m_ExpressionIndex: 27
+          m_Value: 0.5
       m_Vector2f:
         m_Array:
+        - m_ExpressionIndex: 2
+          m_Value: {x: 360, y: 720}
         - m_ExpressionIndex: 18
-          m_Value: {x: 1, y: 5}
+          m_Value: {x: 1, y: 3}
       m_Vector3f:
         m_Array:
-        - m_ExpressionIndex: 21
+        - m_ExpressionIndex: 24
           m_Value: {x: 2, y: 3, z: 2}
-        - m_ExpressionIndex: 22
+        - m_ExpressionIndex: 25
           m_Value: {x: 0, y: 1, z: 0}
       m_Vector4f:
         m_Array:
-        - m_ExpressionIndex: 15
-          m_Value: {x: 0, y: 0.36862746, z: 0.7490196, w: 0}
+        - m_ExpressionIndex: 21
+          m_Value: {x: 0, y: 0.375, z: 0.75, w: 0}
       m_Uint:
         m_Array:
-        - m_ExpressionIndex: 0
+        - m_ExpressionIndex: 1
           m_Value: 0
-        - m_ExpressionIndex: 19
+        - m_ExpressionIndex: 22
           m_Value: 4294967295
       m_Int:
         m_Array: []
@@ -928,41 +1104,32 @@ VisualEffectResource:
         m_Array: []
       m_AnimationCurve:
         m_Array:
-        - m_ExpressionIndex: 8
+        - m_ExpressionIndex: 11
           m_Value:
             serializedVersion: 2
             m_Curve:
             - serializedVersion: 3
               time: 0
               value: 0
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 0.46473694
-              value: 1
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 0
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 34
               weightedMode: 0
               inWeight: 0
               outWeight: 0
             - serializedVersion: 3
               time: 1
-              value: 0
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 0
+              value: 1
+              inSlope: 1
+              outSlope: 1
+              tangentMode: 34
               weightedMode: 0
               inWeight: 0
               outWeight: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 4
-        - m_ExpressionIndex: 11
+        - m_ExpressionIndex: 13
           m_Value:
             serializedVersion: 2
             m_Curve:
@@ -1018,14 +1185,32 @@ VisualEffectResource:
         m_Array: []
       m_NamedObject:
         m_Array:
-        - m_ExpressionIndex: 14
-          m_Value: {fileID: 2800000, guid: 661656cabc9f3c649a21be325d6f8302, type: 3}
         - m_ExpressionIndex: 20
+          m_Value: {fileID: 2800000, guid: 661656cabc9f3c649a21be325d6f8302, type: 3}
+        - m_ExpressionIndex: 23
           m_Value: {fileID: -2359297639435938828, guid: 79a5311fdd348cc41a013c49f87ac163,
             type: 3}
       m_Bool:
         m_Array: []
-    m_ExposedExpressions: []
+    m_ExposedExpressions:
+    - nameId: Hologram Color
+      index: 21
+    - nameId: Hologram Lifetime
+      index: 16
+    - nameId: Hologram Mesh
+      index: 23
+    - nameId: Hologram Multply Size Over Life
+      index: 13
+    - nameId: Hologram Rotation
+      index: 2
+    - nameId: Hologram Size
+      index: 19
+    - nameId: Hologram Tex Speed
+      index: 17
+    - nameId: Hologram Tex Tilling
+      index: 18
+    - nameId: Hologram Texture
+      index: 20
     m_Buffers:
     - type: 1
       size: 28
@@ -1153,7 +1338,7 @@ VisualEffectResource:
       temporaryBuffers: []
       values:
       - nameId: Rate
-        index: 17
+        index: 15
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: -1
@@ -1174,9 +1359,9 @@ VisualEffectResource:
       index: 1
     values:
     - nameId: bounds_center
-      index: 22
+      index: 25
     - nameId: bounds_size
-      index: 21
+      index: 24
     tasks:
     - type: 536870912
       buffers:
@@ -1189,12 +1374,14 @@ VisualEffectResource:
       - nameId: sourceAttributeBuffer
         index: 1
       temporaryBuffers: []
-      values: []
+      values:
+      - nameId: Lifetime_a
+        index: 16
       params:
       - nameId: bounds_center
-        index: 22
+        index: 25
       - nameId: bounds_size
-        index: 21
+        index: 24
       processor: {fileID: 0}
       shaderSourceIndex: 0
     - type: 805306368
@@ -1206,11 +1393,15 @@ VisualEffectResource:
       temporaryBuffers: []
       values:
       - nameId: uniform_a
-        index: 2
+        index: 4
       - nameId: uniform_b
-        index: 10
+        index: 3
+      - nameId: uniform_c
+        index: 9
+      - nameId: uniform_d
+        index: 12
       - nameId: deltaTime_b
-        index: 23
+        index: 14
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 1
@@ -1220,15 +1411,23 @@ VisualEffectResource:
         index: 0
       temporaryBuffers: []
       values:
+      - nameId: Size_a
+        index: 19
       - nameId: Size_b
-        index: 13
+        index: 26
+      - nameId: _HoloColor
+        index: 21
+      - nameId: _HoloTexTile
+        index: 18
+      - nameId: _HoloSpeed
+        index: 17
       - nameId: _HoloTex
-        index: 14
+        index: 20
       params:
       - nameId: mesh
-        index: 20
+        index: 23
       - nameId: subMeshMask
-        index: 19
+        index: 22
       - nameId: sortPriority
         index: 0
       processor: {fileID: 0}
@@ -1767,7 +1966,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614602}
   - {fileID: 8926484042661614729}
-  m_UIPosition: {x: 937, y: 1366}
+  m_UIPosition: {x: 937, y: 1367}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1778,6 +1977,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614826}
   - {fileID: 8926484042661614831}
   - {fileID: 8926484042661614834}
+  - {fileID: 8926484042661614857}
   m_OutputSlots: []
   m_Label: 
   m_Data: {fileID: 8926484042661614568}
@@ -1844,7 +2044,8 @@ MonoBehaviour:
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614850}
 --- !u!114 &8926484042661614598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1957,7 +2158,8 @@ MonoBehaviour:
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614887}
 --- !u!114 &8926484042661614602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,62 +2225,8 @@ MonoBehaviour:
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
-  m_LinkedSlots: []
---- !u!114 &8926484042661614636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba941214d319b454f90d5480e85886f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: -41, y: 376}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots: []
-  m_OutputSlots:
-  - {fileID: 8926484042661614637}
---- !u!114 &8926484042661614637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614637}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614636}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
-    m_Space: 2147483647
-  m_Property:
-    name: t
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-    attributes: []
-  m_Direction: 1
   m_LinkedSlots:
-  - {fileID: 8926484042661614725}
+  - {fileID: 8926484042661614844}
 --- !u!114 &8926484042661614640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,7 +2241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -117, y: 673}
+  m_UIPosition: {x: -103, y: 520}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2125,7 +2273,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 20
+      m_SerializableObject: 22
     m_Space: 2147483647
   m_Property:
     name: Period
@@ -2342,7 +2490,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4647369384765625,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":1.0,"outTangent":1.0,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":1.0,"value":1.0,"inTangent":1.0,"outTangent":1.0,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: curve
@@ -2619,7 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 205, y: 634}
+  m_UIPosition: {x: 235, y: 655}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2654,7 +2802,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 180
+      m_SerializableObject: 360
     m_Space: 2147483647
   m_Property:
     name: min
@@ -2669,7 +2817,8 @@ MonoBehaviour:
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614890}
 --- !u!114 &8926484042661614701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2694,7 +2843,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 270
+      m_SerializableObject: 720
     m_Space: 2147483647
   m_Property:
     name: max
@@ -2709,7 +2858,8 @@ MonoBehaviour:
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614891}
 --- !u!114 &8926484042661614703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,7 +2915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 646.30005, y: 748.6501}
+  m_UIPosition: {x: 699, y: 797}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2886,9 +3036,9 @@ MonoBehaviour:
     attributes: []
   m_Direction: 1
   m_LinkedSlots:
+  - {fileID: 8926484042661614696}
   - {fileID: 8926484042661614697}
   - {fileID: 8926484042661614698}
-  - {fileID: 8926484042661614696}
 --- !u!114 &8926484042661614717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3112,7 +3262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 344, y: 976}
+  m_UIPosition: {x: 346, y: 1187}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3144,7 +3294,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":7.846024036407471,"outTangent":7.846024036407471,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.050929173827171329,"value":0.9994678497314453,"inTangent":0.09249786287546158,"outTangent":0.09249786287546158,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4994206428527832,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9392406344413757,"value":1.0024431943893433,"inTangent":-0.07167547196149826,"outTangent":-0.07167547196149826,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-7.824521541595459,"outTangent":-7.824521541595459,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4647369384765625,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: curve
@@ -3200,7 +3350,7 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots:
-  - {fileID: 8926484042661614637}
+  - {fileID: 8926484042661614902}
 --- !u!114 &8926484042661614726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3303,7 +3453,8 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614854}
 --- !u!114 &8926484042661614739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3341,110 +3492,6 @@ MonoBehaviour:
       m_Max: Infinity
       m_Tooltip: Sets the value used when determining the random number. Using the
         same seed results in the same random number every time.
-      m_Regex: 
-      m_RegexMaxLength: 0
-  m_Direction: 0
-  m_LinkedSlots: []
---- !u!114 &8926484042661614821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486e063e1ed58c843942ea4122829ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 114350483966674976}
-  m_Children: []
-  m_UIPosition: {x: -471, y: 684}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots: []
-  m_OutputSlots:
-  - {fileID: 8926484042661614822}
-  attribute: lifetime
-  location: 0
-  mask: xyz
---- !u!114 &8926484042661614822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614822}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614821}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
-    m_Space: 2147483647
-  m_Property:
-    name: lifetime
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-    attributes:
-    - m_Type: 3
-      m_Min: -Infinity
-      m_Max: Infinity
-      m_Tooltip: "Indicates how long the particle can stay alive. If the particle\u2019s
-        age exceeds its lifetime, the particle is destroyed."
-      m_Regex: 
-      m_RegexMaxLength: 0
-  m_Direction: 1
-  m_LinkedSlots: []
---- !u!114 &8926484042661614823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a331b1d86cc8d4aa106ccbe0da5852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661614823}
-  m_MasterData:
-    m_Owner: {fileID: 0}
-    m_Value:
-      m_Type:
-        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"661656cabc9f3c649a21be325d6f8302","type":3}}'
-    m_Space: 2147483647
-  m_Property:
-    name: mainTexture
-    m_serializedType:
-      m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-    attributes:
-    - m_Type: 3
-      m_Min: -Infinity
-      m_Max: Infinity
-      m_Tooltip: Specifies the base color (RGB) and opacity (A) of the particle.
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
@@ -3528,7 +3575,8 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614842}
 --- !u!114 &8926484042661614826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3566,7 +3614,8 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614836}
 --- !u!114 &8926484042661614827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3734,7 +3783,8 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     attributes: []
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614846}
 --- !u!114 &8926484042661614832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,4 +3884,1225 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
     attributes: []
   m_Direction: 0
+  m_LinkedSlots:
+  - {fileID: 8926484042661614852}
+--- !u!114 &8926484042661614835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614836}
+  m_ExposedName: Hologram Color
+  m_Exposed: 1
+  m_Order: 0
+  m_Category: Hologram Texture
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614836}
+      inputSlot: {fileID: 8926484042661614826}
+    position: {x: 476, y: 1540}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82227d5759e296488798b1554a72a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children:
+  - {fileID: 8926484042661614837}
+  - {fileID: 8926484042661614838}
+  - {fileID: 8926484042661614839}
+  - {fileID: 8926484042661614840}
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614836}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614835}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"r":0.0,"g":0.375,"b":0.75,"a":0.0}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614826}
+--- !u!114 &8926484042661614837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614836}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614836}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: r
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
   m_LinkedSlots: []
+--- !u!114 &8926484042661614838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614836}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614836}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: g
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614836}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614836}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: b
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614836}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614836}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: a
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614842}
+  m_ExposedName: Hologram Texture
+  m_Exposed: 1
+  m_Order: 1
+  m_Category: Hologram Texture
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614842}
+      inputSlot: {fileID: 8926484042661614825}
+    position: {x: 484, y: 1501}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a331b1d86cc8d4aa106ccbe0da5852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614842}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614841}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"661656cabc9f3c649a21be325d6f8302","type":3}}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614825}
+--- !u!114 &8926484042661614843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614844}
+  m_ExposedName: Hologram Size
+  m_Exposed: 1
+  m_Order: 0
+  m_Category: Hologram Animation
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614844}
+      inputSlot: {fileID: 8926484042661614603}
+    position: {x: 515, y: 1703}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614844}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614843}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.12
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614603}
+--- !u!114 &8926484042661614845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614846}
+  m_ExposedName: Hologram Tex Tilling
+  m_Exposed: 1
+  m_Order: 2
+  m_Category: Hologram Texture
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614846}
+      inputSlot: {fileID: 8926484042661614831}
+    position: {x: 474, y: 1583}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2b751071c7fc14f9fa503163991826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children:
+  - {fileID: 8926484042661614847}
+  - {fileID: 8926484042661614848}
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614846}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614845}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":1.0,"y":3.0}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614831}
+--- !u!114 &8926484042661614847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614846}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614846}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: x
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614846}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614846}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: y
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614850}
+  m_ExposedName: Hologram Mesh
+  m_Exposed: 1
+  m_Order: 0
+  m_Category: 
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614850}
+      inputSlot: {fileID: 8926484042661614597}
+    position: {x: 543, y: 1446}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47b8679b468b7347a00cdd50589bc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614850}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614849}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"obj":{"fileID":-2359297639435938828,"guid":"79a5311fdd348cc41a013c49f87ac163","type":3}}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614597}
+--- !u!114 &8926484042661614851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614852}
+  m_ExposedName: Hologram Tex Speed
+  m_Exposed: 1
+  m_Order: 3
+  m_Category: Hologram Texture
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614852}
+      inputSlot: {fileID: 8926484042661614834}
+    position: {x: 521, y: 1624}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614852}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614851}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.1
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614834}
+--- !u!114 &8926484042661614853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614854}
+  m_ExposedName: Hologram Multply Size Over Life
+  m_Exposed: 1
+  m_Order: 1
+  m_Category: Hologram Animation
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614854}
+      inputSlot: {fileID: 8926484042661614730}
+    position: {x: 497, y: 1772}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614854}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614853}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":7.846024036407471,"outTangent":7.846024036407471,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.07288222014904022,"value":0.990037739276886,"inTangent":0.26192253828048708,"outTangent":0.26192253828048708,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.4994206428527832,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8686818480491638,"value":0.9930177330970764,"inTangent":-0.055793486535549167,"outTangent":-0.055793486535549167,"tangentMode":0,"leftTangentMode":4,"rightTangentMode":4,"broken":false},{"time":1.0,"value":0.0,"inTangent":-7.824521541595459,"outTangent":-7.824521541595459,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614730}
+--- !u!114 &8926484042661614857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614857}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614595}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: _HoloAlpha
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614887}
+  m_ExposedName: Hologram Lifetime
+  m_Exposed: 1
+  m_Order: 2
+  m_Category: Hologram Animation
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614887}
+      inputSlot: {fileID: 8926484042661614601}
+    position: {x: 640.47723, y: 345.01}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614887}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614886}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 20
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614601}
+--- !u!114 &8926484042661614888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614889}
+  m_ExposedName: Hologram Rotation
+  m_Exposed: 1
+  m_Order: 3
+  m_Category: Hologram Animation
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_Tooltip: x is min, y is max. Random number between the two is chosen.
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614890}
+      inputSlot: {fileID: 8926484042661614700}
+    - outputSlot: {fileID: 8926484042661614891}
+      inputSlot: {fileID: 8926484042661614701}
+    position: {x: -88, y: 686}
+    expandedSlots:
+    - {fileID: 8926484042661614889}
+    expanded: 1
+--- !u!114 &8926484042661614889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2b751071c7fc14f9fa503163991826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children:
+  - {fileID: 8926484042661614890}
+  - {fileID: 8926484042661614891}
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614889}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614888}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":360.0,"y":720.0}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614889}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614889}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: x
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614700}
+--- !u!114 &8926484042661614891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614889}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614889}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: y
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614701}
+--- !u!114 &8926484042661614897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271b8023195cb2f4d9eab1fface2b8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 47, y: 1136}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots:
+  - {fileID: 8926484042661614898}
+  - {fileID: 8926484042661614899}
+  m_OutputSlots:
+  - {fileID: 8926484042661614902}
+--- !u!114 &8926484042661614898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614898}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614897}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 10
+    m_Space: 2147483647
+  m_Property:
+    name: Period
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes:
+    - m_Type: 3
+      m_Min: -Infinity
+      m_Max: Infinity
+      m_Tooltip: Sets the period of time to be looped over (in seconds).
+      m_Regex: 
+      m_RegexMaxLength: 0
+    - m_Type: 1
+      m_Min: 0.001
+      m_Max: Infinity
+      m_Tooltip: 
+      m_Regex: 
+      m_RegexMaxLength: 0
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2b751071c7fc14f9fa503163991826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children:
+  - {fileID: 8926484042661614900}
+  - {fileID: 8926484042661614901}
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614899}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614897}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":0.0,"y":1.0}'
+    m_Space: 2147483647
+  m_Property:
+    name: Range
+    m_serializedType:
+      m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    attributes:
+    - m_Type: 3
+      m_Min: -Infinity
+      m_Max: Infinity
+      m_Tooltip: Sets the output value range interpolated over the period of time.
+      m_Regex: 
+      m_RegexMaxLength: 0
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614899}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614899}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: x
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 8926484042661614899}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614899}
+  m_MasterData:
+    m_Owner: {fileID: 0}
+    m_Value:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    m_Space: 2147483647
+  m_Property:
+    name: y
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614902}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614897}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0
+    m_Space: 2147483647
+  m_Property:
+    name: t
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes:
+    - m_Type: 3
+      m_Min: -Infinity
+      m_Max: Infinity
+      m_Tooltip: Outputs the current time within the specified time period.
+      m_Regex: 
+      m_RegexMaxLength: 0
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614725}
