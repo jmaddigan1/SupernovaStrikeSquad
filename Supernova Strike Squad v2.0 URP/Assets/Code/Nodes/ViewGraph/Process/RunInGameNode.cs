@@ -7,7 +7,10 @@ namespace Supernova.Nodes.ViewGraph.Process {
 	public class RunInGameNode : LogicNode {
 		
 		[Output]
-		public EmptyNode settingsNode;
+		public EmptyNode settingsViewNode;
+		
+		[Output]
+		public EmptyNode lobbyViewNode;
 
 
 		//TODO: Fill out with possible UI routes and graphs we can take in game
@@ -23,10 +26,16 @@ namespace Supernova.Nodes.ViewGraph.Process {
 
 				if (Input.GetKeyDown(KeyCode.Escape)) {
 					ApplicationManager.Instance.ShowMouseCursor();
-					yield return RunPort("settingsNode");
+					yield return RunPort("settingsViewNode");
 					ApplicationManager.Instance.HideMouseCursor();
 				}
-				
+
+				if (Input.GetKeyDown(KeyCode.F2)) {
+					ApplicationManager.Instance.ShowMouseCursor();
+					yield return RunPort("lobbyViewNode");
+					ApplicationManager.Instance.HideMouseCursor();
+				}
+
 				yield return null;
 			}
 		}

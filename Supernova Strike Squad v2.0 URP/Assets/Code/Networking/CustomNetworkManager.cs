@@ -23,9 +23,16 @@ namespace Supernova.Networking {
 
 		public override void Start() {
 			base.Start();
-			
-			//Default to a server/client when hitting start
-			StartHost();
+
+			switch (ApplicationManager.Instance.JoinState) {
+				case ApplicationManager.JoinStateType.Host:
+					//Default to a server/client when hitting start
+					StartHost();
+					break;
+				case ApplicationManager.JoinStateType.LocalClient:
+					StartClient();
+					break;
+			}
 		}
 
 		// When the server starts we fill out the IDStack with 

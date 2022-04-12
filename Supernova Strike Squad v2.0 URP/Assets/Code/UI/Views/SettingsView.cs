@@ -97,6 +97,10 @@ namespace Supernova.UI.Views {
 			soundSettingsButton.onClick.AddListener(() => OnProcessNode("SoundSettingsNode"));
 			keybindingSettingsButton.onClick.AddListener(() => OnProcessNode("KeybindingSettingsNode"));
 		}
+		
+		public override void SetupUserInterface() {
+			
+		}
 
 		public void Update() {
 			if (Input.GetKeyDown(KeyCode.Escape)) {

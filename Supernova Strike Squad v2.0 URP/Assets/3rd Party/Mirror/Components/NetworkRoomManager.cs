@@ -245,7 +245,7 @@ namespace Mirror
         /// <param name="conn">Connection from client.</param>
         public override void OnServerConnect(NetworkConnection conn)
         {
-            if (numPlayers >= maxConnections)
+            if (NumberOfPlayerInGame >= maxConnections)
             {
                 conn.Disconnect();
                 return;

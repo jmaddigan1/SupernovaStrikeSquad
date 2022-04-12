@@ -1,4 +1,5 @@
-﻿using Supernova.Nodes.ViewGraph;
+﻿using Supernova.Managers;
+using Supernova.Nodes.ViewGraph;
 using Supernova.Utilities.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ namespace Supernova.UI.Views {
 
 		[SerializeField]
 		private Button settingsButton;
+
+		[SerializeField]
+		private Image userAvatar;
 
 		#endregion
 		
@@ -42,6 +46,18 @@ namespace Supernova.UI.Views {
 		public override void SetupButtonListeners() {
 			startGameButton.onClick.AddListener(() => OnProcessNode("StartGameNode"));
 			settingsButton.onClick.AddListener(() => OnProcessNode("SettingsNode"));
+		}
+
+		public override void SetupUserInterface() {
+			userAvatar.sprite = AccountManager.Instance.AvatarImage;
+
+			ApplicationManager.Instance.JoinState = ApplicationManager.JoinStateType.Host;
+		}
+
+		public void Update() {
+			if (Input.GetKeyDown(KeyCode.P)) {
+				ApplicationManager.Instance.JoinState = ApplicationManager.JoinStateType.LocalClient;
+			}
 		}
 	}
 }

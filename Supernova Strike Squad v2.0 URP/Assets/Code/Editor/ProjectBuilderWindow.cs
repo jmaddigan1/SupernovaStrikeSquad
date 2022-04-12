@@ -22,7 +22,7 @@ namespace Supernova.Editor {
 			set;
 		}
 		
-		private static bool SUPERNOVA_FORCE_STEAM {
+		private static bool SUPERNOVA_FORCE_MOCK {
 			get;
 			set;
 		}
@@ -42,7 +42,7 @@ namespace Supernova.Editor {
 		private static void SyncEditor() {
 			PlatformType = (PlatformType)EditorUserBuildSettings.activeBuildTarget;
 			SUPERNOVA_DEBUG = EntryIsInDefineSymbols("SUPERNOVA_DEBUG");
-			SUPERNOVA_FORCE_STEAM = EntryIsInDefineSymbols("SUPERNOVA_FORCE_STEAM");
+			SUPERNOVA_FORCE_MOCK = EntryIsInDefineSymbols("SUPERNOVA_FORCE_MOCK");
 		}
 
 		private static List<string> GetDefineSymbols() {
@@ -78,13 +78,13 @@ namespace Supernova.Editor {
 				SUPERNOVA_DEBUG = supernovaDebug;
 			}
 			
-			var supernovaForceSteam = EditorGUILayout.Toggle("SUPERNOVA_FORCE_STEAM", SUPERNOVA_FORCE_STEAM);
-			if (supernovaForceSteam != SUPERNOVA_FORCE_STEAM) {
-				var symbol = "SUPERNOVA_FORCE_STEAM";
+			var supernovaForceMock = EditorGUILayout.Toggle("SUPERNOVA_FORCE_MOCK", SUPERNOVA_FORCE_MOCK);
+			if (supernovaForceMock != SUPERNOVA_FORCE_MOCK) {
+				var symbol = "SUPERNOVA_FORCE_MOCK";
 				var defineSymbols = RemoveFromDefines(symbol);
-				if (supernovaForceSteam) { defineSymbols.Add(symbol); }
+				if (supernovaForceMock) { defineSymbols.Add(symbol); }
 				PlayerSettings.SetScriptingDefineSymbolsForGroup (EditorUserBuildSettings.selectedBuildTargetGroup, string.Join(";", defineSymbols.ToArray()));
-				SUPERNOVA_FORCE_STEAM = supernovaForceSteam;
+				SUPERNOVA_FORCE_MOCK = supernovaForceMock;
 			}
 
 			//Define Symbols

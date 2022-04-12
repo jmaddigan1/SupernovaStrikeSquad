@@ -124,7 +124,7 @@ namespace Mirror
         public static NetworkManager singleton { get; private set; }
 
         /// <summary>Number of active player objects across all connections on the server.</summary>
-        public int numPlayers => NetworkServer.connections.Count(kv => kv.Value.identity != null);
+        public int NumberOfPlayerInGame => NetworkServer.connections.Count(kv => kv.Value.identity != null);
 
         /// <summary>True if the server is running or client is connected/connecting.</summary>
         [NonSerialized]
@@ -144,7 +144,7 @@ namespace Mirror
         //    connected yet (no need to connect it before server was fully set up).
         //    in other words, we need this to know which mode we are running in
         //    during FinishLoadScene.
-        public NetworkManagerMode mode { get; private set; }
+        public NetworkManagerMode NetworkManagerMode { get; private set; }
 
         // virtual so that inheriting classes' OnValidate() can call base.OnValidate() too
         public virtual void OnValidate()
@@ -280,7 +280,7 @@ namespace Mirror
                 return;
             }
 
-            mode = NetworkManagerMode.ServerOnly;
+            NetworkManagerMode = NetworkManagerMode.ServerOnly;
 
             // StartServer is inherently ASYNCHRONOUS (=doesn't finish immediately)
             //
@@ -321,7 +321,7 @@ namespace Mirror
                 return;
             }
 
-            mode = NetworkManagerMode.ClientOnly;
+            NetworkManagerMode = NetworkManagerMode.ClientOnly;
 
             InitializeSingleton();
 
@@ -362,7 +362,7 @@ namespace Mirror
                 return;
             }
 
-            mode = NetworkManagerMode.ClientOnly;
+            NetworkManagerMode = NetworkManagerMode.ClientOnly;
 
             InitializeSingleton();
 
@@ -396,7 +396,7 @@ namespace Mirror
                 return;
             }
 
-            mode = NetworkManagerMode.Host;
+            NetworkManagerMode = NetworkManagerMode.Host;
 
             // StartHost is inherently ASYNCHRONOUS (=doesn't finish immediately)
             //
@@ -564,7 +564,7 @@ namespace Mirror
 
             // set offline mode BEFORE changing scene so that FinishStartScene
             // doesn't think we need initialize anything.
-            mode = NetworkManagerMode.Offline;
+            NetworkManagerMode = NetworkManagerMode.Offline;
 
             if (!string.IsNullOrEmpty(offlineScene))
             {
@@ -608,7 +608,7 @@ namespace Mirror
 
             // set offline mode BEFORE changing scene so that FinishStartScene
             // doesn't think we need initialize anything.
-            mode = NetworkManagerMode.Offline;
+            NetworkManagerMode = NetworkManagerMode.Offline;
 
             // If this is the host player, StopServer will already be changing scenes.
             // Check loadingSceneAsync to ensure we don't double-invoke the scene change.
@@ -905,17 +905,17 @@ namespace Mirror
             Transport.activeTransport.enabled = true;
 
             // host mode?
-            if (mode == NetworkManagerMode.Host)
+            if (NetworkManagerMode == NetworkManagerMode.Host)
             {
                 FinishLoadSceneHost();
             }
             // server-only mode?
-            else if (mode == NetworkManagerMode.ServerOnly)
+            else if (NetworkManagerMode == NetworkManagerMode.ServerOnly)
             {
                 FinishLoadSceneServerOnly();
             }
             // client-only mode?
-            else if (mode == NetworkManagerMode.ClientOnly)
+            else if (NetworkManagerMode == NetworkManagerMode.ClientOnly)
             {
                 FinishLoadSceneClientOnly();
             }

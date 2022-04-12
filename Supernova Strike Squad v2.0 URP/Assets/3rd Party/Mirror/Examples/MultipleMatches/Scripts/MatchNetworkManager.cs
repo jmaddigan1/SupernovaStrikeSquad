@@ -88,7 +88,7 @@ namespace Mirror.Examples.MultipleMatch
         /// </summary>
         public override void OnStartServer()
         {
-            if (mode == NetworkManagerMode.ServerOnly) 
+            if (NetworkManagerMode == NetworkManagerMode.ServerOnly) 
                 canvas.SetActive(true);
 
             canvasController.OnStartServer();

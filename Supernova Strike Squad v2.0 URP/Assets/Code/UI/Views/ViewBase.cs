@@ -10,9 +10,12 @@ namespace Supernova.UI.Views {
 
 		public abstract void SetupButtonListeners();
 
+		public abstract void SetupUserInterface();
+
 		public virtual void Repaint() {
 			CleanupButtonListeners();
 			SetupButtonListeners();
+			SetupUserInterface();
 			IntroAnimation();
 		}
 
