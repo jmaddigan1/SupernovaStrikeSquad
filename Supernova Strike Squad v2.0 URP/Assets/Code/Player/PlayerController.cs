@@ -121,6 +121,7 @@ public class PlayerController : NetworkBehaviour
         {
             if (isGrounded)
             {
+                //glue
                 if (OnSlope() == true)
                 {
                     rb.AddForce(movementDirection.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
